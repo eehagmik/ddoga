@@ -1,0 +1,291 @@
+{
+  "color": {
+    "bg": {
+      "$description": "bg (background). Figma \"Sementic Color List\" 1:1. Primitive 참조. 컴포넌트는 이 토큰만 참조.",
+      "neutral-none": { "$value": "{color.white.a00}", "$type": "color" },
+      "neutral-normal": { "$value": "{color.white.pure}", "$type": "color" },
+      "neutral-deep": { "$value": "{color.gray.10}", "$type": "color" },
+      "neutral-dark": { "$value": "{color.gray.30}", "$type": "color" },
+      "neutral-deepDark": { "$value": "{color.gray.60}", "$type": "color" },
+      "brand-bright": { "$value": "{color.green.30}", "$type": "color" },
+      "brand-light": { "$value": "{color.green.100}", "$type": "color" },
+      "brand-subtle": { "$value": "{color.green.200}", "$type": "color" },
+      "brand-normal": { "$value": "{color.green.500}", "$type": "color" },
+      "brand-deep": { "$value": "{color.green.600}", "$type": "color" },
+      "brand-dark": { "$value": "{color.green.700}", "$type": "color" },
+      "brandGrayish-none": {
+        "$value": "{color.green-gray.a00}",
+        "$type": "color"
+      },
+      "brandGrayish-normal": {
+        "$value": "{color.green-gray.10}",
+        "$type": "color"
+      },
+      "brandGrayish-deep": {
+        "$value": "{color.green-gray.30}",
+        "$type": "color"
+      },
+      "brandGrayish-dark": {
+        "$value": "{color.green-gray.60}",
+        "$type": "color"
+      },
+      "danger-bright": { "$value": "{color.red.30}", "$type": "color" },
+      "danger-light": { "$value": "{color.red.100}", "$type": "color" },
+      "danger-subtle": { "$value": "{color.red.200}", "$type": "color" },
+      "danger-normal": { "$value": "{color.red.500}", "$type": "color" },
+      "danger-deep": { "$value": "{color.red.600}", "$type": "color" },
+      "danger-dark": { "$value": "{color.red.700}", "$type": "color" },
+      "warning-bright": { "$value": "{color.yellow.30}", "$type": "color" },
+      "warning-light": { "$value": "{color.yellow.100}", "$type": "color" },
+      "warning-subtle": { "$value": "{color.yellow.200}", "$type": "color" },
+      "warning-normal": { "$value": "{color.yellow.500}", "$type": "color" },
+      "warning-deep": { "$value": "{color.yellow.600}", "$type": "color" },
+      "warning-dark": { "$value": "{color.yellow.700}", "$type": "color" },
+      "info-bright": { "$value": "{color.blue.30}", "$type": "color" },
+      "info-light": { "$value": "{color.blue.100}", "$type": "color" },
+      "info-subtle": { "$value": "{color.blue.200}", "$type": "color" },
+      "info-normal": { "$value": "{color.blue.500}", "$type": "color" },
+      "info-deep": { "$value": "{color.blue.600}", "$type": "color" },
+      "info-dark": { "$value": "{color.blue.700}", "$type": "color" },
+      "like-bright": { "$value": "{color.pink.60}", "$type": "color" },
+      "like-light": { "$value": "{color.pink.100}", "$type": "color" },
+      "like-subtle": { "$value": "{color.pink.200}", "$type": "color" },
+      "like-normal": { "$value": "{color.pink.500}", "$type": "color" },
+      "like-deep": { "$value": "{color.pink.600}", "$type": "color" },
+      "like-dark": { "$value": "{color.pink.700}", "$type": "color" },
+      "disabled-subtle": { "$value": "{color.gray.60}", "$type": "color" },
+      "disabled-normal": { "$value": "{color.gray.100}", "$type": "color" },
+      "disabled-deep": { "$value": "{color.gray.200}", "$type": "color" },
+      "disabled-dark": { "$value": "{color.gray.300}", "$type": "color" },
+      "inverse-normal": { "$value": "{color.gray.950}", "$type": "color" },
+      "inverse-deep": { "$value": "{color.black.pure}", "$type": "color" },
+      "overlay-blackNone": { "$value": "{color.black.a00}", "$type": "color" },
+      "overlay-blackSubtle": {
+        "$value": "{color.black.a10}",
+        "$type": "color"
+      },
+      "overlay-blackNormal": {
+        "$value": "{color.black.a40}",
+        "$type": "color"
+      },
+      "overlay-blackDeep": { "$value": "{color.black.a60}", "$type": "color" },
+      "overlay-blackDark": { "$value": "{color.black.a80}", "$type": "color" },
+      "overlay-whiteNone": { "$value": "{color.white.a00}", "$type": "color" },
+      "overlay-whiteSubtle": {
+        "$value": "{color.white.a10}",
+        "$type": "color"
+      },
+      "overlay-whiteNormal": {
+        "$value": "{color.white.a40}",
+        "$type": "color"
+      },
+      "overlay-whiteDeep": { "$value": "{color.white.a60}", "$type": "color" },
+      "overlay-whiteDark": { "$value": "{color.white.a80}", "$type": "color" },
+      "overlay-greenGraySubtle": {
+        "$value": "{color.green-gray.a10}",
+        "$type": "color"
+      },
+      "overlay-greenGrayNormal": {
+        "$value": "{color.green-gray.a40}",
+        "$type": "color"
+      },
+      "overlay-greenGrayDeep": {
+        "$value": "{color.green-gray.a60}",
+        "$type": "color"
+      },
+      "overlay-greenGrayDark": {
+        "$value": "{color.green-gray.a80}",
+        "$type": "color"
+      }
+    },
+
+    "typo": {
+      "$description": "typo (text)",
+      "neutral-bright": { "$value": "{color.gray.400}", "$type": "color" },
+      "neutral-light": { "$value": "{color.gray.600}", "$type": "color" },
+      "neutral-subtle": { "$value": "{color.gray.800}", "$type": "color" },
+      "neutral-normal": { "$value": "{color.gray.950}", "$type": "color" },
+      "brand-subtle": { "$value": "{color.green.400}", "$type": "color" },
+      "brand-normal": { "$value": "{color.green.500}", "$type": "color" },
+      "brand-deep": { "$value": "{color.green.600}", "$type": "color" },
+      "brand-dark": { "$value": "{color.green.700}", "$type": "color" },
+      "danger-subtle": { "$value": "{color.red.400}", "$type": "color" },
+      "danger-normal": { "$value": "{color.red.500}", "$type": "color" },
+      "danger-deep": { "$value": "{color.red.600}", "$type": "color" },
+      "danger-dark": { "$value": "{color.red.700}", "$type": "color" },
+      "warning-subtle": { "$value": "{color.yellow.500}", "$type": "color" },
+      "warning-normal": { "$value": "{color.yellow.600}", "$type": "color" },
+      "warning-deep": { "$value": "{color.yellow.700}", "$type": "color" },
+      "warning-dark": { "$value": "{color.yellow.800}", "$type": "color" },
+      "info-subtle": { "$value": "{color.blue.400}", "$type": "color" },
+      "info-normal": { "$value": "{color.blue.500}", "$type": "color" },
+      "info-deep": { "$value": "{color.blue.600}", "$type": "color" },
+      "info-dark": { "$value": "{color.blue.700}", "$type": "color" },
+      "like-subtle": { "$value": "{color.pink.400}", "$type": "color" },
+      "like-normal": { "$value": "{color.pink.500}", "$type": "color" },
+      "like-deep": { "$value": "{color.pink.600}", "$type": "color" },
+      "like-dark": { "$value": "{color.pink.700}", "$type": "color" },
+      "hint-light": { "$value": "{color.gray.200}", "$type": "color" },
+      "hint-subtle": { "$value": "{color.gray.300}", "$type": "color" },
+      "hint-normal": { "$value": "{color.gray.400}", "$type": "color" },
+      "disabled-subtle": { "$value": "{color.gray.200}", "$type": "color" },
+      "disabled-normal": { "$value": "{color.gray.400}", "$type": "color" },
+      "inverse-normal": { "$value": "{color.white.pure}", "$type": "color" },
+      "gradient-highlight": {
+        "$value": "linear-gradient(90deg, {color.green.500}, {color.blue.500})",
+        "$type": "color"
+      }
+    },
+
+    "border": {
+      "$description": "border",
+      "neutral-bright": { "$value": "{color.gray.100}", "$type": "color" },
+      "neutral-light": { "$value": "{color.gray.200}", "$type": "color" },
+      "neutral-subtle": { "$value": "{color.gray.300}", "$type": "color" },
+      "neutral-normal": { "$value": "{color.gray.400}", "$type": "color" },
+      "neutral-deep": { "$value": "{color.gray.600}", "$type": "color" },
+      "neutral-dark": { "$value": "{color.gray.800}", "$type": "color" },
+      "neutral-deepDark": { "$value": "{color.gray.950}", "$type": "color" },
+      "brand-light": { "$value": "{color.green.100}", "$type": "color" },
+      "brand-subtle": { "$value": "{color.green.300}", "$type": "color" },
+      "brand-normal": { "$value": "{color.green.500}", "$type": "color" },
+      "brand-deep": { "$value": "{color.green.600}", "$type": "color" },
+      "brand-dark": { "$value": "{color.green.700}", "$type": "color" },
+      "brandGrayish-bright": {
+        "$value": "{color.green-gray.60}",
+        "$type": "color"
+      },
+      "brandGrayish-light": {
+        "$value": "{color.green-gray.100}",
+        "$type": "color"
+      },
+      "brandGrayish-subtle": {
+        "$value": "{color.green-gray.200}",
+        "$type": "color"
+      },
+      "brandGrayish-normal": {
+        "$value": "{color.green-gray.300}",
+        "$type": "color"
+      },
+      "danger-light": { "$value": "{color.red.100}", "$type": "color" },
+      "danger-subtle": { "$value": "{color.red.300}", "$type": "color" },
+      "danger-normal": { "$value": "{color.red.500}", "$type": "color" },
+      "danger-deep": { "$value": "{color.red.600}", "$type": "color" },
+      "danger-dark": { "$value": "{color.red.700}", "$type": "color" },
+      "warning-light": { "$value": "{color.yellow.200}", "$type": "color" },
+      "warning-subtle": { "$value": "{color.yellow.300}", "$type": "color" },
+      "warning-normal": { "$value": "{color.yellow.500}", "$type": "color" },
+      "warning-deep": { "$value": "{color.yellow.600}", "$type": "color" },
+      "warning-dark": { "$value": "{color.yellow.700}", "$type": "color" },
+      "info-light": { "$value": "{color.blue.100}", "$type": "color" },
+      "info-subtle": { "$value": "{color.blue.300}", "$type": "color" },
+      "info-normal": { "$value": "{color.blue.500}", "$type": "color" },
+      "info-deep": { "$value": "{color.blue.600}", "$type": "color" },
+      "info-dark": { "$value": "{color.blue.700}", "$type": "color" },
+      "like-light": { "$value": "{color.pink.100}", "$type": "color" },
+      "like-subtle": { "$value": "{color.pink.300}", "$type": "color" },
+      "like-normal": { "$value": "{color.pink.400}", "$type": "color" },
+      "like-deep": { "$value": "{color.pink.600}", "$type": "color" },
+      "like-dark": { "$value": "{color.pink.700}", "$type": "color" },
+      "disabled-normal": { "$value": "{color.gray.200}", "$type": "color" },
+      "disabled-deep": { "$value": "{color.gray.400}", "$type": "color" },
+      "disabled-dark": { "$value": "{color.gray.600}", "$type": "color" },
+      "inverse-light": { "$value": "{color.white.a20}", "$type": "color" },
+      "inverse-subtle": { "$value": "{color.white.a40}", "$type": "color" },
+      "inverse-normal": { "$value": "{color.white.a60}", "$type": "color" },
+      "inverse-deep": { "$value": "{color.white.a80}", "$type": "color" },
+      "inverse-dark": { "$value": "{color.white.pure}", "$type": "color" },
+      "gradient-highlight": {
+        "$value": "linear-gradient(90deg, {color.green.500}, {color.blue.500})",
+        "$type": "color"
+      }
+    },
+
+    "icon": {
+      "$description": "icon",
+      "neutral-bright": { "$value": "{color.gray.300}", "$type": "color" },
+      "neutral-light": { "$value": "{color.gray.500}", "$type": "color" },
+      "neutral-subtle": { "$value": "{color.gray.800}", "$type": "color" },
+      "neutral-normal": { "$value": "{color.gray.950}", "$type": "color" },
+      "brand-subtle": { "$value": "{color.green.300}", "$type": "color" },
+      "brand-normal": { "$value": "{color.green.500}", "$type": "color" },
+      "brand-deep": { "$value": "{color.green.600}", "$type": "color" },
+      "brand-dark": { "$value": "{color.green.700}", "$type": "color" },
+      "brandGrayish-light": {
+        "$value": "{color.green-gray.200}",
+        "$type": "color"
+      },
+      "brandGrayish-subtle": {
+        "$value": "{color.green-gray.300}",
+        "$type": "color"
+      },
+      "brandGrayish-normal": {
+        "$value": "{color.green-gray.400}",
+        "$type": "color"
+      },
+      "danger-subtle": { "$value": "{color.red.300}", "$type": "color" },
+      "danger-normal": { "$value": "{color.red.500}", "$type": "color" },
+      "danger-deep": { "$value": "{color.red.600}", "$type": "color" },
+      "danger-dark": { "$value": "{color.red.700}", "$type": "color" },
+      "warning-subtle": { "$value": "{color.yellow.400}", "$type": "color" },
+      "warning-normal": { "$value": "{color.yellow.500}", "$type": "color" },
+      "warning-deep": { "$value": "{color.yellow.600}", "$type": "color" },
+      "warning-dark": { "$value": "{color.yellow.700}", "$type": "color" },
+      "info-subtle": { "$value": "{color.blue.300}", "$type": "color" },
+      "info-normal": { "$value": "{color.blue.500}", "$type": "color" },
+      "info-deep": { "$value": "{color.blue.600}", "$type": "color" },
+      "info-dark": { "$value": "{color.blue.700}", "$type": "color" },
+      "like-subtle": { "$value": "{color.pink.300}", "$type": "color" },
+      "like-normal": { "$value": "{color.pink.500}", "$type": "color" },
+      "like-deep": { "$value": "{color.pink.600}", "$type": "color" },
+      "like-dark": { "$value": "{color.pink.700}", "$type": "color" },
+      "like-gradientStart": { "$value": "{color.pink.500}", "$type": "color" },
+      "like-gradientEnd": { "$value": "{color.red.500}", "$type": "color" },
+      "disabled-light": { "$value": "{color.gray.100}", "$type": "color" },
+      "disabled-subtle": { "$value": "{color.gray.200}", "$type": "color" },
+      "disabled-normal": { "$value": "{color.gray.300}", "$type": "color" },
+      "disabled-deep": { "$value": "{color.gray.400}", "$type": "color" },
+      "disabled-dark": { "$value": "{color.gray.600}", "$type": "color" },
+      "inverse-subtle": { "$value": "{color.white.a80}", "$type": "color" },
+      "inverse-normal": { "$value": "{color.white.pure}", "$type": "color" }
+    },
+
+    "shadow": {
+      "$description": "shadow (그림자 색상)",
+      "black-light": { "$value": "{color.black.a05}", "$type": "color" },
+      "black-normal": { "$value": "{color.black.a10}", "$type": "color" },
+      "greenGray-light": {
+        "$value": "{color.green-gray.a05}",
+        "$type": "color"
+      },
+      "greenGray-normal": {
+        "$value": "{color.green-gray.a10}",
+        "$type": "color"
+      }
+    },
+
+    "logo": {
+      "$description": "logo (브랜드 로고 전용). Figma \"또가3.0 Design System / LOGO\" (node 51482:15127).",
+      "brand": {
+        "$value": "{color.green.500}",
+        "$type": "color",
+        "$description": "심볼 라운드 사각형·글리프 그린"
+      },
+      "on-brand": {
+        "$value": "{color.white.pure}",
+        "$type": "color",
+        "$description": "그린 사각형 위 글리프"
+      },
+      "ink": {
+        "$value": "#262a30",
+        "$type": "color",
+        "$description": "워드마크 (Figma raw hex, 변수 미바인딩)"
+      },
+      "white": {
+        "$value": "{color.white.pure}",
+        "$type": "color",
+        "$description": "white / transparentWhite 변형"
+      }
+    }
+  }
+}

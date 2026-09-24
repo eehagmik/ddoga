@@ -1,0 +1,598 @@
+/**
+ * 자동 생성됨 — 직접 수정 금지.
+ * 원본: tokens/*.json   ·   빌드: npm run build:tokens
+ */
+
+@import 'tailwindcss';
+
+@theme static {
+
+  /* Primitive — 원시 색상 팔레트. Figma "또하나3.0 Design System / Primitive Color"와 1:1. hex 원본 유지. 컴포넌트 직접 참조 금지 (Semantic 경유). */
+
+  /* Red */
+  --color-red-10: #fffafa;
+  --color-red-30: #fff0f0;
+  --color-red-60: #ffe5e6;
+  --color-red-100: #ffd3d4;
+  --color-red-200: #ffb9ba;
+  --color-red-300: #ff8b8b;
+  --color-red-400: #ff6670;
+  --color-red-500: #f84b55;
+  --color-red-600: #e12a3c;
+  --color-red-700: #bd0c1e;
+  --color-red-800: #9b0010;
+  --color-red-900: #6f000b;
+
+  /* Orange */
+  --color-orange-10: #fff7eb;
+  --color-orange-30: #fff4e0;
+  --color-orange-60: #ffedcc;
+  --color-orange-100: #ffdfaa;
+  --color-orange-200: #ffcb6f;
+  --color-orange-300: #ffb459;
+  --color-orange-400: #ff9339;
+  --color-orange-500: #f2711c;
+  --color-orange-600: #d24c09;
+  --color-orange-700: #a9340a;
+  --color-orange-800: #912807;
+  --color-orange-900: #6a1900;
+
+  /* Yellow */
+  --color-yellow-10: #fffbe5;
+  --color-yellow-30: #fff9c7;
+  --color-yellow-60: #fff6b2;
+  --color-yellow-100: #fff28f;
+  --color-yellow-200: #ffe656;
+  --color-yellow-300: #ffd745;
+  --color-yellow-400: #fcc500;
+  --color-yellow-500: #f4b02a;
+  --color-yellow-600: #db9024;
+  --color-yellow-700: #a86112;
+  --color-yellow-800: #844405;
+  --color-yellow-900: #703900;
+
+  /* Green */
+  --color-green-10: #effffa;
+  --color-green-30: #e4fbf3;
+  --color-green-60: #d2f9ec;
+  --color-green-100: #b8efde;
+  --color-green-200: #7be0c0;
+  --color-green-300: #48cda4;
+  --color-green-400: #27be8f;
+  --color-green-500: #00af78;
+  --color-green-600: #029261;
+  --color-green-700: #007a54;
+  --color-green-800: #006142;
+  --color-green-900: #014b34;
+
+  /* Blue */
+  --color-blue-10: #f5f8ff;
+  --color-blue-30: #f0f4ff;
+  --color-blue-60: #e5eeff;
+  --color-blue-100: #d0ddff;
+  --color-blue-200: #b5caff;
+  --color-blue-300: #97b4ff;
+  --color-blue-400: #789eff;
+  --color-blue-500: #5383ff;
+  --color-blue-600: #3c6cff;
+  --color-blue-700: #2b58dd;
+  --color-blue-800: #153eb7;
+  --color-blue-900: #0a2a8f;
+
+  /* Purple */
+  --color-purple-10: #f9f6fe;
+  --color-purple-30: #f6f2ff;
+  --color-purple-60: #f3ecfe;
+  --color-purple-100: #e9d8fd;
+  --color-purple-200: #d6bcfa;
+  --color-purple-300: #c0a4ff;
+  --color-purple-400: #b290ff;
+  --color-purple-500: #9d75f8;
+  --color-purple-600: #8b64e6;
+  --color-purple-700: #744dc8;
+  --color-purple-800: #58389d;
+  --color-purple-900: #3e2b6a;
+
+  /* Pink */
+  --color-pink-10: #fff5f7;
+  --color-pink-30: #fef1f5;
+  --color-pink-60: #feecf2;
+  --color-pink-100: #fed7e2;
+  --color-pink-200: #fbb6ce;
+  --color-pink-300: #ff96c0;
+  --color-pink-400: #ff80bd;
+  --color-pink-500: #f161ab;
+  --color-pink-600: #d34296;
+  --color-pink-700: #b33082;
+  --color-pink-800: #88256a;
+  --color-pink-900: #680e4c;
+
+  /* Gray */
+  --color-gray-10: #f6f6f6;
+  --color-gray-30: #f3f3f3;
+  --color-gray-60: #eeeeee;
+  --color-gray-100: #d9d9d9;
+  --color-gray-200: #c5c5c5;
+  --color-gray-300: #ababab;
+  --color-gray-400: #969696;
+  --color-gray-500: #878787;
+  --color-gray-600: #717171;
+  --color-gray-700: #5a5a5a;
+  --color-gray-800: #4a4a4a;
+  --color-gray-900: #3a3a3a;
+  --color-gray-950: #272727;
+
+  /* Green Gray (Figma: greenGray). 램프 + 알파 램프(Figma: Monotone, base #80908b). */
+  --color-green-gray-10: #f5f8f7;
+  --color-green-gray-30: #eff6f3;
+  --color-green-gray-60: #e6efeb;
+  --color-green-gray-100: #d3ded9;
+  --color-green-gray-200: #c2ccc7;
+  --color-green-gray-300: #a6b3ad;
+  --color-green-gray-400: #8b9b93;
+  --color-green-gray-500: #80908b;
+  --color-green-gray-600: #6a7a75;
+  --color-green-gray-700: #54605a;
+  --color-green-gray-800: #424e4a;
+  --color-green-gray-900: #313b36;
+  --color-green-gray-950: #202925;
+  --color-green-gray-a00: #80908b00;
+  --color-green-gray-a05: #80908b0d;
+  --color-green-gray-a10: #80908b1a;
+  --color-green-gray-a15: #80908b26;
+  --color-green-gray-a20: #80908b33;
+  --color-green-gray-a40: #80908b66;
+  --color-green-gray-a60: #80908b99;
+  --color-green-gray-a80: #80908bcc;
+
+  /* 고정 뉴트럴 + 알파 램프 Black */
+  --color-black-pure: #000000;
+  --color-black-a00: #00000000;
+  --color-black-a05: #0000000d;
+  --color-black-a10: #0000001a;
+  --color-black-a15: #00000026;
+  --color-black-a20: #00000033;
+  --color-black-a40: #00000066;
+  --color-black-a60: #00000099;
+  --color-black-a80: #000000cc;
+
+  /* 고정 뉴트럴 + 알파 램프 White */
+  --color-white-pure: #ffffff;
+  --color-white-a00: #ffffff00;
+  --color-white-a05: #ffffff0d;
+  --color-white-a10: #ffffff1a;
+  --color-white-a15: #ffffff26;
+  --color-white-a20: #ffffff33;
+  --color-white-a40: #ffffff66;
+  --color-white-a60: #ffffff99;
+  --color-white-a80: #ffffffcc;
+
+  /* bg (background). Figma "Sementic Color List" 1:1. Primitive 참조. 컴포넌트는 이 토큰만 참조. */
+  --color-bg-neutral-none: var(--color-white-a00);
+  --color-bg-neutral-normal: var(--color-white-pure);
+  --color-bg-neutral-deep: var(--color-gray-10);
+  --color-bg-neutral-dark: var(--color-gray-30);
+  --color-bg-neutral-deepDark: var(--color-gray-60);
+  --color-bg-brand-bright: var(--color-green-30);
+  --color-bg-brand-light: var(--color-green-100);
+  --color-bg-brand-subtle: var(--color-green-200);
+  --color-bg-brand-normal: var(--color-green-500);
+  --color-bg-brand-deep: var(--color-green-600);
+  --color-bg-brand-dark: var(--color-green-700);
+  --color-bg-brandGrayish-none: var(--color-green-gray-a00);
+  --color-bg-brandGrayish-normal: var(--color-green-gray-10);
+  --color-bg-brandGrayish-deep: var(--color-green-gray-30);
+  --color-bg-brandGrayish-dark: var(--color-green-gray-60);
+  --color-bg-danger-bright: var(--color-red-30);
+  --color-bg-danger-light: var(--color-red-100);
+  --color-bg-danger-subtle: var(--color-red-200);
+  --color-bg-danger-normal: var(--color-red-500);
+  --color-bg-danger-deep: var(--color-red-600);
+  --color-bg-danger-dark: var(--color-red-700);
+  --color-bg-warning-bright: var(--color-yellow-30);
+  --color-bg-warning-light: var(--color-yellow-100);
+  --color-bg-warning-subtle: var(--color-yellow-200);
+  --color-bg-warning-normal: var(--color-yellow-500);
+  --color-bg-warning-deep: var(--color-yellow-600);
+  --color-bg-warning-dark: var(--color-yellow-700);
+  --color-bg-info-bright: var(--color-blue-30);
+  --color-bg-info-light: var(--color-blue-100);
+  --color-bg-info-subtle: var(--color-blue-200);
+  --color-bg-info-normal: var(--color-blue-500);
+  --color-bg-info-deep: var(--color-blue-600);
+  --color-bg-info-dark: var(--color-blue-700);
+  --color-bg-like-bright: var(--color-pink-60);
+  --color-bg-like-light: var(--color-pink-100);
+  --color-bg-like-subtle: var(--color-pink-200);
+  --color-bg-like-normal: var(--color-pink-500);
+  --color-bg-like-deep: var(--color-pink-600);
+  --color-bg-like-dark: var(--color-pink-700);
+  --color-bg-disabled-subtle: var(--color-gray-60);
+  --color-bg-disabled-normal: var(--color-gray-100);
+  --color-bg-disabled-deep: var(--color-gray-200);
+  --color-bg-disabled-dark: var(--color-gray-300);
+  --color-bg-inverse-normal: var(--color-gray-950);
+  --color-bg-inverse-deep: var(--color-black-pure);
+  --color-bg-overlay-blackNone: var(--color-black-a00);
+  --color-bg-overlay-blackSubtle: var(--color-black-a10);
+  --color-bg-overlay-blackNormal: var(--color-black-a40);
+  --color-bg-overlay-blackDeep: var(--color-black-a60);
+  --color-bg-overlay-blackDark: var(--color-black-a80);
+  --color-bg-overlay-whiteNone: var(--color-white-a00);
+  --color-bg-overlay-whiteSubtle: var(--color-white-a10);
+  --color-bg-overlay-whiteNormal: var(--color-white-a40);
+  --color-bg-overlay-whiteDeep: var(--color-white-a60);
+  --color-bg-overlay-whiteDark: var(--color-white-a80);
+  --color-bg-overlay-greenGraySubtle: var(--color-green-gray-a10);
+  --color-bg-overlay-greenGrayNormal: var(--color-green-gray-a40);
+  --color-bg-overlay-greenGrayDeep: var(--color-green-gray-a60);
+  --color-bg-overlay-greenGrayDark: var(--color-green-gray-a80);
+
+  /* typo (text) */
+  --color-typo-neutral-bright: var(--color-gray-400);
+  --color-typo-neutral-light: var(--color-gray-600);
+  --color-typo-neutral-subtle: var(--color-gray-800);
+  --color-typo-neutral-normal: var(--color-gray-950);
+  --color-typo-brand-subtle: var(--color-green-400);
+  --color-typo-brand-normal: var(--color-green-500);
+  --color-typo-brand-deep: var(--color-green-600);
+  --color-typo-brand-dark: var(--color-green-700);
+  --color-typo-danger-subtle: var(--color-red-400);
+  --color-typo-danger-normal: var(--color-red-500);
+  --color-typo-danger-deep: var(--color-red-600);
+  --color-typo-danger-dark: var(--color-red-700);
+  --color-typo-warning-subtle: var(--color-yellow-500);
+  --color-typo-warning-normal: var(--color-yellow-600);
+  --color-typo-warning-deep: var(--color-yellow-700);
+  --color-typo-warning-dark: var(--color-yellow-800);
+  --color-typo-info-subtle: var(--color-blue-400);
+  --color-typo-info-normal: var(--color-blue-500);
+  --color-typo-info-deep: var(--color-blue-600);
+  --color-typo-info-dark: var(--color-blue-700);
+  --color-typo-like-subtle: var(--color-pink-400);
+  --color-typo-like-normal: var(--color-pink-500);
+  --color-typo-like-deep: var(--color-pink-600);
+  --color-typo-like-dark: var(--color-pink-700);
+  --color-typo-hint-light: var(--color-gray-200);
+  --color-typo-hint-subtle: var(--color-gray-300);
+  --color-typo-hint-normal: var(--color-gray-400);
+  --color-typo-disabled-subtle: var(--color-gray-200);
+  --color-typo-disabled-normal: var(--color-gray-400);
+  --color-typo-inverse-normal: var(--color-white-pure);
+  --color-typo-gradient-highlight: linear-gradient(90deg, var(--color-green-500), var(--color-blue-500));
+
+  /* border */
+  --color-border-neutral-bright: var(--color-gray-100);
+  --color-border-neutral-light: var(--color-gray-200);
+  --color-border-neutral-subtle: var(--color-gray-300);
+  --color-border-neutral-normal: var(--color-gray-400);
+  --color-border-neutral-deep: var(--color-gray-600);
+  --color-border-neutral-dark: var(--color-gray-800);
+  --color-border-neutral-deepDark: var(--color-gray-950);
+  --color-border-brand-light: var(--color-green-100);
+  --color-border-brand-subtle: var(--color-green-300);
+  --color-border-brand-normal: var(--color-green-500);
+  --color-border-brand-deep: var(--color-green-600);
+  --color-border-brand-dark: var(--color-green-700);
+  --color-border-brandGrayish-bright: var(--color-green-gray-60);
+  --color-border-brandGrayish-light: var(--color-green-gray-100);
+  --color-border-brandGrayish-subtle: var(--color-green-gray-200);
+  --color-border-brandGrayish-normal: var(--color-green-gray-300);
+  --color-border-danger-light: var(--color-red-100);
+  --color-border-danger-subtle: var(--color-red-300);
+  --color-border-danger-normal: var(--color-red-500);
+  --color-border-danger-deep: var(--color-red-600);
+  --color-border-danger-dark: var(--color-red-700);
+  --color-border-warning-light: var(--color-yellow-200);
+  --color-border-warning-subtle: var(--color-yellow-300);
+  --color-border-warning-normal: var(--color-yellow-500);
+  --color-border-warning-deep: var(--color-yellow-600);
+  --color-border-warning-dark: var(--color-yellow-700);
+  --color-border-info-light: var(--color-blue-100);
+  --color-border-info-subtle: var(--color-blue-300);
+  --color-border-info-normal: var(--color-blue-500);
+  --color-border-info-deep: var(--color-blue-600);
+  --color-border-info-dark: var(--color-blue-700);
+  --color-border-like-light: var(--color-pink-100);
+  --color-border-like-subtle: var(--color-pink-300);
+  --color-border-like-normal: var(--color-pink-400);
+  --color-border-like-deep: var(--color-pink-600);
+  --color-border-like-dark: var(--color-pink-700);
+  --color-border-disabled-normal: var(--color-gray-200);
+  --color-border-disabled-deep: var(--color-gray-400);
+  --color-border-disabled-dark: var(--color-gray-600);
+  --color-border-inverse-light: var(--color-white-a20);
+  --color-border-inverse-subtle: var(--color-white-a40);
+  --color-border-inverse-normal: var(--color-white-a60);
+  --color-border-inverse-deep: var(--color-white-a80);
+  --color-border-inverse-dark: var(--color-white-pure);
+  --color-border-gradient-highlight: linear-gradient(90deg, var(--color-green-500), var(--color-blue-500));
+
+  /* icon */
+  --color-icon-neutral-bright: var(--color-gray-300);
+  --color-icon-neutral-light: var(--color-gray-500);
+  --color-icon-neutral-subtle: var(--color-gray-800);
+  --color-icon-neutral-normal: var(--color-gray-950);
+  --color-icon-brand-subtle: var(--color-green-300);
+  --color-icon-brand-normal: var(--color-green-500);
+  --color-icon-brand-deep: var(--color-green-600);
+  --color-icon-brand-dark: var(--color-green-700);
+  --color-icon-brandGrayish-light: var(--color-green-gray-200);
+  --color-icon-brandGrayish-subtle: var(--color-green-gray-300);
+  --color-icon-brandGrayish-normal: var(--color-green-gray-400);
+  --color-icon-danger-subtle: var(--color-red-300);
+  --color-icon-danger-normal: var(--color-red-500);
+  --color-icon-danger-deep: var(--color-red-600);
+  --color-icon-danger-dark: var(--color-red-700);
+  --color-icon-warning-subtle: var(--color-yellow-400);
+  --color-icon-warning-normal: var(--color-yellow-500);
+  --color-icon-warning-deep: var(--color-yellow-600);
+  --color-icon-warning-dark: var(--color-yellow-700);
+  --color-icon-info-subtle: var(--color-blue-300);
+  --color-icon-info-normal: var(--color-blue-500);
+  --color-icon-info-deep: var(--color-blue-600);
+  --color-icon-info-dark: var(--color-blue-700);
+  --color-icon-like-subtle: var(--color-pink-300);
+  --color-icon-like-normal: var(--color-pink-500);
+  --color-icon-like-deep: var(--color-pink-600);
+  --color-icon-like-dark: var(--color-pink-700);
+  --color-icon-like-gradientStart: var(--color-pink-500);
+  --color-icon-like-gradientEnd: var(--color-red-500);
+  --color-icon-disabled-light: var(--color-gray-100);
+  --color-icon-disabled-subtle: var(--color-gray-200);
+  --color-icon-disabled-normal: var(--color-gray-300);
+  --color-icon-disabled-deep: var(--color-gray-400);
+  --color-icon-disabled-dark: var(--color-gray-600);
+  --color-icon-inverse-subtle: var(--color-white-a80);
+  --color-icon-inverse-normal: var(--color-white-pure);
+
+  /* shadow (그림자 색상) */
+  --color-shadow-black-light: var(--color-black-a05);
+  --color-shadow-black-normal: var(--color-black-a10);
+  --color-shadow-greenGray-light: var(--color-green-gray-a05);
+  --color-shadow-greenGray-normal: var(--color-green-gray-a10);
+
+  /* logo (브랜드 로고 전용). Figma "또가3.0 Design System / LOGO" (node 51482:15127). */
+  --color-logo-brand: var(--color-green-500); /* 심볼 라운드 사각형·글리프 그린 */
+  --color-logo-on-brand: var(--color-white-pure); /* 그린 사각형 위 글리프 */
+  --color-logo-ink: #262a30; /* 워드마크 (Figma raw hex, 변수 미바인딩) */
+  --color-logo-white: var(--color-white-pure); /* white / transparentWhite 변형 */
+
+  /* Size (sz primitive). Figma "또가3.0 Design System / Size" sz/<N> 와 1:1. N=px, 값=rem(N/16). 서브픽셀·센티넬만 px. */
+  --sz-0: 0;
+  --sz-1: 0.0625rem; /* 1 */
+  --sz-2: 0.125rem; /* 2 */
+  --sz-3: 0.1875rem; /* 3 */
+  --sz-4: 0.25rem; /* 4 */
+  --sz-5: 0.3125rem; /* 5 */
+  --sz-6: 0.375rem; /* 6 */
+  --sz-7: 0.4375rem; /* 7 */
+  --sz-8: 0.5rem; /* 8 */
+  --sz-9: 0.5625rem; /* 9 */
+  --sz-10: 0.625rem; /* 10 */
+  --sz-12: 0.75rem; /* 12 */
+  --sz-14: 0.875rem; /* 14 */
+  --sz-16: 1rem; /* 16 */
+  --sz-18: 1.125rem; /* 18 */
+  --sz-20: 1.25rem; /* 20 */
+  --sz-22: 1.375rem; /* 22 */
+  --sz-24: 1.5rem; /* 24 */
+  --sz-26: 1.625rem; /* 26 */
+  --sz-28: 1.75rem; /* 28 */
+  --sz-30: 1.875rem; /* 30 */
+  --sz-32: 2rem; /* 32 */
+  --sz-34: 2.125rem; /* 34 */
+  --sz-36: 2.25rem; /* 36 */
+  --sz-38: 2.375rem; /* 38 */
+  --sz-40: 2.5rem; /* 40 */
+  --sz-42: 2.625rem; /* 42 */
+  --sz-44: 2.75rem; /* 44 */
+  --sz-46: 2.875rem; /* 46 */
+  --sz-48: 3rem; /* 48 */
+  --sz-50: 3.125rem; /* 50 */
+  --sz-52: 3.25rem; /* 52 */
+  --sz-54: 3.375rem; /* 54 */
+  --sz-56: 3.5rem; /* 56 */
+  --sz-58: 3.625rem; /* 58 */
+  --sz-60: 3.75rem; /* 60 */
+  --sz-64: 4rem; /* 64 */
+  --sz-68: 4.25rem; /* 68 */
+  --sz-72: 4.5rem; /* 72 */
+  --sz-76: 4.75rem; /* 76 */
+  --sz-80: 5rem; /* 80 */
+  --sz-84: 5.25rem; /* 84 */
+  --sz-88: 5.5rem; /* 88 */
+  --sz-92: 5.75rem; /* 92 */
+  --sz-96: 6rem; /* 96 */
+  --sz-100: 6.25rem; /* 100 */
+  --sz-128: 8rem; /* 128 */
+  --sz-160: 10rem; /* 160 */
+  --sz-192: 12rem; /* 192 */
+  --sz-224: 14rem; /* 224 */
+  --sz-256: 16rem; /* 256 */
+  --sz-320: 20rem; /* 320 */
+  --sz-9999: 9999px; /* 원형·pill 센티넬 */
+
+  /* Radius (semantic → sz 별칭). Figma radius/<t> 와 1:1. Tailwind rounded-<t> 자동 생성. */
+  --radius-xs: var(--sz-4); /* 4 */
+  --radius-sm: var(--sz-6); /* 6 */
+  --radius-md: var(--sz-8); /* 8 */
+  --radius-lg: var(--sz-10); /* 10 */
+  --radius-xl: var(--sz-12); /* 12 */
+  --radius-2xl: var(--sz-16); /* 16 */
+  --radius-3xl: var(--sz-20); /* 20 */
+  --radius-circle: var(--sz-9999); /* 원형·pill */
+
+  /* Border Width (semantic → sz 별칭). Figma borderWidth/<t> 와 1:1. Tailwind border-<t> 자동 생성. */
+  --border-width-2xs: 0.5px; /* 0.5 (sz 에 없음) */
+  --border-width-xs: var(--sz-1); /* 1 */
+  --border-width-sm: var(--sz-2); /* 2 */
+  --border-width-md: var(--sz-3); /* 3 */
+  --border-width-lg: var(--sz-4); /* 4 */
+  --border-width-xl: var(--sz-6); /* 6 */
+
+  /* Layout (앱 셸 · 뷰포트 · 그리드). Figma "또하나의가족 브랜드 파운데이션 / Grid" (node 1:7) breakpoint(mobile) 와 1:1. Tailwind 유틸 자동 생성 안 됨 → var(--layout-*) 로 참조. */
+  --layout-viewport-min: 360px; /* 지원 최소 폭 (미만이면 가로 스크롤) */
+  --layout-viewport-max: 520px; /* 앱 셸 최대 폭, 초과 시 중앙 정렬 */
+  --layout-margin: var(--sz-20); /* 앱 셸 좌우 바깥 여백 (20) */
+  --layout-gutter: var(--sz-16); /* 그리드 컬럼 사이 간격 (16) */
+  --layout-columns: 4; /* 그리드 컬럼 수 */
+
+  /* Alpha (투명도 스케일). Figma "또가3.0 Design System / Alpha" (node 2327:4758) alpha/<NN> 와 1:1. 값=소수(퍼센트/100). opacity 배수용. --color-*-a<NN> 알파 컬러 램프와는 별개. */
+  --alpha-00: 0; /* 0%  — 완전 투명 */
+  --alpha-05: 0.05; /* 5%  — 극히 옅은 (구분선·hover 힌트) */
+  --alpha-10: 0.1; /* 10% */
+  --alpha-20: 0.2; /* 20% — 비활성(disabled) 요소 */
+  --alpha-40: 0.4; /* 40% — dim 오버레이 */
+  --alpha-60: 0.6; /* 60% */
+  --alpha-80: 0.8; /* 80% — 거의 불투명 */
+
+  /* Shadow (효과). Figma "또가3.0 Design System / Shadow" (node 106:181) Effect 와 1:1. offset·blur 는 sz 조립, 색은 color.shadow / color.border 참조. Tailwind shadow-<group>-<step> 자동 생성. */
+  --shadow-black-xs: 0 var(--sz-1) var(--sz-2) var(--color-shadow-black-light), 0 var(--sz-2) var(--sz-4) var(--color-shadow-black-normal);
+  --shadow-black-sm: 0 var(--sz-1) var(--sz-4) var(--color-shadow-black-light), 0 var(--sz-4) var(--sz-8) var(--color-shadow-black-normal);
+  --shadow-black-md: 0 var(--sz-2) var(--sz-6) var(--color-shadow-black-light), 0 var(--sz-6) var(--sz-12) var(--color-shadow-black-normal);
+  --shadow-black-lg: 0 var(--sz-3) var(--sz-8) var(--color-shadow-black-light), 0 var(--sz-8) var(--sz-20) var(--color-shadow-black-normal);
+  --shadow-black-xl: 0 var(--sz-4) var(--sz-10) var(--color-shadow-black-light), 0 var(--sz-14) var(--sz-28) var(--color-shadow-black-normal);
+  --shadow-greenGray-xs: 0 var(--sz-1) var(--sz-2) var(--color-shadow-greenGray-light), 0 var(--sz-2) var(--sz-4) var(--color-shadow-greenGray-normal);
+  --shadow-greenGray-sm: 0 var(--sz-1) var(--sz-4) var(--color-shadow-greenGray-light), 0 var(--sz-4) var(--sz-8) var(--color-shadow-greenGray-normal);
+  --shadow-greenGray-md: 0 var(--sz-2) var(--sz-6) var(--color-shadow-greenGray-light), 0 var(--sz-6) var(--sz-12) var(--color-shadow-greenGray-normal);
+  --shadow-greenGray-lg: 0 var(--sz-3) var(--sz-8) var(--color-shadow-greenGray-light), 0 var(--sz-8) var(--sz-20) var(--color-shadow-greenGray-normal);
+  --shadow-greenGray-xl: 0 var(--sz-4) var(--sz-10) var(--color-shadow-greenGray-light), 0 var(--sz-14) var(--sz-28) var(--color-shadow-greenGray-normal);
+  --shadow-bottomNav: 0 calc(var(--sz-8) * -1) var(--sz-8) var(--color-shadow-greenGray-light), 0 calc(var(--sz-8) * -1) var(--sz-20) var(--color-shadow-greenGray-normal); /* 하단 네비 위로 뜨는 그림자 (음수 Y offset), greenGray */
+  --shadow-borderNeutral-xs: inset 0 0 0 var(--sz-1) var(--color-border-neutral-light);
+  --shadow-borderNeutral-sm: inset 0 0 0 var(--sz-2) var(--color-border-neutral-light);
+  --shadow-borderNeutral-md: inset 0 0 0 var(--sz-3) var(--color-border-neutral-light);
+  --shadow-borderBrand-xs: inset 0 0 0 var(--sz-1) var(--color-border-brand-normal);
+  --shadow-borderBrand-sm: inset 0 0 0 var(--sz-2) var(--color-border-brand-normal);
+  --shadow-borderBrand-md: inset 0 0 0 var(--sz-3) var(--color-border-brand-normal);
+
+  /* BackdropBlur (배경 흐림 효과). Figma "또가3.0 Design System / BackdropBlur" (node 106:564) 와 1:1. radius 는 sz 조립. Tailwind blur-<name> · backdrop-blur-<name> 자동 생성. dim·header 2단계만 → 기본 스케일은 initial 로 제거. */
+  --blur-*: initial;
+  --blur-dim: var(--sz-8); /* sz 8  — 넓은 면적 배경의 약한 흐림 (dim 오버레이 등) */
+  --blur-header: var(--sz-16); /* sz 16 — 헤더 등 강한 흐림 */
+  --font-sans: 'Pretendard', ui-sans-serif, system-ui, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; /* family — Pretendard. 웹폰트 로딩은 후속 작업 (현재 fallback 렌더). */
+
+  /* weight — 디자인 시스템은 2단계만. Tailwind 기본 두께 유틸은 초기화로 제거. */
+  --font-weight-*: initial;
+  --font-weight-normal: 500; /* Figma font/weight/normal = Medium */
+  --font-weight-bold: 700; /* Figma font/weight/bold = Bold */
+
+  /* feature — OpenType 기능 토글. Tailwind 대응 유틸 없음. 컴포넌트에서 arbitrary property 로 var() 참조. */
+  --font-feature-*: initial;
+  --font-feature-case: "case" 1; /* Case-Sensitive Forms. 기호(+, - 등)를 대문자·숫자 높이 중앙에 정렬. Figma label/1·label/2 (BadgeNumber sm·md) */
+
+  /* size — Figma font/size/<step> ↔ --text-<step> (Tailwind text-<step> 자동 생성). 합성 스타일은 companion(--text-x--line-height 등)으로 4속성 묶음. */
+  --text-*: initial;
+  --text-2xs: 0.75rem; /* 12px */
+  --text-xs: 0.875rem; /* 14px */
+  --text-sm: 1rem; /* 16px */
+  --text-md: 1.125rem; /* 18px */
+  --text-lg: 1.25rem; /* 20px */
+  --text-xl: 1.375rem; /* 22px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.625rem; /* 26px */
+  --text-5xl: 1.875rem; /* 30px */
+  --text-display-1: var(--text-5xl);
+  --text-display-1--line-height: 1.4;
+  --text-display-1--letter-spacing: -0.01em;
+  --text-display-1--font-weight: var(--font-weight-bold);
+  --text-title-1: var(--text-3xl);
+  --text-title-1--line-height: 1.46;
+  --text-title-1--letter-spacing: -0.01em;
+  --text-title-1--font-weight: var(--font-weight-bold);
+  --text-title-2: var(--text-2xl);
+  --text-title-2--line-height: 1.43;
+  --text-title-2--letter-spacing: -0.01em;
+  --text-title-2--font-weight: var(--font-weight-bold);
+  --text-title-3: var(--text-xl);
+  --text-title-3--line-height: 1.38;
+  --text-title-3--letter-spacing: -0.01em;
+  --text-title-3--font-weight: var(--font-weight-bold);
+  --text-body-1: var(--text-xl);
+  --text-body-1--line-height: 1.56;
+  --text-body-1--letter-spacing: -0.01em;
+  --text-body-1--font-weight: var(--font-weight-normal);
+  --text-body-1-bold: var(--text-xl);
+  --text-body-1-bold--line-height: 1.56;
+  --text-body-1-bold--letter-spacing: -0.015em;
+  --text-body-1-bold--font-weight: var(--font-weight-bold);
+  --text-body-2: var(--text-lg);
+  --text-body-2--line-height: 1.48;
+  --text-body-2--letter-spacing: -0.01em;
+  --text-body-2--font-weight: var(--font-weight-normal);
+  --text-body-2-bold: var(--text-lg);
+  --text-body-2-bold--line-height: 1.48;
+  --text-body-2-bold--letter-spacing: -0.015em;
+  --text-body-2-bold--font-weight: var(--font-weight-bold);
+  --text-body-3: var(--text-md);
+  --text-body-3--line-height: 1.47;
+  --text-body-3--letter-spacing: -0.01em;
+  --text-body-3--font-weight: var(--font-weight-normal);
+  --text-body-3-bold: var(--text-md);
+  --text-body-3-bold--line-height: 1.47;
+  --text-body-3-bold--letter-spacing: -0.015em;
+  --text-body-3-bold--font-weight: var(--font-weight-bold);
+  --text-body-4: var(--text-sm);
+  --text-body-4--line-height: 1.47;
+  --text-body-4--letter-spacing: -0.01em;
+  --text-body-4--font-weight: var(--font-weight-normal);
+  --text-body-4-bold: var(--text-sm);
+  --text-body-4-bold--line-height: 1.47;
+  --text-body-4-bold--letter-spacing: -0.015em;
+  --text-body-4-bold--font-weight: var(--font-weight-bold);
+  --text-body-5: var(--text-xs);
+  --text-body-5--line-height: 1.46;
+  --text-body-5--letter-spacing: -0.01em;
+  --text-body-5--font-weight: var(--font-weight-normal);
+  --text-body-5-bold: var(--text-xs);
+  --text-body-5-bold--line-height: 1.46;
+  --text-body-5-bold--letter-spacing: -0.015em;
+  --text-body-5-bold--font-weight: var(--font-weight-bold);
+  --text-body-6: var(--text-2xs);
+  --text-body-6--line-height: 1.4;
+  --text-body-6--letter-spacing: -0.01em;
+  --text-body-6--font-weight: var(--font-weight-normal);
+  --text-body-6-bold: var(--text-2xs);
+  --text-body-6-bold--line-height: 1.4;
+  --text-body-6-bold--letter-spacing: -0.015em;
+  --text-body-6-bold--font-weight: var(--font-weight-bold);
+  --text-label-1: var(--text-sm);
+  --text-label-1--line-height: 1;
+  --text-label-1--letter-spacing: -0.01em;
+  --text-label-1--font-weight: var(--font-weight-normal);
+  --text-label-1-bold: var(--text-sm);
+  --text-label-1-bold--line-height: 1;
+  --text-label-1-bold--letter-spacing: -0.015em;
+  --text-label-1-bold--font-weight: var(--font-weight-bold);
+  --text-label-2: var(--text-xs);
+  --text-label-2--line-height: 1;
+  --text-label-2--letter-spacing: -0.01em;
+  --text-label-2--font-weight: var(--font-weight-normal);
+  --text-label-2-bold: var(--text-xs);
+  --text-label-2-bold--line-height: 1;
+  --text-label-2-bold--letter-spacing: -0.015em;
+  --text-label-2-bold--font-weight: var(--font-weight-bold);
+  --text-label-3: var(--text-2xs);
+  --text-label-3--line-height: 1;
+  --text-label-3--letter-spacing: -0.01em;
+  --text-label-3--font-weight: var(--font-weight-normal);
+  --text-label-3-bold: var(--text-2xs);
+  --text-label-3-bold--line-height: 1;
+  --text-label-3-bold--letter-spacing: -0.015em;
+  --text-label-3-bold--font-weight: var(--font-weight-bold);
+  --text-other-store-card: var(--text-sm);
+  --text-other-store-card--line-height: 1.24;
+  --text-other-store-card--letter-spacing: -0.01em;
+  --text-other-store-card--font-weight: var(--font-weight-normal);
+  --text-other-price-1: var(--text-xs);
+  --text-other-price-1--line-height: 1;
+  --text-other-price-1--letter-spacing: -0.01em;
+  --text-other-price-1--font-weight: var(--font-weight-normal);
+  --text-other-price-2: var(--text-2xs);
+  --text-other-price-2--line-height: 1;
+  --text-other-price-2--letter-spacing: -0.01em;
+  --text-other-price-2--font-weight: var(--font-weight-normal);
+}
+
+/* 다크 모드: Semantic 토큰을 여기서 재정의한다 (Primitive·컴포넌트 불변).
+ * TODO: Figma 에 Dark mode 값이 등록되면 채운다. 현재 Figma 는 Light 단일. */

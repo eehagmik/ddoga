@@ -1,0 +1,185 @@
+{
+  "color": {
+    "$description": "Primitive — 원시 색상 팔레트. Figma \"또하나3.0 Design System / Primitive Color\"와 1:1. hex 원본 유지. 컴포넌트 직접 참조 금지 (Semantic 경유).",
+
+    "red": {
+      "$description": "Red",
+      "10": { "$value": "#fffafa", "$type": "color" },
+      "30": { "$value": "#fff0f0", "$type": "color" },
+      "60": { "$value": "#ffe5e6", "$type": "color" },
+      "100": { "$value": "#ffd3d4", "$type": "color" },
+      "200": { "$value": "#ffb9ba", "$type": "color" },
+      "300": { "$value": "#ff8b8b", "$type": "color" },
+      "400": { "$value": "#ff6670", "$type": "color" },
+      "500": { "$value": "#f84b55", "$type": "color" },
+      "600": { "$value": "#e12a3c", "$type": "color" },
+      "700": { "$value": "#bd0c1e", "$type": "color" },
+      "800": { "$value": "#9b0010", "$type": "color" },
+      "900": { "$value": "#6f000b", "$type": "color" }
+    },
+
+    "orange": {
+      "$description": "Orange",
+      "10": { "$value": "#fff7eb", "$type": "color" },
+      "30": { "$value": "#fff4e0", "$type": "color" },
+      "60": { "$value": "#ffedcc", "$type": "color" },
+      "100": { "$value": "#ffdfaa", "$type": "color" },
+      "200": { "$value": "#ffcb6f", "$type": "color" },
+      "300": { "$value": "#ffb459", "$type": "color" },
+      "400": { "$value": "#ff9339", "$type": "color" },
+      "500": { "$value": "#f2711c", "$type": "color" },
+      "600": { "$value": "#d24c09", "$type": "color" },
+      "700": { "$value": "#a9340a", "$type": "color" },
+      "800": { "$value": "#912807", "$type": "color" },
+      "900": { "$value": "#6a1900", "$type": "color" }
+    },
+
+    "yellow": {
+      "$description": "Yellow",
+      "10": { "$value": "#fffbe5", "$type": "color" },
+      "30": { "$value": "#fff9c7", "$type": "color" },
+      "60": { "$value": "#fff6b2", "$type": "color" },
+      "100": { "$value": "#fff28f", "$type": "color" },
+      "200": { "$value": "#ffe656", "$type": "color" },
+      "300": { "$value": "#ffd745", "$type": "color" },
+      "400": { "$value": "#fcc500", "$type": "color" },
+      "500": { "$value": "#f4b02a", "$type": "color" },
+      "600": { "$value": "#db9024", "$type": "color" },
+      "700": { "$value": "#a86112", "$type": "color" },
+      "800": { "$value": "#844405", "$type": "color" },
+      "900": { "$value": "#703900", "$type": "color" }
+    },
+
+    "green": {
+      "$description": "Green",
+      "10": { "$value": "#effffa", "$type": "color" },
+      "30": { "$value": "#e4fbf3", "$type": "color" },
+      "60": { "$value": "#d2f9ec", "$type": "color" },
+      "100": { "$value": "#b8efde", "$type": "color" },
+      "200": { "$value": "#7be0c0", "$type": "color" },
+      "300": { "$value": "#48cda4", "$type": "color" },
+      "400": { "$value": "#27be8f", "$type": "color" },
+      "500": { "$value": "#00af78", "$type": "color" },
+      "600": { "$value": "#029261", "$type": "color" },
+      "700": { "$value": "#007a54", "$type": "color" },
+      "800": { "$value": "#006142", "$type": "color" },
+      "900": { "$value": "#014b34", "$type": "color" }
+    },
+
+    "blue": {
+      "$description": "Blue",
+      "10": { "$value": "#f5f8ff", "$type": "color" },
+      "30": { "$value": "#f0f4ff", "$type": "color" },
+      "60": { "$value": "#e5eeff", "$type": "color" },
+      "100": { "$value": "#d0ddff", "$type": "color" },
+      "200": { "$value": "#b5caff", "$type": "color" },
+      "300": { "$value": "#97b4ff", "$type": "color" },
+      "400": { "$value": "#789eff", "$type": "color" },
+      "500": { "$value": "#5383ff", "$type": "color" },
+      "600": { "$value": "#3c6cff", "$type": "color" },
+      "700": { "$value": "#2b58dd", "$type": "color" },
+      "800": { "$value": "#153eb7", "$type": "color" },
+      "900": { "$value": "#0a2a8f", "$type": "color" }
+    },
+
+    "purple": {
+      "$description": "Purple",
+      "10": { "$value": "#f9f6fe", "$type": "color" },
+      "30": { "$value": "#f6f2ff", "$type": "color" },
+      "60": { "$value": "#f3ecfe", "$type": "color" },
+      "100": { "$value": "#e9d8fd", "$type": "color" },
+      "200": { "$value": "#d6bcfa", "$type": "color" },
+      "300": { "$value": "#c0a4ff", "$type": "color" },
+      "400": { "$value": "#b290ff", "$type": "color" },
+      "500": { "$value": "#9d75f8", "$type": "color" },
+      "600": { "$value": "#8b64e6", "$type": "color" },
+      "700": { "$value": "#744dc8", "$type": "color" },
+      "800": { "$value": "#58389d", "$type": "color" },
+      "900": { "$value": "#3e2b6a", "$type": "color" }
+    },
+
+    "pink": {
+      "$description": "Pink",
+      "10": { "$value": "#fff5f7", "$type": "color" },
+      "30": { "$value": "#fef1f5", "$type": "color" },
+      "60": { "$value": "#feecf2", "$type": "color" },
+      "100": { "$value": "#fed7e2", "$type": "color" },
+      "200": { "$value": "#fbb6ce", "$type": "color" },
+      "300": { "$value": "#ff96c0", "$type": "color" },
+      "400": { "$value": "#ff80bd", "$type": "color" },
+      "500": { "$value": "#f161ab", "$type": "color" },
+      "600": { "$value": "#d34296", "$type": "color" },
+      "700": { "$value": "#b33082", "$type": "color" },
+      "800": { "$value": "#88256a", "$type": "color" },
+      "900": { "$value": "#680e4c", "$type": "color" }
+    },
+
+    "gray": {
+      "$description": "Gray",
+      "10": { "$value": "#f6f6f6", "$type": "color" },
+      "30": { "$value": "#f3f3f3", "$type": "color" },
+      "60": { "$value": "#eeeeee", "$type": "color" },
+      "100": { "$value": "#d9d9d9", "$type": "color" },
+      "200": { "$value": "#c5c5c5", "$type": "color" },
+      "300": { "$value": "#ababab", "$type": "color" },
+      "400": { "$value": "#969696", "$type": "color" },
+      "500": { "$value": "#878787", "$type": "color" },
+      "600": { "$value": "#717171", "$type": "color" },
+      "700": { "$value": "#5a5a5a", "$type": "color" },
+      "800": { "$value": "#4a4a4a", "$type": "color" },
+      "900": { "$value": "#3a3a3a", "$type": "color" },
+      "950": { "$value": "#272727", "$type": "color" }
+    },
+
+    "green-gray": {
+      "$description": "Green Gray (Figma: greenGray). 램프 + 알파 램프(Figma: Monotone, base #80908b).",
+      "10": { "$value": "#f5f8f7", "$type": "color" },
+      "30": { "$value": "#eff6f3", "$type": "color" },
+      "60": { "$value": "#e6efeb", "$type": "color" },
+      "100": { "$value": "#d3ded9", "$type": "color" },
+      "200": { "$value": "#c2ccc7", "$type": "color" },
+      "300": { "$value": "#a6b3ad", "$type": "color" },
+      "400": { "$value": "#8b9b93", "$type": "color" },
+      "500": { "$value": "#80908b", "$type": "color" },
+      "600": { "$value": "#6a7a75", "$type": "color" },
+      "700": { "$value": "#54605a", "$type": "color" },
+      "800": { "$value": "#424e4a", "$type": "color" },
+      "900": { "$value": "#313b36", "$type": "color" },
+      "950": { "$value": "#202925", "$type": "color" },
+      "a00": { "$value": "#80908b00", "$type": "color" },
+      "a05": { "$value": "#80908b0d", "$type": "color" },
+      "a10": { "$value": "#80908b1a", "$type": "color" },
+      "a15": { "$value": "#80908b26", "$type": "color" },
+      "a20": { "$value": "#80908b33", "$type": "color" },
+      "a40": { "$value": "#80908b66", "$type": "color" },
+      "a60": { "$value": "#80908b99", "$type": "color" },
+      "a80": { "$value": "#80908bcc", "$type": "color" }
+    },
+
+    "black": {
+      "$description": "고정 뉴트럴 + 알파 램프 Black",
+      "pure": { "$value": "#000000", "$type": "color" },
+      "a00": { "$value": "#00000000", "$type": "color" },
+      "a05": { "$value": "#0000000d", "$type": "color" },
+      "a10": { "$value": "#0000001a", "$type": "color" },
+      "a15": { "$value": "#00000026", "$type": "color" },
+      "a20": { "$value": "#00000033", "$type": "color" },
+      "a40": { "$value": "#00000066", "$type": "color" },
+      "a60": { "$value": "#00000099", "$type": "color" },
+      "a80": { "$value": "#000000cc", "$type": "color" }
+    },
+
+    "white": {
+      "$description": "고정 뉴트럴 + 알파 램프 White",
+      "pure": { "$value": "#ffffff", "$type": "color" },
+      "a00": { "$value": "#ffffff00", "$type": "color" },
+      "a05": { "$value": "#ffffff0d", "$type": "color" },
+      "a10": { "$value": "#ffffff1a", "$type": "color" },
+      "a15": { "$value": "#ffffff26", "$type": "color" },
+      "a20": { "$value": "#ffffff33", "$type": "color" },
+      "a40": { "$value": "#ffffff66", "$type": "color" },
+      "a60": { "$value": "#ffffff99", "$type": "color" },
+      "a80": { "$value": "#ffffffcc", "$type": "color" }
+    }
+  }
+}

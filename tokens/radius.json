@@ -1,0 +1,17 @@
+{
+  "radius": {
+    "$description": "Radius (semantic → sz 별칭). Figma radius/<t> 와 1:1. Tailwind rounded-<t> 자동 생성.",
+    "xs": { "$value": "{sz.4}", "$type": "dimension", "$description": "4" },
+    "sm": { "$value": "{sz.6}", "$type": "dimension", "$description": "6" },
+    "md": { "$value": "{sz.8}", "$type": "dimension", "$description": "8" },
+    "lg": { "$value": "{sz.10}", "$type": "dimension", "$description": "10" },
+    "xl": { "$value": "{sz.12}", "$type": "dimension", "$description": "12" },
+    "2xl": { "$value": "{sz.16}", "$type": "dimension", "$description": "16" },
+    "3xl": { "$value": "{sz.20}", "$type": "dimension", "$description": "20" },
+    "circle": {
+      "$value": "{sz.9999}",
+      "$type": "dimension",
+      "$description": "원형·pill"
+    }
+  }
+}

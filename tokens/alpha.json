@@ -1,0 +1,32 @@
+{
+  "alpha": {
+    "$description": "Alpha (투명도 스케일). Figma \"또가3.0 Design System / Alpha\" (node 2327:4758) alpha/<NN> 와 1:1. 값=소수(퍼센트/100). opacity 배수용. --color-*-a<NN> 알파 컬러 램프와는 별개.",
+    "00": {
+      "$value": "0",
+      "$type": "number",
+      "$description": "0%  — 완전 투명"
+    },
+    "05": {
+      "$value": "0.05",
+      "$type": "number",
+      "$description": "5%  — 극히 옅은 (구분선·hover 힌트)"
+    },
+    "10": { "$value": "0.1", "$type": "number", "$description": "10%" },
+    "20": {
+      "$value": "0.2",
+      "$type": "number",
+      "$description": "20% — 비활성(disabled) 요소"
+    },
+    "40": {
+      "$value": "0.4",
+      "$type": "number",
+      "$description": "40% — dim 오버레이"
+    },
+    "60": { "$value": "0.6", "$type": "number", "$description": "60%" },
+    "80": {
+      "$value": "0.8",
+      "$type": "number",
+      "$description": "80% — 거의 불투명"
+    }
+  }
+}

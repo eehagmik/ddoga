@@ -1,0 +1,30 @@
+{
+  "layout": {
+    "$description": "Layout (앱 셸 · 뷰포트 · 그리드). Figma \"또하나의가족 브랜드 파운데이션 / Grid\" (node 1:7) breakpoint(mobile) 와 1:1. Tailwind 유틸 자동 생성 안 됨 → var(--layout-*) 로 참조.",
+    "viewport-min": {
+      "$value": "360px",
+      "$type": "dimension",
+      "$description": "지원 최소 폭 (미만이면 가로 스크롤)"
+    },
+    "viewport-max": {
+      "$value": "520px",
+      "$type": "dimension",
+      "$description": "앱 셸 최대 폭, 초과 시 중앙 정렬"
+    },
+    "margin": {
+      "$value": "{sz.20}",
+      "$type": "dimension",
+      "$description": "앱 셸 좌우 바깥 여백 (20)"
+    },
+    "gutter": {
+      "$value": "{sz.16}",
+      "$type": "dimension",
+      "$description": "그리드 컬럼 사이 간격 (16)"
+    },
+    "columns": {
+      "$value": "4",
+      "$type": "number",
+      "$description": "그리드 컬럼 수"
+    }
+  }
+}

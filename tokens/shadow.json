@@ -1,0 +1,78 @@
+{
+  "shadow": {
+    "$description": "Shadow (효과). Figma \"또가3.0 Design System / Shadow\" (node 106:181) Effect 와 1:1. offset·blur 는 sz 조립, 색은 color.shadow / color.border 참조. Tailwind shadow-<group>-<step> 자동 생성.",
+
+    "black-xs": {
+      "$value": "0 {sz.1} {sz.2} {color.shadow.black-light}, 0 {sz.2} {sz.4} {color.shadow.black-normal}",
+      "$type": "shadow"
+    },
+    "black-sm": {
+      "$value": "0 {sz.1} {sz.4} {color.shadow.black-light}, 0 {sz.4} {sz.8} {color.shadow.black-normal}",
+      "$type": "shadow"
+    },
+    "black-md": {
+      "$value": "0 {sz.2} {sz.6} {color.shadow.black-light}, 0 {sz.6} {sz.12} {color.shadow.black-normal}",
+      "$type": "shadow"
+    },
+    "black-lg": {
+      "$value": "0 {sz.3} {sz.8} {color.shadow.black-light}, 0 {sz.8} {sz.20} {color.shadow.black-normal}",
+      "$type": "shadow"
+    },
+    "black-xl": {
+      "$value": "0 {sz.4} {sz.10} {color.shadow.black-light}, 0 {sz.14} {sz.28} {color.shadow.black-normal}",
+      "$type": "shadow"
+    },
+
+    "greenGray-xs": {
+      "$value": "0 {sz.1} {sz.2} {color.shadow.greenGray-light}, 0 {sz.2} {sz.4} {color.shadow.greenGray-normal}",
+      "$type": "shadow"
+    },
+    "greenGray-sm": {
+      "$value": "0 {sz.1} {sz.4} {color.shadow.greenGray-light}, 0 {sz.4} {sz.8} {color.shadow.greenGray-normal}",
+      "$type": "shadow"
+    },
+    "greenGray-md": {
+      "$value": "0 {sz.2} {sz.6} {color.shadow.greenGray-light}, 0 {sz.6} {sz.12} {color.shadow.greenGray-normal}",
+      "$type": "shadow"
+    },
+    "greenGray-lg": {
+      "$value": "0 {sz.3} {sz.8} {color.shadow.greenGray-light}, 0 {sz.8} {sz.20} {color.shadow.greenGray-normal}",
+      "$type": "shadow"
+    },
+    "greenGray-xl": {
+      "$value": "0 {sz.4} {sz.10} {color.shadow.greenGray-light}, 0 {sz.14} {sz.28} {color.shadow.greenGray-normal}",
+      "$type": "shadow"
+    },
+
+    "bottomNav": {
+      "$value": "0 calc({sz.8} * -1) {sz.8} {color.shadow.greenGray-light}, 0 calc({sz.8} * -1) {sz.20} {color.shadow.greenGray-normal}",
+      "$type": "shadow",
+      "$description": "하단 네비 위로 뜨는 그림자 (음수 Y offset), greenGray"
+    },
+
+    "borderNeutral-xs": {
+      "$value": "inset 0 0 0 {sz.1} {color.border.neutral-light}",
+      "$type": "shadow"
+    },
+    "borderNeutral-sm": {
+      "$value": "inset 0 0 0 {sz.2} {color.border.neutral-light}",
+      "$type": "shadow"
+    },
+    "borderNeutral-md": {
+      "$value": "inset 0 0 0 {sz.3} {color.border.neutral-light}",
+      "$type": "shadow"
+    },
+    "borderBrand-xs": {
+      "$value": "inset 0 0 0 {sz.1} {color.border.brand-normal}",
+      "$type": "shadow"
+    },
+    "borderBrand-sm": {
+      "$value": "inset 0 0 0 {sz.2} {color.border.brand-normal}",
+      "$type": "shadow"
+    },
+    "borderBrand-md": {
+      "$value": "inset 0 0 0 {sz.3} {color.border.brand-normal}",
+      "$type": "shadow"
+    }
+  }
+}

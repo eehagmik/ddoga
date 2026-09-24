@@ -1,0 +1,15 @@
+{
+  "border-width": {
+    "$description": "Border Width (semantic → sz 별칭). Figma borderWidth/<t> 와 1:1. Tailwind border-<t> 자동 생성.",
+    "2xs": {
+      "$value": "0.5px",
+      "$type": "dimension",
+      "$description": "0.5 (sz 에 없음)"
+    },
+    "xs": { "$value": "{sz.1}", "$type": "dimension", "$description": "1" },
+    "sm": { "$value": "{sz.2}", "$type": "dimension", "$description": "2" },
+    "md": { "$value": "{sz.3}", "$type": "dimension", "$description": "3" },
+    "lg": { "$value": "{sz.4}", "$type": "dimension", "$description": "4" },
+    "xl": { "$value": "{sz.6}", "$type": "dimension", "$description": "6" }
+  }
+}

@@ -1,0 +1,630 @@
+{
+  "_설명": "Figma Code Connect 매핑. Claude Code에서 get_code_connect_suggestions 실행 후 자동 생성됨.",
+  "mappings": {
+    "51405:85581": {
+      "component": "IconButton",
+      "source": "src/components/ui/IconButton/IconButton.tsx",
+      "figmaName": "IconButton",
+      "props": {
+        "children": { "figmaLayer": "BlankIcon", "type": "slot" },
+        "badge": {
+          "figmaProp": "badgeType",
+          "values": ["dot", "number"]
+        },
+        "disabled": {
+          "figmaProp": "state",
+          "when": "disabled",
+          "type": "boolean"
+        }
+      },
+      "notes": "Icon 중심 맨아이콘 버튼. 문서 페이지 51405:85581 / 메인 컴포넌트 51405:94614. 배경·테두리·radius 없음(ButtonWithIcon 과 별개), 우측 상단 배지만 선택적으로 얹음 — Dot(size xs/color red)·BadgeNumber(size xs) 컴포넌트 재사용. Figma 의 badgeType(dot/number) + badge(bool) 두 축을 코드에선 badge?: 'dot' | 'number' 하나로 통합(생략 시 배지 노드 미렌더). count/max 는 badge='number' 일 때 BadgeNumber 로 전달(Figma 는 '0' 정적). state=enabled/disabled → disabled boolean(네이티브 + 아이콘 wrapper 에만 opacity var(--alpha-40), 배지는 불변). Figma 에 color·size·hover·focus·pressed 축 없음 → 색은 currentColor 상속(className 오버라이드), 크기 24 고정, hover 없이 focus-visible opacity var(--alpha-60) 만(ClearButton 선례). aria-label 은 Figma 미정의라 코드에서 필수 prop 으로 부여. 배지 위치 오프셋 -top/-right 는 var(--sz-2/3/6)."
+    },
+    "51405:48796": {
+      "component": "CheckSelectRadio",
+      "source": "src/components/ui/CheckSelectRadio/CheckSelectRadio.tsx",
+      "figmaName": "CheckSelectRadio",
+      "props": {
+        "checked": { "figmaProp": "checked", "type": "boolean" },
+        "children": { "figmaLayer": "label", "type": "text" },
+        "startSlot": { "figmaLayer": "slotContents", "type": "slot" }
+      },
+      "notes": "목록 선택 행. Checkbox 아톰(variant=mark, size=md)을 우측 체크 표시로 합성 — 미선택 시 래퍼 opacity-0. 루트 <label class=\"group\"> + visually-hidden <input>. state=hover→group-hover:, state=focuse→group-focus-within: (둘 다 라벨 typo/brand/dark). checked→라벨 typo/brand/deep Bold. type prop(radio 기본/checkbox)은 Figma 범위 밖 확장. slot boolean 토글은 presence 기반이라 매핑 없음. Figma 심볼 3개(enable/hover unchecked, focuse checked) — disabled·indeterminate 없음."
+    },
+    "51405:45384": {
+      "component": "Checkbox",
+      "source": "src/components/ui/Checkbox/Checkbox.tsx",
+      "figmaName": "Checkbox",
+      "props": {
+        "variant": {
+          "figmaProp": "variant",
+          "values": ["circle", "square", "mark"]
+        },
+        "size": { "figmaProp": "size", "values": ["sm", "md", "lg"] },
+        "checked": { "figmaProp": "checked", "type": "boolean" },
+        "disabled": {
+          "figmaProp": "state",
+          "when": "disabled",
+          "type": "boolean"
+        }
+      },
+      "notes": "state=hover 는 코드에서 hover:/group-hover: 유틸로 처리(props 아님). Figma 에 focus·pressed·indeterminate 없음."
+    },
+    "51405:45495": {
+      "component": "CheckboxWithLabel",
+      "source": "src/components/ui/CheckboxWithLabel/CheckboxWithLabel.tsx",
+      "figmaName": "CheckboxWithLabel",
+      "props": {
+        "variant": {
+          "figmaProp": "variant",
+          "values": ["circle", "square", "mark"]
+        },
+        "size": { "figmaProp": "size", "values": ["sm", "md", "lg"] },
+        "checked": { "figmaProp": "checked", "type": "boolean" },
+        "bold": { "figmaProp": "bold", "type": "boolean" },
+        "disabled": {
+          "figmaProp": "state",
+          "when": "disabled",
+          "type": "boolean"
+        },
+        "children": { "figmaLayer": "Label", "type": "text" }
+      },
+      "notes": "Checkbox 아톰을 합성. 루트 <label class=\"group\"> + visually-hidden <input type=checkbox>. state=hover 는 :hover, focus 는 peer-focus-visible:opacity dip. Figma 에 focus·indeterminate 없음."
+    },
+    "51405:45930": {
+      "component": "CheckboxCard",
+      "source": "src/components/ui/CheckboxCard/CheckboxCard.tsx",
+      "figmaName": "CheckboxCard",
+      "props": {
+        "size": { "figmaProp": "size", "values": ["sm", "md", "lg"] },
+        "checked": { "figmaProp": "checked", "type": "boolean" },
+        "disabled": {
+          "figmaProp": "state",
+          "when": "disabled",
+          "type": "boolean"
+        },
+        "label": { "figmaProp": "label", "type": "text" },
+        "subTextValue": { "figmaProp": "subTextValue", "type": "text" },
+        "children": { "figmaLayer": "slotContents", "type": "slot" }
+      },
+      "notes": "Checkbox 아톰(항상 circle, lg 카드는 md 아톰)을 합성. 루트 <label class=\"group\"> + visually-hidden <input type=checkbox>, 카드 전체가 히트영역. state=hover 는 카드 표면 hover:(checked 무관 배경 bg/brandGrayish/deep + brand 외곽선) + 아톰 group-hover:, focus 는 peer-focus-visible:opacity dip. checked=true 는 배경 bg/brand/bright + brand 2px 외곽선 + 라벨 typo/brand/dark bold. Figma variant(circle/square/mark)·focus·indeterminate 축 없음. Figma 가시성 토글 프로퍼티(subText·slot boolean)는 코드에선 presence 기반(subTextValue/children 있으면 렌더)이라 매핑 없음. slotContents 빨간 점선은 디자인 표식이라 미렌더."
+    },
+    "51405:52642": {
+      "component": "Chip",
+      "source": "src/components/ui/Chip/Chip.tsx",
+      "figmaName": "Chip",
+      "props": {
+        "color": {
+          "figmaProp": "color",
+          "values": ["neutral", "danger", "info", "warning", "brand"]
+        },
+        "variant": {
+          "figmaProp": "variant",
+          "values": ["fill", "bright", "outline"]
+        },
+        "size": { "figmaProp": "size", "values": ["xs", "sm"] },
+        "bold": { "figmaProp": "bold", "type": "boolean" },
+        "deletable": { "figmaProp": "deletable", "type": "boolean" },
+        "startType": {
+          "figmaProp": "startType",
+          "values": ["icon", "graphic"]
+        },
+        "startSlot": {
+          "figmaProp": "startBlank",
+          "when": true,
+          "type": "slot"
+        },
+        "children": { "figmaLayer": "label", "type": "text" }
+      },
+      "notes": "state=enable/hover/focus 는 코드에서 CSS 의사클래스로 처리(props 아님). hover/focus 는 deletable=true 조합에만 존재(group-hover:/group-focus-within: 배경 딥 + 삭제 버튼 focus opacity --alpha-60). Figma 에 disabled/selected/pressed 없음. leading 슬롯만 존재하고 trailing 은 삭제 버튼 전용."
+    },
+    "51405:67447": {
+      "component": "ClearButton",
+      "source": "src/components/ui/ClearButton/ClearButton.tsx",
+      "figmaName": "ClearButton",
+      "props": {
+        "size": { "figmaProp": "size", "values": ["xs", "sm", "md"] }
+      },
+      "notes": "size(14/16/18)가 유일한 축. Figma 에 variant/color/state 축 없음 → hover/pressed 스타일 없이 focus-visible 만 CSS 로 처리(TopButton 선례), disabled 는 네이티브 <button disabled> 기본 동작. 글리프는 x_circle_solid(채운 원 + x)로 Chip 삭제 버튼의 x_close_solid 와 구분(가이드 원칙: IconButton X버튼과 따로 구분). 아이콘 색 icon/neutral/bright 고정, 색 오버라이드는 className. label(aria-label)은 Figma 미정의라 코드에서 부여."
+    },
+    "51405:152870": {
+      "component": "Toggle",
+      "source": "src/components/ui/Toggle/Toggle.tsx",
+      "figmaName": "Toggle",
+      "props": {
+        "variant": {
+          "figmaProp": "variant",
+          "values": ["square", "round", "text"]
+        },
+        "type": {
+          "figmaProp": "type",
+          "values": ["multi", "single"]
+        },
+        "size": { "figmaProp": "size", "values": ["xs", "sm", "md", "lg"] },
+        "pressed": { "figmaProp": "checked", "type": "boolean" },
+        "disabled": {
+          "figmaProp": "state",
+          "when": "disabled",
+          "type": "boolean"
+        },
+        "children": { "figmaLayer": "label", "type": "text" }
+      },
+      "notes": "on/off 스위치 아님 — 라벨을 담는 선택형 토글 버튼(Chip 과 형태·토큰 패턴 유사). 인터랙티브 <button type=button>, controlled(pressed)+uncontrolled(defaultPressed)+onPressedChange. Figma checked → 코드 pressed. Figma type(multiSelect/singleSelect)는 시각 영향 0 이며 ARIA 만 가른다: multi→aria-pressed, single→role=radio+aria-checked. 아웃라인은 border 가 아니라 inset shadow(shadow-borderNeutral-xs 1px / shadow-borderBrand-xs 1px hover / shadow-borderBrand-sm 2px checked / shadow-borderNeutral-sm 2px disabled checked). state=hover 는 CSS :hover(unchecked 조합에만 — checked+hover 심볼이 Figma 에 없어 checked enable 스타일 유지). focus-visible/active 는 루트 opacity --alpha-80(Button 선례, 포커스 링 없음). variant=text 는 배경·아웃라인 없고 좌우 padding 0 + 가로 Hug. round 는 square 대비 md·lg 만 좌우 +2px, radius 는 rounded-circle. Figma 에 focus·pressed 시각 상태 없음."
+    },
+    "51405:128241": {
+      "component": "Radio",
+      "source": "src/components/ui/Radio/Radio.tsx",
+      "figmaName": "Radio",
+      "props": {
+        "size": { "figmaProp": "size", "values": ["sm", "md", "lg"] },
+        "checked": { "figmaProp": "checked", "type": "boolean" },
+        "disabled": {
+          "figmaProp": "state",
+          "when": "disabled",
+          "type": "boolean"
+        }
+      },
+      "notes": "state=hover 는 코드에서 hover:/group-hover: 유틸로 처리(props 아님). Figma 에 variant(circle/square/mark)·focus·pressed 축이 없다 — 항상 원형. 내부 점(circle_solid)은 단순 채워진 원이라 Checkbox 의 커스텀 path 대신 배경색 span 으로 표현. Checkbox 대비 차이(Figma 실측): checked+disabled 배경이 bg/disabled/deep(Checkbox 는 bg/disabled/normal), disabled 상태 점은 opacity-40% 를 적용하지 않는다(Checkbox 체크마크는 disabled 에도 40% 유지)."
+    },
+    "51405:128280": {
+      "component": "RadioWithLabel",
+      "source": "src/components/ui/RadioWithLabel/RadioWithLabel.tsx",
+      "figmaName": "RadioWithLabel",
+      "props": {
+        "size": { "figmaProp": "size", "values": ["sm", "md", "lg"] },
+        "checked": { "figmaProp": "checked", "type": "boolean" },
+        "bold": { "figmaProp": "isBold", "type": "boolean" },
+        "disabled": {
+          "figmaProp": "state",
+          "when": "disabled",
+          "type": "boolean"
+        },
+        "children": { "figmaLayer": "labelValue", "type": "text" }
+      },
+      "notes": "Radio 아톰을 합성. 루트 <label class=\"group\"> + visually-hidden <input type=radio>. state=hovered 는 :hover, focus 는 peer-focus-visible:opacity dip. 라벨 색은 checked 와 무관(CheckboxWithLabel 과 동일 규칙, CheckboxCard 와 달리 브랜드색으로 안 바뀜). 같은 그룹 내 단일 선택은 Figma 범위 밖 — 별도 RadioGroup 없이 name 공유 + controlled(checked+onChange) 패턴을 권장."
+    },
+    "51405:128427": {
+      "component": "RadioCard",
+      "source": "src/components/ui/RadioCard/RadioCard.tsx",
+      "figmaName": "RadioCard",
+      "props": {
+        "size": { "figmaProp": "size", "values": ["sm", "md", "lg"] },
+        "checked": { "figmaProp": "checked", "type": "boolean" },
+        "disabled": {
+          "figmaProp": "state",
+          "when": "disabled",
+          "type": "boolean"
+        },
+        "label": { "figmaProp": "label", "type": "text" },
+        "subTextValue": { "figmaProp": "subTextValue", "type": "text" },
+        "children": { "figmaLayer": "contentsSlot", "type": "slot" }
+      },
+      "notes": "Radio 아톰(lg 카드는 md 아톰)을 합성. 루트 <label class=\"group\"> + visually-hidden <input type=radio>, 카드 전체가 히트영역. state=hover 는 카드 표면 hover:(checked 무관 배경 bg/brandGrayish/deep + brand 외곽선) + 아톰 group-hover:, focus 는 peer-focus-visible:opacity dip. checked=true 는 배경 bg/brand/bright + brand 2px 외곽선 + 라벨 typo/brand/dark bold. CheckboxCard 와 규칙이 거의 동일하나 sm 라디오 래퍼 pt 가 --sz-2 로 다르다(Figma 실측, CheckboxCard 는 --sz-1). Figma 가시성 토글 프로퍼티(subText·contents boolean)는 코드에선 presence 기반이라 매핑 없음."
+    },
+    "51405:133464": {
+      "component": "Switch",
+      "source": "src/components/ui/Switch/Switch.tsx",
+      "figmaName": "Switch",
+      "props": {
+        "size": { "figmaProp": "size", "values": ["sm", "md"] },
+        "checked": { "figmaProp": "checked", "type": "boolean" },
+        "disabled": {
+          "figmaProp": "state",
+          "when": "disable",
+          "type": "boolean"
+        }
+      },
+      "notes": "on/off 를 즉시 토글하는 단일 인터랙티브 컨트롤(Toggle 과 달리 진짜 스위치). 문서 노드 51405:133456 / 메인 컴포넌트 51405:133464. 루트 <label class=\"group\"> + visually-hidden native <input type=checkbox role=switch class=\"peer sr-only\"> + 트랙 span + 썸 span. controlled(checked)+uncontrolled(defaultChecked)+네이티브 onChange 둘 다 지원, checked 외 input 속성은 ...rest 로 spread. Figma state=hover 는 props 아님 — group-hover: 유틸로 CSS 흡수(disabled 조합에는 미포함). focus 는 Figma 에 없어 프로젝트 관례대로 포커스 링 대신 peer-focus-visible:opacity-[var(--alpha-80)] opacity dip 을 트랙에 적용. off 테두리는 border 가 아니라 outline(outline outline-1 [outline-offset:-1px])으로 그린다 — Figma 가 stroke 를 레이아웃에서 제외하므로 border 로 그리면 box geometry 가 줄어 썸 이동 거리(sm 20px / md 22px)가 어긋나고 on↔off 레이아웃 시프트로 트랜지션 중 떨림이 생긴다. on 상태는 outline-transparent 로 두께만 유지. 썸 좌우 이동은 translateX + transition-transform(150ms, motion-reduce:transition-none)로 처리 — Figma 의 justify-end 정렬을 CSS transform 으로 대체한다. 색은 semantic bg 유틸, outline 색만 arbitrary value outline-[var(--color-border-*)]. 썸 그림자는 shadow-black-sm(Figma shadow/black/sm 와 1:1). disabled 는 전체 opacity dip 없이 트랙·썸 고정 disable 색(Figma 가 명시색 제공). SwitchWithLabel 은 만들지 않음 — 라벨이 필요하면 호출부에서 <label> 로 감싼다."
+    },
+    "51405:130405": {
+      "component": "Scroll",
+      "source": "src/components/ui/Scroll/Scroll.tsx",
+      "figmaName": "Scroll",
+      "props": {
+        "axis": {
+          "figmaProp": "type",
+          "values": ["vertical", "horizontal"],
+          "notes": "Figma vertical→code axis='y', horizontal→axis='x'. 1:1 프로퍼티 매핑이 아니라 의도적 재해석."
+        },
+        "children": { "type": "slot" }
+      },
+      "notes": "문서 페이지 51405:130393 / 메인 컴포넌트 51405:130405(내부 vertical 51405:130406 / horizontal 51405:130408). Figma 노드 개발자 주석: '스크롤 존재 여부를 나타내는 인디케이터일 뿐, 개발 시 커스텀 스타일 없이 OS 기본 스크롤 사용'. 그래서 div 기반 커스텀 트랙/썸 대신 네이티브 overflow-y-auto/overflow-x-auto 를 유지하고 scrollbar-width/scrollbar-color(표준) + ::-webkit-scrollbar*(구형 대응)로 색상만 토큰 오버라이드(track=bg-bg-overlay-greenGraySubtle, thumb=bg-bg-overlay-greenGrayDeep, radius=rounded-circle, thickness 목표치=var(--sz-2)). 커스텀 드래그/썸 포지셔닝 로직 없음. Figma 가 노출하는 실제 orientation/type variant 프로퍼티명은 라이브 Figma 재확인 필요(TODO)."
+    },
+    "51405:83959": {
+      "component": "Empty",
+      "source": "src/components/ui/Empty/Empty.tsx",
+      "figmaName": "Empty",
+      "props": {
+        "variant": {
+          "figmaProp": "variant",
+          "values": ["default", "empty", "error"]
+        },
+        "mainText": { "figmaLayer": "mainText", "type": "text" },
+        "subText": { "figmaLayer": "subText", "type": "text" },
+        "graphic": { "figmaLayer": "BlankGraphic", "type": "slot" },
+        "leftButton": {
+          "figmaLayer": "buttons > ButtonWithLabel[0]",
+          "type": "slot"
+        },
+        "rightButton": {
+          "figmaLayer": "buttons > ButtonWithLabel[1]",
+          "type": "slot"
+        }
+      },
+      "notes": "빈 상태(empty state). variant='default'(Figma 설명상 'Type=etc')는 그래픽을 자유 교체하는 슬롯(graphic, 생략 시 BlankGraphic 플레이스홀더), 'empty'/'error'는 고정 일러스트(notfound.png/error.png, 이미 src/assets/images 에 존재)를 쓰고 graphic prop 은 무시한다. 버튼은 Figma 설명('Button은 상황에 맞게 Style을 자유롭게 선택하여 사용')에 따라 고정 라벨이 아니라 leftButton/rightButton 슬롯 — ButtonWithLabel(outline neutral / fill brand)을 그대로 꽂아 쓴다. subText·버튼 행은 presence 기반(값이 없으면 미렌더)이라 Figma isButtons/subText1 같은 별도 boolean 매핑은 없다. 51405:83933 은 동일 컴포넌트의 문서화 페이지(스펙/props 테이블)라 별도 컴포넌트가 아니다."
+    },
+    "51405:6120": {
+      "component": "Avatar",
+      "source": "src/components/ui/Avatar/Avatar.tsx",
+      "figmaName": "Avatar",
+      "props": {
+        "size": {
+          "figmaProp": "size",
+          "values": ["xs", "sm", "md", "lg", "xl", "2xl"]
+        },
+        "type": {
+          "figmaProp": "type",
+          "values": ["person", "ltch", "add"]
+        },
+        "variant": {
+          "figmaProp": "variant",
+          "values": ["readOnly", "edit", "checkable"]
+        },
+        "checked": { "figmaProp": "checked", "type": "boolean" },
+        "src": { "figmaLayer": "BlankAvatar", "type": "slot" },
+        "onEditClick": {
+          "figmaLayer": "_parts/AvatarEditButton",
+          "type": "event"
+        }
+      },
+      "notes": "문서 노드 51405:6022 / 메인 컴포넌트 51405:6120. size 는 xs(24)/sm(32)/md(48)/lg(60)/xl(72)/2xl(84) 로 전 type/variant 공통(2026-09-16 확정) — Figma 원본은 type='add' 만 xl=76/2xl=96 으로 다르게 찍혀 있었으나 Figma 쪽 오타로 확인되어 코드에서는 72/84 로 통일했다. type='ltch' 는 또가에서 요양시설(장기요양기관)을 가리키는 내부 개발 약어 — person 과 이미지만 다를 뿐 항상 readOnly 취급(variant 무시)이며 비인터랙티브 <div>. type='person' 은 variant 에 따라 루트 엘리먼트가 갈린다: readOnly(기본)=<div>(2026-09-16 확정, 클릭 불가 요구로 변경 — 과거엔 <button>이었다), edit=<div>(편집 배지만 <button>), checkable=<button>(유일하게 루트 자체가 클릭 가능). type='add' 는 variant 와 무관하게 독립 렌더되는 '새 아바타 추가' 슬롯(점선 원 + plus_line) — Figma 원본은 <div> 지만 클릭 액션이라 코드에서는 <button> 으로 승격. 컬러 아바타 이미지 8종(src/assets/images/avatar/Person=*.svg)은 Figma 구조 밖 — Avatar 는 src prop 으로 주입만 받고 자체 import 하지 않는다. src 없을 때 기본 placeholder(2026-09-16 확정, 디자인팀 제공 자산): type='person' 은 src/assets/images/avatar/personPlaceholder.png(정사각·원형 마감 완료), type='ltch' 는 src/assets/images/placeholder/ltch.png(960×540 비정사각)를 object-cover object-center 로 렌더 — 비율 유지한 채 아바타 높이 기준으로 꽉 채우고 넘치는 폭은 중앙 크롭. edit 배지는 하위 파츠 노드 51405:6118(`_parts/AvatarEditButton`, 내부 아이콘 51405:6119 edit_02_solid) 실측 — size 별 지름 14/16/22/24/26/28 · 우측 오프셋 -4/-4/-2/-2/-2/0(기존 sz 토큰과 정확히 일치). **2026-09-16 변경**: variant='edit' 일 때 person 루트는 비인터랙티브 <div>(ltch 선례와 동일)로 바뀌었고, 편집 배지만 실제 <button type=\"button\">(onEditClick, aria-label 기본값 '아바타 편집', focus-visible opacity dip)이 되었다 — 과거엔 person 루트 전체가 버튼이라 아바타 이미지를 눌러도 편집이 트리거됐던 걸 정정(버튼-in-버튼 회피 목적도 겸함). 배지 아이콘 색도 text-icon-neutral-normal → text-icon-brandGrayish-normal 로 정정. checkable 링은 Figma 상 checked=false 시 DOM 에서 완전히 빠지는 구조(radial sweep 애니메이션, duration/easing MCP 로 확인 불가)지만, 코드에서는 사용자 확정 사항으로 항상 마운트해두고 opacity 150ms 페이드로 대체 — inset 오프셋(2/2/3/4/4/6px)이 borderWidth 토큰(sm/sm/md/lg/lg/xl)과 정확히 일치해 링을 border 로 그린다. Figma state=hover/pressed 축 없음 — focus-visible opacity dip 만 처리."
+    },
+    "51405:126122": {
+      "component": "MenuItem",
+      "source": "src/components/ui/MenuItem/MenuItem.tsx",
+      "figmaName": "MenuItem",
+      "props": {
+        "variant": {
+          "figmaProp": "variant",
+          "values": ["text", "icon", "graphic", "chip"]
+        },
+        "size": { "figmaProp": "size", "values": ["xs", "sm", "md", "lg"] },
+        "disabled": {
+          "figmaProp": "state",
+          "when": "disabled",
+          "type": "boolean"
+        },
+        "label": { "figmaProp": "labelValue", "type": "text" },
+        "children": {
+          "figmaLayer": "BlankIcon / BlankGraphic",
+          "type": "slot"
+        },
+        "chipLabel": {
+          "figmaLayer": "Chip > Label",
+          "type": "text"
+        }
+      },
+      "notes": "세로로 쌓이는 메뉴/리스트 행(row). HorizontalMenuButton(가로·chevron 포함)과 별개 컴포넌트 — chevron 없음, 우측 슬롯이 icon/graphic/중첩 Chip 4갈래. variant='icon'/'graphic' 우측 슬롯은 children 으로, 라벨 텍스트는 별도 label prop(기본 'Label')으로 노출(VerticalMenuButton 선례 — HorizontalMenuButton 처럼 children=라벨로 하면 슬롯과 충돌). variant='chip'(2026-09-13, 기존 'button'→'chip' 개명 및 ButtonWithLabel→Chip 전면 교체)은 Chip(color=brand, variant=fill, size 고정 xs — MenuItem size 와 무관)을 중첩하며 라벨은 chipLabel prop. 구조 결정(Figma 밖 확장, 사용자 승인): Chip 은 deletable 을 쓰지 않아 내부에 실제 <button> 이 없으므로(이전 ButtonWithLabel 중첩 때와 달리 버튼-in-버튼 충돌이 없음), 4개 variant 모두 루트를 <button> 으로 통일했다(hover:/focus-visible: 로 자기 상태 처리, disabled 네이티브). inner(라벨+슬롯) 의 focus 시 60% 투명도는 자손이라 group-focus-visible: 로 적용(루트 자신에게 group-* 를 걸면 셀프 적용 안 되는 버그 패턴 회피, CheckboxCard 선례). disabled 는 라벨 텍스트 색만 바꾸고 variant='chip' 의 중첩 Chip 에는 아무 영향이 없다(Figma 실측상 enable/disabled 상태의 Chip 마크업이 완전히 동일 — Chip 자체에 disabled 개념이 없음과 정합적). 배경 enable/disabled=bg-neutral-normal, hover/focus=bg-neutral-deep."
+    },
+    "51405:135814": {
+      "component": "Textarea",
+      "source": "src/components/ui/Textarea/Textarea.tsx",
+      "figmaName": "Textarea",
+      "props": {
+        "value": { "figmaProp": "hasValue/value", "type": "text" },
+        "placeholder": {
+          "figmaProp": "placeholder/placeholderValue",
+          "type": "text"
+        },
+        "disabled": {
+          "figmaProp": "state",
+          "values": ["disabled"]
+        },
+        "scrollable": {
+          "figmaProp": "scrollable",
+          "type": "boolean"
+        }
+      },
+      "notes": "테두리·배경 크롬이 없는 순수 여러 줄 입력 프리미티브(Input 과 동일한 아톰 위상). 요청받은 참고 노드 51405:135245 는 별도 컴포넌트가 아니라 이 컴포넌트의 Figma 페이지(canvas) 자체이며, 그 안의 Guide 프레임이 이 Textarea 와 형제 컴포넌트인 LineTextarea(node 51405:135837, 라벨/헬퍼텍스트/글자수 카운터/PartsInputLine 밑줄을 얹은 몰리큘 — Input↔TextField 관계와 동일 구조)를 나란히 문서화해 둔 것이다. 이번 구현 범위는 135814(Textarea)까지이며 LineTextarea 는 미구현. Figma state=enable/focus 는 이 아톰 자체에서 시각적으로 완전히 동일(밑줄색 변경 등은 LineTextarea 책임)해 focus 전용 CSS 를 추가하지 않았다. hasValue 는 별도 prop 없이 value 존재 여부로 판단. scrollable=true(기본) 는 Figma 의 별도 Scroll 데코 바 대신 Scroll 컴포넌트(node 51405:130405)와 동일한 scrollbar-color/::-webkit-scrollbar* 토큰을 textarea 자체 네이티브 스크롤에 직접 적용한다(Scroll 코멘트: OS 기본 스크롤 사용 + 트랙/썸 색만 토큰화)."
+    },
+    "51405:135837": {
+      "component": "LineTextarea",
+      "source": "src/components/ui/LineTextarea/LineTextarea.tsx",
+      "figmaName": "LineTextarea",
+      "props": {
+        "value": { "figmaProp": "hasValue/value", "type": "text" },
+        "placeholder": {
+          "figmaProp": "placeholder/placeholderValue",
+          "type": "text"
+        },
+        "danger": { "figmaProp": "state", "when": "danger", "type": "boolean" },
+        "disabled": {
+          "figmaProp": "state",
+          "when": "disabled",
+          "type": "boolean"
+        },
+        "label": { "figmaLayer": "Label > labelValue", "type": "text" },
+        "required": { "figmaLayer": "Label > principal", "type": "boolean" },
+        "onInfoClick": { "figmaLayer": "Label > IconButton", "type": "event" },
+        "helperText": { "figmaLayer": "HelperLabel > label", "type": "text" },
+        "maxLength": {
+          "figmaLayer": "CountLabel",
+          "type": "text",
+          "notes": "Figma 는 '1/500자' 정적 텍스트. 코드에선 네이티브 maxLength(글자수 제한 겸용)로 통합하고 현재 글자수는 value.length 로 계산한다."
+        },
+        "scrollable": {
+          "figmaLayer": "Textarea > scrollable",
+          "type": "boolean"
+        }
+      },
+      "notes": "Textarea(51405:135814) 아톰을 조합한 몰리큘 — Input→TextField 관계와 동일 구조(Figma 실측 코드도 실제 <Textarea state=... hasValue=... /> 인스턴스를 그대로 사용). Figma state=enable/hover/focus 는 CSS 의사클래스로 흡수(props 아님, Input 선례), danger/disabled 만 props. 라벨은 Label(51405:108505) 을 재사용하되 그 자체가 <div> 라 접근성 연결이 없어 실제 <label htmlFor> 로 감싼다(TextField 선례). 헬퍼는 HelperLabel(size=md, variant=default/danger, node 51405:161553)을 그대로 재사용. isLabel/isHelper/isInputCount/isOption 4개 boolean 토글은 label/helperText/maxLength presence 기반으로 통일했다 — Figma 실측 코드상 isInputCount 는 'enable && !hasValue' 심볼에서만 실제로 배선돼 있고 나머지 심볼(hover/focus/danger/disabled/enable+hasValue)에서는 카운터가 조건 없이 항상 렌더되는 프로퍼티 배선 누락이 있었다. 밑줄(PartsInputLine) 색은 hasValue 와 무관하게 state 로만 결정(enable/hover=neutral-deepDark, focus 시 brand-normal 전환, danger=danger-normal 상시, disabled=disabled-normal). Input 의 line 밑줄은 focus-within: 을 빈 밑줄 <div> 자기 자신에 걸어 실제로는 발동하지 않는 잠재 버그로 보여, 이 컴포넌트는 필드+밑줄의 공통 부모에 group 을 걸고 밑줄에 group-focus-within: 을 써서 실제로 동작하도록 의도적으로 정정했다. hover 는 필드 컨테이너 자기 자신에 hover:bg-bg-overlay-greenGraySubtle 틴트만 추가(danger/disabled 제외, Input 규칙과 동일). Figma 코멘트('최소 2줄~최대 5줄까지 노출 가능')는 rows 를 2~5 사이로 고르라는 사용 가이드로 해석 — Textarea 아톰이 고정 rows 기반(자동 grow 없음)이라 강제 clamp 는 구현하지 않았다."
+    },
+    "51405:67676": {
+      "component": "CountLabel",
+      "source": "src/components/ui/CountLabel/CountLabel.tsx",
+      "figmaName": "CountLabel",
+      "props": {
+        "color": {
+          "figmaProp": "color",
+          "values": ["black", "gray", "white"]
+        },
+        "size": { "figmaProp": "size", "values": ["sm", "md"] },
+        "currentCount": { "figmaProp": "currentCount", "type": "text" },
+        "totalCount": { "figmaProp": "totalCount", "type": "text" },
+        "unit": {
+          "figmaProp": "unitValue",
+          "type": "text",
+          "notes": "Figma 는 unit(boolean, 렌더 여부) + unitValue(text) 두 축이지만 코드는 unit(문자열) 하나로 통합 — 빈 문자열/undefined 면 미렌더(presence 기반)."
+        }
+      },
+      "notes": "\"값 / 총량 단위\" 숫자 표시. Swiper DirectionIndicator/ChipIndicator 등 값·총량을 숫자로 보여줘야 하는 위치에서 재사용. color(black/gray/white) × size(sm/md) 6 조합. color=\"white\" & size=\"md\" 조합만 unit 텍스트가 --text-xs 로 한 단계 작아지는 예외가 있다(Figma 실측 — 해당 조합만 별도 렌더 분기로 xs 폰트 unit 을 그린다). 값 그룹(현재값/구분자/총량) 내부 gap 은 size=\"md\" 일 때만 --sz-2, size=\"sm\" 은 밀착 — color 와는 무관. 값 그룹과 unit 사이 gap 은 size 와 무관하게 항상 --sz-2(루트 gap). Figma 기본 인스턴스 값(color=black/size=sm/currentCount=totalCount=\"0\")은 라이브러리 예시일 뿐이라 코드 기본값은 size=\"md\"(더 흔한 사용례)로 재조정했다. min-width 등 배치 스타일은 Figma 원본 노드에 바인딩이 없어 이 컴포넌트의 책임이 아니라 호출부(예: Swiper 의 DirectionIndicator wrapper)가 담당한다."
+    },
+    "51405:102224": {
+      "component": "DirectionIndicator",
+      "source": "src/components/ui/DirectionIndicator/DirectionIndicator.tsx",
+      "figmaName": "DirectionIndicator",
+      "props": {
+        "countable": { "figmaProp": "countable", "type": "boolean" },
+        "currentCount": {
+          "figmaLayer": "CountLabel > currentCount",
+          "type": "text"
+        },
+        "totalCount": {
+          "figmaLayer": "CountLabel > totalCount",
+          "type": "text"
+        },
+        "unit": {
+          "figmaLayer": "CountLabel > unitValue",
+          "type": "text"
+        }
+      },
+      "notes": "이전/다음 원형 버튼(32×32) + 가운데 CountLabel(color=black/size=md). 문서 페이지 51405:99701 / 메인 컴포넌트 51405:102224. 원래 Swiper.tsx 안에 인라인돼 있던 마크업을 독립 컴포넌트로 분리(예고됐던 리팩토링), Swiper 가 합성해서 쓴다. countable(boolean, 기본 true)은 최초 조사 요약에 없었고 재조회로 발견 — false 면 가운데 CountLabel 없이 버튼 2개만 남는다. 버튼 direction(prev/next)×state(enable/hover/focus) 3-state — hover=opacity-[var(--alpha-80)], focus=opacity-[var(--alpha-60)]. 가운데 영역에 Figma 상 scale/70 고정폭이 바인딩돼 있지만(두 자리 숫자까지 버튼이 안 흔들리게 하려는 의도) CountLabel 자체는 폭 스타일을 갖지 않기로 확정돼 있어 고정폭을 주지 않는다. 버튼 aria-label 은 Figma 에 텍스트 노드가 없어 기본값('이전 슬라이드'/'다음 슬라이드')을 코드에서 부여, prevLabel/nextLabel 로 오버라이드 가능. onPrev/onNext 는 Figma 범위 밖 이벤트 핸들러(호출부 책임)."
+    },
+    "51405:102231": {
+      "component": "ChipIndicator",
+      "source": "src/components/ui/ChipIndicator/ChipIndicator.tsx",
+      "figmaName": "ChipIndicator",
+      "props": {
+        "type": {
+          "figmaProp": "type",
+          "values": ["default", "onlyLabel", "onlyCount"]
+        },
+        "label": { "figmaProp": "labelValue", "type": "text" },
+        "currentCount": {
+          "figmaLayer": "CountLabel > currentCount",
+          "type": "text"
+        },
+        "totalCount": {
+          "figmaLayer": "CountLabel > totalCount",
+          "type": "text"
+        },
+        "unit": {
+          "figmaLayer": "CountLabel > unitValue",
+          "type": "text"
+        }
+      },
+      "notes": "콘텐츠 우하단에 얹는 반투명 배지형 카운트 표시(bg-bg-overlay-blackDeep, rounded-2xl, px-[var(--sz-10)] py-[var(--sz-8)]). 문서 페이지 51405:99701 / 메인 컴포넌트 51405:102231. 원래 Swiper.tsx 안에 인라인돼 있던 마크업을 독립 컴포넌트로 분리(예고됐던 리팩토링), Swiper 가 합성해서 쓴다(항상 type='default'). type(default=라벨+·+카운트 / onlyLabel=라벨만 / onlyCount=카운트만)은 최초 조사 요약에 없었고 재조회로 발견 — label/currentCount+totalCount+unit 만 있는 것으로 요약됐던 부분을 정정. 카운트 영역은 CountLabel(color=white/size=md)과 정확히 일치(값 --text-sm, unit 만 --text-xs 로 작아지는 예외가 CountLabel 자체에 이미 구현돼 있음). '·' 구분자는 type='default' 일 때만 렌더."
+    },
+    "51405:108505": {
+      "component": "Label",
+      "source": "src/components/ui/Label/Label.tsx",
+      "figmaName": "Label",
+      "props": {
+        "label": { "figmaLayer": "labelValue", "type": "text" },
+        "size": {
+          "figmaProp": "size",
+          "values": ["sm", "md"]
+        },
+        "isBold": { "figmaProp": "isBold", "type": "boolean" },
+        "principal": { "figmaProp": "principal", "type": "boolean" },
+        "info": { "figmaProp": "info", "type": "boolean" },
+        "onInfoClick": {
+          "figmaLayer": "IconButton",
+          "type": "event"
+        }
+      },
+      "notes": "입력 필드·폼 요소 위의 라벨 텍스트. Figma 에 state=hover/pressed 축 없음 → CSS 의사클래스 미사용. size(sm/md, 타이포 16/18px), isBold(Medium 500/Bold 700), principal(필수표시 * 렌더, 생략 시 true), info(정보 아이콘 렌더, 생략 시 true). 정보 아이콘은 clicable 버튼으로 Tooltip/BottomSheet 등 overlay 트리거용(onInfoClick). Figma MCP 로 icon SVG 2종(sm 16px/md 20px 다른 해상도) 제공, 두 크기 모두 info_circle_line 글리프."
+    },
+    "51405:14446": {
+      "component": "TextCard",
+      "source": "src/components/ui/TextCard/TextCard.tsx",
+      "figmaName": "TextCard",
+      "props": {
+        "title": { "figmaProp": "title", "type": "text" },
+        "titleLines": {
+          "type": "text",
+          "values": [1, 2],
+          "notes": "Figma 범위 밖 확장. dev 주석('제목 n줄이상 생략 조건은 기획에 맞춰 1,2줄 중 하나로 적용')에 따라 line-clamp 정책을 prop 으로 노출(기본 1)."
+        },
+        "badge": { "figmaProp": "badge", "type": "boolean" },
+        "dateValue": { "figmaProp": "dateValue", "type": "text" },
+        "showDate": {
+          "figmaProp": "deletable",
+          "type": "boolean",
+          "notes": "Figma 원본 prop 이름은 deletable 이었으나 실측 결과 삭제 기능과 무관하게 dateValue 줄 렌더 여부만 제어해 showDate 로 정정."
+        },
+        "startSlot": { "figmaProp": "startSlot", "type": "boolean" },
+        "startSlotContents": {
+          "figmaProp": "startSlotContents",
+          "type": "slot"
+        },
+        "endSlot": { "figmaProp": "endSlot", "type": "boolean" },
+        "endSlotContents": { "figmaProp": "endSlotContents", "type": "slot" },
+        "divider": { "figmaProp": "divider", "type": "boolean" },
+        "onClick": {
+          "type": "event",
+          "notes": "Figma 범위 밖 확장(사용자 승인) — 카드 전체 클릭 핸들러."
+        }
+      },
+      "notes": "Figma \"또가3.0 Design System / Card\" 문서 페이지(캔버스 51405:14293) 안의 형제 컴포넌트 3개(TextCard/ImageCard/GalleryCard) 중 하나 — 같은 페이지에 있을 뿐 서로 합성하지 않는 독립 컴포넌트. Figma 심볼은 state=enable/hover/focus 3개뿐(disabled·pressed 없음) — props 가 아니라 CSS 의사클래스(hover:, group-focus-visible:)로 처리한다. 루트는 <button> 이 아니라 <div role=\"button\" tabIndex={0} onClick> 이다(start/endSlotContents 에 임의 컨텐츠 — 버튼 포함 가능 — 가 들어올 수 있어 버튼-in-버튼 충돌을 원천 차단, Enter/Space 키 입력도 클릭과 동일하게 트리거). 배지는 기존 Dot(size=xs color=red), 하단 구분선은 기존 Divider(기본값 orientation=horizontal thickness=thin) 그대로 재사용. startSlot/endSlot 은 Figma 원본과 동일하게 \"표시 여부(boolean)\"+\"콘텐츠(ReactNode)\" 두 축을 유지(콘텐츠가 있어도 boolean 이 false 면 미렌더). Figma 의 빨간 점선 슬롯 테두리는 디자인 표식이라 렌더하지 않는다(CheckboxCard 선례와 동일 원칙). focus 로 인한 inner opacity dip 값은 Figma 실측(60%)이 아니라 --alpha-80 이다(2026-09-19 사용자 확정 — ImageCard/GalleryCard(Figma 근거 없이 카드 클릭 가능을 확장하며 같이 추가한 opacity dip)와 값을 맞추기 위해 Card 삼형제 전체를 --alpha-80 으로 통일)."
+    },
+    "51405:14482": {
+      "component": "ImageCard",
+      "source": "src/components/ui/ImageCard/ImageCard.tsx",
+      "figmaName": "ImageCard",
+      "props": {
+        "ratio": { "figmaProp": "ratio", "values": ["16:9", "1:1"] },
+        "bottom": { "figmaProp": "bottom", "type": "boolean" },
+        "title": { "figmaProp": "title", "type": "boolean" },
+        "titleValue": { "figmaProp": "titleValue", "type": "text" },
+        "dim": { "figmaProp": "dim", "type": "boolean" },
+        "postedTime": { "figmaProp": "postedTime", "type": "boolean" },
+        "postedTimeValue": { "figmaProp": "postedTimeValue", "type": "text" },
+        "likeCount": {
+          "figmaLayer": "like & period > like area > LikeToggleWithLabel[count]",
+          "type": "text",
+          "notes": "Figma countable(boolean) 을 presence 기반이 아니라 number 타입으로 대체 — 항상 전달(기본 0)."
+        },
+        "liked": {
+          "figmaLayer": "like & period > like area > LikeToggleWithLabel[checked]",
+          "type": "boolean"
+        },
+        "defaultLiked": {
+          "type": "boolean",
+          "notes": "uncontrolled 초기값. Figma 범위 밖 확장 — LikeToggleWithLabel 의 defaultChecked 로 패스스루."
+        },
+        "onLikeChange": { "type": "event" },
+        "children": {
+          "figmaLayer": "Image area > slot",
+          "type": "slot",
+          "notes": "Figma 실측 결과 완전히 빈 슬롯(연결된 인스턴스 없음). \"BlankImage\" 라는 별도 Figma 컴포넌트는 존재하지 않아 신규로 만들지 않았고, 기본값도 두지 않는다 — Storybook 데모에서만 기존 BlankGraphic 을 채워 넣는다."
+        },
+        "onClick": {
+          "type": "event",
+          "notes": "Figma 범위 밖 확장(사용자 승인, 2026-09-19) — 카드 전체가 항상 role=button tabIndex=0(TextCard 와 동일 컨벤션), onClick 유무와 무관하게 인터랙티브 시맨틱 유지."
+        }
+      },
+      "notes": "Figma \"또가3.0 Design System / Card\" 문서 페이지(캔버스 51405:14293) 안의 TextCard/GalleryCard 와 형제인 독립 컴포넌트. Figma 심볼은 ratio × bottom 조합 4개뿐 — TextCard 와 달리 카드 레벨 state(hover/focus) 심볼이 없어 카드 자체는 정적 컨테이너이고 인터랙션은 내부 LikeToggleWithLabel 버튼에만 있다(그래서 카드 클릭 가능은 Figma 근거가 아니라 사용자가 확장성 위해 요청한 축). 루트는 항상 <div>(내부 실제 <button>인 LikeToggleWithLabel 때문에 버튼-in-버튼 회피). bottom=true 일 때만 border-neutral-bright 1px 테두리가 붙는다. Image area 는 relative 컨테이너 — 타이틀(z-3)·Dim(z-2)·이미지 슬롯(z-1) 이 모두 absolute inset-0 로 겹쳐 쌓인다(2026-09-19 버그 수정: 슬롯이 원래 relative h-full w-full 이라 children 콘텐츠의 실제 높이가 ratio 를 무시하고 Image area 를 밀어 올리는 문제가 있어 title/Dim 과 동일하게 absolute 로 바꿨다). 딤 오버레이는 기존 Dim(variant=\"gradient\", Figma blackNone→blackDeep 그라데이션과 일치) 재사용. 좋아요 영역은 2026-09-19 Figma 갱신으로 LikeToggle(아톰) 단독+수동 카운트 <span> 조합에서 LikeToggleWithLabel(몰리큘) 단일 인스턴스로 교체됐다 — variant=\"heart\", appearance=\"transparent\"(Figma style 축, 컴포넌트 기본값 outline 과 다름), color=\"neutralLight\"(Figma 실측 icon/neutral/light #878787), label 은 생략하고 aria-label=\"좋아요\" 를 직접 지정(LikeToggleWithLabel 은 label 생략 시 접근성 이름을 자동으로 채워주지 않음). focus 시 루트에 포커스 링 대신 opacity-[var(--alpha-80)] dip 을 적용한다(2026-09-19 사용자 확정, TextCard/GalleryCard 와 통일)."
+    },
+    "51405:14521": {
+      "component": "GalleryCard",
+      "source": "src/components/ui/GalleryCard/GalleryCard.tsx",
+      "figmaName": "GalleryCard",
+      "props": {
+        "ratio": { "figmaProp": "ratio", "values": ["16:9", "1:1"] },
+        "badge": { "figmaProp": "badge", "type": "boolean" },
+        "multipleIcon": {
+          "figmaProp": "mutipleIcon",
+          "type": "boolean",
+          "notes": "Figma 원본 prop 명 자체가 오타(mutipleIcon)라 코드에서는 multipleIcon 으로 정정했다(코드베이스에 유사 오타를 그대로 유지한 선례 없음)."
+        },
+        "title": { "figmaProp": "title", "type": "boolean" },
+        "titleValue": { "figmaProp": "titleValue", "type": "text" },
+        "children": {
+          "figmaLayer": "Thumbnail area > slot",
+          "type": "slot",
+          "notes": "Figma 실측 결과 완전히 빈 슬롯. 기본값 없음 — Storybook 데모에서만 기존 BlankGraphic 을 채워 넣는다."
+        },
+        "onClick": {
+          "type": "event",
+          "notes": "Figma 범위 밖 확장(사용자 승인) — 카드 전체 클릭 핸들러. ImageCard/TextCard 와 동일하게 onClick 유무와 무관하게 루트는 항상 role=button tabIndex=0."
+        }
+      },
+      "notes": "Figma \"또가3.0 Design System / Card\" 문서 페이지(캔버스 51405:14293) 안의 TextCard/ImageCard 와 형제인 독립 컴포넌트 — 게시글 사진 썸네일 카드. Figma 심볼은 ratio(\"16:9\" 51405:14529 / \"1:1\" 51405:14522) 2개뿐이고 나머지(badge/multipleIcon/title)는 boolean 토글, children(슬롯)은 항상 빈 상태다. 카드 레벨 hover/focus/disabled 시각 상태는 Figma 에 없다(정적 컨테이너) — 카드 클릭 가능은 ImageCard/TextCard 선례를 따른 확장. 루트는 w-full 이고 실제 폭은 호출부(그리드/컨테이너)가 결정한다(Figma 실측 폭 150px 은 --sz-* 토큰에 대응값이 없는 캔버스 레이아웃 아티팩트라 하드코딩하지 않음, HorizontalMenuButton 의 240px→w-full 오버라이드 선례와 동일 원칙). 타이틀은 ImageCard/TextCard(1줄 truncate)와 달리 최대 2줄까지 허용(line-clamp-2, 사용자 확정). overflow-hidden rounded-2xl 은 바깥 컨테이너가 아니라 slot(children) 레이어에만 건다 — 배지(Dot)가 우상단 모서리 밖으로 튀어나오는데 바깥에 걸면 잘리는 버그를 피하기 위함(2026-09-19 수정). 배지는 기존 Dot(size=\"md\" color=\"red\" isBorder, Figma size/10·borderWidth/xs·border/inverse/dark·background/danger/normal 과 일치), 복사 아이콘(사진 2장 이상 첨부 시 노출)은 기존 Icon(name=\"copy_03_solid\")을 흰색(text-typo-inverse-normal) + Figma shadow/black/xs 를 drop-shadow 필터로 수동 조립해 재사용(Tooltip 선례와 동일 원칙 — box-shadow 토큰은 알파를 가진 아이콘 위에 못 써서 filter 로 직접 조립). focus 시 루트에 포커스 링 대신 opacity-[var(--alpha-80)] dip 을 적용한다(2026-09-19 사용자 확정, TextCard/ImageCard 와 통일)."
+    },
+    "51405:132387": {
+      "component": "Stepper",
+      "source": "src/components/ui/Stepper/Stepper.tsx",
+      "figmaName": "Stepper",
+      "props": {
+        "currentStep": {
+          "figmaLayer": "_parts/StepBar > percent",
+          "type": "number",
+          "notes": "Figma 는 하위 원자 _parts/StepBar(node 51405:132361)의 percent(0/25/50/75/100) variant 만 노출하고, Stepper 프레임(132387) 자체는 percent 가 바깥으로 바인딩되지 않은 고정 인스턴스(스크린샷상 25%)다. 코드는 currentStep(완료한 단계 수, 0=시작 전)+totalSteps 두 값을 받아 percent = currentStep/totalSteps*100 을 계산 — 1:1 프로퍼티 매핑이 아니라 의도적 재해석(Scroll 의 axis 선례와 동일 원칙)."
+        },
+        "totalSteps": {
+          "type": "number",
+          "notes": "Figma 범위 밖 확장 — percent 계산의 분모. Figma 문서의 percent 5값(0/25/50/75/100)은 총 4단계를 전제로 한 예시로 추정."
+        }
+      },
+      "notes": "완료/진행중/대기 상태를 스텝별 원형으로 표시하는 UI가 아니라, 트랙 위를 브랜드색 인디케이터가 좌→우로 채우는 얇은(2px) 선형 progress bar. 다단계 플로우(온보딩·설문 등) 헤더 바로 아래 고정 배치(Figma \"Placement\" 설명), 화면 전환 시에도 위치 유지. 트랙=bg-bg-brandGrayish-deep(전체 폭, h=--sz-2), 인디케이터=bg-bg-brand-subtle(폭만 currentStep/totalSteps 기반 퍼센트, transition-[width] 300ms ease-in-out 로 슬라이드 — Figma \"Animation\" 설명 반영, motion-reduce 시 미적용). 인디케이터 모서리는 100% 미만이면 우측만 rounded-circle, 100% 도달 시 4모서리 전부. size/방향(세로) variant 없음 — 가로 단일 형태만 존재. 텍스트·아이콘·숫자 라벨 없음. 접근성은 Figma 범위 밖 확장으로 루트에 role=\"progressbar\"+aria-valuemin(0)/aria-valuemax(totalSteps)/aria-valuenow(currentStep) 부여. Figma \"Setting\" 설명: Stepper 가 쓰이는 화면엔 이전 단계로 돌아갈 뒤로가기 버튼이 반드시 있어야 함(Header type=back 과 함께 사용 추정, 코드에서 강제하지는 않음). src/components/ui/ 에 재사용 가능한 기존 Progress/Stepper 계열 컴포넌트 없어 신규 생성(2026-09-20)."
+    },
+    "51405:7725": {
+      "component": "Banner",
+      "source": "src/components/ui/Banner/Banner.tsx",
+      "figmaName": "Banner",
+      "props": {
+        "variant": {
+          "figmaProp": "variant",
+          "values": ["round", "sharp"]
+        },
+        "ratio": {
+          "figmaProp": "ratio",
+          "values": ["16:9", "4:1"]
+        },
+        "children": {
+          "figmaLayer": "prop169Blank / prop41Blank",
+          "type": "slot"
+        }
+      },
+      "notes": "카드 리스트 사이에 끼워 넣는 광고/공지 콘텐츠 슬롯 컨테이너. 문서 페이지(캔버스) 51405:7223 은 별도 컴포넌트가 아니라 이 컴포넌트의 Figma 페이지 자체(문서 헤더·모바일 프리뷰·Props 테이블을 담은 컨테이너)이며, 실제 구현 대상은 그 안의 메인 컴포넌트 프레임 51405:7725 다. Figma 심볼은 variant × ratio 4개뿐이고 state(hover/focus) 축은 없다 — 정적 컨테이너. ratio 값 자체가 CSS aspect-ratio 로 그대로 쓰이는 이름이라(320:180=16/9, 320:80=4/1) w-full + aspect-[16/9]/aspect-[4/1] 로 구현(Figma 캔버스 실측 폭 320px 은 문서화용 고정 프레임이라 하드코딩하지 않음, HorizontalMenuButton/GalleryCard 선례와 동일 원칙). Figma 는 ratio 별로 슬롯 prop 이 prop169Blank/prop41Blank 둘로 나뉘어 있지만 상호 배타적이라 코드에서는 children 하나로 통합. 두 prop 모두 기본값이 Figma \"BlankGraphic\" 인스턴스라 children 생략 시 기존 BlankGraphic 컴포넌트를 기본 콘텐츠로 재사용한다(ImageCard 의 완전히 빈 슬롯과 다른 케이스)."
+    },
+    "51405:102841": {
+      "component": "InfoCard",
+      "source": "src/components/ui/InfoCard/InfoCard.tsx",
+      "figmaName": "InfoCard",
+      "props": {
+        "color": {
+          "figmaProp": "color",
+          "values": ["neutral", "danger", "info", "warning"]
+        },
+        "variant": {
+          "figmaProp": "variant",
+          "values": ["horizontal", "vertical"]
+        },
+        "titleValue": {
+          "figmaProp": "titleValue",
+          "type": "text",
+          "notes": "Figma 는 title(boolean)+titleValue(text) 두 값으로 노출을 제어하지만 코드에선 titleValue 존재 여부만으로 header(아이콘+제목) 렌더 여부를 결정한다(presence 기반, 사용자 승인 — 별도 boolean prop 없음). Figma 의 infoIcon(boolean) 축은 제목과 분리해서 노출을 켤 수 없어 코드에도 별도 prop 을 두지 않았다 — 아이콘은 항상 제목과 함께 노출되는 고정 글리프 info_circle_solid."
+        },
+        "textValue": {
+          "figmaProp": "textValue",
+          "type": "text",
+          "notes": "Figma text(boolean)+textValue(text) → presence 기반으로 통일."
+        },
+        "children": {
+          "figmaLayer": "Custom > slotContents",
+          "type": "slot",
+          "notes": "Figma slot(boolean) → presence 기반. 문서용 빨간 점선 placeholder 는 렌더하지 않는다."
+        }
+      },
+      "notes": "정보/안내 메시지를 배경색 카드로 보여주는 정적 컴포넌트 — Figma 심볼에 state(hover/focus/disabled) 축이 없어 인터랙션을 구현하지 않았다. variant=horizontal 은 아이콘+제목이 가로 배치(아이콘 wrapper pt-[var(--sz-3)] 로 제목 첫 줄과 광학 정렬), variant=vertical 은 아이콘 → 제목 순으로 세로 배치되지만 본문/슬롯은 두 variant 모두 좌측 정렬 + 전폭으로 동일하다(Figma 실측 결과 vertical 이라도 텍스트 블록이 중앙정렬되지 않음). 루트 gap-[var(--sz-6)] 을 header/본문/슬롯 블록 사이와 header 내부 아이콘-제목 사이에 동일하게 재사용, 슬롯 블록만 pt-[var(--sz-8)] 추가. 카드 폭은 Figma 원본 320px 고정 캔버스 대신 w-full 로 구현해 호출부가 결정한다(HorizontalMenuButton/GalleryCard 선례와 동일 원칙, 사용자 승인). 배경/아이콘/제목/본문 색은 color 4종 × 고정 매핑(bg-bg-<color>-bright(또는 neutral-deep)·text-icon-<color>-subtle(또는 neutral-bright)·text-typo-<color>-dark·text-typo-<color>-deep), 제목 타이포 text-body-3-bold, 본문 text-body-4."
+    },
+    "51405:152055": {
+      "component": "Timer",
+      "source": "src/components/ui/Timer/Timer.tsx",
+      "figmaName": "Timer",
+      "props": {
+        "minutes": { "figmaProp": "minutes", "type": "boolean" },
+        "type": {
+          "figmaProp": "type",
+          "values": ["countdown", "countup"]
+        },
+        "seconds": {
+          "type": "number",
+          "notes": "Figma 범위 밖 확장 — 4개 심볼은 각각 정적 텍스트(02:59/00:00/59/00)만 노출하지만, 코드는 실제 표시할 시간을 seconds(초 단위) 로 받아 minutes 여부에 따라 MM:SS/SS 로 포맷팅한다."
+        }
+      },
+      "notes": "카운트다운/카운트업 시간을 표시하는 순수 presentational 컴포넌트. 문서 페이지(캔버스) 51405:152002 는 별도 컴포넌트가 아니라 이 컴포넌트의 Figma 페이지 자체(Guide 에 OTP 인증 화면 사용 예시 포함)이며, 그 안에 형제 컴포넌트 _animate/Timer(51405:152014, 슬롯머신처럼 숫자가 롤링되는 애니메이션 버전)가 있으나 이번 구현 범위 밖. variant 축은 minutes(true/false) × type(countdown/countup) 4개 심볼이지만 type 은 시맨틱 구분용일 뿐 4개 심볼 간 시각적 차이가 없어 스타일 분기 없음(prop 으로만 존재). 실제 카운트다운/카운트업 인터벌 로직은 호출부(host) 책임 — setInterval 등 범위 밖. 색은 typo/info/normal → text-typo-info-normal, 타이포는 합성 유틸 text-label-2(size xs 14px + line-height none + letter-spacing -1% + Medium)."
+    }
+  }
+}

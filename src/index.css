@@ -1,0 +1,28 @@
+@import "./tokens/_generated.css";
+
+/**
+ * LikeToggle 계열 전용 바운스 애니메이션(Tailwind v4 커스텀 `animate-*` 유틸).
+ * `_generated.css`는 Style Dictionary 자동 생성 파일이라 이 손으로 쓰는 진입
+ * 스타일시트에 둔다. off→on 전환 시에만 트리거되며(LikeToggleGlyph 참고),
+ * 재생 시간·축소값은 참고 구현(https://webpublishing.tistory.com/263)을 따르고
+ * easing은 프로젝트 기존 트랜지션 컨벤션(ease-in-out)에 맞췄다. 확대 폭은 참고
+ * 구현(scale 1.25, 기준 대비 +0.25)의 2/3 수준(+0.25×2/3≈+0.17)으로 줄였다(2026-09-14).
+ */
+@theme {
+  --animate-like-bounce: like-bounce 500ms ease-in-out;
+}
+
+@keyframes like-bounce {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.17);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

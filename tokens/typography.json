@@ -1,0 +1,306 @@
+{
+  "font-sans": {
+    "$value": "'Pretendard', ui-sans-serif, system-ui, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif",
+    "$type": "fontFamily",
+    "$description": "family — Pretendard. 웹폰트 로딩은 후속 작업 (현재 fallback 렌더)."
+  },
+
+  "font-weight": {
+    "$description": "weight — 디자인 시스템은 2단계만. Tailwind 기본 두께 유틸은 초기화로 제거.",
+    "*": { "$value": "initial", "$type": "other" },
+    "normal": {
+      "$value": "500",
+      "$type": "fontWeight",
+      "$description": "Figma font/weight/normal = Medium"
+    },
+    "bold": {
+      "$value": "700",
+      "$type": "fontWeight",
+      "$description": "Figma font/weight/bold = Bold"
+    }
+  },
+
+  "font-feature": {
+    "$description": "feature — OpenType 기능 토글. Tailwind 대응 유틸 없음. 컴포넌트에서 arbitrary property 로 var() 참조.",
+    "*": { "$value": "initial", "$type": "other" },
+    "case": {
+      "$value": "\"case\" 1",
+      "$type": "other",
+      "$description": "Case-Sensitive Forms. 기호(+, - 등)를 대문자·숫자 높이 중앙에 정렬. Figma label/1·label/2 (BadgeNumber sm·md)"
+    }
+  },
+
+  "text": {
+    "$description": "size — Figma font/size/<step> ↔ --text-<step> (Tailwind text-<step> 자동 생성). 합성 스타일은 companion(--text-x--line-height 등)으로 4속성 묶음.",
+    "*": { "$value": "initial", "$type": "other" },
+    "2xs": {
+      "$value": "0.75rem",
+      "$type": "dimension",
+      "$description": "12px"
+    },
+    "xs": {
+      "$value": "0.875rem",
+      "$type": "dimension",
+      "$description": "14px"
+    },
+    "sm": { "$value": "1rem", "$type": "dimension", "$description": "16px" },
+    "md": {
+      "$value": "1.125rem",
+      "$type": "dimension",
+      "$description": "18px"
+    },
+    "lg": { "$value": "1.25rem", "$type": "dimension", "$description": "20px" },
+    "xl": {
+      "$value": "1.375rem",
+      "$type": "dimension",
+      "$description": "22px"
+    },
+    "2xl": { "$value": "1.5rem", "$type": "dimension", "$description": "24px" },
+    "3xl": {
+      "$value": "1.625rem",
+      "$type": "dimension",
+      "$description": "26px"
+    },
+    "5xl": {
+      "$value": "1.875rem",
+      "$type": "dimension",
+      "$description": "30px"
+    },
+
+    "display-1": {
+      "$type": "typography",
+      "$description": "display — 온보딩·랜딩 등 단독 컨텐츠",
+      "$value": {
+        "fontSize": "{text.5xl}",
+        "lineHeight": "1.4",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.bold}"
+      }
+    },
+
+    "title-1": {
+      "$type": "typography",
+      "$description": "title — 화면·섹션 주제",
+      "$value": {
+        "fontSize": "{text.3xl}",
+        "lineHeight": "1.46",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.bold}"
+      }
+    },
+    "title-2": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.2xl}",
+        "lineHeight": "1.43",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.bold}"
+      }
+    },
+    "title-3": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.xl}",
+        "lineHeight": "1.38",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.bold}"
+      }
+    },
+
+    "body-1": {
+      "$type": "typography",
+      "$description": "body — 본문",
+      "$value": {
+        "fontSize": "{text.xl}",
+        "lineHeight": "1.56",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.normal}"
+      }
+    },
+    "body-1-bold": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.xl}",
+        "lineHeight": "1.56",
+        "letterSpacing": "-0.015em",
+        "fontWeight": "{font-weight.bold}"
+      }
+    },
+    "body-2": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.lg}",
+        "lineHeight": "1.48",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.normal}"
+      }
+    },
+    "body-2-bold": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.lg}",
+        "lineHeight": "1.48",
+        "letterSpacing": "-0.015em",
+        "fontWeight": "{font-weight.bold}"
+      }
+    },
+    "body-3": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.md}",
+        "lineHeight": "1.47",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.normal}"
+      }
+    },
+    "body-3-bold": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.md}",
+        "lineHeight": "1.47",
+        "letterSpacing": "-0.015em",
+        "fontWeight": "{font-weight.bold}"
+      }
+    },
+    "body-4": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.sm}",
+        "lineHeight": "1.47",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.normal}"
+      }
+    },
+    "body-4-bold": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.sm}",
+        "lineHeight": "1.47",
+        "letterSpacing": "-0.015em",
+        "fontWeight": "{font-weight.bold}"
+      }
+    },
+    "body-5": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.xs}",
+        "lineHeight": "1.46",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.normal}"
+      }
+    },
+    "body-5-bold": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.xs}",
+        "lineHeight": "1.46",
+        "letterSpacing": "-0.015em",
+        "fontWeight": "{font-weight.bold}"
+      }
+    },
+    "body-6": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.2xs}",
+        "lineHeight": "1.4",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.normal}"
+      }
+    },
+    "body-6-bold": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.2xs}",
+        "lineHeight": "1.4",
+        "letterSpacing": "-0.015em",
+        "fontWeight": "{font-weight.bold}"
+      }
+    },
+
+    "label-1": {
+      "$type": "typography",
+      "$description": "label — Chip·Map Pin 등 짧은 항목 (line-height 1, 2줄 이상 금지)",
+      "$value": {
+        "fontSize": "{text.sm}",
+        "lineHeight": "1",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.normal}"
+      }
+    },
+    "label-1-bold": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.sm}",
+        "lineHeight": "1",
+        "letterSpacing": "-0.015em",
+        "fontWeight": "{font-weight.bold}"
+      }
+    },
+    "label-2": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.xs}",
+        "lineHeight": "1",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.normal}"
+      }
+    },
+    "label-2-bold": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.xs}",
+        "lineHeight": "1",
+        "letterSpacing": "-0.015em",
+        "fontWeight": "{font-weight.bold}"
+      }
+    },
+    "label-3": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.2xs}",
+        "lineHeight": "1",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.normal}"
+      }
+    },
+    "label-3-bold": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.2xs}",
+        "lineHeight": "1",
+        "letterSpacing": "-0.015em",
+        "fontWeight": "{font-weight.bold}"
+      }
+    },
+
+    "other-store-card": {
+      "$type": "typography",
+      "$description": "other — 위 스타일 외 특수 상황. 권장 색상 typo-neutral-subtle",
+      "$value": {
+        "fontSize": "{text.sm}",
+        "lineHeight": "1.24",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.normal}"
+      }
+    },
+    "other-price-1": {
+      "$type": "typography",
+      "$description": "권장 색상 typo-neutral-light",
+      "$value": {
+        "fontSize": "{text.xs}",
+        "lineHeight": "1",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.normal}"
+      }
+    },
+    "other-price-2": {
+      "$type": "typography",
+      "$value": {
+        "fontSize": "{text.2xs}",
+        "lineHeight": "1",
+        "letterSpacing": "-0.01em",
+        "fontWeight": "{font-weight.normal}"
+      }
+    }
+  }
+}

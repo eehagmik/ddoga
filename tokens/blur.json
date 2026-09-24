@@ -1,0 +1,16 @@
+{
+  "blur": {
+    "$description": "BackdropBlur (배경 흐림 효과). Figma \"또가3.0 Design System / BackdropBlur\" (node 106:564) 와 1:1. radius 는 sz 조립. Tailwind blur-<name> · backdrop-blur-<name> 자동 생성. dim·header 2단계만 → 기본 스케일은 initial 로 제거.",
+    "*": { "$value": "initial", "$type": "other" },
+    "dim": {
+      "$value": "{sz.8}",
+      "$type": "dimension",
+      "$description": "sz 8  — 넓은 면적 배경의 약한 흐림 (dim 오버레이 등)"
+    },
+    "header": {
+      "$value": "{sz.16}",
+      "$type": "dimension",
+      "$description": "sz 16 — 헤더 등 강한 흐림"
+    }
+  }
+}
