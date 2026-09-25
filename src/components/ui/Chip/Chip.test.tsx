@@ -54,15 +54,15 @@ describe("Chip", () => {
   it("size 별 높이·padding·타이포 유틸 클래스를 적용한다", () => {
     const { container, rerender } = render(<Chip size="xs">라벨</Chip>);
     expect(container.firstElementChild).toHaveClass(
-      "h-[var(--sz-26)]",
-      "px-[var(--sz-8)]",
+      "h-(--sz-26)",
+      "px-(--sz-8)",
       "text-label-2",
     );
 
     rerender(<Chip size="sm">라벨</Chip>);
     expect(container.firstElementChild).toHaveClass(
-      "h-[var(--sz-32)]",
-      "px-[var(--sz-10)]",
+      "h-(--sz-32)",
+      "px-(--sz-10)",
       "text-label-1",
     );
   });
@@ -137,9 +137,9 @@ describe("Chip", () => {
     expect(container.firstElementChild).toHaveClass(
       "group-hover:bg-bg-brand-deep",
       "group-focus-within:bg-bg-brand-deep",
-      "pl-[var(--sz-10)]",
-      "pr-[var(--sz-6)]",
-      "gap-[var(--sz-3)]",
+      "pl-(--sz-10)",
+      "pr-(--sz-6)",
+      "gap-(--sz-3)",
     );
 
     rerender(

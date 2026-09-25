@@ -12,7 +12,7 @@ describe("Avatar", () => {
     expect(root).toHaveAttribute("data-type", "person");
     expect(root).toHaveAttribute("data-size", "md");
     expect(root).toHaveAttribute("data-variant", "readOnly");
-    expect(root).toHaveClass("size-[var(--sz-48)]");
+    expect(root).toHaveClass("size-(--sz-48)");
     expect(container.querySelector("button")).toBeNull();
   });
 
@@ -188,12 +188,12 @@ describe("Avatar", () => {
 
   it("size 별 루트 지름 토큰이 적용된다", () => {
     const cases = {
-      xs: "size-[var(--sz-24)]",
-      sm: "size-[var(--sz-32)]",
-      md: "size-[var(--sz-48)]",
-      lg: "size-[var(--sz-60)]",
-      xl: "size-[var(--sz-72)]",
-      "2xl": "size-[var(--sz-84)]",
+      xs: "size-(--sz-24)",
+      sm: "size-(--sz-32)",
+      md: "size-(--sz-48)",
+      lg: "size-(--sz-60)",
+      xl: "size-(--sz-72)",
+      "2xl": "size-(--sz-84)",
     } as const;
     for (const [size, cls] of Object.entries(cases)) {
       const { container, unmount } = render(
@@ -216,7 +216,7 @@ describe("Avatar", () => {
     expect(container.firstElementChild).toHaveClass(
       "absolute",
       "top-0",
-      "size-[var(--sz-48)]",
+      "size-(--sz-48)",
     );
   });
 

@@ -42,7 +42,7 @@ type Story = StoryObj<typeof meta>;
  */
 function DimDemo({ variant }: { variant?: DimVariant }) {
   return (
-    <div className="relative size-[var(--sz-160)] overflow-hidden rounded-md">
+    <div className="relative size-(--sz-160) overflow-hidden rounded-md">
       <BlankGraphic ratio="1/1" />
       <Dim variant={variant} />
     </div>

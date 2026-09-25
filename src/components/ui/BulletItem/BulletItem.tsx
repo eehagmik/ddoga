@@ -35,7 +35,7 @@ export interface BulletItemProps {
 
 /** 공통 레이아웃 — Figma: flex row, align-items flex-start, gap scale/4, font-feature "case" 1 */
 const ROOT_CLASS =
-  "flex w-full items-start gap-[var(--sz-4)] " +
+  "flex w-full items-start gap-(--sz-4) " +
   "[font-feature-settings:var(--font-feature-case)]";
 
 /**
@@ -104,8 +104,8 @@ const SIZE_CLASS: Record<
 
 /** `direction` 별 contents 컨테이너 레이아웃 (Figma: vertical gap scale/6, horizontal gap scale/8) */
 const GROUP_CLASS: Record<NonNullable<BulletItemProps["direction"]>, string> = {
-  vertical: "flex min-w-0 flex-1 flex-col gap-[var(--sz-6)]",
-  horizontal: "flex min-w-0 flex-1 flex-row gap-[var(--sz-8)]",
+  vertical: "flex min-w-0 flex-1 flex-col gap-(--sz-6)",
+  horizontal: "flex min-w-0 flex-1 flex-row gap-(--sz-8)",
 };
 
 /** `direction` 별 제목 레이아웃 (horizontal 은 고정 폭 열) */
@@ -114,7 +114,7 @@ const TITLE_LAYOUT_CLASS: Record<
   string
 > = {
   vertical: "w-full",
-  horizontal: "w-[var(--sz-128)] shrink-0",
+  horizontal: "w-(--sz-128) shrink-0",
 };
 
 /** `direction` 별 본문 레이아웃 (horizontal 은 나머지 폭 채움) */

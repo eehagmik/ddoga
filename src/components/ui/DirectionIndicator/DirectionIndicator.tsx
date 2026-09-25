@@ -14,8 +14,8 @@
  *   데이터에서 확인된 실제 prop 으로, 최초 조사 요약에는 없었다(재조회로 발견). false 면
  *   버튼 2개만 남는다.
  * - 이전/다음 버튼(`_parts/DirectionButton`)은 `direction`(prev/next) × `state`
- *   (enable/hover/focus) 3-state 세트 — hover 는 `opacity-[var(--alpha-80)]`, focus 는
- *   `opacity-[var(--alpha-60)]` 로 이미 Swiper.tsx 단계에서 실측 검증됨(재검증 결과 동일).
+ *   (enable/hover/focus) 3-state 세트 — hover 는 `opacity-(--alpha-80)`, focus 는
+ *   `opacity-(--alpha-60)` 로 이미 Swiper.tsx 단계에서 실측 검증됨(재검증 결과 동일).
  *
  * 가운데 카운트는 `CountLabel color="black" size="md"` 와 정확히 일치(Figma 상 라벨 색
  * `typo/neutral/subtle`, 크기 `font/size/sm`). Figma 원본은 이 영역에 `scale/70`(70px)
@@ -55,11 +55,11 @@ export interface DirectionIndicatorProps {
 
 /** 이전/다음 버튼 공통 클래스(원형 32×32, 이중 그림자 — `shadow-black-xs`). */
 const DIRECTION_BUTTON_CLASS =
-  "flex size-[var(--sz-32)] shrink-0 items-center justify-center " +
+  "flex size-(--sz-32) shrink-0 items-center justify-center " +
   "rounded-circle border-xs border-solid border-border-neutral-bright " +
   "bg-bg-neutral-normal shadow-black-xs transition-opacity " +
-  "hover:opacity-[var(--alpha-80)] " +
-  "focus-visible:opacity-[var(--alpha-60)] focus-visible:outline-none";
+  "hover:opacity-(--alpha-80) " +
+  "focus-visible:opacity-(--alpha-60) focus-visible:outline-none";
 
 export function DirectionIndicator({
   currentCount,
@@ -75,7 +75,7 @@ export function DirectionIndicator({
   return (
     <div
       data-countable={countable}
-      className={["flex shrink-0 items-center gap-[var(--sz-8)]", className]
+      className={["flex shrink-0 items-center gap-(--sz-8)", className]
         .filter(Boolean)
         .join(" ")}
     >

@@ -177,7 +177,7 @@ export const Focus: Story = {
     const card = canvasElement.querySelector(
       '[data-name="ImageCard"]',
     ) as HTMLElement;
-    await expect(card).toHaveClass("focus-visible:opacity-[var(--alpha-80)]");
+    await expect(card).toHaveClass("focus-visible:opacity-(--alpha-80)");
 
     card.focus();
     await expect(card).toHaveFocus();
@@ -208,7 +208,7 @@ export const Clickable: Story = {
 /** ratio × bottom 4가지 조합을 나란히 비교(Figma 문서 프리뷰와 동일 구성). */
 export const AllCombinations: Story = {
   render: (args) => (
-    <div className="grid grid-cols-2 gap-[var(--sz-20)]">
+    <div className="grid grid-cols-2 gap-(--sz-20)">
       {RATIOS.map((ratio) =>
         [true, false].map((bottomValue) => (
           <div key={`${ratio}-${bottomValue}`} style={{ width: 320 }}>

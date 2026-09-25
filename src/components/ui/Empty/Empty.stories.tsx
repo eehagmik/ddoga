@@ -74,7 +74,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div className="w-[var(--sz-320)]">
+      <div className="w-(--sz-320)">
         <Story />
       </div>
     ),
@@ -133,7 +133,7 @@ export const WithButtons: Story = {
 /** default / empty / error 세 variant 를 한눈에 비교. */
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-32)">
       {VARIANTS.map((variant) => (
         <Empty key={variant} variant={variant} />
       ))}

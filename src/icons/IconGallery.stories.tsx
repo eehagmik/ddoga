@@ -46,12 +46,12 @@ export const Playground: Story = {
 export const Gallery: Story = {
   args: { name: "align_bottom_01_line" }, // render 에서 쓰지 않지만 타입상 필요
   render: () => (
-    <ul className="grid grid-cols-[repeat(auto-fill,minmax(var(--sz-72),1fr))] gap-[var(--sz-8)] bg-bg-neutral-normal p-[var(--sz-16)] text-icon-neutral-normal">
+    <ul className="grid grid-cols-[repeat(auto-fill,minmax(var(--sz-72),1fr))] gap-(--sz-8) bg-bg-neutral-normal p-(--sz-16) text-icon-neutral-normal">
       {ICON_NAMES.map((n) => (
         <li
           key={n}
           data-icon={n}
-          className="flex flex-col items-center gap-[var(--sz-4)] rounded-md border border-border-neutral-light p-[var(--sz-8)]"
+          className="flex flex-col items-center gap-(--sz-4) rounded-md border border-border-neutral-light p-(--sz-8)"
         >
           <Icon name={n} />
           <span className="w-full truncate text-center text-2xs text-typo-neutral-light">

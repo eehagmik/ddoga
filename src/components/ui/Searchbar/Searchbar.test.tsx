@@ -88,11 +88,11 @@ describe("Searchbar", () => {
   describe("variant", () => {
     it("header 는 --sz-38 높이 · body 는 --sz-46 높이 + border-xs 를 적용한다", () => {
       const { container, rerender } = render(<Searchbar variant="header" />);
-      expect(container.firstElementChild).toHaveClass("h-[var(--sz-38)]");
+      expect(container.firstElementChild).toHaveClass("h-(--sz-38)");
 
       rerender(<Searchbar variant="body" />);
       expect(container.firstElementChild).toHaveClass(
-        "h-[var(--sz-46)]",
+        "h-(--sz-46)",
         "border-xs",
       );
     });

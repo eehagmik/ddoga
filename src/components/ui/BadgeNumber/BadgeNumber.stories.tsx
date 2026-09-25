@@ -37,7 +37,7 @@ const SIZES = ["xs", "sm", "md"] as const;
 export const Playground: Story = {
   args: { count: 3, max: 99, size: "xs" },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
       <BadgeNumber {...args} />
     </div>
   ),
@@ -51,12 +51,9 @@ export const Playground: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex items-end gap-[var(--sz-24)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex items-end gap-(--sz-24) bg-bg-neutral-normal p-(--sz-32)">
       {SIZES.map((size) => (
-        <div
-          key={size}
-          className="flex flex-col items-center gap-[var(--sz-8)]"
-        >
+        <div key={size} className="flex flex-col items-center gap-(--sz-8)">
           <code className="text-2xs text-typo-neutral-light">{size}</code>
           <BadgeNumber count={8} size={size} />
         </div>
@@ -74,7 +71,7 @@ export const Sizes: Story = {
 export const TwoDigits: Story = {
   args: { count: 12, max: 99, size: "md" },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
       <BadgeNumber {...args} />
     </div>
   ),
@@ -88,7 +85,7 @@ export const TwoDigits: Story = {
 export const Overflow: Story = {
   args: { count: 100, max: 99, size: "md" },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
       <BadgeNumber {...args} />
     </div>
   ),
@@ -102,8 +99,8 @@ export const Overflow: Story = {
 export const OnIconButton: Story = {
   name: "배치 예시 (아이콘 버튼 위)",
   render: () => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
-      <span className="relative inline-flex p-[var(--sz-8)] text-icon-neutral-normal">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
+      <span className="relative inline-flex p-(--sz-8) text-icon-neutral-normal">
         <Icon name="bell_01_line" title="알림" />
         <BadgeNumber count={5} size="sm" className="absolute top-0 right-0" />
       </span>

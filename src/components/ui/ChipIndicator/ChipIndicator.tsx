@@ -16,7 +16,7 @@
  * 자체에 구현돼 있다). "·" 구분자는 `type="default"` 일 때만 렌더한다.
  *
  * 배경 `bg-bg-overlay-blackDeep`(`background/overlay/blackDeep`, alpha 60%), radius
- * `rounded-2xl`, 패딩 `px-[var(--sz-10)] py-[var(--sz-8)]` — Swiper.tsx 단계에서 실측
+ * `rounded-2xl`, 패딩 `px-(--sz-10) py-(--sz-8)` — Swiper.tsx 단계에서 실측
  * 검증된 값과 재조회 결과 동일. Label 과 CountLabel 사이 gap 은 `--sz-2`.
  */
 
@@ -59,8 +59,8 @@ export function ChipIndicator({
     <div
       data-type={type}
       className={[
-        "flex items-center justify-center gap-[var(--sz-2)] whitespace-nowrap",
-        "rounded-2xl bg-bg-overlay-blackDeep px-[var(--sz-10)] py-[var(--sz-8)]",
+        "flex items-center justify-center gap-(--sz-2) whitespace-nowrap",
+        "rounded-2xl bg-bg-overlay-blackDeep px-(--sz-10) py-(--sz-8)",
         "font-medium leading-none text-typo-inverse-normal",
         className,
       ]

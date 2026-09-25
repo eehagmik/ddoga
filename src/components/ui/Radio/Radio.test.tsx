@@ -14,7 +14,7 @@ describe("Radio", () => {
     expect(root).toHaveClass(
       "inline-flex",
       "rounded-circle",
-      "size-[var(--sz-24)]",
+      "size-(--sz-24)",
       "bg-bg-neutral-normal",
       "border-sm",
       "border-solid",
@@ -31,9 +31,9 @@ describe("Radio", () => {
     expect(dot).toHaveAttribute("aria-hidden");
     expect(dot).toHaveClass(
       "rounded-circle",
-      "size-[var(--sz-12)]",
+      "size-(--sz-12)",
       "bg-icon-brandGrayish-light",
-      "opacity-[var(--alpha-40)]",
+      "opacity-(--alpha-40)",
     );
     // Radio 는 variant(circle/square/mark) 축이 없다 — Checkbox 와 달리 svg/path 가 없다.
     expect(container.querySelector("svg")).toBeNull();
@@ -41,9 +41,9 @@ describe("Radio", () => {
 
   it("size 별 상자/점 크기 클래스가 적용된다", () => {
     const box: Record<RadioSize, [string, string]> = {
-      sm: ["size-[var(--sz-22)]", "size-[var(--sz-10)]"],
-      md: ["size-[var(--sz-24)]", "size-[var(--sz-12)]"],
-      lg: ["size-[var(--sz-28)]", "size-[var(--sz-14)]"],
+      sm: ["size-(--sz-22)", "size-(--sz-10)"],
+      md: ["size-(--sz-24)", "size-(--sz-12)"],
+      lg: ["size-(--sz-28)", "size-(--sz-14)"],
     };
     for (const [size, [rootCls, dotCls]] of Object.entries(box) as [
       RadioSize,
@@ -71,7 +71,7 @@ describe("Radio", () => {
     expect(root).not.toHaveClass("border-border-neutral-light");
     const dot = container.querySelector("span > span");
     expect(dot).toHaveClass("bg-icon-inverse-normal");
-    expect(dot).not.toHaveClass("opacity-[var(--alpha-40)]");
+    expect(dot).not.toHaveClass("opacity-(--alpha-40)");
   });
 
   it("unchecked 는 hover(단독) 와 group-hover(조상 .group) 로 brandGrayish 배경/점에 전이한다", () => {
@@ -101,7 +101,7 @@ describe("Radio", () => {
     const dot = container.querySelector("span > span");
     expect(dot).toHaveClass("bg-icon-disabled-light");
     // Checkbox 와 달리 disabled 점은 opacity-40% 가 없다(Figma SVG 가 이미 흐린 색으로 구워짐).
-    expect(dot).not.toHaveClass("opacity-[var(--alpha-40)]");
+    expect(dot).not.toHaveClass("opacity-(--alpha-40)");
   });
 
   it("disabled checked 는 Checkbox 와 다른 disabled/deep 배경 + 흰 점을 쓴다", () => {
@@ -114,7 +114,7 @@ describe("Radio", () => {
     expect(root).not.toHaveClass("border-border-disabled-normal");
     const dot = container.querySelector("span > span");
     expect(dot).toHaveClass("bg-icon-inverse-normal");
-    expect(dot).not.toHaveClass("opacity-[var(--alpha-40)]");
+    expect(dot).not.toHaveClass("opacity-(--alpha-40)");
   });
 
   it("className 을 루트에 병합한다", () => {

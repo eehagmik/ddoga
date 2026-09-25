@@ -82,13 +82,13 @@ describe("Label", () => {
   it("sm 크기에서 정보 아이콘 너비는 var(--sz-16)이다", () => {
     const { container } = render(<Label label="테스트" size="sm" />);
     const iconButton = container.querySelector("button");
-    expect(iconButton).toHaveClass("size-[var(--sz-16)]");
+    expect(iconButton).toHaveClass("size-(--sz-16)");
   });
 
   it("md 크기에서 정보 아이콘 너비는 var(--sz-20)이다", () => {
     const { container } = render(<Label label="테스트" size="md" />);
     const iconButton = container.querySelector("button");
-    expect(iconButton).toHaveClass("size-[var(--sz-20)]");
+    expect(iconButton).toHaveClass("size-(--sz-20)");
   });
 
   describe("htmlFor(폼 접근성 연결)", () => {

@@ -198,11 +198,9 @@ describe("BottomSheet", () => {
   });
 
   it("className 을 패널 루트에 병합한다", () => {
-    render(
-      <BottomSheet open title="Title" className="max-w-[var(--sz-320)]" />,
-    );
+    render(<BottomSheet open title="Title" className="max-w-(--sz-320)" />);
     expect(screen.getByRole("dialog")).toHaveClass(
-      "max-w-[var(--sz-320)]",
+      "max-w-(--sz-320)",
       "bg-bg-neutral-normal",
     );
   });

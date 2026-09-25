@@ -69,7 +69,7 @@ export const Playground: Story = {};
 /** 한 color(neutral)의 fill / bright / outline. */
 export const Variants: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {VARIANTS.map((variant) => (
         <Chip key={variant} {...args} variant={variant}>
           {variant}
@@ -82,7 +82,7 @@ export const Variants: Story = {
 /** 5색 × fill. */
 export const Colors: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {COLORS.map((color) => (
         <Chip key={color} {...args} color={color}>
           {color}
@@ -95,7 +95,7 @@ export const Colors: Story = {
 /** xs / sm. */
 export const Sizes: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {SIZES.map((size) => (
         <Chip key={size} {...args} size={size}>
           {size}
@@ -108,7 +108,7 @@ export const Sizes: Story = {
 /** bold=false / true 라벨 굵기. */
 export const Bold: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       <Chip {...args} bold={false}>
         Medium
       </Chip>
@@ -122,7 +122,7 @@ export const Bold: Story = {
 /** leading 아이콘 슬롯(`src/icons` 의 `<Icon>`, `text-icon-*` 상속). */
 export const WithLeadingIcon: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {VARIANTS.map((variant) => (
         <Chip
           key={variant}
@@ -141,7 +141,7 @@ export const WithLeadingIcon: Story = {
 /** leading 그래픽 슬롯(`BlankGraphic`, 각진 사각형 `overflow-hidden` 클립). */
 export const WithGraphic: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {SIZES.map((size) => (
         <Chip
           key={size}
@@ -164,7 +164,7 @@ export const WithGraphic: Story = {
 export const Deletable: Story = {
   args: { deletable: true },
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {VARIANTS.map((variant) => (
         <Chip key={variant} {...args} variant={variant}>
           {variant}
@@ -185,7 +185,7 @@ export const Deletable: Story = {
 /** color(행) × variant(열) 전체 조합 (size 는 xs 고정). */
 export const Matrix: Story = {
   render: (args) => (
-    <table className="border-separate border-spacing-[var(--sz-8)]">
+    <table className="border-separate border-spacing-(--sz-8)">
       <thead>
         <tr>
           <th />

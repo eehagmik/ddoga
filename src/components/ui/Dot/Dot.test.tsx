@@ -15,7 +15,7 @@ describe("Dot", () => {
       "inline-block",
       "shrink-0",
       "rounded-circle",
-      "size-[var(--sz-6)]",
+      "size-(--sz-6)",
       "bg-bg-danger-normal",
     );
     expect(dot).not.toHaveClass("border-xs");
@@ -24,9 +24,9 @@ describe("Dot", () => {
 
   it("size 별 고정 정사각 클래스가 적용된다", () => {
     const cases: Record<NonNullable<DotProps["size"]>, string> = {
-      xs: "size-[var(--sz-6)]",
-      sm: "size-[var(--sz-8)]",
-      md: "size-[var(--sz-10)]",
+      xs: "size-(--sz-6)",
+      sm: "size-(--sz-8)",
+      md: "size-(--sz-10)",
     };
     for (const [size, cls] of Object.entries(cases) as [
       NonNullable<DotProps["size"]>,

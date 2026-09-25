@@ -47,9 +47,9 @@ export const Playground: Story = {};
 /** sm / md, 각각 unselected · selected. */
 export const Sizes: Story = {
   render: (args) => (
-    <div className="flex items-end gap-[var(--sz-16)]">
+    <div className="flex items-end gap-(--sz-16)">
       {SIZES.map((size) => (
-        <div key={size} className="flex items-end gap-[var(--sz-4)]">
+        <div key={size} className="flex items-end gap-(--sz-4)">
           <Tab {...args} size={size} selected={false}>
             {size}
           </Tab>
@@ -65,7 +65,7 @@ export const Sizes: Story = {
 /** 선택되지 않음 / 선택됨. */
 export const Selected: Story = {
   render: (args) => (
-    <div className="flex items-end gap-[var(--sz-16)]">
+    <div className="flex items-end gap-(--sz-16)">
       <Tab {...args} selected={false}>
         Off
       </Tab>

@@ -41,7 +41,7 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: { variant: "circle", size: "md", bold: false, disabled: false },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
       <CheckboxWithLabel {...args} />
     </div>
   ),
@@ -86,7 +86,7 @@ export const Sizes: Story = {
   // 여러 size 를 동시에 비교하는 정적 데모라 단일 컨트롤로 대응 불가 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       {SIZES.map((size) => (
         <CheckboxWithLabel key={size} size={size} defaultChecked>
           {size} · 라벨 텍스트
@@ -100,7 +100,7 @@ export const Bold: Story = {
   // bold 두 값을 동시에 비교하는 정적 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       <CheckboxWithLabel defaultChecked>bold=false (Medium)</CheckboxWithLabel>
       <CheckboxWithLabel defaultChecked bold>
         bold=true (Bold)
@@ -113,7 +113,7 @@ export const States: Story = {
   // enable/disabled × checked 4가지 조합을 동시에 보여주는 정적 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       <CheckboxWithLabel>enable / unchecked</CheckboxWithLabel>
       <CheckboxWithLabel defaultChecked>enable / checked</CheckboxWithLabel>
       <CheckboxWithLabel disabled>disabled / unchecked</CheckboxWithLabel>
@@ -129,7 +129,7 @@ export const MultilineLabel: Story = {
   // 정렬 확인용 고정 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="w-[var(--sz-256)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="w-(--sz-256) bg-bg-neutral-normal p-(--sz-32)">
       <CheckboxWithLabel defaultChecked>
         여러 줄에 걸치는 긴 라벨 텍스트입니다. 체크박스는 첫 번째 줄의 텍스트와
         나란히 정렬되어야 합니다.
@@ -142,12 +142,12 @@ export const AllVariants: Story = {
   // variant × size × checked × disabled 전 조합을 동시에 보여주는 정적 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-24)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-24) bg-bg-neutral-normal p-(--sz-32)">
       {VARIANTS.map((variant) => (
-        <div key={variant} className="flex flex-col gap-[var(--sz-8)]">
+        <div key={variant} className="flex flex-col gap-(--sz-8)">
           <code className="text-2xs text-typo-neutral-light">{variant}</code>
           {SIZES.map((size) => (
-            <div key={size} className="flex flex-wrap gap-[var(--sz-16)]">
+            <div key={size} className="flex flex-wrap gap-(--sz-16)">
               {([false, true] as const).map((checked) =>
                 ([false, true] as const).map((disabled) => (
                   <CheckboxWithLabel
@@ -180,7 +180,7 @@ export const AllVariants: Story = {
 
 function StateGrid({ variant }: { variant: "circle" | "square" | "mark" }) {
   return (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       {([false, true] as const).map((disabled) =>
         ([false, true] as const).map((checked) => (
           <CheckboxWithLabel

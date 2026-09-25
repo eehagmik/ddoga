@@ -46,7 +46,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const Frame = ({ children }: { children: React.ReactNode }) => (
-  <div className="w-[var(--sz-320)]">{children}</div>
+  <div className="w-(--sz-320)">{children}</div>
 );
 
 export const Playground: Story = {
@@ -191,7 +191,7 @@ export const WithContentSlot: Story = {
         titleValue="주의"
         textValue="아래 슬롯을 확인하세요."
       >
-        <div className="rounded-sm bg-bg-neutral-normal p-[var(--sz-12)] text-body-5 text-typo-neutral-normal">
+        <div className="rounded-sm bg-bg-neutral-normal p-(--sz-12) text-body-5 text-typo-neutral-normal">
           [슬롯]
         </div>
       </InfoCard>
@@ -203,13 +203,13 @@ export const WithContentSlot: Story = {
 export const AllStates: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-24)]">
+    <div className="flex flex-col gap-(--sz-24)">
       {VARIANTS.map((variant) => (
-        <div key={variant} className="flex flex-col gap-[var(--sz-8)]">
+        <div key={variant} className="flex flex-col gap-(--sz-8)">
           <code className="text-2xs text-typo-neutral-light">{variant}</code>
-          <div className="flex flex-wrap gap-[var(--sz-16)]">
+          <div className="flex flex-wrap gap-(--sz-16)">
             {COLORS.map((color) => (
-              <div key={color} className="w-[var(--sz-320)]">
+              <div key={color} className="w-(--sz-320)">
                 <InfoCard
                   color={color}
                   variant={variant}

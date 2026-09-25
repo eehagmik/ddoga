@@ -51,7 +51,7 @@
  * `text-body-3`(Medium, 18px, ls -1%) — Figma `body/3_bold`/`body/3` 텍스트 스타일 1:1.
  *
  * 그라데이션 오버레이(리스트 상하단 페이드, node 51405:151036/151037 실측):
- * - 상단 `h-[var(--sz-58)]`(58px), `linear-gradient(to bottom, --color-bg-neutral-normal,
+ * - 상단 `h-(--sz-58)`(58px), `linear-gradient(to bottom, --color-bg-neutral-normal,
  *   --color-bg-neutral-none)`(불투명 흰색 → 투명), z-index 4.
  * - 하단 동일 높이, 방향 반대(`--color-bg-neutral-none` → `--color-bg-neutral-normal`),
  *   z-index 5(최상단, 3열 전체를 가로질러 덮는다 — `overlay-blackSubtle` 류 어둡게 하는
@@ -60,11 +60,11 @@
  *   `from-*`/`to-*` 유틸 대신 이 프로젝트 선례를 따른다)을 그대로 재사용했다.
  *
  * 치수(`get_design_context` 실측, node 51405:151034/150996):
- * - 셀 높이 `CELL_HEIGHT`=46px(`--sz-46`), 셀 내부 `px-[var(--sz-4)] py-[var(--sz-10)]`,
+ * - 셀 높이 `CELL_HEIGHT`=46px(`--sz-46`), 셀 내부 `px-(--sz-4) py-(--sz-10)`,
  *   반경 `rounded-xl`(`--radius-xl`=12px).
  * - 열 사이 셀 간격(세로) `CELL_GAP`=4px(`--sz-4`), 3열 사이 가로 gap `--sz-8`.
  * - 루트 폭 320px(`--sz-320`), 높이는 Figma Guide "min 320 / max 520" 스케일 주석대로
- *   가변(부모가 준 높이를 그대로 채우고 `min-h-[var(--sz-320)]`/`max-h-[520px]`로만
+ *   가변(부모가 준 높이를 그대로 채우고 `min-h-(--sz-320)`/`max-h-[520px]`로만
  *   clamp — `--sz-520` 토큰이 없어 `max-h` 만 arbitrary px, `BottomSheet`의 `90dvh`
  *   선례와 동일한 "토큰 없는 값은 하드코딩 예외" 처리).
  *
@@ -135,11 +135,11 @@ const formatMeridiem = (index: number) => MERIDIEMS[index];
 
 /** 상단 페이드 — 불투명 흰색(위) → 투명(아래), `FixButton` `GRADIENT_CLASS` 선례와 동일 패턴. */
 const TOP_GRADIENT_CLASS =
-  "absolute inset-x-0 top-0 z-[4] h-[var(--sz-58)] " +
+  "absolute inset-x-0 top-0 z-4 h-(--sz-58) " +
   "bg-[linear-gradient(to_bottom,var(--color-bg-neutral-normal),var(--color-bg-neutral-none))]";
 /** 하단 페이드 — 투명(위) → 불투명 흰색(아래), 3열 전체를 덮어 z-index 가 가장 위(5). */
 const BOTTOM_GRADIENT_CLASS =
-  "absolute inset-x-0 bottom-0 z-[5] h-[var(--sz-58)] " +
+  "absolute inset-x-0 bottom-0 z-5 h-(--sz-58) " +
   "bg-[linear-gradient(to_bottom,var(--color-bg-neutral-none),var(--color-bg-neutral-normal))]";
 
 /** jsdom 등 `Element.scrollTo` 미구현 환경 방어. */
@@ -180,8 +180,8 @@ export function TimeSelect({
     <div
       data-disabled={disabled}
       className={[
-        "relative isolate flex h-full w-full min-h-[var(--sz-320)] max-h-[520px]",
-        "items-center justify-center gap-[var(--sz-8)] overflow-clip",
+        "relative isolate flex h-full w-full min-h-(--sz-320) max-h-[520px]",
+        "items-center justify-center gap-(--sz-8) overflow-clip",
         className,
       ]
         .filter(Boolean)
@@ -197,7 +197,7 @@ export function TimeSelect({
         onChange={handleMeridiemChange}
         disabled={disabled}
         formatLabel={formatMeridiem}
-        zIndexClassName="z-[3]"
+        zIndexClassName="z-3"
       />
       <WheelColumn
         ariaLabel="시"
@@ -206,7 +206,7 @@ export function TimeSelect({
         onChange={handleHourChange}
         disabled={disabled}
         formatLabel={formatHour}
-        zIndexClassName="z-[2]"
+        zIndexClassName="z-2"
       />
       <WheelColumn
         ariaLabel="분"
@@ -215,7 +215,7 @@ export function TimeSelect({
         onChange={handleMinuteChange}
         disabled={disabled}
         formatLabel={formatMinute}
-        zIndexClassName="z-[1]"
+        zIndexClassName="z-1"
       />
     </div>
   );
@@ -336,7 +336,7 @@ function WheelColumn({
       aria-label={ariaLabel}
       onScroll={handleScroll}
       className={[
-        "flex h-full min-w-0 flex-1 flex-col items-center gap-[var(--sz-4)]",
+        "flex h-full min-w-0 flex-1 flex-col items-center gap-(--sz-4)",
         "overflow-y-auto overflow-x-clip",
         "[scroll-snap-type:y_mandatory] [-webkit-overflow-scrolling:touch]",
         "[scrollbar-width:none]! [-ms-overflow-style:none]! [&::-webkit-scrollbar]:hidden!",
@@ -378,8 +378,8 @@ interface TimeSelectCellProps {
 
 /** 셀 공통 베이스(치수/타이포/트랜지션, 색만 상태별로 분기). */
 const CELL_BASE_CLASS =
-  "flex h-[var(--sz-46)] w-full shrink-0 items-center justify-center rounded-xl " +
-  "px-[var(--sz-4)] py-[var(--sz-10)] [scroll-snap-align:center] " +
+  "flex h-(--sz-46) w-full shrink-0 items-center justify-center rounded-xl " +
+  "px-(--sz-4) py-(--sz-10) [scroll-snap-align:center] " +
   "transition-colors duration-150 ease-in-out motion-reduce:transition-none " +
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 " +
   "focus-visible:outline-border-brand-normal";

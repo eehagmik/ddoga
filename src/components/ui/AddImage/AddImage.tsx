@@ -34,14 +34,14 @@
  *
  * 토큰 매핑(Figma 실측):
  * | 대상                  | 토큰 유틸                                               |
- * | 아이템 크기 68×68      | `size-[var(--sz-68)]`                                   |
- * | 아이템 간 gap 12       | `gap-[var(--sz-12)]`                                    |
+ * | 아이템 크기 68×68      | `size-(--sz-68)`                                   |
+ * | 아이템 간 gap 12       | `gap-(--sz-12)`                                    |
  * | radius/xl (12)        | `rounded-xl`                                            |
  * | addButton 배경         | `bg-bg-neutral-deep`                                    |
  * | addButton 테두리        | `border-xs border-solid border-border-neutral-bright`   |
  * | "사진" 라벨 색/스타일    | `text-typo-neutral-bright` + `text-label-2`             |
  * | camera_plus_line 색    | `text-icon-neutral-bright`                              |
- * | ClearButton 오프셋      | `-right-[var(--sz-9)] -top-[var(--sz-8)]` (Figma 실측 -9/-8 과 일치) |
+ * | ClearButton 오프셋      | `-right-(--sz-9) -top-(--sz-8)` (Figma 실측 -9/-8 과 일치) |
  * | ClearButton 크기        | `size="md"`(18px, 기존 컴포넌트 그대로 재사용)            |
  *
  * 재사용: `ClearButton`(size="md"), `Icon`(`camera_plus_line`), `Scroll`(axis="x").
@@ -100,25 +100,22 @@ const HIDE_SCROLLBAR_CLASS =
 // 잘리는 문제가 재발한다(사용자 확인 케이스). 대신 컴포넌트 자체 바운딩 박스가
 // top 8px/right 9px 만큼 살짝 커지는 것을 감수하고, 그 여유 공간을 컴포넌트가
 // 항상 소유해 어떤 부모에 배치되어도 ClearButton 이 잘리지 않도록 보장한다.
-const ROOT_CLASS =
-  "flex items-center gap-[var(--sz-12)] pt-[var(--sz-8)] pr-[var(--sz-9)]";
+const ROOT_CLASS = "flex items-center gap-(--sz-12) pt-(--sz-8) pr-(--sz-9)";
 
 const ADD_BUTTON_BASE_CLASS =
-  "relative flex size-[var(--sz-68)] shrink-0 flex-col items-center justify-center " +
-  "gap-[var(--sz-8)] overflow-hidden rounded-xl border-xs border-solid " +
+  "relative flex size-(--sz-68) shrink-0 flex-col items-center justify-center " +
+  "gap-(--sz-8) overflow-hidden rounded-xl border-xs border-solid " +
   "border-border-neutral-bright bg-bg-neutral-deep " +
-  "focus-within:opacity-[var(--alpha-60)]";
+  "focus-within:opacity-(--alpha-60)";
 
-const ADD_BUTTON_DISABLED_CLASS =
-  "cursor-not-allowed opacity-[var(--alpha-40)]";
+const ADD_BUTTON_DISABLED_CLASS = "cursor-not-allowed opacity-(--alpha-40)";
 const ADD_BUTTON_ENABLED_CLASS = "cursor-pointer";
 
-const THUMB_CLASS = "relative size-[var(--sz-68)] shrink-0";
+const THUMB_CLASS = "relative size-(--sz-68) shrink-0";
 
 const THUMB_IMAGE_WRAPPER_CLASS = "size-full overflow-hidden rounded-xl";
 
-const CLEAR_BUTTON_POSITION_CLASS =
-  "absolute -right-[var(--sz-9)] -top-[var(--sz-8)]";
+const CLEAR_BUTTON_POSITION_CLASS = "absolute -right-(--sz-9) -top-(--sz-8)";
 
 export function AddImage({
   images,

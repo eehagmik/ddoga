@@ -41,7 +41,7 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: { size: "md", bold: false, disabled: false },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
       <RadioWithLabel {...args} />
     </div>
   ),
@@ -67,7 +67,7 @@ export const Sizes: Story = {
   // 여러 size 를 동시에 비교하는 정적 데모라 단일 컨트롤로 대응 불가 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       {SIZES.map((size) => (
         <RadioWithLabel key={size} size={size} defaultChecked>
           {size} · 라벨 텍스트
@@ -81,7 +81,7 @@ export const Bold: Story = {
   // bold 두 값을 동시에 비교하는 정적 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       <RadioWithLabel defaultChecked>bold=false (Medium)</RadioWithLabel>
       <RadioWithLabel defaultChecked bold>
         bold=true (Bold)
@@ -94,7 +94,7 @@ export const States: Story = {
   // enable/disabled × checked 4가지 조합을 동시에 보여주는 정적 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       <RadioWithLabel>enable / unchecked</RadioWithLabel>
       <RadioWithLabel defaultChecked>enable / checked</RadioWithLabel>
       <RadioWithLabel disabled>disabled / unchecked</RadioWithLabel>
@@ -110,7 +110,7 @@ export const MultilineLabel: Story = {
   // 정렬 확인용 고정 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="w-[var(--sz-256)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="w-(--sz-256) bg-bg-neutral-normal p-(--sz-32)">
       <RadioWithLabel defaultChecked>
         여러 줄에 걸치는 긴 라벨 텍스트입니다. 라디오는 첫 번째 줄의 텍스트와
         나란히 정렬되어야 합니다.
@@ -139,9 +139,9 @@ export const AllSizes: Story = {
   // size × checked × disabled 전 조합을 동시에 보여주는 정적 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-24)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-24) bg-bg-neutral-normal p-(--sz-32)">
       {SIZES.map((size) => (
-        <div key={size} className="flex flex-wrap gap-[var(--sz-16)]">
+        <div key={size} className="flex flex-wrap gap-(--sz-16)">
           {([false, true] as const).map((checked) =>
             ([false, true] as const).map((disabled) => (
               <RadioWithLabel
@@ -172,7 +172,7 @@ export const AllSizes: Story = {
 function RadioGroupDemo() {
   const [value, setValue] = useState<"basic" | "pro">("basic");
   return (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       <RadioWithLabel
         name="plan"
         checked={value === "basic"}

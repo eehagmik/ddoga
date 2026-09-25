@@ -15,7 +15,7 @@
  * - hover: `<label class="group">` → 트랙이 `group-hover:` 로 배경/테두리를 전이한다.
  *   `disabled` 면 hover 유틸을 아예 포함하지 않는다(`Checkbox` 의 `boxColors` 선례와 동일).
  * - focus: Figma 에 없음. repo `Button`/`CheckboxWithLabel` 선례대로 포커스 링 대신
- *   `peer-focus-visible:opacity-[var(--alpha-80)]` opacity dip 을 트랙에 적용한다.
+ *   `peer-focus-visible:opacity-(--alpha-80)` opacity dip 을 트랙에 적용한다.
  * - disabled: `<input disabled>` + 트랙/썸 고정 disable 색 + `cursor-not-allowed`.
  *   전체 opacity dip 은 하지 않는다 — Figma 가 disable 명시색을 제공한다.
  * - off 테두리는 `border-*` 가 아니라 `outline` 으로 그린다. Figma 는 stroke 를 레이아웃에서 제외하므로
@@ -83,10 +83,10 @@ const ROOT_CLASS = "group inline-flex items-center";
  * outline 테두리(레이아웃 시프트 0) · 배경/테두리색 전이 · 포커스 opacity dip.
  */
 const TRACK_CLASS =
-  "relative inline-flex items-center shrink-0 rounded-circle p-[var(--sz-3)] " +
+  "relative inline-flex items-center shrink-0 rounded-circle p-(--sz-3) " +
   "outline outline-1 [outline-offset:-1px] " +
   "transition-[background-color,outline-color] duration-150 ease-in-out motion-reduce:transition-none " +
-  "peer-focus-visible:opacity-[var(--alpha-80)]";
+  "peer-focus-visible:opacity-(--alpha-80)";
 
 /** 썸 공통 — 블록 · 원형 · 그림자 · 위치 전이. */
 const THUMB_CLASS =
@@ -95,20 +95,20 @@ const THUMB_CLASS =
 
 /** size 별 트랙 치수(Figma: 46×26 / 56×34). */
 const TRACK_SIZE_CLASS: Record<SwitchSize, string> = {
-  sm: "w-[var(--sz-46)] h-[var(--sz-26)]",
-  md: "w-[var(--sz-56)] h-[var(--sz-34)]",
+  sm: "w-(--sz-46) h-(--sz-26)",
+  md: "w-(--sz-56) h-(--sz-34)",
 };
 
 /** size 별 썸 지름(Figma: 20 / 28). */
 const THUMB_SIZE_CLASS: Record<SwitchSize, string> = {
-  sm: "size-[var(--sz-20)]",
-  md: "size-[var(--sz-28)]",
+  sm: "size-(--sz-20)",
+  md: "size-(--sz-28)",
 };
 
 /** size 별 썸 on 이동 거리(Figma: 20px / 22px). off 는 공통 `translate-x-0`. */
 const THUMB_TRANSLATE_CLASS: Record<SwitchSize, string> = {
-  sm: "translate-x-[var(--sz-20)]",
-  md: "translate-x-[var(--sz-22)]",
+  sm: "translate-x-(--sz-20)",
+  md: "translate-x-(--sz-22)",
 };
 
 /** (checked, disabled) → 트랙 배경 / outline / 썸 색 묶음. */
@@ -132,7 +132,7 @@ function switchColors(checked: boolean, disabled: boolean): SwitchStateClass {
         }
       : {
           track: "bg-bg-neutral-dark",
-          outline: "outline-[var(--color-border-neutral-light)]",
+          outline: "outline-border-neutral-light",
           thumb: "bg-bg-disabled-normal",
         };
   }
@@ -145,7 +145,7 @@ function switchColors(checked: boolean, disabled: boolean): SwitchStateClass {
     : {
         track: "bg-bg-neutral-deepDark",
         outline:
-          "outline-[var(--color-border-neutral-light)] group-hover:outline-[var(--color-border-neutral-subtle)]",
+          "outline-border-neutral-light group-hover:outline-border-neutral-subtle",
         thumb: "bg-bg-neutral-normal",
       };
 }

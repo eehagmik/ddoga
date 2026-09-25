@@ -23,9 +23,7 @@ const SLOT_PLACEHOLDER_LABEL = "슬롯";
  * 밀린다 — px-2 로 여유를 확보한다. lg 이상(32px~)은 박스가 커서 px-4 가 자연스럽다.
  */
 function slotPaddingClass(size: HorizontalMenuButtonSize) {
-  return size === "sm" || size === "md"
-    ? "px-[var(--sz-2)]"
-    : "px-[var(--sz-4)]";
+  return size === "sm" || size === "md" ? "px-(--sz-2)" : "px-(--sz-4)";
 }
 
 /**
@@ -58,7 +56,7 @@ function renderEndSlotPlaceholder(size: HorizontalMenuButtonSize) {
   return (
     <span
       className={[
-        "inline-flex h-[var(--sz-22)] shrink-0 items-center justify-center rounded-xs bg-bg-neutral-deepDark text-typo-neutral-light",
+        "inline-flex h-(--sz-22) shrink-0 items-center justify-center rounded-xs bg-bg-neutral-deepDark text-typo-neutral-light",
         slotPaddingClass(size),
         isSm ? "text-[10px]" : "text-body-6",
       ].join(" ")}
@@ -173,7 +171,7 @@ export const Outline: Story = {
 /** size 5종 나란히 비교(variant=text). */
 export const AllSizes: Story = {
   render: ({ startSlot, endSlot, ...args }) => (
-    <div className="flex flex-col gap-[var(--sz-8)]">
+    <div className="flex flex-col gap-(--sz-8)">
       {SIZES.map((size) => (
         <HorizontalMenuButton
           {...args}
@@ -193,7 +191,7 @@ export const AllSizes: Story = {
 export const AllSizesOutline: Story = {
   args: { variant: "outline" },
   render: ({ startSlot, endSlot, ...args }) => (
-    <div className="flex flex-col gap-[var(--sz-8)]">
+    <div className="flex flex-col gap-(--sz-8)">
       {SIZES.map((size) => (
         <HorizontalMenuButton
           {...args}
@@ -248,7 +246,7 @@ export const Hover: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const btn = within(canvasElement).getByRole("button", { name: "Label" });
-    await expect(btn).toHaveClass("hover:opacity-[var(--alpha-80)]");
+    await expect(btn).toHaveClass("hover:opacity-(--alpha-80)");
   },
 };
 
@@ -257,7 +255,7 @@ export const Focus: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const btn = within(canvasElement).getByRole("button", { name: "Label" });
-    await expect(btn).toHaveClass("focus-visible:opacity-[var(--alpha-60)]");
+    await expect(btn).toHaveClass("focus-visible:opacity-(--alpha-60)");
     btn.focus();
     await expect(btn).toHaveFocus();
   },

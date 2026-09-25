@@ -38,9 +38,9 @@ describe("BadgeNumber", () => {
       NonNullable<BadgeNumberProps["size"]>,
       [string, string]
     > = {
-      xs: ["min-w-[var(--sz-14)]", "text-label-3"],
-      sm: ["min-w-[var(--sz-16)]", "text-label-2"],
-      md: ["min-w-[var(--sz-20)]", "text-label-1"],
+      xs: ["min-w-(--sz-14)", "text-label-3"],
+      sm: ["min-w-(--sz-16)", "text-label-2"],
+      md: ["min-w-(--sz-20)", "text-label-1"],
     };
     for (const [size, classes] of Object.entries(cases) as [
       NonNullable<BadgeNumberProps["size"]>,

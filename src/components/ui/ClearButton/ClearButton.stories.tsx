@@ -44,7 +44,7 @@ export const Xs: Story = {
   play: async ({ args, canvasElement }) => {
     const btn = within(canvasElement).getByRole("button", { name: "지우기" });
     await expect(btn).toHaveAttribute("data-size", "xs");
-    await expect(btn).toHaveClass("size-[var(--sz-14)]");
+    await expect(btn).toHaveClass("size-(--sz-14)");
 
     await userEvent.click(btn);
     await expect(args.onClick).toHaveBeenCalledTimes(1);
@@ -64,7 +64,7 @@ export const Md: Story = {
 /** 세 사이즈 나란히 비교. */
 export const AllSizes: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-16)]">
+    <div className="flex items-center gap-(--sz-16)">
       {SIZES.map((size) => (
         <ClearButton {...args} key={size} size={size} />
       ))}
@@ -79,7 +79,7 @@ export const AllSizes: Story = {
 export const OnDarkSurface: Story = {
   args: { size: "md" },
   render: (args) => (
-    <div className="flex items-center justify-center rounded-md bg-bg-neutral-dark p-[var(--sz-24)]">
+    <div className="flex items-center justify-center rounded-md bg-bg-neutral-dark p-(--sz-24)">
       <ClearButton {...args} className="text-icon-inverse-normal" />
     </div>
   ),

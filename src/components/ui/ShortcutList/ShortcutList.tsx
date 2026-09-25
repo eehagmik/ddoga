@@ -53,7 +53,7 @@ export function ShortcutList({
   return (
     <div
       data-column={column}
-      className={["grid gap-[var(--sz-16)]", COLUMN_GRID[column], className]
+      className={["grid gap-(--sz-16)", COLUMN_GRID[column], className]
         .filter(Boolean)
         .join(" ")}
       {...rest}

@@ -19,9 +19,9 @@
  *
  * 토큰 매핑 (Figma 검증):
  * | 대상            | 스펙                          | 토큰                                  |
- * | 아이콘 박스      | 24×24                         | size-[var(--sz-24)]                   |
- * | disabled 아이콘 | opacity 0.4 (배지는 불변)      | opacity-[var(--alpha-40)]             |
- * | focus-visible   | opacity dip                   | opacity-[var(--alpha-60)]            |
+ * | 아이콘 박스      | 24×24                         | size-(--sz-24)                   |
+ * | disabled 아이콘 | opacity 0.4 (배지는 불변)      | opacity-(--alpha-40)             |
+ * | focus-visible   | opacity dip                   | opacity-(--alpha-60)            |
  * | dot 배지        | 6px, red, top/right -2px      | Dot size="xs" + -top/-right var(--sz-2) |
  * | number 배지     | min 14, red, top -3 / right -6 | BadgeNumber size="xs" + -top var(--sz-3) / -right var(--sz-6) |
  *
@@ -57,14 +57,14 @@ export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 const BASE_CLASS =
   "relative inline-flex shrink-0 cursor-pointer items-center justify-center " +
-  "focus-visible:opacity-[var(--alpha-60)] focus-visible:outline-none";
+  "focus-visible:opacity-(--alpha-60) focus-visible:outline-none";
 
 /**
  * 아이콘 wrapper — disabled 시 여기에만 opacity(배지는 형제라 불변).
  * 자식 svg 는 박스를 채우게 한다(소비자가 크기를 안 줘도 24 로 맞음).
  */
 const ICON_BOX =
-  "inline-flex size-[var(--sz-24)] items-center justify-center [&>svg]:size-full";
+  "inline-flex size-(--sz-24) items-center justify-center [&>svg]:size-full";
 
 export function IconButton({
   badge,
@@ -85,7 +85,7 @@ export function IconButton({
       {...rest}
     >
       <span
-        className={[ICON_BOX, disabled && "opacity-[var(--alpha-40)]"]
+        className={[ICON_BOX, disabled && "opacity-(--alpha-40)"]
           .filter(Boolean)
           .join(" ")}
       >
@@ -95,7 +95,7 @@ export function IconButton({
         <Dot
           size="xs"
           color="red"
-          className="absolute -top-[var(--sz-2)] -right-[var(--sz-2)]"
+          className="absolute -top-(--sz-2) -right-(--sz-2)"
         />
       )}
       {badge === "number" && (
@@ -103,7 +103,7 @@ export function IconButton({
           size="xs"
           count={count}
           max={max}
-          className="absolute -top-[var(--sz-3)] -right-[var(--sz-6)]"
+          className="absolute -top-(--sz-3) -right-(--sz-6)"
         />
       )}
     </button>

@@ -14,7 +14,7 @@
  *   `checked` 외 나머지 input 속성(`name`·`value`·`required` 등)은 `...rest` 로 `<input>` 에 spread.
  * - hover: `<label class="group">` → 아톰이 `group-hover:` 로 배경/체크마크를 전이한다.
  * - focus: Figma 에 없음. repo `Button` 의 focus 어포던스(링 대신 opacity dip)를 따라
- *   `peer-focus-visible:opacity-[var(--alpha-80)]` 를 체크박스 래퍼에 적용한다.
+ *   `peer-focus-visible:opacity-(--alpha-80)` 를 체크박스 래퍼에 적용한다.
  * - disabled: `<input disabled>` + `<Checkbox disabled>` + 라벨 `typo/disabled/normal` + `cursor-not-allowed`.
  * - 정렬: 루트 `items-start` — 라벨이 여러 줄이면 체크박스는 첫 줄에 맞춰 정렬된다.
  *   체크박스 래퍼에 size 별 `pt` 를 줘 첫 줄 텍스트와 광학적으로 정렬한다.
@@ -67,21 +67,21 @@ const ROOT_CLASS =
 /** 체크박스 래퍼 공통 — 세로 중앙 · 축소 방지 · 키보드 포커스 어포던스 · 전이. */
 const LEFT_CLASS =
   "inline-flex shrink-0 items-center " +
-  "peer-focus-visible:opacity-[var(--alpha-80)] " +
+  "peer-focus-visible:opacity-(--alpha-80) " +
   "transition-opacity duration-150 ease-in-out motion-reduce:transition-none";
 
 /** size 별 루트 좌우 간격(체크박스 ↔ 라벨). */
 const SIZE_GAP: Record<CheckboxSize, string> = {
-  sm: "gap-[var(--sz-8)]",
-  md: "gap-[var(--sz-8)]",
-  lg: "gap-[var(--sz-10)]",
+  sm: "gap-(--sz-8)",
+  md: "gap-(--sz-8)",
+  lg: "gap-(--sz-10)",
 };
 
 /** size 별 체크박스 래퍼 상단 패딩(첫 줄 텍스트와 광학 정렬). */
 const SIZE_PT: Record<CheckboxSize, string> = {
-  sm: "pt-[var(--sz-2)]",
-  md: "pt-[var(--sz-1)]",
-  lg: "pt-[var(--sz-1)]",
+  sm: "pt-(--sz-2)",
+  md: "pt-(--sz-1)",
+  lg: "pt-(--sz-1)",
 };
 
 /** size 별 라벨 합성 타이포 유틸(normal / bold). */

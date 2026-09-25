@@ -19,7 +19,7 @@ describe("Stepper", () => {
     expect(root).toHaveClass(
       "relative",
       "w-full",
-      "h-[var(--sz-2)]",
+      "h-(--sz-2)",
       "overflow-hidden",
       "bg-bg-brandGrayish-deep",
     );
@@ -87,12 +87,9 @@ describe("Stepper", () => {
 
   it("className 을 루트에 병합하고 기본 클래스도 유지한다", () => {
     const { container } = render(
-      <Stepper currentStep={1} totalSteps={4} className="mt-[var(--sz-8)]" />,
+      <Stepper currentStep={1} totalSteps={4} className="mt-(--sz-8)" />,
     );
-    expect(container.firstElementChild).toHaveClass(
-      "mt-[var(--sz-8)]",
-      "w-full",
-    );
+    expect(container.firstElementChild).toHaveClass("mt-(--sz-8)", "w-full");
   });
 
   it("렌더 결과에 리터럴 hex 색상값이 없다(토큰만 사용)", () => {

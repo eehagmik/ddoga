@@ -34,7 +34,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const Frame = ({ children }: { children: ReactNode }) => (
-  <div className="w-[var(--sz-320)] bg-bg-neutral-normal px-[var(--sz-16)]">
+  <div className="w-(--sz-320) bg-bg-neutral-normal px-(--sz-16)">
     {children}
   </div>
 );
@@ -109,7 +109,7 @@ export const WithStartSlot: Story = {
       <CheckSelectRadio
         defaultChecked
         startSlot={
-          <span className="flex size-[var(--sz-24)] items-center justify-center rounded-circle bg-bg-brand-normal text-body-5-bold text-typo-inverse-normal">
+          <span className="flex size-(--sz-24) items-center justify-center rounded-circle bg-bg-brand-normal text-body-5-bold text-typo-inverse-normal">
             A
           </span>
         }
@@ -125,7 +125,7 @@ export const RadioGroup: Story = {
   render: function RadioGroupStory() {
     const [value, setValue] = useState("a");
     return (
-      <div className="flex w-[var(--sz-320)] flex-col bg-bg-neutral-normal px-[var(--sz-16)]">
+      <div className="flex w-(--sz-320) flex-col bg-bg-neutral-normal px-(--sz-16)">
         {[
           ["a", "첫 번째 옵션"],
           ["b", "두 번째 옵션"],
@@ -149,7 +149,7 @@ export const RadioGroup: Story = {
 /** checkbox — 다중 선택 목록 (type='checkbox') */
 export const CheckboxGroup: Story = {
   render: () => (
-    <div className="flex w-[var(--sz-320)] flex-col bg-bg-neutral-normal px-[var(--sz-16)]">
+    <div className="flex w-(--sz-320) flex-col bg-bg-neutral-normal px-(--sz-16)">
       <CheckSelectRadio type="checkbox" defaultChecked>
         선택된 항목
       </CheckSelectRadio>
@@ -161,7 +161,7 @@ export const CheckboxGroup: Story = {
 /** checked 전수 (unchecked / checked) */
 export const AllStates: Story = {
   render: () => (
-    <div className="flex w-[var(--sz-320)] flex-col bg-bg-neutral-normal px-[var(--sz-16)]">
+    <div className="flex w-(--sz-320) flex-col bg-bg-neutral-normal px-(--sz-16)">
       {([false, true] as const).map((checked) => (
         <CheckSelectRadio
           key={String(checked)}

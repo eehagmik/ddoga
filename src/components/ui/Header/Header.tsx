@@ -72,18 +72,18 @@
  *
  * 토큰 매핑(Figma 검증):
  * | 대상             | 클래스                                              |
- * | 높이              | h-[var(--sz-52)]                                    |
- * | 좌우 패딩          | pl-[var(--sz-20)] pr-[var(--sz-14)]                 |
- * | 좌/우 그룹 간 gap   | gap-[var(--sz-12)] (우측 아이콘 그룹 내부 간격도 동일 재사용) |
- * | back-title 간 gap | gap-[var(--sz-8)]                                   |
- * | title-chevron gap | gap-[var(--sz-6)]                                   |
+ * | 높이              | h-(--sz-52)                                    |
+ * | 좌우 패딩          | pl-(--sz-20) pr-(--sz-14)                 |
+ * | 좌/우 그룹 간 gap   | gap-(--sz-12) (우측 아이콘 그룹 내부 간격도 동일 재사용) |
+ * | back-title 간 gap | gap-(--sz-8)                                   |
+ * | title-chevron gap | gap-(--sz-6)                                   |
  * | 배경 normal        | bg-bg-neutral-normal                                |
  * | 배경 blur          | bg-bg-overlay-whiteSubtle backdrop-blur-header       |
  * | 배경 transparent   | bg-bg-overlay-whiteNone                             |
  * | 타이틀 색          | text-typo-neutral-normal / text-typo-inverse-normal |
  * | 타이틀 타이포       | text-body-2 / text-body-2-bold                      |
- * | 아이콘 크기         | size-[var(--sz-24)] (select 화살표만 size-[var(--sz-18)]) |
- * | 슬롯 영역          | h-[var(--sz-24)] (폭 고정값 없음, `slot` 콘텐츠 크기만큼 늘어남) |
+ * | 아이콘 크기         | size-(--sz-24) (select 화살표만 size-(--sz-18)) |
+ * | 슬롯 영역          | h-(--sz-24) (폭 고정값 없음, `slot` 콘텐츠 크기만큼 늘어남) |
  * | home 로고 폭       | width="var(--sz-128)" (Figma 실측 127.543px 반올림)  |
  */
 
@@ -224,8 +224,8 @@ const LOGO_TONE: Record<HeaderContentsColor, LogoTone> = {
 const HOME_LOGO_WIDTH = "var(--sz-128)";
 
 const ROOT_BASE =
-  "flex h-[var(--sz-52)] items-center justify-between gap-[var(--sz-12)] " +
-  "pl-[var(--sz-20)] pr-[var(--sz-14)] transition-colors";
+  "flex h-(--sz-52) items-center justify-between gap-(--sz-12) " +
+  "pl-(--sz-20) pr-(--sz-14) transition-colors";
 
 /**
  * `variant` 가 blur/transparent 일 때만 스크롤 위치를 관찰해서 `scrollThreshold`(px)
@@ -333,7 +333,7 @@ export function Header({
         <Icon
           name="chevron_down_solid"
           size={18}
-          className={["shrink-0 size-[var(--sz-18)]", iconColorClass].join(" ")}
+          className={["shrink-0 size-(--sz-18)", iconColorClass].join(" ")}
         />
       ) : null}
     </>
@@ -349,7 +349,7 @@ export function Header({
         .filter(Boolean)
         .join(" ")}
     >
-      <div className="flex min-w-0 flex-1 items-center gap-[var(--sz-8)]">
+      <div className="flex min-w-0 flex-1 items-center gap-(--sz-8)">
         {isHome ? (
           <Logo
             lockup="horizontal"
@@ -381,15 +381,15 @@ export function Header({
                   type="button"
                   onClick={onTitleClick}
                   className={[
-                    "flex min-w-0 cursor-pointer items-center gap-[var(--sz-6)]",
-                    "transition-opacity hover:opacity-[var(--alpha-80)]",
-                    "focus-visible:opacity-[var(--alpha-60)] focus-visible:outline-none",
+                    "flex min-w-0 cursor-pointer items-center gap-(--sz-6)",
+                    "transition-opacity hover:opacity-(--alpha-80)",
+                    "focus-visible:opacity-(--alpha-60) focus-visible:outline-none",
                   ].join(" ")}
                 >
                   {titleContent}
                 </button>
               ) : (
-                <span className="flex min-w-0 items-center gap-[var(--sz-6)]">
+                <span className="flex min-w-0 items-center gap-(--sz-6)">
                   {titleContent}
                 </span>
               )
@@ -397,7 +397,7 @@ export function Header({
           </>
         )}
       </div>
-      <div className="flex shrink-0 items-center gap-[var(--sz-12)]">
+      <div className="flex shrink-0 items-center gap-(--sz-12)">
         {effectiveShowHome ? (
           <IconButton
             aria-label="홈"
@@ -408,7 +408,7 @@ export function Header({
           </IconButton>
         ) : null}
         {effectiveShowSlot ? (
-          <div className="flex h-[var(--sz-24)] shrink-0 items-center justify-center">
+          <div className="flex h-(--sz-24) shrink-0 items-center justify-center">
             {slot}
           </div>
         ) : null}

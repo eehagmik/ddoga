@@ -55,9 +55,9 @@ export const Playground: Story = {};
 /** square / round / text (unchecked · checked 각각). */
 export const Variants: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-12)]">
+    <div className="flex flex-col gap-(--sz-12)">
       {VARIANTS.map((variant) => (
-        <div key={variant} className="flex items-center gap-[var(--sz-12)]">
+        <div key={variant} className="flex items-center gap-(--sz-12)">
           <Toggle {...args} variant={variant} defaultPressed={false}>
             {variant}
           </Toggle>
@@ -73,7 +73,7 @@ export const Variants: Story = {
 /** xs / sm / md / lg. */
 export const Sizes: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-12)]">
+    <div className="flex items-center gap-(--sz-12)">
       {SIZES.map((size) => (
         <Toggle key={size} {...args} size={size}>
           {size}
@@ -86,7 +86,7 @@ export const Sizes: Story = {
 /** 선택되지 않음 / 선택됨. */
 export const Pressed: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-12)]">
+    <div className="flex items-center gap-(--sz-12)">
       <Toggle {...args} defaultPressed={false}>
         Off
       </Toggle>
@@ -103,7 +103,7 @@ export const Pressed: Story = {
  */
 export const Type: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-12)]">
+    <div className="flex items-center gap-(--sz-12)">
       {TYPES.map((type) => (
         <Toggle key={type} {...args} type={type} defaultPressed>
           {type}
@@ -117,7 +117,7 @@ export const Type: Story = {
 export const Disabled: Story = {
   args: { disabled: true },
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-12)]">
+    <div className="flex items-center gap-(--sz-12)">
       <Toggle {...args} defaultPressed={false}>
         Off
       </Toggle>
@@ -131,7 +131,7 @@ export const Disabled: Story = {
 /** variant(행) × [unchecked · checked · disabled unchecked · disabled checked] (열), size=md. */
 export const Matrix: Story = {
   render: (args) => (
-    <table className="border-separate border-spacing-[var(--sz-8)]">
+    <table className="border-separate border-spacing-(--sz-8)">
       <thead>
         <tr>
           <th />

@@ -123,10 +123,10 @@ describe("InfoCard", () => {
 
   it("className 을 루트에 병합한다", () => {
     const { container } = render(
-      <InfoCard titleValue="T" className="max-w-[var(--sz-320)]" />,
+      <InfoCard titleValue="T" className="max-w-(--sz-320)" />,
     );
     expect(container.querySelector("[data-color]")).toHaveClass(
-      "max-w-[var(--sz-320)]",
+      "max-w-(--sz-320)",
       "rounded-2xl",
     );
   });

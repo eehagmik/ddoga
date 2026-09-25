@@ -15,7 +15,7 @@ describe("ShortcutList", () => {
     );
     const root = container.firstElementChild;
     expect(root).toHaveAttribute("data-column", "3");
-    expect(root).toHaveClass("grid", "gap-[var(--sz-16)]");
+    expect(root).toHaveClass("grid", "gap-(--sz-16)");
   });
 
   it.each(COLUMNS)("column=%s 별 grid-cols 유틸을 적용한다", (column) => {
@@ -42,11 +42,11 @@ describe("ShortcutList", () => {
 
   it("className 을 루트에 병합한다", () => {
     const { container } = render(
-      <ShortcutList className="mt-[var(--sz-8)]">
+      <ShortcutList className="mt-(--sz-8)">
         <div>item</div>
       </ShortcutList>,
     );
-    expect(container.firstElementChild).toHaveClass("mt-[var(--sz-8)]", "grid");
+    expect(container.firstElementChild).toHaveClass("mt-(--sz-8)", "grid");
   });
 
   it("색·크기를 토큰 유틸로만 지정하고 인라인 style 에 hex 가 없다", () => {

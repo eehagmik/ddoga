@@ -106,7 +106,7 @@ describe("LikeToggle", () => {
     expect(getByRole("button")).toHaveClass(
       "absolute",
       "top-0",
-      "size-[var(--sz-24)]",
+      "size-(--sz-24)",
     );
   });
 

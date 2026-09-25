@@ -33,7 +33,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div className="w-[var(--sz-320)]">
+      <div className="w-(--sz-320)">
         <Story />
       </div>
     ),

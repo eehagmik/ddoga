@@ -32,7 +32,7 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: { size: 24 },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)] text-icon-neutral-normal">
+    <div className="bg-bg-neutral-normal p-(--sz-32) text-icon-neutral-normal">
       <BlankIcon {...args} />
     </div>
   ),
@@ -49,7 +49,7 @@ export const Playground: Story = {
 export const InheritsColor: Story = {
   args: { size: 32 },
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex items-center gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       <span className="text-icon-neutral-normal">
         <BlankIcon {...args} />
       </span>

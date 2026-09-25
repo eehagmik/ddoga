@@ -36,7 +36,7 @@ const meta = {
     maxWidth: { control: "text" },
   },
   render: (args) => (
-    <div className="flex items-center justify-center bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex items-center justify-center bg-bg-neutral-normal p-(--sz-32)">
       <MapPin {...args} />
     </div>
   ),
@@ -120,12 +120,12 @@ export const LongLabelWithMaxWidth: Story = {
 /** color × variant 4 조합을 나란히 비교(Figma 문서 프리뷰와 동일 구성). */
 export const AllCombinations: Story = {
   render: () => (
-    <div className="grid grid-cols-2 gap-[var(--sz-32)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="grid grid-cols-2 gap-(--sz-32) bg-bg-neutral-normal p-(--sz-32)">
       {COLORS.map((color) =>
         VARIANTS.map((variant) => (
           <div
             key={`${color}-${variant}`}
-            className="flex flex-col items-center gap-[var(--sz-8)]"
+            className="flex flex-col items-center gap-(--sz-8)"
           >
             <code className="text-2xs text-typo-neutral-light">
               {color}/{variant}

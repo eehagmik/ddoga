@@ -35,7 +35,7 @@ type Story = StoryObj<typeof meta>;
 /** 스크롤을 유발하기 위한 세로로 긴 더미 콘텐츠. */
 function TallContent() {
   return (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-20)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-20)">
       {Array.from({ length: 30 }, (_, i) => (
         <p key={i} className="text-body-4 text-typo-neutral-normal">
           {i + 1}. 아래로 스크롤하면 우하단에 버튼이 나타납니다. 버튼을 누르면
@@ -77,7 +77,7 @@ export const InScrollContainer: Story = {
   render: (args) => {
     const ref = useRef<HTMLDivElement>(null);
     return (
-      <div className="relative h-[var(--sz-320)] w-[var(--sz-320)] overflow-hidden">
+      <div className="relative h-(--sz-320) w-(--sz-320) overflow-hidden">
         <div ref={ref} data-scroll-container className="h-full overflow-y-auto">
           <TallContent />
         </div>
@@ -108,7 +108,7 @@ export const InScrollContainer: Story = {
 export const Visible: Story = {
   args: { visible: true },
   render: (args) => (
-    <div className="h-[var(--sz-320)] bg-bg-neutral-normal">
+    <div className="h-(--sz-320) bg-bg-neutral-normal">
       <TopButton {...args} />
     </div>
   ),
@@ -123,7 +123,7 @@ export const Visible: Story = {
 export const Hidden: Story = {
   args: { visible: false },
   render: (args) => (
-    <div className="h-[var(--sz-320)] bg-bg-neutral-normal">
+    <div className="h-(--sz-320) bg-bg-neutral-normal">
       <TopButton {...args} />
     </div>
   ),

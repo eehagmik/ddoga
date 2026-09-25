@@ -26,7 +26,7 @@
  * | header  | `--sz-38`  | `px --sz-14`                          | `bg-bg-neutral-deep`  | `bg-bg-neutral-dark` | 없음                            | 배경만 hover 로 전환(아이콘 색 불변)          |
  * | body    | `--sz-46`  | `px --sz-14` / `py --sz-4`, `border-xs` | `bg-bg-neutral-normal` | 불변                  | `border-border-neutral-light`  | `border-border-brand-normal` + 아이콘 `text-icon-brand-deep` |
  *
- * - 아이콘 ↔ 값 gap: `gap-[var(--sz-8)]`, 컨테이너 radius: `rounded-lg`
+ * - 아이콘 ↔ 값 gap: `gap-(--sz-8)`, 컨테이너 radius: `rounded-lg`
  * - 좌측 아이콘: `search_md_line` 18px. header 전 상태 + body enable/button →
  *   `text-icon-neutral-bright`, body hover/focus → `text-icon-brand-deep`
  *   (`group-hover:`/`group-focus-within:` — `focus-within`은 `asButton` 모드의 버튼 자체
@@ -73,16 +73,16 @@ export interface SearchbarProps {
 
 /** 루트 공통 — 레이아웃 + 배경/테두리 전이. `group` 은 아이콘 색 전환(`group-hover:`)에 쓴다. */
 const ROOT_BASE =
-  "group inline-flex w-full items-center gap-[var(--sz-8)] rounded-lg px-[var(--sz-14)] " +
+  "group inline-flex w-full items-center gap-(--sz-8) rounded-lg px-(--sz-14) " +
   "text-body-3 transition-colors duration-150 ease-in-out motion-reduce:transition-none";
 
 /** variant 별 높이 · padding · 배경 · 테두리(Figma 검증). */
 const VARIANT_ROOT: Record<SearchbarVariant, string> = {
   header:
-    "h-[var(--sz-38)] bg-bg-neutral-deep " +
+    "h-(--sz-38) bg-bg-neutral-deep " +
     "hover:bg-bg-neutral-dark focus-within:bg-bg-neutral-dark",
   body:
-    "h-[var(--sz-46)] py-[var(--sz-4)] border-xs border-solid bg-bg-neutral-normal " +
+    "h-(--sz-46) py-(--sz-4) border-xs border-solid bg-bg-neutral-normal " +
     "border-border-neutral-light " +
     "hover:border-border-brand-normal focus-within:border-border-brand-normal",
 };

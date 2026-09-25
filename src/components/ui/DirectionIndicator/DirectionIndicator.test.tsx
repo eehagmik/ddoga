@@ -113,14 +113,14 @@ describe("DirectionIndicator", () => {
       <DirectionIndicator
         currentCount={1}
         totalCount={3}
-        className="max-w-[var(--sz-320)]"
+        className="max-w-(--sz-320)"
         onPrev={() => {}}
         onNext={() => {}}
       />,
     );
     expect(container.firstElementChild).toHaveClass(
-      "max-w-[var(--sz-320)]",
-      "gap-[var(--sz-8)]",
+      "max-w-(--sz-320)",
+      "gap-(--sz-8)",
     );
   });
 

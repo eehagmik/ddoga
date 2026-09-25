@@ -11,7 +11,7 @@
  * 폭: Figma 프레임은 `size` 와 무관하게 전 variant 공통 68px 고정이다(가장 큰
  * 그래픽(2xl, 60px)이 들어갈 폭에 나머지 사이즈가 가운데 정렬로 맞춰지는 구조,
  * 메타데이터로 5개 사이즈 모두 width=68 실측 확인) — HorizontalMenuButton 처럼
- * `w-full` 로 오버라이드하지 않고 Figma 값 그대로 `w-[var(--sz-68)]` 를 쓴다.
+ * `w-full` 로 오버라이드하지 않고 Figma 값 그대로 `w-(--sz-68)` 를 쓴다.
  *
  * 구조(Figma 레이어 1:1): root(button) > inner(image + label) + endSlot(선택).
  * `image` 는 size 별 정사각 그래픽(children, 필수) + 우상단 배지(Dot, 선택) 조합이고,
@@ -74,36 +74,36 @@ export interface VerticalMenuButtonProps extends Omit<
 
 /** 루트 공통 — 세로 레이아웃 + 고정 폭·패딩·radius + hover/focus opacity(배경색은 불변). */
 const ROOT_BASE =
-  "inline-flex w-[var(--sz-68)] flex-col items-center cursor-pointer " +
-  "rounded-md p-[var(--sz-4)] [font-feature-settings:var(--font-feature-case)] " +
-  "transition-opacity hover:opacity-[var(--alpha-80)] " +
-  "focus-visible:opacity-[var(--alpha-60)] focus-visible:outline-none";
+  "inline-flex w-(--sz-68) flex-col items-center cursor-pointer " +
+  "rounded-md p-(--sz-4) [font-feature-settings:var(--font-feature-case)] " +
+  "transition-opacity hover:opacity-(--alpha-80) " +
+  "focus-visible:opacity-(--alpha-60) focus-visible:outline-none";
 
 /** inner(그래픽↔라벨) gap — sm·md 는 6, lg~2xl 는 8(Figma 실측). */
 const SIZE_INNER_GAP: Record<VerticalMenuButtonSize, string> = {
-  sm: "gap-[var(--sz-6)]",
-  md: "gap-[var(--sz-6)]",
-  lg: "gap-[var(--sz-8)]",
-  xl: "gap-[var(--sz-8)]",
-  "2xl": "gap-[var(--sz-8)]",
+  sm: "gap-(--sz-6)",
+  md: "gap-(--sz-6)",
+  lg: "gap-(--sz-8)",
+  xl: "gap-(--sz-8)",
+  "2xl": "gap-(--sz-8)",
 };
 
 /** root(inner↔endSlot) gap — sm 만 6, md~2xl 는 8(md 는 inner-gap 과 비대칭, Figma 실측). */
 const SIZE_ROOT_GAP: Record<VerticalMenuButtonSize, string> = {
-  sm: "gap-[var(--sz-6)]",
-  md: "gap-[var(--sz-8)]",
-  lg: "gap-[var(--sz-8)]",
-  xl: "gap-[var(--sz-8)]",
-  "2xl": "gap-[var(--sz-8)]",
+  sm: "gap-(--sz-6)",
+  md: "gap-(--sz-8)",
+  lg: "gap-(--sz-8)",
+  xl: "gap-(--sz-8)",
+  "2xl": "gap-(--sz-8)",
 };
 
 /** 그래픽 정사각 슬롯 크기(Figma 실측). */
 const SIZE_GRAPHIC: Record<VerticalMenuButtonSize, string> = {
-  sm: "size-[var(--sz-28)]",
-  md: "size-[var(--sz-32)]",
-  lg: "size-[var(--sz-42)]",
-  xl: "size-[var(--sz-52)]",
-  "2xl": "size-[var(--sz-60)]",
+  sm: "size-(--sz-28)",
+  md: "size-(--sz-32)",
+  lg: "size-(--sz-42)",
+  xl: "size-(--sz-52)",
+  "2xl": "size-(--sz-60)",
 };
 
 /** 배지(Dot) 크기 — sm·md 는 xs(6), lg~2xl 는 sm(8). */
@@ -165,7 +165,7 @@ export function VerticalMenuButton({
             <Dot
               size={SIZE_BADGE[size]}
               color="red"
-              className="absolute -top-[var(--sz-2)] -right-[var(--sz-2)]"
+              className="absolute -top-(--sz-2) -right-(--sz-2)"
             />
           ) : null}
         </span>
@@ -181,7 +181,7 @@ export function VerticalMenuButton({
         </span>
       </span>
       {endSlot ? (
-        <span data-name="endSlot" className="h-[var(--sz-32)] w-full">
+        <span data-name="endSlot" className="h-(--sz-32) w-full">
           {endSlot}
         </span>
       ) : null}

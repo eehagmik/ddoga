@@ -73,26 +73,23 @@ function tokenName(group: ShadowGroup, step: string): string {
 
 function Section({ group }: { group: GroupDef }) {
   return (
-    <section
-      data-section={group.id}
-      className="flex flex-col gap-[var(--sz-16)]"
-    >
-      <div className="flex flex-col gap-[var(--sz-4)]">
+    <section data-section={group.id} className="flex flex-col gap-(--sz-16)">
+      <div className="flex flex-col gap-(--sz-4)">
         <h2 className="text-2xl font-bold">{group.title}</h2>
         <p className="text-xs text-typo-neutral-light">{group.description}</p>
       </div>
 
       {/* 예시 패널 — Figma "Preview" 프레임과 동일 */}
-      <div className="rounded-xl bg-bg-neutral-normal px-[var(--sz-32)] py-[var(--sz-16)]">
+      <div className="rounded-xl bg-bg-neutral-normal px-(--sz-32) py-(--sz-16)">
         {/* 내부 컨테이너 — 큰 그림자(xl ≈ 42)가 패널 경계선에 닿지 않도록 위아래 sz-40 여유 */}
-        <div className="flex flex-wrap items-center justify-center gap-[var(--sz-32)] py-[var(--sz-40)]">
+        <div className="flex flex-wrap items-center justify-center gap-(--sz-32) py-(--sz-40)">
           {group.steps.map((step) => {
             const token = tokenName(group.id, step);
             return (
               <div
                 key={step}
                 data-token={token}
-                className="flex h-[var(--sz-72)] w-[var(--sz-72)] shrink-0 items-center justify-center rounded-md bg-bg-neutral-normal text-xs font-normal text-typo-neutral-light"
+                className="flex h-(--sz-72) w-(--sz-72) shrink-0 items-center justify-center rounded-md bg-bg-neutral-normal text-xs font-normal text-typo-neutral-light"
                 style={{ boxShadow: `var(${token})` }}
               >
                 {group.id === "bottomNav" ? "↑" : step}
@@ -103,7 +100,7 @@ function Section({ group }: { group: GroupDef }) {
       </div>
 
       {/* 토큰명 레퍼런스 */}
-      <ul className="flex flex-wrap gap-x-[var(--sz-16)] gap-y-[var(--sz-4)]">
+      <ul className="flex flex-wrap gap-x-(--sz-16) gap-y-(--sz-4)">
         {group.steps.map((step) => (
           <li key={step}>
             <code className="text-2xs font-normal text-typo-neutral-normal">
@@ -119,7 +116,7 @@ function Section({ group }: { group: GroupDef }) {
 export function Shadow({ section }: ShadowProps) {
   const groups = section ? GROUPS.filter((g) => g.id === section) : GROUPS;
   return (
-    <div className="flex flex-col gap-[var(--sz-32)] bg-bg-neutral-deep p-[var(--sz-16)] text-typo-neutral-normal">
+    <div className="flex flex-col gap-(--sz-32) bg-bg-neutral-deep p-(--sz-16) text-typo-neutral-normal">
       {groups.map((g) => (
         <Section key={g.id} group={g} />
       ))}

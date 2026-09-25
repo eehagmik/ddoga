@@ -56,7 +56,7 @@
  * `shadow-black-xs`(Figma effect `shadow/black/xs` 와 1:1 일치 확인, 기존 유틸 재사용),
  * 항상 `bottom-0`. 아이콘 색은 `text-icon-brandGrayish-normal`(2026-09-16 정정 — 과거
  * `text-icon-neutral-normal` 오구현이었다). 배지 자체가 `<button type="button">` 이라
- * `focus-visible:outline-none focus-visible:opacity-[var(--alpha-60)]` + `cursor-pointer`
+ * `focus-visible:outline-none focus-visible:opacity-(--alpha-60)` + `cursor-pointer`
  * 를 갖는다(`ClearButton`/`add` 슬롯 버튼 선례와 동일한 포커스 처리).
  *
  * checkable 링(Figma node 51405:6120 실측 inset → borderWidth 토큰 매핑):
@@ -130,31 +130,31 @@ const DEFAULT_LABEL: Record<AvatarVariant, string> = {
 
 /** size 별 루트 지름(Figma 실측, 2026-09-16 오타 정정 후 전 type/variant 공통). */
 const SIZE_CLASS: Record<AvatarSize, string> = {
-  xs: "size-[var(--sz-24)]",
-  sm: "size-[var(--sz-32)]",
-  md: "size-[var(--sz-48)]",
-  lg: "size-[var(--sz-60)]",
-  xl: "size-[var(--sz-72)]",
-  "2xl": "size-[var(--sz-84)]",
+  xs: "size-(--sz-24)",
+  sm: "size-(--sz-32)",
+  md: "size-(--sz-48)",
+  lg: "size-(--sz-60)",
+  xl: "size-(--sz-72)",
+  "2xl": "size-(--sz-84)",
 };
 
 /** size 별 edit 배지 지름(Figma 실측: 14/16/22/24/26/28 → 기존 sz 토큰과 정확히 일치). */
 const EDIT_BADGE_SIZE_CLASS: Record<AvatarSize, string> = {
-  xs: "size-[var(--sz-14)]",
-  sm: "size-[var(--sz-16)]",
-  md: "size-[var(--sz-22)]",
-  lg: "size-[var(--sz-24)]",
-  xl: "size-[var(--sz-26)]",
-  "2xl": "size-[var(--sz-28)]",
+  xs: "size-(--sz-14)",
+  sm: "size-(--sz-16)",
+  md: "size-(--sz-22)",
+  lg: "size-(--sz-24)",
+  xl: "size-(--sz-26)",
+  "2xl": "size-(--sz-28)",
 };
 
 /** size 별 edit 배지 우측 오프셋(Figma 실측: -4/-4/-2/-2/-2/0). */
 const EDIT_BADGE_OFFSET_CLASS: Record<AvatarSize, string> = {
-  xs: "-right-[var(--sz-4)]",
-  sm: "-right-[var(--sz-4)]",
-  md: "-right-[var(--sz-2)]",
-  lg: "-right-[var(--sz-2)]",
-  xl: "-right-[var(--sz-2)]",
+  xs: "-right-(--sz-4)",
+  sm: "-right-(--sz-4)",
+  md: "-right-(--sz-2)",
+  lg: "-right-(--sz-2)",
+  xl: "-right-(--sz-2)",
   "2xl": "right-0",
 };
 
@@ -170,13 +170,12 @@ const EDIT_ICON_SIZE: Record<AvatarSize, number> = {
 
 /** size 별 checkable 링 두께 = inset 오프셋(Figma 실측, borderWidth 토큰과 정확히 일치). */
 const RING_CLASS: Record<AvatarSize, string> = {
-  xs: "-inset-[var(--border-width-sm)] border-[length:var(--border-width-sm)]",
-  sm: "-inset-[var(--border-width-sm)] border-[length:var(--border-width-sm)]",
-  md: "-inset-[var(--border-width-md)] border-[length:var(--border-width-md)]",
-  lg: "-inset-[var(--border-width-lg)] border-[length:var(--border-width-lg)]",
-  xl: "-inset-[var(--border-width-lg)] border-[length:var(--border-width-lg)]",
-  "2xl":
-    "-inset-[var(--border-width-xl)] border-[length:var(--border-width-xl)]",
+  xs: "-inset-(--border-width-sm) border-[length:var(--border-width-sm)]",
+  sm: "-inset-(--border-width-sm) border-[length:var(--border-width-sm)]",
+  md: "-inset-(--border-width-md) border-[length:var(--border-width-md)]",
+  lg: "-inset-(--border-width-lg) border-[length:var(--border-width-lg)]",
+  xl: "-inset-(--border-width-lg) border-[length:var(--border-width-lg)]",
+  "2xl": "-inset-(--border-width-xl) border-[length:var(--border-width-xl)]",
 };
 
 /** size 별 add 슬롯 plus 아이콘 px(Figma inset ~28~33% 실측 근사). */
@@ -262,7 +261,7 @@ export function Avatar({
           "inline-flex shrink-0 cursor-pointer items-center justify-center rounded-circle",
           "border border-dashed border-[color:var(--color-border-brandGrayish-light)]",
           "bg-bg-overlay-greenGraySubtle",
-          "focus-visible:outline-none focus-visible:opacity-[var(--alpha-60)]",
+          "focus-visible:outline-none focus-visible:opacity-(--alpha-60)",
           SIZE_CLASS[size],
           className,
         ]
@@ -335,7 +334,7 @@ export function Avatar({
             "absolute bottom-0 inline-flex shrink-0 cursor-pointer items-center justify-center rounded-circle",
             "bg-bg-brandGrayish-deep border border-[color:var(--color-border-brandGrayish-light)]",
             "shadow-black-xs",
-            "focus-visible:outline-none focus-visible:opacity-[var(--alpha-60)]",
+            "focus-visible:outline-none focus-visible:opacity-(--alpha-60)",
             EDIT_BADGE_SIZE_CLASS[size],
             EDIT_BADGE_OFFSET_CLASS[size],
           ].join(" ")}
@@ -387,7 +386,7 @@ export function Avatar({
       data-checked={isChecked}
       className={[
         "relative inline-flex shrink-0 cursor-pointer items-center justify-center rounded-circle",
-        "focus-visible:outline-none focus-visible:opacity-[var(--alpha-60)]",
+        "focus-visible:outline-none focus-visible:opacity-(--alpha-60)",
         SIZE_CLASS[size],
         className,
       ]

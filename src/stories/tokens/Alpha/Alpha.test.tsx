@@ -38,6 +38,6 @@ describe("Alpha", () => {
   it("데모 칩은 opacity 를 --alpha 토큰의 정적 유틸 클래스로 지정한다", () => {
     const { container } = render(<Alpha section="20" />);
     const chip = container.querySelector('[data-token="--alpha-20"]');
-    expect(chip?.className).toContain("opacity-[var(--alpha-20)]");
+    expect(chip?.className).toContain("opacity-(--alpha-20)");
   });
 });

@@ -30,7 +30,7 @@ export interface StepperProps {
 
 /** 트랙 — 전체 폭 · 고정 높이 · 넘치는 인디케이터 클립. */
 const TRACK_CLASS =
-  "relative w-full h-[var(--sz-2)] overflow-hidden bg-bg-brandGrayish-deep";
+  "relative w-full h-(--sz-2) overflow-hidden bg-bg-brandGrayish-deep";
 
 /** 인디케이터 — 좌측 고정, 폭만 percent 로 전이. */
 const INDICATOR_CLASS =

@@ -103,10 +103,10 @@ describe("Swiper", () => {
 
   it("className 을 루트에 병합한다", () => {
     const { container } = render(
-      <Swiper className="max-w-[var(--sz-320)]">{renderSlides(2)}</Swiper>,
+      <Swiper className="max-w-(--sz-320)">{renderSlides(2)}</Swiper>,
     );
     expect(container.firstElementChild).toHaveClass(
-      "max-w-[var(--sz-320)]",
+      "max-w-(--sz-320)",
       "w-full",
     );
   });

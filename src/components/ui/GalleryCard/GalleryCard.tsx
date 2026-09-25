@@ -14,7 +14,7 @@
  * - 루트는 `<div role="button" tabIndex={0} onClick>` 이다(ImageCard/TextCard
  *   선례 — `onClick` 유무와 무관하게 항상 `role="button"`, 카드 전체가 클릭
  *   가능). Enter/Space 키 입력도 클릭과 동일하게 트리거한다(`element.click()`
- *   위임). focus 시 포커스 링 대신 루트에 `opacity-[var(--alpha-80)]` dip 을
+ *   위임). focus 시 포커스 링 대신 루트에 `opacity-(--alpha-80)` dip 을
  *   준다(2026-09-19 사용자 확정 — Figma 근거 없음, TextCard/ImageCard 와 동일
  *   `--alpha-80` 값으로 통일, 프로젝트 전역 포커스 링 대체 관례와도 일치).
  * - Figma prop명 `mutipleIcon`(오타)은 코드에서 `multipleIcon`으로 정정했다
@@ -35,10 +35,10 @@
  * `w-full` + relative + isolate, `ratio` 별 aspect-ratio(16:9 →
  * `aspect-video`, 1:1 → `aspect-square`). `overflow-hidden rounded-2xl`
  * (`--radius-2xl`)은 바깥 컨테이너가 아니라 slot(children) 레이어에만 건다 —
- * 배지(Dot)가 우상단 모서리 밖으로 `-top-[var(--sz-2)] -right-[var(--sz-2)]`
+ * 배지(Dot)가 우상단 모서리 밖으로 `-top-(--sz-2) -right-(--sz-2)`
  * 만큼 튀어나오는데, 바깥 컨테이너에 overflow-hidden을 걸면 그 튀어나온
  * 부분이 잘려버리기 때문이다(버그 수정, 2026-09-19). 복사 아이콘은 우하단
- * `bottom-[var(--sz-10)] right-[var(--sz-10)]`(클리핑 레이어 밖이지만 항상
+ * `bottom-(--sz-10) right-(--sz-10)`(클리핑 레이어 밖이지만 항상
  * 컨테이너 안쪽이라 영향 없음), 슬롯(children)은 ImageCard 선례와 동일하게
  * `absolute inset-0`(children 실제 콘텐츠 크기가 썸네일 aspect-ratio 를
  * 밀어내지 않도록).
@@ -88,8 +88,8 @@ export interface GalleryCardProps {
  * `--alpha-80`으로 통일, 포커스 링 대신 dip).
  */
 const ROOT_BASE =
-  "flex w-full flex-col items-start gap-[var(--sz-8)] cursor-pointer " +
-  "focus-visible:opacity-[var(--alpha-80)] focus-visible:outline-none";
+  "flex w-full flex-col items-start gap-(--sz-8) cursor-pointer " +
+  "focus-visible:opacity-(--alpha-80) focus-visible:outline-none";
 
 /** `ratio` 별 썸네일 aspect-ratio(Figma 150x84/150x150 실측 ≈ 16/9, 1/1). */
 const RATIO_ASPECT_CLASS: Record<GalleryCardRatio, string> = {
@@ -99,7 +99,7 @@ const RATIO_ASPECT_CLASS: Record<GalleryCardRatio, string> = {
 
 /** 복사 아이콘 — 흰색 + Figma shadow/black/xs 를 drop-shadow 필터로 수동 조립(Tooltip 선례). */
 const MULTIPLE_ICON_CLASS =
-  "absolute bottom-[var(--sz-10)] right-[var(--sz-10)] z-[2] text-typo-inverse-normal " +
+  "absolute bottom-(--sz-10) right-(--sz-10) z-2 text-typo-inverse-normal " +
   "[filter:drop-shadow(0_var(--sz-1)_var(--sz-2)_var(--color-shadow-black-light))_drop-shadow(0_var(--sz-2)_var(--sz-4)_var(--color-shadow-black-normal))]";
 
 export function GalleryCard({
@@ -138,7 +138,7 @@ export function GalleryCard({
       >
         <div
           data-name="slot"
-          className="absolute inset-0 z-[1] overflow-hidden rounded-2xl"
+          className="absolute inset-0 z-1 overflow-hidden rounded-2xl"
         >
           {children}
         </div>
@@ -147,7 +147,7 @@ export function GalleryCard({
             size="md"
             color="red"
             isBorder
-            className="absolute -top-[var(--sz-2)] -right-[var(--sz-2)] z-[3]"
+            className="absolute -top-(--sz-2) -right-(--sz-2) z-3"
           />
         )}
         {multipleIcon && (

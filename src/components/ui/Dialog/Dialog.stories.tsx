@@ -78,7 +78,7 @@ export const CustomContentOnly: Story = {
   args: { mainText: "", subText: "" },
   render: (args) => (
     <Dialog {...args}>
-      <div className="w-full rounded-md bg-bg-neutral-deep p-[var(--sz-12)] text-center text-body-4 text-typo-neutral-normal">
+      <div className="w-full rounded-md bg-bg-neutral-deep p-(--sz-12) text-center text-body-4 text-typo-neutral-normal">
         커스텀 콘텐츠 슬롯
       </div>
     </Dialog>

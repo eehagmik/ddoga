@@ -47,7 +47,7 @@
  *   -0.16px, leading-1.47) 와 `HelperLabel` md 클래스가 font-size·tracking·leading 까지
  *   정확히 일치함을 토큰 대조로 확인했다(`sm` 은 14px 라 불일치).
  * - `danger` → `HelperLabel` `variant`(`danger` / `default`). danger 아이콘
- *   (`alert_triangle_solid`, 18px, `pt-[var(--sz-4)]`, `text-icon-danger-normal`) 도
+ *   (`alert_triangle_solid`, 18px, `pt-(--sz-4)`, `text-icon-danger-normal`) 도
  *   `HelperLabel` `variant="danger"` + `size="md"` 조합이 기존 TextField 자체 렌더와
  *   정확히 일치함을 확인했다.
  * - transparentBody/transparentTitle 의 중앙정렬은 `HelperLabel` 에 정렬 prop 이 없어
@@ -83,7 +83,7 @@
  * 상태 색 매핑(line/box + transparentBody/transparentTitle 전부)은
  * `Input`(`src/components/ui/Input/Input.tsx`) JSDoc 표를 그대로 상속한다(중복 기술하지
  * 않음). transparentBody/transparentTitle 은 테두리·아이콘 슬롯이 없어 상태에 따른 시각
- * 변화가 disabled(텍스트 dim, transparentTitle 은 추가로 `opacity-[var(--alpha-60)]`)
+ * 변화가 disabled(텍스트 dim, transparentTitle 은 추가로 `opacity-(--alpha-60)`)
  * 와 danger(HelperLabel 만 경고 아이콘 + 빨간색) 뿐이다(hover/focus/readOnly 는 Figma
  * 실측상 텍스트 색조차 바뀌지 않음). transparentTitle 값 색은 브랜드green 이 아니라
  * `typo-info-normal`(파랑) — Figma 원본 그대로다.
@@ -158,10 +158,10 @@ export interface TextFieldProps extends Omit<
 
 /** variant 별 루트 세로 gap(라벨&필드 블록 ↔ 헬퍼). transparentTitle 만 --sz-4, 나머지 --sz-8 */
 const ROOT_GAP: Record<TextFieldVariant, string> = {
-  line: "gap-[var(--sz-8)]",
-  box: "gap-[var(--sz-8)]",
-  transparentBody: "gap-[var(--sz-8)]",
-  transparentTitle: "gap-[var(--sz-4)]",
+  line: "gap-(--sz-8)",
+  box: "gap-(--sz-8)",
+  transparentBody: "gap-(--sz-8)",
+  transparentTitle: "gap-(--sz-4)",
 };
 
 export function TextField({
@@ -212,7 +212,7 @@ export function TextField({
         .join(" ")}
     >
       {isLineOrBox ? (
-        <div className="flex w-full flex-col items-start gap-[var(--sz-10)]">
+        <div className="flex w-full flex-col items-start gap-(--sz-10)">
           {label ? (
             <Label
               label={label}

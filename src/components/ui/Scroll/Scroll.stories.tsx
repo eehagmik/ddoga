@@ -37,9 +37,9 @@ export const Vertical: Story = {
   render: (args) => (
     <Scroll
       {...args}
-      className="h-[var(--sz-160)] w-[var(--sz-224)] rounded-xs border border-border-neutral-light p-[var(--sz-8)]"
+      className="h-(--sz-160) w-(--sz-224) rounded-xs border border-border-neutral-light p-(--sz-8)"
     >
-      <ul className="flex flex-col gap-[var(--sz-8)]">
+      <ul className="flex flex-col gap-(--sz-8)">
         {LONG_ITEMS.map((item) => (
           <li key={item} className="text-body-3 text-typo-neutral-normal">
             {item}
@@ -62,9 +62,9 @@ export const Horizontal: Story = {
   render: (args) => (
     <Scroll
       {...args}
-      className="w-[var(--sz-224)] rounded-xs border border-border-neutral-light p-[var(--sz-8)]"
+      className="w-(--sz-224) rounded-xs border border-border-neutral-light p-(--sz-8)"
     >
-      <div className="flex w-max gap-[var(--sz-8)]">
+      <div className="flex w-max gap-(--sz-8)">
         {LONG_ITEMS.map((item) => (
           <span
             key={item}
@@ -86,15 +86,12 @@ export const Horizontal: Story = {
 /** 카드 표면 안에 중첩한 실사용 문맥 재현(BottomSheet 바디 등). */
 export const InCard: Story = {
   render: () => (
-    <div className="flex w-[var(--sz-320)] flex-col overflow-clip rounded-2xl bg-bg-neutral-normal shadow-black-lg">
-      <div className="shrink-0 border-b border-border-neutral-light px-[var(--sz-16)] py-[var(--sz-14)] text-body-3-bold text-typo-neutral-normal">
+    <div className="flex w-(--sz-320) flex-col overflow-clip rounded-2xl bg-bg-neutral-normal shadow-black-lg">
+      <div className="shrink-0 border-b border-border-neutral-light px-(--sz-16) py-(--sz-14) text-body-3-bold text-typo-neutral-normal">
         타이틀
       </div>
-      <Scroll
-        axis="y"
-        className="h-[var(--sz-160)] px-[var(--sz-16)] py-[var(--sz-12)]"
-      >
-        <ul className="flex flex-col gap-[var(--sz-8)]">
+      <Scroll axis="y" className="h-(--sz-160) px-(--sz-16) py-(--sz-12)">
+        <ul className="flex flex-col gap-(--sz-8)">
           {LONG_ITEMS.map((item) => (
             <li key={item} className="text-body-3 text-typo-neutral-normal">
               {item}

@@ -62,7 +62,7 @@ export interface LabelProps {
 }
 
 /** 공통 루트 — flex row, gap, 중앙정렬 */
-const ROOT_CLASS = "flex flex-wrap items-center gap-[var(--sz-4)]";
+const ROOT_CLASS = "flex flex-wrap items-center gap-(--sz-4)";
 
 /** sm 사이즈, 굵기 아님 — Pretendard Medium 500, 16px, tracking -0.16px */
 const SM_NORMAL_CLASS =
@@ -82,8 +82,8 @@ const MD_BOLD_CLASS =
 
 /** 정보 아이콘 크기(Figma: sm=16px, md=20px) */
 const ICON_SIZE_CLASS: Record<LabelSize, string> = {
-  sm: "size-[var(--sz-16)]",
-  md: "size-[var(--sz-20)]",
+  sm: "size-(--sz-16)",
+  md: "size-(--sz-20)",
 };
 
 /** 정보 아이콘 px(Icon 컴포넌트 size prop 용, ICON_SIZE_CLASS 와 1:1 대응) */
@@ -145,7 +145,7 @@ export function Label({
         <button
           type="button"
           onClick={onInfoClick}
-          className={`inline-flex shrink-0 items-center justify-center ${iconClass} text-icon-info-normal focus-visible:opacity-[var(--alpha-60)] transition-opacity duration-150 ease-in-out`}
+          className={`inline-flex shrink-0 items-center justify-center ${iconClass} text-icon-info-normal focus-visible:opacity-(--alpha-60) transition-opacity duration-150 ease-in-out`}
           aria-label={infoLabel}
           style={{
             background: "transparent",

@@ -19,7 +19,7 @@
  *   이 없어도 인터랙티브 시맨틱은 유지되고, 넘기면 클릭/Enter/Space 시 호출된다.
  *   Figma 에 카드 레벨 hover/focus 시각 상태가 없으므로 TextCard 처럼
  *   `hover:`/`focus-visible:` 배경 스타일은 넣지 않는다. 다만 focus 시 포커스
- *   링 대신 루트 전체에 `opacity-[var(--alpha-80)]` dip 을 준다(2026-09-19
+ *   링 대신 루트 전체에 `opacity-(--alpha-80)` dip 을 준다(2026-09-19
  *   사용자 확정 — Figma 근거는 없지만 카드 클릭 가능 확장에 맞춰 TextCard/
  *   GalleryCard 와 동일한 `--alpha-80` 값으로 통일, 프로젝트 전역 포커스 링
  *   대체 관례와도 일치). 내부 `LikeToggleWithLabel` 은 별도 tab stop 이라
@@ -40,8 +40,8 @@
  * 밀어 올리는 문제가 있었다 — 예: children 이 `BlankGraphic`(기본 ratio 1:1)이면
  * 정사각으로 부풀어 `ratio="16:9"` 가 시각적으로 무시됨. 슬롯을 absolute 로 레이어
  * 밖에 두면 Image area 의 크기는 오직 `aspect-[16/9]`/`aspect-square` 로만
- * 결정된다). 하단 바는 `bg-bg-neutral-normal`, `px-[var(--sz-20)]
- * py-[var(--sz-16)]`, `gap-[var(--sz-16)]`.
+ * 결정된다). 하단 바는 `bg-bg-neutral-normal`, `px-(--sz-20)
+ * py-(--sz-16)`, `gap-(--sz-16)`.
  *
  * 재사용: 딤 오버레이는 기존 `Dim`(`variant="gradient"`, Figma 의
  * blackNone→blackDeep 그라데이션과 정확히 일치), 좋아요 버튼은 기존
@@ -111,7 +111,7 @@ export interface ImageCardProps {
  */
 const ROOT_BASE =
   "flex flex-col overflow-hidden isolate rounded-2xl cursor-pointer " +
-  "focus-visible:opacity-[var(--alpha-80)] focus-visible:outline-none";
+  "focus-visible:opacity-(--alpha-80) focus-visible:outline-none";
 
 /** `bottom=true` 일 때만 붙는 1px 테두리(Figma 실측 — bottom=false 엔 없음). */
 const BORDER_CLASS = "border border-border-neutral-bright";
@@ -167,25 +167,25 @@ export function ImageCard({
         {title && (
           <p
             data-name="title"
-            className="absolute bottom-[var(--sz-16)] left-[var(--sz-16)] right-[var(--sz-16)] z-[3] text-title-3 text-typo-inverse-normal"
+            className="absolute bottom-(--sz-16) left-(--sz-16) right-(--sz-16) z-3 text-title-3 text-typo-inverse-normal"
           >
             {titleValue}
           </p>
         )}
-        {dim && <Dim variant="gradient" className="z-[2]" />}
-        <div data-name="slot" className="absolute inset-0 z-[1]">
+        {dim && <Dim variant="gradient" className="z-2" />}
+        <div data-name="slot" className="absolute inset-0 z-1">
           {children}
         </div>
       </div>
       {bottom && (
         <div
           data-name="like & period"
-          className="flex w-full items-center gap-[var(--sz-16)] bg-bg-neutral-normal px-[var(--sz-20)] py-[var(--sz-16)]"
+          className="flex w-full items-center gap-(--sz-16) bg-bg-neutral-normal px-(--sz-20) py-(--sz-16)"
         >
           {postedTime && (
             <div
               data-name="date"
-              className="flex items-center gap-[var(--sz-2)] whitespace-nowrap text-label-2 text-typo-neutral-light"
+              className="flex items-center gap-(--sz-2) whitespace-nowrap text-label-2 text-typo-neutral-light"
             >
               <span>{postedTimeValue}</span>
               <span>전</span>

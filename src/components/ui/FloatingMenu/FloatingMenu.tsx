@@ -40,7 +40,7 @@ export interface FloatingMenuProps extends Omit<
 const ROOT =
   "inline-flex flex-col items-start overflow-clip rounded-2xl border " +
   "border-border-neutral-bright bg-bg-neutral-normal shadow-black-lg " +
-  "min-w-[var(--sz-128)] max-w-[var(--sz-256)]";
+  "min-w-(--sz-128) max-w-(--sz-256)";
 
 export function FloatingMenu({ items, className, ...rest }: FloatingMenuProps) {
   const rootClassName = [ROOT, className].filter(Boolean).join(" ");

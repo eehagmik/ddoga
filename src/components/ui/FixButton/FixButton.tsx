@@ -141,13 +141,13 @@ const ROOT_CLASS = "fixed inset-x-0 bottom-0 z-50 flex w-full flex-col";
 
 /** 상단 스크림. 순수 장식(`aria-hidden`), 보더·그림자 없음(Figma 스펙 준수). */
 const GRADIENT_CLASS =
-  "h-[var(--sz-18)] w-full shrink-0 " +
+  "h-(--sz-18) w-full shrink-0 " +
   "bg-[linear-gradient(to_bottom,var(--color-bg-neutral-none),var(--color-bg-neutral-normal))]";
 
 /** 버튼 바 — 풀와이드, 흰 배경, safe-area를 pb 에 흡수. */
 const BAR_BASE =
-  "flex w-full items-stretch gap-[var(--sz-8)] bg-bg-neutral-normal " +
-  "pt-[var(--sz-4)] px-[var(--sz-20)] " +
+  "flex w-full items-stretch gap-(--sz-8) bg-bg-neutral-normal " +
+  "pt-(--sz-4) px-(--sz-20) " +
   "pb-[calc(env(safe-area-inset-bottom,0px)+var(--sz-8))]";
 
 /** vertical만 세로 스택, 나머지는 기본 가로 배치. */
@@ -211,7 +211,7 @@ function renderSlots(props: FixButtonProps) {
     case "asymmetry":
       return (
         <>
-          {renderSecondary(props, "min-w-[var(--sz-100)]")}
+          {renderSecondary(props, "min-w-(--sz-100)")}
           {renderPrimary(props, "flex-1")}
         </>
       );
@@ -236,7 +236,7 @@ function renderSlots(props: FixButtonProps) {
     case "likeToggle":
       return (
         <>
-          <div className="flex size-[var(--sz-54)] shrink-0 items-center justify-center">
+          <div className="flex size-(--sz-54) shrink-0 items-center justify-center">
             {props.toggleSlot}
           </div>
           {renderPrimary(props, "flex-1")}

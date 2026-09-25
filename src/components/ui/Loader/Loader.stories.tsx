@@ -37,7 +37,7 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: { color: "brand", size: "md" },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
       <Loader {...args} />
     </div>
   ),
@@ -46,18 +46,18 @@ export const Playground: Story = {
     await expect(loader).toBeInTheDocument();
     await expect(loader).toHaveAttribute("data-color", "brand");
     await expect(loader).toHaveAttribute("data-size", "md");
-    await expect(loader).toHaveClass("size-[var(--sz-50)]");
+    await expect(loader).toHaveClass("size-(--sz-50)");
   },
 };
 
 export const Colors: Story = {
   render: () => (
-    <div className="flex items-center gap-[var(--sz-24)]">
-      <div className="flex flex-col items-center gap-[var(--sz-8)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex items-center gap-(--sz-24)">
+      <div className="flex flex-col items-center gap-(--sz-8) bg-bg-neutral-normal p-(--sz-32)">
         <code className="text-2xs text-typo-neutral-light">brand</code>
         <Loader color="brand" size="md" />
       </div>
-      <div className="flex flex-col items-center gap-[var(--sz-8)] bg-bg-inverse-normal p-[var(--sz-32)]">
+      <div className="flex flex-col items-center gap-(--sz-8) bg-bg-inverse-normal p-(--sz-32)">
         <code className="text-2xs text-typo-inverse-normal">white</code>
         <Loader color="white" size="md" />
       </div>
@@ -73,12 +73,9 @@ export const Colors: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex items-center gap-[var(--sz-24)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex items-center gap-(--sz-24) bg-bg-neutral-normal p-(--sz-32)">
       {SIZES.map((size) => (
-        <div
-          key={size}
-          className="flex flex-col items-center gap-[var(--sz-8)]"
-        >
+        <div key={size} className="flex flex-col items-center gap-(--sz-8)">
           <code className="text-2xs text-typo-neutral-light">{size}</code>
           <Loader size={size} />
         </div>
@@ -95,19 +92,19 @@ export const Sizes: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-16)]">
+    <div className="flex flex-col gap-(--sz-16)">
       {COLORS.map((color) => (
         <div
           key={color}
           className={[
-            "flex items-center gap-[var(--sz-24)] p-[var(--sz-32)]",
+            "flex items-center gap-(--sz-24) p-(--sz-32)",
             color === "white" ? "bg-bg-inverse-normal" : "bg-bg-neutral-normal",
           ].join(" ")}
         >
           {SIZES.map((size) => (
             <div
               key={`${color}-${size}`}
-              className="flex flex-col items-center gap-[var(--sz-8)]"
+              className="flex flex-col items-center gap-(--sz-8)"
             >
               <code
                 className={[

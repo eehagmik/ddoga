@@ -18,11 +18,11 @@
  *
  * 토큰 매핑 (Figma 검증):
  * | size | 박스(=아이콘) | 크기 토큰               | Icon size |
- * | xs   | 14×14        | size-[var(--sz-14)]    | 14        |
- * | sm   | 16×16        | size-[var(--sz-16)]    | 16        |
- * | md   | 18×18        | size-[var(--sz-18)]    | 18        |
+ * | xs   | 14×14        | size-(--sz-14)    | 14        |
+ * | sm   | 16×16        | size-(--sz-16)    | 16        |
+ * | md   | 18×18        | size-(--sz-18)    | 18        |
  * - 아이콘 색 `icon/neutral/bright` (= gray.300) → `text-icon-neutral-bright`
- * - focus 시 opacity `--alpha-60` → `focus-visible:opacity-[var(--alpha-60)]`
+ * - focus 시 opacity `--alpha-60` → `focus-visible:opacity-(--alpha-60)`
  * - 배경·패딩·보더·radius 없음(원형은 글리프 자체 모양).
  *
  * 색을 바꿔야 하면(예: 어두운 썸네일 위) 호출부에서 `className` 으로 `text-icon-*`
@@ -54,13 +54,13 @@ export interface ClearButtonProps extends Omit<
 const BASE_CLASS =
   "inline-flex shrink-0 cursor-pointer items-center justify-center " +
   "text-icon-neutral-bright " +
-  "focus-visible:opacity-[var(--alpha-60)] focus-visible:outline-none";
+  "focus-visible:opacity-(--alpha-60) focus-visible:outline-none";
 
 /** size 별 정사각 크기 (Figma 검증: 14 / 16 / 18). */
 const SIZE_CLASS: Record<ClearButtonSize, string> = {
-  xs: "size-[var(--sz-14)]",
-  sm: "size-[var(--sz-16)]",
-  md: "size-[var(--sz-18)]",
+  xs: "size-(--sz-14)",
+  sm: "size-(--sz-16)",
+  md: "size-(--sz-18)",
 };
 
 /** size 별 아이콘 px. */

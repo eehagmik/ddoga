@@ -64,7 +64,7 @@ export const Playground: Story = {
 /** fit(콘텐츠 폭, 하단정렬) / full(균등 stretch, 중앙정렬). */
 export const Layouts: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-16)]">
+    <div className="flex flex-col gap-(--sz-16)">
       {LAYOUTS.map((layout) => (
         <Tabs key={layout} {...args} layout={layout}>
           <Tab size={args.size} selected>
@@ -81,7 +81,7 @@ export const Layouts: Story = {
 /** sm / md. */
 export const Sizes: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-16)]">
+    <div className="flex flex-col gap-(--sz-16)">
       {SIZES.map((size) => (
         <Tabs key={size} {...args} size={size}>
           <Tab size={size} selected>
@@ -98,9 +98,9 @@ export const Sizes: Story = {
 /** normal / blur(`Header` `variant="blur"` 와 동일한 토큰 조합). */
 export const Variants: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-16)]">
+    <div className="flex flex-col gap-(--sz-16)">
       {VARIANTS.map((variant) => (
-        <div key={variant} className="bg-bg-brand-bright p-[var(--sz-12)]">
+        <div key={variant} className="bg-bg-brand-bright p-(--sz-12)">
           <Tabs {...args} variant={variant}>
             <Tab size={args.size} selected>
               홈

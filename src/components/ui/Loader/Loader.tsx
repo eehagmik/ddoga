@@ -13,14 +13,14 @@
  * - 색·크기·두께·투명도는 전부 디자인 토큰 유틸/`var(--*)` 로만 지정한다 — 하드코딩 없음.
  *
  * 토큰 매핑:
- * - 크기  sm → `size-[var(--sz-28)]` (28), md → `size-[var(--sz-50)]` (50)
+ * - 크기  sm → `size-(--sz-28)` (28), md → `size-(--sz-50)` (50)
  *         Figma 의 수동 리사이즈 값을 프리셋으로 고정한 것.
  * - 두께  Figma 의 "지름 10%" 를 기존 border-width 토큰으로 근사
  *         sm → `border-md` (--border-width-md = 3px), md → `border-lg` (--border-width-lg = 4px)
  * - 트랙 색  brand → `border-border-brand-subtle`, white → `border-border-inverse-dark`
  *           Figma 트랙색 #58D7B0 의 정확한 토큰이 없어 border/brand/subtle + alpha-20 으로 근사.
  * - 강조 색  brand → `border-t-border-brand-normal`, white → `border-t-border-inverse-dark`
- * - 투명도  트랙 `opacity-[var(--alpha-20)]`
+ * - 투명도  트랙 `opacity-(--alpha-20)`
  * - radius `rounded-circle` (radius/circle)
  *
  * `color="white"` 는 어두운 배경 위에서만 사용한다.
@@ -45,8 +45,8 @@ const BASE_CLASS = "relative inline-block shrink-0";
 
 /** 사이즈별 고정 정사각 (Figma 수동 리사이즈 프리셋) */
 const SIZE_CLASS: Record<LoaderSize, string> = {
-  sm: "size-[var(--sz-28)]",
-  md: "size-[var(--sz-50)]",
+  sm: "size-(--sz-28)",
+  md: "size-(--sz-50)",
 };
 
 /** 두께 (Figma "지름 10%" 를 border-width 토큰으로 근사) */
@@ -89,7 +89,7 @@ export function Loader({
           "absolute inset-0 rounded-circle border-solid",
           THICKNESS_CLASS[size],
           TRACK_COLOR[color],
-          "opacity-[var(--alpha-20)]",
+          "opacity-(--alpha-20)",
         ].join(" ")}
       />
       {/* 인디케이터: 투명 링에 top 1변만 진한 색 + 회전 */}

@@ -26,7 +26,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div className="flex items-center justify-center rounded-2xl bg-bg-neutral-normal p-[var(--sz-16)]">
+      <div className="flex items-center justify-center rounded-2xl bg-bg-neutral-normal p-(--sz-16)">
         <Story />
       </div>
     ),

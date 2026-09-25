@@ -193,7 +193,7 @@ describe("Input", () => {
       render(<Input variant="transparentTitle" value="제목" disabled />);
       const input = screen.getByRole("textbox");
       expect(input).toHaveClass("text-typo-disabled-subtle");
-      expect(input).toHaveClass("opacity-[var(--alpha-60)]");
+      expect(input).toHaveClass("opacity-(--alpha-60)");
     });
   });
 

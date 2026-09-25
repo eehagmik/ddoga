@@ -30,7 +30,7 @@
  * - DateField 의 range 는 필드 "하나" 안에 "{startValue} ~ {endValue}" 를 이어붙여
  *   표시하지만, TimeField 의 range 는 **"시작시간"/"종료시간" 라벨을 각자 가진 독립
  *   필드 2개**가 나란히 배치된 구조다(Figma `fields` 컨테이너:
- *   `flex flex-wrap gap-[var(--sz-16)] w-full`, 필드 각각 `flex-1`).
+ *   `flex flex-wrap gap-(--sz-16) w-full`, 필드 각각 `flex-1`).
  * - 따라서 물결(`~`) 구분자, `startLabel`/`endLabel` 개별 지정, `onStartClick`/
  *   `onEndClick` 개별 콜백이 필요하다 — DateField 에는 없는 축이다.
  * - "필드 블록 하나"(라벨 + 버튼 + 언더라인)는 single 모드에서 1번, range 모드에서
@@ -43,10 +43,10 @@
  *   결정**했다(Figma 원본은 사용자가 직접 동기화할 예정 — 코드가 Figma 실측치와
  *   의도적으로 다른 구간).
  * - 필드 블록(`TimeFieldBlock`, `flex-col`): `Label` ↔ 버튼+언더라인 그룹 사이
- *   `gap-[var(--sz-10)]`.
- * - 버튼+언더라인 그룹: 버튼 ↔ 언더라인 사이 `gap-[var(--sz-8)]`(변경 없음).
- * - 루트(`flex-col`): 필드 블록 ↔ `HelperLabel` 사이 `gap-[var(--sz-8)]`(변경 없음).
- * - range 필드 간 가로 gap(`flex flex-wrap gap-[var(--sz-16)]`, "시작시간"/"종료시간"
+ *   `gap-(--sz-10)`.
+ * - 버튼+언더라인 그룹: 버튼 ↔ 언더라인 사이 `gap-(--sz-8)`(변경 없음).
+ * - 루트(`flex-col`): 필드 블록 ↔ `HelperLabel` 사이 `gap-(--sz-8)`(변경 없음).
+ * - range 필드 간 가로 gap(`flex flex-wrap gap-(--sz-16)`, "시작시간"/"종료시간"
  *   필드 2개 사이)은 이번 Label↔필드 gap 조정과 무관한 별개 축이라 16px 그대로 유지.
  * - 필드: 좌측 24px `clock_line` 아이콘 고정(자유 슬롯 아님, 상태 불문 색
  *   `icon/neutral/light`(`#878787`) 고정 — DateField 의 `calendar_line` 과 동일 패턴).
@@ -131,7 +131,7 @@ const VALUE_TYPO: Record<TimeFieldVariant, string> = {
 
 /** 좌측 clock 아이콘 슬롯 — 24px 고정, 상태 불문 `icon/neutral/light` 고정색(Figma 실측). */
 const ICON_SLOT_CLASS =
-  "flex size-[var(--sz-24)] shrink-0 items-center justify-center text-icon-neutral-light";
+  "flex size-(--sz-24) shrink-0 items-center justify-center text-icon-neutral-light";
 
 export function TimeField({
   variant = "line",
@@ -158,10 +158,7 @@ export function TimeField({
       data-danger={danger}
       data-disabled={disabled}
       data-readonly={readOnly}
-      className={[
-        "flex w-full flex-col items-start gap-[var(--sz-8)]",
-        className,
-      ]
+      className={["flex w-full flex-col items-start gap-(--sz-8)", className]
         .filter(Boolean)
         .join(" ")}
     >
@@ -177,7 +174,7 @@ export function TimeField({
           className="w-full"
         />
       ) : (
-        <div className="flex w-full flex-wrap items-start gap-[var(--sz-16)]">
+        <div className="flex w-full flex-wrap items-start gap-(--sz-16)">
           <TimeFieldBlock
             variant={variant}
             label={startLabel}
@@ -226,7 +223,7 @@ interface TimeFieldBlockProps {
 /**
  * "라벨 + 버튼(아이콘+텍스트) + (line 이면) 언더라인" 필드 블록 하나. single 모드에서
  * 1번, range 모드에서 시작/종료 각각 1번씩 총 2번 렌더될 수 있어 추출했다 — 라벨↔필드
- * 그룹 사이 `gap-[var(--sz-10)]`(2026-09-21 재확정, TextField/DateField 와 통일).
+ * 그룹 사이 `gap-(--sz-10)`(2026-09-21 재확정, TextField/DateField 와 통일).
  */
 function TimeFieldBlock({
   variant,
@@ -260,7 +257,7 @@ function TimeFieldBlock({
 
   return (
     <div
-      className={["flex flex-col items-start gap-[var(--sz-10)]", className]
+      className={["flex flex-col items-start gap-(--sz-10)", className]
         .filter(Boolean)
         .join(" ")}
     >
@@ -275,7 +272,7 @@ function TimeFieldBlock({
         />
       ) : null}
 
-      <div className="flex w-full flex-col items-start gap-[var(--sz-8)]">
+      <div className="flex w-full flex-col items-start gap-(--sz-8)">
         <button
           type="button"
           onClick={handleClick}
@@ -283,11 +280,11 @@ function TimeFieldBlock({
           aria-invalid={danger || undefined}
           aria-readonly={readOnly || undefined}
           className={[
-            "peer flex w-full items-center justify-center gap-[var(--sz-8)] rounded-md",
+            "peer flex w-full items-center justify-center gap-(--sz-8) rounded-md",
             "transition-colors duration-150 ease-in-out motion-reduce:transition-none",
-            variant === "line" && "px-[var(--sz-2)] py-[var(--sz-1)]",
+            variant === "line" && "px-(--sz-2) py-(--sz-1)",
             variant === "box" &&
-              "px-[var(--sz-8)] py-[var(--sz-10)] border-xs border-solid overflow-hidden",
+              "px-(--sz-8) py-(--sz-10) border-xs border-solid overflow-hidden",
             disabled ? "cursor-not-allowed" : "cursor-pointer",
             fieldChrome.container,
           ]
@@ -313,7 +310,7 @@ function TimeFieldBlock({
         {variant === "line" ? (
           <div
             className={[
-              "h-[var(--sz-2)] w-full shrink-0 rounded-circle",
+              "h-(--sz-2) w-full shrink-0 rounded-circle",
               "transition-colors duration-150 ease-in-out motion-reduce:transition-none",
               fieldChrome.underline,
             ]

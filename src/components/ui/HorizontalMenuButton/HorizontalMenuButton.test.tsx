@@ -19,7 +19,7 @@ describe("HorizontalMenuButton", () => {
     expect(btn).toHaveClass(
       "w-full",
       "cursor-pointer",
-      "min-h-[var(--sz-36)]",
+      "min-h-(--sz-36)",
       "rounded-sm",
     );
   });
@@ -33,7 +33,7 @@ describe("HorizontalMenuButton", () => {
       "border-xs",
       "border-solid",
       "border-border-neutral-bright",
-      "min-h-[var(--sz-40)]",
+      "min-h-(--sz-40)",
     );
   });
 
@@ -115,7 +115,7 @@ describe("HorizontalMenuButton", () => {
     const btn = getByRole("button");
     expect(btn).toHaveTextContent("icon");
     const slot = btn.querySelector('[data-name="left"] > span:first-child');
-    expect(slot).toHaveClass("size-[var(--sz-28)]");
+    expect(slot).toHaveClass("size-(--sz-28)");
   });
 
   it("startSlot 이 없으면 슬롯 wrapper 를 렌더하지 않는다", () => {
@@ -132,8 +132,8 @@ describe("HorizontalMenuButton", () => {
     );
     const btn = getByRole("button");
     expect(btn).toHaveClass(
-      "hover:opacity-[var(--alpha-80)]",
-      "focus-visible:opacity-[var(--alpha-60)]",
+      "hover:opacity-(--alpha-80)",
+      "focus-visible:opacity-(--alpha-60)",
     );
   });
 
@@ -148,11 +148,11 @@ describe("HorizontalMenuButton", () => {
 
   it("className 을 루트 button 에 병합한다", () => {
     const { getByRole } = render(
-      <HorizontalMenuButton className="mt-[var(--sz-8)]">
+      <HorizontalMenuButton className="mt-(--sz-8)">
         Label
       </HorizontalMenuButton>,
     );
-    expect(getByRole("button")).toHaveClass("mt-[var(--sz-8)]", "w-full");
+    expect(getByRole("button")).toHaveClass("mt-(--sz-8)", "w-full");
   });
 
   it("색·크기를 토큰 유틸로만 지정하고 인라인 style 에 hex 가 없다", () => {

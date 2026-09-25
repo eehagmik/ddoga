@@ -139,7 +139,7 @@ export const RenderCheck: Story = {
     expect(root).toHaveClass("items-start");
 
     // gap 스타일 확인
-    expect(root).toHaveClass("gap-[var(--sz-5)]");
+    expect(root).toHaveClass("gap-(--sz-5)");
   },
 };
 

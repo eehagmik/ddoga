@@ -101,7 +101,7 @@ describe("BulletItem", () => {
   it("direction=vertical 은 세로 스택 레이아웃 클래스를 쓴다", () => {
     const { container } = render(<BulletItem direction="vertical" />);
     const group = container.querySelector('[data-part="group"]');
-    expect(group).toHaveClass("flex-col", "gap-[var(--sz-6)]");
+    expect(group).toHaveClass("flex-col", "gap-(--sz-6)");
     expect(title(container as HTMLElement)).toHaveClass("w-full");
     expect(contents(container as HTMLElement)).toHaveClass("w-full");
   });
@@ -109,9 +109,9 @@ describe("BulletItem", () => {
   it("direction=horizontal 은 제목 고정 폭 + 본문 채움 레이아웃 클래스를 쓴다", () => {
     const { container } = render(<BulletItem direction="horizontal" />);
     const group = container.querySelector('[data-part="group"]');
-    expect(group).toHaveClass("flex-row", "gap-[var(--sz-8)]");
+    expect(group).toHaveClass("flex-row", "gap-(--sz-8)");
     expect(title(container as HTMLElement)).toHaveClass(
-      "w-[var(--sz-128)]",
+      "w-(--sz-128)",
       "shrink-0",
     );
     expect(contents(container as HTMLElement)).toHaveClass("flex-1", "min-w-0");
@@ -153,8 +153,8 @@ describe("BulletItem", () => {
   });
 
   it("className 을 루트에 병합하고 기본 클래스도 유지한다", () => {
-    const { container } = render(<BulletItem className="mt-[var(--sz-8)]" />);
+    const { container } = render(<BulletItem className="mt-(--sz-8)" />);
     const root = container.firstElementChild;
-    expect(root).toHaveClass("mt-[var(--sz-8)]", "flex", "w-full");
+    expect(root).toHaveClass("mt-(--sz-8)", "flex", "w-full");
   });
 });

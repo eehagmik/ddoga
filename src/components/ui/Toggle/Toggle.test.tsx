@@ -107,7 +107,7 @@ describe("Toggle", () => {
       "rounded-md",
       "bg-bg-neutral-normal",
       "shadow-borderNeutral-xs",
-      "min-w-[var(--sz-42)]",
+      "min-w-(--sz-42)",
     );
 
     rerender(<Toggle variant="round">라벨</Toggle>);
@@ -116,7 +116,7 @@ describe("Toggle", () => {
     rerender(<Toggle variant="text">라벨</Toggle>);
     const text = getByRole("button");
     expect(text).toHaveClass("rounded-md", "text-typo-neutral-normal");
-    expect(text).not.toHaveClass("min-w-[var(--sz-42)]");
+    expect(text).not.toHaveClass("min-w-(--sz-42)");
     expect(text.className).not.toMatch(/shadow-border/);
   });
 
@@ -149,8 +149,8 @@ describe("Toggle", () => {
     const { getByRole, rerender } = render(<Toggle size="xs">라벨</Toggle>);
     expect(getByRole("button")).toHaveClass(
       "text-body-5",
-      "px-[var(--sz-8)]",
-      "py-[var(--sz-3)]",
+      "px-(--sz-8)",
+      "py-(--sz-3)",
     );
 
     rerender(
@@ -160,8 +160,8 @@ describe("Toggle", () => {
     );
     expect(getByRole("button")).toHaveClass(
       "text-body-3",
-      "px-[var(--sz-12)]",
-      "py-[var(--sz-10)]",
+      "px-(--sz-12)",
+      "py-(--sz-10)",
     );
   });
 

@@ -19,7 +19,7 @@ describe("RadioWithLabel", () => {
       "group",
       "inline-flex",
       "items-start",
-      "gap-[var(--sz-8)]",
+      "gap-(--sz-8)",
       "cursor-pointer",
     );
     expect(label?.textContent).toContain("동의합니다");
@@ -37,9 +37,9 @@ describe("RadioWithLabel", () => {
 
   it("size 별 gap / 라디오 래퍼 pt / 라벨 타이포가 적용된다", () => {
     const cases = {
-      sm: ["gap-[var(--sz-8)]", "pt-[var(--sz-2)]", "text-body-4"],
-      md: ["gap-[var(--sz-8)]", "pt-[var(--sz-1)]", "text-body-3"],
-      lg: ["gap-[var(--sz-10)]", "pt-[var(--sz-1)]", "text-body-2"],
+      sm: ["gap-(--sz-8)", "pt-(--sz-2)", "text-body-4"],
+      md: ["gap-(--sz-8)", "pt-(--sz-1)", "text-body-3"],
+      lg: ["gap-(--sz-10)", "pt-(--sz-1)", "text-body-2"],
     } as const;
     for (const [size, [gap, pt, typo]] of Object.entries(cases)) {
       const { container } = render(
@@ -209,7 +209,7 @@ describe("RadioWithLabel", () => {
     expect(container.querySelector("label")).toHaveClass(
       "w-full",
       "group",
-      "gap-[var(--sz-8)]",
+      "gap-(--sz-8)",
     );
   });
 

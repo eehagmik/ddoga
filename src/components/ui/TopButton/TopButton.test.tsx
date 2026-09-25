@@ -53,7 +53,7 @@ describe("TopButton", () => {
       "text-icon-neutral-light",
       "shadow-black-md",
       "rounded-circle",
-      "size-[var(--sz-54)]",
+      "size-(--sz-54)",
       "fixed",
     );
     expect(btn?.getAttribute("style") ?? "").not.toMatch(/#[0-9a-fA-F]{3,}/);
@@ -146,10 +146,10 @@ describe("TopButton", () => {
 
   it("className 을 루트 button 에 병합한다", () => {
     const { container } = render(
-      <TopButton visible className="bottom-[var(--sz-96)]" />,
+      <TopButton visible className="bottom-(--sz-96)" />,
     );
     expect(container.querySelector("button")).toHaveClass(
-      "bottom-[var(--sz-96)]",
+      "bottom-(--sz-96)",
       "bg-bg-neutral-dark",
     );
   });

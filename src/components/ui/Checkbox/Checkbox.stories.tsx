@@ -38,7 +38,7 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: { variant: "circle", size: "md", checked: false, disabled: false },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
       <Checkbox {...args} />
     </div>
   ),
@@ -76,14 +76,11 @@ export const Sizes: Story = {
   // 여러 variant × size 를 동시에 비교하는 정적 데모라 단일 컨트롤로 대응 불가 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-24)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-24) bg-bg-neutral-normal p-(--sz-32)">
       {VARIANTS.map((variant) => (
-        <div key={variant} className="flex items-end gap-[var(--sz-24)]">
+        <div key={variant} className="flex items-end gap-(--sz-24)">
           {SIZES.map((size) => (
-            <div
-              key={size}
-              className="flex flex-col items-center gap-[var(--sz-8)]"
-            >
+            <div key={size} className="flex flex-col items-center gap-(--sz-8)">
               <code className="text-2xs text-typo-neutral-light">
                 {variant}/{size}
               </code>
@@ -104,11 +101,11 @@ export const Hover: Story = {
   // 정적 데모(args 미반영) — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       {VARIANTS.map((variant) => (
         <div
           key={variant}
-          className="group flex w-fit cursor-pointer items-center gap-[var(--sz-8)]"
+          className="group flex w-fit cursor-pointer items-center gap-(--sz-8)"
         >
           <Checkbox variant={variant} />
           <span className="text-body-4 text-typo-neutral-normal">
@@ -131,7 +128,7 @@ export const States: Story = {
   // enable/disabled × checked 조합을 동시에 보여주는 정적 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       {(
         [
           ["enable", false],
@@ -142,9 +139,9 @@ export const States: Story = {
       ).map(([state, checked]) => (
         <div
           key={`${state}-${checked}`}
-          className="flex items-center gap-[var(--sz-16)]"
+          className="flex items-center gap-(--sz-16)"
         >
-          <code className="w-[var(--sz-128)] text-2xs text-typo-neutral-light">
+          <code className="w-(--sz-128) text-2xs text-typo-neutral-light">
             {state} / {checked ? "checked" : "unchecked"}
           </code>
           {VARIANTS.map((variant) => (
@@ -165,15 +162,15 @@ export const AllVariants: Story = {
   // variant × size × checked × disabled 전 조합을 동시에 보여주는 정적 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-24)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-24) bg-bg-neutral-normal p-(--sz-32)">
       {VARIANTS.map((variant) => (
-        <div key={variant} className="flex flex-col gap-[var(--sz-8)]">
+        <div key={variant} className="flex flex-col gap-(--sz-8)">
           <code className="text-2xs text-typo-neutral-light">{variant}</code>
-          <div className="flex flex-col gap-[var(--sz-8)]">
+          <div className="flex flex-col gap-(--sz-8)">
             {([false, true] as const).map((disabled) => (
               <div
                 key={String(disabled)}
-                className="flex items-end gap-[var(--sz-16)]"
+                className="flex items-end gap-(--sz-16)"
               >
                 {SIZES.map((size) =>
                   ([false, true] as const).map((checked) => (
@@ -204,18 +201,18 @@ export const AllVariants: Story = {
 
 function StateGrid({ variant }: { variant: "circle" | "square" | "mark" }) {
   return (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       {(
         [
           ["enable", false],
           ["disabled", false],
         ] as const
       ).map(([state]) => (
-        <div key={state} className="flex items-center gap-[var(--sz-24)]">
+        <div key={state} className="flex items-center gap-(--sz-24)">
           {([false, true] as const).map((checked) => (
             <div
               key={String(checked)}
-              className="flex flex-col items-center gap-[var(--sz-8)]"
+              className="flex flex-col items-center gap-(--sz-8)"
             >
               <code className="text-2xs text-typo-neutral-light">
                 {state} / {checked ? "checked" : "unchecked"}

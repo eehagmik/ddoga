@@ -33,12 +33,12 @@ describe("Switch", () => {
   it("size 별 트랙/썸 치수 클래스가 적용된다", () => {
     const cases = {
       sm: {
-        track: ["w-[var(--sz-46)]", "h-[var(--sz-26)]"],
-        thumb: ["size-[var(--sz-20)]"],
+        track: ["w-(--sz-46)", "h-(--sz-26)"],
+        thumb: ["size-(--sz-20)"],
       },
       md: {
-        track: ["w-[var(--sz-56)]", "h-[var(--sz-34)]"],
-        thumb: ["size-[var(--sz-28)]"],
+        track: ["w-(--sz-56)", "h-(--sz-34)"],
+        thumb: ["size-(--sz-28)"],
       },
     } as const;
     for (const [size, { track, thumb }] of Object.entries(cases)) {
@@ -50,10 +50,10 @@ describe("Switch", () => {
     }
   });
 
-  it("checked=true(md) 는 썸을 translate-x-[var(--sz-22)] 로, off 는 translate-x-0 으로 이동한다", () => {
+  it("checked=true(md) 는 썸을 translate-x-(--sz-22) 로, off 는 translate-x-0 으로 이동한다", () => {
     const on = render(<Switch checked onChange={() => {}} />);
     expect(on.container.querySelector("label > span > span")).toHaveClass(
-      "translate-x-[var(--sz-22)]",
+      "translate-x-(--sz-22)",
     );
 
     const off = render(<Switch />);
@@ -62,12 +62,12 @@ describe("Switch", () => {
     );
   });
 
-  it("checked=true(sm) 는 썸을 translate-x-[var(--sz-20)] 로 이동한다", () => {
+  it("checked=true(sm) 는 썸을 translate-x-(--sz-20) 로 이동한다", () => {
     const { container } = render(
       <Switch size="sm" checked onChange={() => {}} />,
     );
     expect(container.querySelector("label > span > span")).toHaveClass(
-      "translate-x-[var(--sz-20)]",
+      "translate-x-(--sz-20)",
     );
   });
 

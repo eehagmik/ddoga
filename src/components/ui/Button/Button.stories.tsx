@@ -43,7 +43,7 @@ const meta = {
     disabled: false,
     onClick: fn(),
     children: (
-      <span className="text-typo-inverse-normal text-body-4 px-[var(--sz-10)]">
+      <span className="text-typo-inverse-normal text-body-4 px-(--sz-10)">
         슬롯
       </span>
     ),
@@ -78,11 +78,11 @@ export const Playground: Story = {
 /** 한 color(brand)의 fill / bright / outline. */
 export const Variants: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {VARIANTS.map((variant) => (
         <Button key={variant} {...args} variant={variant}>
           <span
-            className={`${CONTENT_COLOR[variant]} text-body-4 px-[var(--sz-10)]`}
+            className={`${CONTENT_COLOR[variant]} text-body-4 px-(--sz-10)`}
           >
             {variant}
           </span>
@@ -95,10 +95,10 @@ export const Variants: Story = {
 /** 2xl ~ xs (min-h·radius 만 변한다 — padding 은 슬롯에서). */
 export const Sizes: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {SIZES.map((size) => (
         <Button key={size} {...args} size={size}>
-          <span className="text-typo-inverse-normal text-body-4 px-[var(--sz-10)]">
+          <span className="text-typo-inverse-normal text-body-4 px-(--sz-10)">
             {size}
           </span>
         </Button>
@@ -110,10 +110,10 @@ export const Sizes: Story = {
 /** 5색 × fill. */
 export const Colors: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {COLORS.map((color) => (
         <Button key={color} {...args} color={color} variant="fill">
-          <span className="text-typo-inverse-normal text-body-4 px-[var(--sz-10)]">
+          <span className="text-typo-inverse-normal text-body-4 px-(--sz-10)">
             {color}
           </span>
         </Button>
@@ -125,7 +125,7 @@ export const Colors: Story = {
 /** color(행) × variant(열) 전체 조합 (size 는 md 고정). */
 export const Matrix: Story = {
   render: (args) => (
-    <table className="border-separate border-spacing-[var(--sz-8)]">
+    <table className="border-separate border-spacing-(--sz-8)">
       <thead>
         <tr>
           <th />
@@ -149,7 +149,7 @@ export const Matrix: Story = {
               <td key={variant}>
                 <Button {...args} color={color} variant={variant} size="md">
                   <span
-                    className={`${CONTENT_COLOR[variant]} text-body-4 px-[var(--sz-10)]`}
+                    className={`${CONTENT_COLOR[variant]} text-body-4 px-(--sz-10)`}
                   >
                     슬롯
                   </span>
@@ -174,8 +174,8 @@ function StateRow({
   disabled?: boolean;
 }) {
   return (
-    <div className="flex items-center gap-[var(--sz-12)]">
-      <span className="w-[var(--sz-64)] text-body-6 text-typo-neutral-light">
+    <div className="flex items-center gap-(--sz-12)">
+      <span className="w-(--sz-64) text-body-6 text-typo-neutral-light">
         {label}
       </span>
       {(["fill", "outline"] as ButtonVariant[]).map((variant) => (
@@ -187,7 +187,7 @@ function StateRow({
           disabled={disabled}
         >
           <span
-            className={`${CONTENT_COLOR[variant]} text-body-4 px-[var(--sz-10)]`}
+            className={`${CONTENT_COLOR[variant]} text-body-4 px-(--sz-10)`}
           >
             brand {variant}
           </span>
@@ -214,7 +214,7 @@ export const InteractiveStates: Story = {
     },
   },
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-8)]">
+    <div className="flex flex-col gap-(--sz-8)">
       <StateRow label="enable" args={args} />
       <StateRow label="disabled" args={args} disabled />
       <p className="text-body-6 text-typo-neutral-light">
@@ -234,8 +234,8 @@ export const InteractiveStates: Story = {
       "hover:bg-bg-brand-deep",
       "focus-visible:bg-bg-brand-deep",
       "active:bg-bg-brand-deep",
-      "focus-visible:opacity-[var(--alpha-80)]",
-      "active:opacity-[var(--alpha-80)]",
+      "focus-visible:opacity-(--alpha-80)",
+      "active:opacity-(--alpha-80)",
     );
     await expect(outlineBtn).toHaveClass(
       "hover:bg-bg-brand-bright",
@@ -248,9 +248,7 @@ export const InteractiveStates: Story = {
     // disabled: opacity 저하 + 포커스/클릭 불가
     const disabledFill = btns[2];
     await expect(disabledFill).toBeDisabled();
-    await expect(disabledFill).toHaveClass(
-      "disabled:opacity-[var(--alpha-60)]",
-    );
+    await expect(disabledFill).toHaveClass("disabled:opacity-(--alpha-60)");
   },
 };
 
@@ -260,28 +258,28 @@ export const InteractiveStates: Story = {
  */
 export const WithArbitraryContent: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       <Button {...args} variant="fill">
-        <span className="inline-flex items-center gap-[var(--sz-4)] px-[var(--sz-10)] text-typo-inverse-normal text-body-4">
+        <span className="inline-flex items-center gap-(--sz-4) px-(--sz-10) text-typo-inverse-normal text-body-4">
           <Icon
             name="download_01_line"
-            className="size-[var(--sz-16)] text-icon-inverse-normal"
+            className="size-(--sz-16) text-icon-inverse-normal"
           />
           다운로드
         </span>
       </Button>
 
       <Button {...args} variant="outline">
-        <span className="inline-flex size-[var(--sz-40)] items-center justify-center">
+        <span className="inline-flex size-(--sz-40) items-center justify-center">
           <Icon
             name="plus_line"
-            className="size-[var(--sz-16)] text-icon-brand-normal"
+            className="size-(--sz-16) text-icon-brand-normal"
           />
         </span>
       </Button>
 
       <Button {...args} variant="bright">
-        <span className="inline-flex items-center gap-[var(--sz-4)] px-[var(--sz-10)] text-typo-neutral-normal text-body-4">
+        <span className="inline-flex items-center gap-(--sz-4) px-(--sz-10) text-typo-neutral-normal text-body-4">
           <Loader size="sm" />
           로딩 중
         </span>

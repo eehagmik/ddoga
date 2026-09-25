@@ -61,12 +61,11 @@ export interface CheckSelectRadioProps extends Omit<
 
 /** 루트 공통 — group(라벨 hover/focus 전파) · 세로 중앙 · 세로 패딩 · 커서 · font-feature. */
 const ROOT_CLASS =
-  "group flex w-full cursor-pointer items-center gap-[var(--sz-8)] py-[var(--sz-10)] " +
+  "group flex w-full cursor-pointer items-center gap-(--sz-8) py-(--sz-10) " +
   "[font-feature-settings:var(--font-feature-case)]";
 
 /** 리딩 슬롯 래퍼 — 34px 정사각 · 중앙정렬 · 축소 방지. */
-const SLOT_CLASS =
-  "flex size-[var(--sz-34)] shrink-0 items-center justify-center";
+const SLOT_CLASS = "flex size-(--sz-34) shrink-0 items-center justify-center";
 
 /** 체크 표시 래퍼 — 축소 방지 · 미선택 시 완전히 숨김 · 투명도 전이. */
 const MARK_CLASS =

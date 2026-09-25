@@ -74,13 +74,13 @@ const TOKENS: TokenDef[] = [
 
 /** 스텝 id → 정적 Tailwind opacity 유틸 클래스 (동적 조립은 스캐너가 못 잡아 맵으로 고정) */
 const OPACITY_CLASS: Record<AlphaStep, string> = {
-  "00": "opacity-[var(--alpha-00)]",
-  "05": "opacity-[var(--alpha-05)]",
-  "10": "opacity-[var(--alpha-10)]",
-  "20": "opacity-[var(--alpha-20)]",
-  "40": "opacity-[var(--alpha-40)]",
-  "60": "opacity-[var(--alpha-60)]",
-  "80": "opacity-[var(--alpha-80)]",
+  "00": "opacity-(--alpha-00)",
+  "05": "opacity-(--alpha-05)",
+  "10": "opacity-(--alpha-10)",
+  "20": "opacity-(--alpha-20)",
+  "40": "opacity-(--alpha-40)",
+  "60": "opacity-(--alpha-60)",
+  "80": "opacity-(--alpha-80)",
 };
 
 /** 투명도가 잘 드러나도록 대비가 큰 배경 — primitive 컬러 토큰으로 만든 반복 그라디언트 */
@@ -90,11 +90,8 @@ const BACKDROP =
 function Section({ token }: { token: TokenDef }) {
   const cssVar = `--alpha-${token.id}`;
   return (
-    <section
-      data-section={token.id}
-      className="flex flex-col gap-[var(--sz-16)]"
-    >
-      <div className="flex flex-col gap-[var(--sz-4)]">
+    <section data-section={token.id} className="flex flex-col gap-(--sz-16)">
+      <div className="flex flex-col gap-(--sz-4)">
         <h2 className="text-2xl font-bold">
           {token.id}{" "}
           <span className="text-lg font-normal text-typo-neutral-light">
@@ -112,31 +109,31 @@ function Section({ token }: { token: TokenDef }) {
         {/* 알파가 적용된 표면 — 투명도 단계 시연 */}
         <div
           data-token={cssVar}
-          className={`m-[var(--sz-32)] h-[var(--sz-100)] rounded-lg bg-bg-neutral-normal ${OPACITY_CLASS[token.id]}`}
+          className={`m-(--sz-32) h-(--sz-100) rounded-lg bg-bg-neutral-normal ${OPACITY_CLASS[token.id]}`}
         />
         {/* 토큰명 라벨 — opacity 미적용, 알파가 커도 항상 선명하게 읽힌다 */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <span className="rounded-md bg-bg-neutral-normal px-[var(--sz-12)] py-[var(--sz-6)] text-sm font-bold text-typo-neutral-normal shadow-black-xs">
+          <span className="rounded-md bg-bg-neutral-normal px-(--sz-12) py-(--sz-6) text-sm font-bold text-typo-neutral-normal shadow-black-xs">
             Layer · {cssVar}
           </span>
         </div>
       </div>
 
       {/* 토큰명 · 값 레퍼런스 */}
-      <dl className="flex flex-wrap gap-x-[var(--sz-24)] gap-y-[var(--sz-4)]">
-        <div className="flex gap-[var(--sz-8)]">
+      <dl className="flex flex-wrap gap-x-(--sz-24) gap-y-(--sz-4)">
+        <div className="flex gap-(--sz-8)">
           <dt className="text-2xs font-bold text-typo-neutral-light">token</dt>
           <dd className="text-2xs font-normal text-typo-neutral-normal">
             <code>{cssVar}</code>
           </dd>
         </div>
-        <div className="flex gap-[var(--sz-8)]">
+        <div className="flex gap-(--sz-8)">
           <dt className="text-2xs font-bold text-typo-neutral-light">Figma</dt>
           <dd className="text-2xs font-normal text-typo-neutral-normal">
             <code>{token.figmaVar}</code>
           </dd>
         </div>
-        <div className="flex gap-[var(--sz-8)]">
+        <div className="flex gap-(--sz-8)">
           <dt className="text-2xs font-bold text-typo-neutral-light">value</dt>
           <dd className="text-2xs font-normal text-typo-neutral-normal">
             <code>{`opacity: ${token.percent / 100}`}</code>{" "}
@@ -151,7 +148,7 @@ function Section({ token }: { token: TokenDef }) {
 export function Alpha({ section }: AlphaProps) {
   const tokens = section ? TOKENS.filter((t) => t.id === section) : TOKENS;
   return (
-    <div className="flex flex-col gap-[var(--sz-32)] bg-bg-neutral-deep p-[var(--sz-16)] text-typo-neutral-normal">
+    <div className="flex flex-col gap-(--sz-32) bg-bg-neutral-deep p-(--sz-16) text-typo-neutral-normal">
       {tokens.map((t) => (
         <Section key={t.id} token={t} />
       ))}

@@ -24,15 +24,15 @@ describe("Panel", () => {
   it("applies radius classes when radius=true", () => {
     const { container } = render(<Panel radius={true} placement="bottom" />);
     const panel = container.querySelector("[data-node-id='51405:127512']");
-    expect(panel).toHaveClass("rounded-tl-[var(--radius-3xl)]");
-    expect(panel).toHaveClass("rounded-tr-[var(--radius-3xl)]");
+    expect(panel).toHaveClass("rounded-tl-(--radius-3xl)");
+    expect(panel).toHaveClass("rounded-tr-(--radius-3xl)");
   });
 
   it("applies top radius when placement=top and radius=true", () => {
     const { container } = render(<Panel radius={true} placement="top" />);
     const panel = container.querySelector("[data-node-id='51405:127512']");
-    expect(panel).toHaveClass("rounded-bl-[var(--radius-3xl)]");
-    expect(panel).toHaveClass("rounded-br-[var(--radius-3xl)]");
+    expect(panel).toHaveClass("rounded-bl-(--radius-3xl)");
+    expect(panel).toHaveClass("rounded-br-(--radius-3xl)");
   });
 
   it("does not apply radius when radius=false", () => {
@@ -94,8 +94,8 @@ describe("Panel", () => {
     expect(panel).toHaveClass("gap-0");
     expect(panel).toHaveClass("relative");
     expect(panel).toHaveClass("w-[360px]");
-    expect(panel).toHaveClass("px-[var(--sz-20)]");
-    expect(panel).toHaveClass("py-[var(--sz-16)]");
+    expect(panel).toHaveClass("px-(--sz-20)");
+    expect(panel).toHaveClass("py-(--sz-16)");
   });
 
   it("renders contentsSlot div", () => {
@@ -109,7 +109,7 @@ describe("Panel", () => {
     const { container } = render(<Panel />);
     const slot = container.querySelector("[data-name='contentsSlot']");
     expect(slot).toHaveClass("border");
-    expect(slot).toHaveClass("border-[var(--color-red-500)]");
+    expect(slot).toHaveClass("border-red-500");
     expect(slot).toHaveClass("border-dashed");
   });
 

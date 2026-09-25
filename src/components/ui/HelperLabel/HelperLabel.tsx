@@ -58,7 +58,7 @@ export interface HelperLabelProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /** 공통 루트 — flex row, gap, 중앙정렬 */
-const ROOT_CLASS = "flex items-start gap-[var(--sz-5)]";
+const ROOT_CLASS = "flex items-start gap-(--sz-5)";
 
 /** sm 사이즈, Medium 500, 14px, tracking -0.14px, leading 1.46 */
 const SM_CLASS =
@@ -112,12 +112,12 @@ function iconColorClass(variant: HelperLabelVariant): string {
 
 /** 아이콘 wrapper 패딩(baseline 정렬) */
 function iconPaddingClass(size: HelperLabelSize): string {
-  return size === "md" ? "pt-[var(--sz-4)]" : "pt-[var(--sz-2)]";
+  return size === "md" ? "pt-(--sz-4)" : "pt-(--sz-2)";
 }
 
 /** 아이콘 크기 클래스 */
 function iconSizeClass(size: HelperLabelSize): string {
-  return size === "md" ? "size-[var(--sz-18)]" : "size-[var(--sz-16)]";
+  return size === "md" ? "size-(--sz-18)" : "size-(--sz-16)";
 }
 
 export function HelperLabel({

@@ -69,16 +69,16 @@ describe("ButtonWithLabel", () => {
       <ButtonWithLabel size="2xl">라벨</ButtonWithLabel>,
     );
     expect(getByRole("button")).toHaveClass(
-      "min-h-[var(--sz-54)]",
-      "px-[var(--sz-14)]",
+      "min-h-(--sz-54)",
+      "px-(--sz-14)",
       "rounded-xl",
       "text-body-1",
     );
 
     rerender(<ButtonWithLabel size="sm">라벨</ButtonWithLabel>);
     expect(getByRole("button")).toHaveClass(
-      "min-h-[var(--sz-32)]",
-      "px-[var(--sz-8)]",
+      "min-h-(--sz-32)",
+      "px-(--sz-8)",
       "rounded-sm",
       "text-body-5",
     );
@@ -103,7 +103,7 @@ describe("ButtonWithLabel", () => {
       "bg-bg-brand-normal",
       "hover:bg-bg-brand-deep",
       "text-typo-inverse-normal",
-      "disabled:opacity-[var(--alpha-60)]",
+      "disabled:opacity-(--alpha-60)",
     );
 
     rerender(
@@ -125,7 +125,7 @@ describe("ButtonWithLabel", () => {
     );
     expect(getByRole("button")).toHaveClass(
       "bg-bg-brand-bright",
-      "disabled:opacity-[var(--alpha-40)]",
+      "disabled:opacity-(--alpha-40)",
     );
   });
 
@@ -138,8 +138,8 @@ describe("ButtonWithLabel", () => {
     // 합성 variant: opacity 는 Button(BUTTON_BASE) 루트가 담당, 전 variant --alpha-80 동일
     const outlineBtn = getByRole("button");
     expect(outlineBtn).toHaveClass(
-      "focus-visible:opacity-[var(--alpha-80)]",
-      "active:opacity-[var(--alpha-80)]",
+      "focus-visible:opacity-(--alpha-80)",
+      "active:opacity-(--alpha-80)",
     );
     expect(outlineBtn.firstElementChild?.className ?? "").not.toMatch(
       /group-(focus-visible|active):opacity-/,
@@ -152,9 +152,9 @@ describe("ButtonWithLabel", () => {
     );
     // text: 루트에 hover/focus/active opacity (배경 없음)
     expect(getByRole("button")).toHaveClass(
-      "hover:opacity-[var(--alpha-80)]",
-      "focus-visible:opacity-[var(--alpha-80)]",
-      "active:opacity-[var(--alpha-80)]",
+      "hover:opacity-(--alpha-80)",
+      "focus-visible:opacity-(--alpha-80)",
+      "active:opacity-(--alpha-80)",
     );
   });
 

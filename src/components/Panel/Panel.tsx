@@ -36,7 +36,7 @@ export function Panel({
   // Build base classes
   const baseClasses = [
     "flex flex-col items-center gap-0 relative w-[360px]",
-    "px-[var(--sz-20)] py-[var(--sz-16)]",
+    "px-(--sz-20) py-(--sz-16)",
   ];
 
   // Background color
@@ -49,8 +49,8 @@ export function Panel({
   // Radius (placement determines which corners round)
   if (radius) {
     const radiusClasses = {
-      top: "rounded-bl-[var(--radius-3xl)] rounded-br-[var(--radius-3xl)]",
-      bottom: "rounded-tl-[var(--radius-3xl)] rounded-tr-[var(--radius-3xl)]",
+      top: "rounded-bl-(--radius-3xl) rounded-br-(--radius-3xl)",
+      bottom: "rounded-tl-(--radius-3xl) rounded-tr-(--radius-3xl)",
     };
     baseClasses.push(radiusClasses[placement]);
   }
@@ -73,7 +73,7 @@ export function Panel({
   return (
     <div className={finalClassName} data-node-id="51405:127512">
       <div
-        className="border border-[var(--color-red-500)] border-dashed h-[30px] relative shrink-0 w-full"
+        className="border border-red-500 border-dashed h-[30px] relative shrink-0 w-full"
         data-node-id="51405:127514"
         data-name="contentsSlot"
       >

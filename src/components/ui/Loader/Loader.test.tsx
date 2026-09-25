@@ -22,14 +22,14 @@ describe("Loader", () => {
       "relative",
       "inline-block",
       "shrink-0",
-      "size-[var(--sz-50)]",
+      "size-(--sz-50)",
     );
   });
 
   it("size 별 정사각 + 링 두께 클래스가 적용된다", () => {
     const cases: Record<LoaderSize, { root: string; thickness: string }> = {
-      sm: { root: "size-[var(--sz-28)]", thickness: "border-md" },
-      md: { root: "size-[var(--sz-50)]", thickness: "border-lg" },
+      sm: { root: "size-(--sz-28)", thickness: "border-md" },
+      md: { root: "size-(--sz-50)", thickness: "border-lg" },
     };
     for (const [size, cls] of Object.entries(cases) as [
       LoaderSize,
@@ -64,7 +64,7 @@ describe("Loader", () => {
       const root = container.querySelector("span");
       expect(root).toHaveAttribute("data-color", color);
       const { track, indicator } = layers(container);
-      expect(track).toHaveClass(cls.track, "opacity-[var(--alpha-20)]");
+      expect(track).toHaveClass(cls.track, "opacity-(--alpha-20)");
       expect(indicator).toHaveClass(cls.indicator);
     }
   });
@@ -95,7 +95,7 @@ describe("Loader", () => {
       "relative",
       "inline-block",
       "shrink-0",
-      "size-[var(--sz-50)]",
+      "size-(--sz-50)",
     );
   });
 

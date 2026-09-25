@@ -89,8 +89,8 @@ export function Tabs({
       data-size={size}
       data-variant={variant}
       className={[
-        "flex w-full gap-[var(--sz-10)] border-b-[length:var(--border-width-xs)]",
-        "border-solid border-border-neutral-bright px-[var(--sz-20)]",
+        "flex w-full gap-(--sz-10) border-b-[length:var(--border-width-xs)]",
+        "border-solid border-border-neutral-bright px-(--sz-20)",
         VARIANT_BG[variant],
         LAYOUT_CLASS[layout],
         className,

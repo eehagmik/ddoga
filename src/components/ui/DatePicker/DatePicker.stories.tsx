@@ -56,7 +56,7 @@ function SingleDemo(args: Omit<DatePickerSingleProps, "onChange">) {
   const [value, setValue] = useState<Date | undefined>(args.value);
   return (
     <div className="flex min-h-dvh items-center justify-center bg-bg-neutral-deep">
-      <div className="w-[var(--sz-320)]">
+      <div className="w-(--sz-320)">
         <DatePicker {...args} mode="single" value={value} onChange={setValue} />
       </div>
     </div>
@@ -70,7 +70,7 @@ function RangeDemo(args: Omit<DatePickerRangeProps, "onChange">) {
   const [endValue, setEndValue] = useState<Date | undefined>(args.endValue);
   return (
     <div className="flex min-h-dvh items-center justify-center bg-bg-neutral-deep">
-      <div className="w-[var(--sz-320)]">
+      <div className="w-(--sz-320)">
         <DatePicker
           {...args}
           mode="range"

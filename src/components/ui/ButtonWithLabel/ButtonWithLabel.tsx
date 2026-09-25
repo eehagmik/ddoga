@@ -72,22 +72,22 @@ const ICON_SLOT = "inline-flex shrink-0 items-center justify-center";
 
 /** `text` variant 전용 — min-height · radius (Button 의 SIZE_CLASS 와 동일 매핑). */
 const SIZE_MIN_RADIUS: Record<ButtonSize, string> = {
-  "2xl": "min-h-[var(--sz-54)] rounded-xl",
-  xl: "min-h-[var(--sz-50)] rounded-lg",
-  lg: "min-h-[var(--sz-46)] rounded-md",
-  md: "min-h-[var(--sz-40)] rounded-md",
-  sm: "min-h-[var(--sz-32)] rounded-sm",
-  xs: "min-h-[var(--sz-26)] rounded-sm",
+  "2xl": "min-h-(--sz-54) rounded-xl",
+  xl: "min-h-(--sz-50) rounded-lg",
+  lg: "min-h-(--sz-46) rounded-md",
+  md: "min-h-(--sz-40) rounded-md",
+  sm: "min-h-(--sz-32) rounded-sm",
+  xs: "min-h-(--sz-26) rounded-sm",
 };
 
 /** size 별 좌우 padding (variant="text" 는 미적용 → 0). */
 const SIZE_PADDING: Record<ButtonSize, string> = {
-  "2xl": "px-[var(--sz-14)]",
-  xl: "px-[var(--sz-12)]",
-  lg: "px-[var(--sz-10)]",
-  md: "px-[var(--sz-10)]",
-  sm: "px-[var(--sz-8)]",
-  xs: "px-[var(--sz-8)]",
+  "2xl": "px-(--sz-14)",
+  xl: "px-(--sz-12)",
+  lg: "px-(--sz-10)",
+  md: "px-(--sz-10)",
+  sm: "px-(--sz-8)",
+  xs: "px-(--sz-8)",
 };
 
 /** size 별 타이포 유틸. */
@@ -102,30 +102,29 @@ const SIZE_TYPO: Record<ButtonSize, string> = {
 
 /** size 별 inner gap(라벨·아이콘 간격). */
 const SIZE_INNER_GAP: Record<ButtonSize, string> = {
-  "2xl": "gap-[var(--sz-8)]",
-  xl: "gap-[var(--sz-6)]",
-  lg: "gap-[var(--sz-6)]",
-  md: "gap-[var(--sz-4)]",
-  sm: "gap-[var(--sz-3)]",
-  xs: "gap-[var(--sz-3)]",
+  "2xl": "gap-(--sz-8)",
+  xl: "gap-(--sz-6)",
+  lg: "gap-(--sz-6)",
+  md: "gap-(--sz-4)",
+  sm: "gap-(--sz-3)",
+  xs: "gap-(--sz-3)",
 };
 
 /** size 별 아이콘 정사각 크기. */
 const SIZE_ICON: Record<ButtonSize, string> = {
-  "2xl": "size-[var(--sz-22)]",
-  xl: "size-[var(--sz-20)]",
-  lg: "size-[var(--sz-18)]",
-  md: "size-[var(--sz-16)]",
-  sm: "size-[var(--sz-14)]",
-  xs: "size-[var(--sz-14)]",
+  "2xl": "size-(--sz-22)",
+  xl: "size-(--sz-20)",
+  lg: "size-(--sz-18)",
+  md: "size-(--sz-16)",
+  sm: "size-(--sz-14)",
+  xs: "size-(--sz-14)",
 };
 
 /**
  * `text` variant 루트 상태 클래스(배경 없음 → 루트 opacity 로 표현).
  * hover 는 여기서, focus/pressed 는 `BUTTON_BASE` 가 `--alpha-80` 을 준다.
  */
-const TEXT_STATE =
-  "hover:opacity-[var(--alpha-80)] disabled:opacity-[var(--alpha-60)]";
+const TEXT_STATE = "hover:opacity-(--alpha-80) disabled:opacity-(--alpha-60)";
 
 /** color × variant → 라벨 텍스트 색 (Figma node 51405:18495 검증). */
 const LABEL_COLOR: Record<ButtonVariant, Record<ButtonColor, string>> = {

@@ -111,7 +111,7 @@ describe("HelperLabel", () => {
       const root = container.firstChild;
       expect(root).toHaveClass("flex");
       expect(root).toHaveClass("items-start");
-      expect(root).toHaveClass("gap-[var(--sz-5)]");
+      expect(root).toHaveClass("gap-(--sz-5)");
     });
 
     it("테스트 텍스트에 break-keep 적용됨", () => {
@@ -125,7 +125,7 @@ describe("HelperLabel", () => {
         <HelperLabel label="Test" size="sm" variant="success" />,
       );
       const iconWrapper = container.querySelector('[data-name="icon area"]');
-      expect(iconWrapper).toHaveClass("pt-[var(--sz-2)]");
+      expect(iconWrapper).toHaveClass("pt-(--sz-2)");
     });
 
     it("icon wrapper pt 크기 — size=md", () => {
@@ -133,7 +133,7 @@ describe("HelperLabel", () => {
         <HelperLabel label="Test" size="md" variant="success" />,
       );
       const iconWrapper = container.querySelector('[data-name="icon area"]');
-      expect(iconWrapper).toHaveClass("pt-[var(--sz-4)]");
+      expect(iconWrapper).toHaveClass("pt-(--sz-4)");
     });
 
     it("icon 크기 — size=sm", () => {
@@ -141,7 +141,7 @@ describe("HelperLabel", () => {
         <HelperLabel label="Test" size="sm" variant="success" />,
       );
       const iconWrapper = container.querySelector('[data-name="icon area"]');
-      expect(iconWrapper).toHaveClass("size-[var(--sz-16)]");
+      expect(iconWrapper).toHaveClass("size-(--sz-16)");
     });
 
     it("icon 크기 — size=md", () => {
@@ -149,7 +149,7 @@ describe("HelperLabel", () => {
         <HelperLabel label="Test" size="md" variant="success" />,
       );
       const iconWrapper = container.querySelector('[data-name="icon area"]');
-      expect(iconWrapper).toHaveClass("size-[var(--sz-18)]");
+      expect(iconWrapper).toHaveClass("size-(--sz-18)");
     });
   });
 

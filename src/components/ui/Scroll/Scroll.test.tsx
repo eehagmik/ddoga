@@ -30,7 +30,7 @@ describe("Scroll", () => {
       expect(root).toHaveClass(
         "[scrollbar-color:var(--color-bg-overlay-greenGrayDeep)_var(--color-bg-overlay-greenGraySubtle)]",
       );
-      expect(root).toHaveClass("[&::-webkit-scrollbar]:size-[var(--sz-2)]");
+      expect(root).toHaveClass("[&::-webkit-scrollbar]:size-(--sz-2)");
       expect(root).toHaveClass(
         "[&::-webkit-scrollbar-track]:bg-bg-overlay-greenGraySubtle",
         "[&::-webkit-scrollbar-track]:rounded-circle",
@@ -43,9 +43,9 @@ describe("Scroll", () => {
   });
 
   it("className 을 루트에 병합한다", () => {
-    const { container } = render(<Scroll className="h-[var(--sz-160)]" />);
+    const { container } = render(<Scroll className="h-(--sz-160)" />);
     expect(container.firstElementChild).toHaveClass(
-      "h-[var(--sz-160)]",
+      "h-(--sz-160)",
       "overflow-y-auto",
     );
   });

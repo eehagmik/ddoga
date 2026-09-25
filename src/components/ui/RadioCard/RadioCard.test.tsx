@@ -16,7 +16,7 @@ describe("RadioCard", () => {
       "group",
       "w-full",
       "flex-col",
-      "gap-[var(--sz-10)]",
+      "gap-(--sz-10)",
       "rounded-lg",
       "bg-bg-neutral-normal",
       "shadow-borderNeutral-xs",
@@ -57,23 +57,23 @@ describe("RadioCard", () => {
   it("size 별 gap/radius/아톰 size/래퍼 pt/타이포가 적용된다(CheckboxCard 대비 sm pt 차이 포함)", () => {
     const cases = {
       sm: {
-        gap: "gap-[var(--sz-8)]",
+        gap: "gap-(--sz-8)",
         radius: "rounded-md",
-        pt: "pt-[var(--sz-2)]",
+        pt: "pt-(--sz-2)",
         typo: "text-body-4",
         atomSize: "sm",
       },
       md: {
-        gap: "gap-[var(--sz-10)]",
+        gap: "gap-(--sz-10)",
         radius: "rounded-lg",
-        pt: "pt-[var(--sz-1)]",
+        pt: "pt-(--sz-1)",
         typo: "text-body-3",
         atomSize: "md",
       },
       lg: {
-        gap: "gap-[var(--sz-12)]",
+        gap: "gap-(--sz-12)",
         radius: "rounded-xl",
-        pt: "pt-[var(--sz-5)]",
+        pt: "pt-(--sz-5)",
         typo: "text-body-1",
         atomSize: "md", // lg 카드도 md(24px) 아톰을 쓴다 — Figma 실측 쿼크
       },
@@ -197,10 +197,10 @@ describe("RadioCard", () => {
 
   it("className 을 루트 label 에 병합한다", () => {
     const { container } = render(
-      <RadioCard label="제목" className="max-w-[var(--sz-320)]" />,
+      <RadioCard label="제목" className="max-w-(--sz-320)" />,
     );
     expect(container.querySelector("label")).toHaveClass(
-      "max-w-[var(--sz-320)]",
+      "max-w-(--sz-320)",
       "group",
     );
   });

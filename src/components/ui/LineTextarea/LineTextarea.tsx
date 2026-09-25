@@ -108,7 +108,7 @@ function getFieldContainerClass(danger: boolean, disabled: boolean): string {
  */
 function getUnderlineClass(danger: boolean, disabled: boolean): string {
   const base = [
-    "h-[var(--sz-2)] w-full shrink-0 rounded-circle",
+    "h-(--sz-2) w-full shrink-0 rounded-circle",
     "transition-colors duration-150 ease-in-out motion-reduce:transition-none",
   ];
   if (disabled) return [...base, "bg-bg-disabled-normal"].join(" ");
@@ -146,14 +146,11 @@ export function LineTextarea({
     <div
       data-danger={danger}
       data-disabled={disabled}
-      className={[
-        "flex w-full flex-col items-start gap-[var(--sz-8)]",
-        className,
-      ]
+      className={["flex w-full flex-col items-start gap-(--sz-8)", className]
         .filter(Boolean)
         .join(" ")}
     >
-      <div className="flex w-full flex-col items-start gap-[var(--sz-16)]">
+      <div className="flex w-full flex-col items-start gap-(--sz-16)">
         {label ? (
           <label htmlFor={textareaId}>
             <Label
@@ -165,7 +162,7 @@ export function LineTextarea({
           </label>
         ) : null}
 
-        <div className="group flex w-full flex-col items-start gap-[var(--sz-8)]">
+        <div className="group flex w-full flex-col items-start gap-(--sz-8)">
           <div className={getFieldContainerClass(danger, disabled)}>
             <Textarea
               id={textareaId}
@@ -184,7 +181,7 @@ export function LineTextarea({
       </div>
 
       {showHelperRow ? (
-        <div className="flex w-full items-center justify-end gap-[var(--sz-8)]">
+        <div className="flex w-full items-center justify-end gap-(--sz-8)">
           {helperText ? (
             <HelperLabel
               label={helperText}
@@ -194,7 +191,7 @@ export function LineTextarea({
             />
           ) : null}
           {showCount ? (
-            <p className="shrink-0 whitespace-nowrap py-[var(--sz-5)] text-xs leading-none tracking-[-0.14px] text-typo-neutral-light">
+            <p className="shrink-0 whitespace-nowrap py-(--sz-5) text-xs leading-none tracking-[-0.14px] text-typo-neutral-light">
               {count}/{maxLength}자
             </p>
           ) : null}

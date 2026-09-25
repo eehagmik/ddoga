@@ -18,7 +18,7 @@ const SUBMENU_PLACEHOLDER_LABEL = "서브메뉴";
  */
 function renderSubMenuPlaceholder(): ReactNode {
   return (
-    <span className="inline-flex h-[var(--sz-32)] w-full items-center justify-center rounded-xs bg-bg-neutral-deepDark text-label-2 text-typo-neutral-light">
+    <span className="inline-flex h-(--sz-32) w-full items-center justify-center rounded-xs bg-bg-neutral-deepDark text-label-2 text-typo-neutral-light">
       {SUBMENU_PLACEHOLDER_LABEL}
     </span>
   );

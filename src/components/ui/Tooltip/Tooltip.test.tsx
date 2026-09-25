@@ -102,8 +102,8 @@ describe("Tooltip", () => {
     );
     const slot = getByTestId("ic").parentElement as HTMLElement;
     expect(slot).toHaveClass(
-      "size-[var(--sz-16)]",
-      "pt-[var(--sz-2)]",
+      "size-(--sz-16)",
+      "pt-(--sz-2)",
       "text-icon-inverse-subtle",
     );
 
@@ -128,7 +128,7 @@ describe("Tooltip", () => {
     expect(btn).toHaveAttribute("type", "button");
     expect(btn).toHaveClass(
       "cursor-pointer",
-      "focus-visible:opacity-[var(--alpha-60)]",
+      "focus-visible:opacity-(--alpha-60)",
     );
     await user.click(btn);
     expect(onClose).toHaveBeenCalledTimes(1);

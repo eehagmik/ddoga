@@ -36,12 +36,12 @@
  * 타이포: 체크됨 `text-body-3-bold`, 아니면 `text-body-3` (`TimeSelect` 와 동일 커스텀
  * 타이포 유틸).
  *
- * 그라데이션 오버레이(리스트 상하단 페이드): 상단 `h-[var(--sz-58)]`
+ * 그라데이션 오버레이(리스트 상하단 페이드): 상단 `h-(--sz-58)`
  * `linear-gradient(to bottom, --color-bg-neutral-normal, --color-bg-neutral-none)`, 하단
  * 동일 높이 방향 반대. `TimeSelect`/`FixButton` 의 `GRADIENT_CLASS` 선례와 동일 패턴.
  *
  * 치수(`get_design_context` 실측, node 51405:73920/73888): 셀 높이 `--sz-46`, 셀 내부
- * `px-[var(--sz-4)] py-[var(--sz-10)]`, 반경 `rounded-xl`(`--radius-xl`), 셀 사이 세로
+ * `px-(--sz-4) py-(--sz-10)`, 반경 `rounded-xl`(`--radius-xl`), 셀 사이 세로
  * 간격 `--sz-4`, 2열 사이 가로 gap `--sz-8`, 컨테이너 padding `--sz-10`.
  *
  * `jsdom`(Vitest) 방어: `ResizeObserver`/`Element.scrollTo` 가 없을 수 있어 존재 여부를
@@ -101,11 +101,11 @@ function buildYears(minYear: number, maxYear: number): number[] {
 
 /** 상단 페이드 — 불투명 흰색(위) → 투명(아래), `TimeSelect`/`FixButton` 선례와 동일 패턴. */
 const TOP_GRADIENT_CLASS =
-  "absolute inset-x-0 top-0 z-[4] h-[var(--sz-58)] " +
+  "absolute inset-x-0 top-0 z-4 h-(--sz-58) " +
   "bg-[linear-gradient(to_bottom,var(--color-bg-neutral-normal),var(--color-bg-neutral-none))]";
 /** 하단 페이드 — 투명(위) → 불투명 흰색(아래), 2열 전체를 덮어 z-index 가 가장 위(5). */
 const BOTTOM_GRADIENT_CLASS =
-  "absolute inset-x-0 bottom-0 z-[5] h-[var(--sz-58)] " +
+  "absolute inset-x-0 bottom-0 z-5 h-(--sz-58) " +
   "bg-[linear-gradient(to_bottom,var(--color-bg-neutral-none),var(--color-bg-neutral-normal))]";
 
 /** jsdom 등 `Element.scrollTo` 미구현 환경 방어. */
@@ -148,9 +148,9 @@ export function YearMonthSelect({
     <div
       data-disabled={disabled}
       className={[
-        "relative isolate flex h-full w-full min-h-[var(--sz-320)] max-h-[520px]",
-        "items-center justify-center gap-[var(--sz-8)] overflow-clip",
-        "px-[var(--sz-10)]",
+        "relative isolate flex h-full w-full min-h-(--sz-320) max-h-[520px]",
+        "items-center justify-center gap-(--sz-8) overflow-clip",
+        "px-(--sz-10)",
         className,
       ]
         .filter(Boolean)
@@ -166,7 +166,7 @@ export function YearMonthSelect({
         onChange={handleYearChange}
         disabled={disabled}
         formatLabel={formatYear}
-        zIndexClassName="z-[2]"
+        zIndexClassName="z-2"
       />
       <WheelColumn
         ariaLabel="월"
@@ -175,7 +175,7 @@ export function YearMonthSelect({
         onChange={handleMonthChange}
         disabled={disabled}
         formatLabel={formatMonth}
-        zIndexClassName="z-[1]"
+        zIndexClassName="z-1"
       />
     </div>
   );
@@ -296,7 +296,7 @@ function WheelColumn({
       aria-label={ariaLabel}
       onScroll={handleScroll}
       className={[
-        "flex h-full min-w-0 flex-1 flex-col items-center gap-[var(--sz-4)]",
+        "flex h-full min-w-0 flex-1 flex-col items-center gap-(--sz-4)",
         "overflow-y-auto overflow-x-clip",
         "[scroll-snap-type:y_mandatory] [-webkit-overflow-scrolling:touch]",
         "[scrollbar-width:none]! [-ms-overflow-style:none]! [&::-webkit-scrollbar]:hidden!",
@@ -338,8 +338,8 @@ interface YearMonthSelectCellProps {
 
 /** 셀 공통 베이스(치수/타이포/트랜지션, 색만 상태별로 분기). */
 const CELL_BASE_CLASS =
-  "flex h-[var(--sz-46)] w-full shrink-0 items-center justify-center rounded-xl " +
-  "px-[var(--sz-4)] py-[var(--sz-10)] [scroll-snap-align:center] " +
+  "flex h-(--sz-46) w-full shrink-0 items-center justify-center rounded-xl " +
+  "px-(--sz-4) py-(--sz-10) [scroll-snap-align:center] " +
   "transition-colors duration-150 ease-in-out motion-reduce:transition-none " +
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 " +
   "focus-visible:outline-border-brand-normal";

@@ -153,25 +153,25 @@ const PANEL_BASE =
   "transition-transform duration-[300ms] ease-in-out motion-reduce:transition-none focus:outline-none";
 
 const HEADER_CLASS =
-  "flex h-[var(--sz-58)] w-full shrink-0 flex-col justify-center " +
-  "pt-[var(--sz-14)] pb-[var(--sz-8)]";
+  "flex h-(--sz-58) w-full shrink-0 flex-col justify-center " +
+  "pt-(--sz-14) pb-(--sz-8)";
 
 const HEADER_CONTAINER_CLASS =
-  "flex w-full items-center gap-[var(--sz-8)] px-[var(--sz-16)]";
+  "flex w-full items-center gap-(--sz-8) px-(--sz-16)";
 
-const HEADER_LEFT_CLASS = "flex min-w-0 flex-1 items-center gap-[var(--sz-8)]";
+const HEADER_LEFT_CLASS = "flex min-w-0 flex-1 items-center gap-(--sz-8)";
 
 const TITLE_CLASS = "truncate text-body-3-bold text-typo-neutral-normal";
 
 const TOUCH_AREA_ACTION_CLASS =
-  "flex shrink-0 flex-col items-end justify-center py-[var(--sz-5)] px-[var(--sz-6)]";
+  "flex shrink-0 flex-col items-end justify-center py-(--sz-5) px-(--sz-6)";
 
-const TOUCH_AREA_CLOSE_CLASS = "flex shrink-0 items-center p-[var(--sz-6)]";
+const TOUCH_AREA_CLOSE_CLASS = "flex shrink-0 items-center p-(--sz-6)";
 
 const BODY_CLASS =
-  "flex min-h-0 w-full flex-1 flex-col items-start py-[var(--sz-20)]";
+  "flex min-h-0 w-full flex-1 flex-col items-start py-(--sz-20)";
 
-const BODY_CONTENTS_CLASS = "flex w-full flex-col px-[var(--sz-20)]";
+const BODY_CONTENTS_CLASS = "flex w-full flex-col px-(--sz-20)";
 
 export function BottomSheet({
   open,

@@ -26,7 +26,7 @@
  *    (배경색·불투명도·아이콘 전부 동일). 즉 disabled 시 변하는 건 좌측 라벨
  *    텍스트 색상뿐이고, `Chip` 은 어떤 형태로든(불투명도 포함) 영향을 받지 않는다.
  *    `Chip` 컴포넌트 자체에 `disabled` prop 이 없다는 사실과도 정합적이다 —
- *    별도 래퍼 오버라이드(예: `opacity-[var(--alpha-60)]`)를 씌울 필요가 없다.
+ *    별도 래퍼 오버라이드(예: `opacity-(--alpha-60)`)를 씌울 필요가 없다.
  *
  * 구조 결정(루트 엘리먼트 타입, Figma 에 없는 부분 — 사용자 승인 사항, 2차 변경으로 갱신):
  * 이전에는 `variant="button"` 이 실제 `<button>`(`ButtonWithLabel`)을 중첩해서
@@ -106,25 +106,25 @@ export interface MenuItemProps extends Omit<
 
 /** 루트 공통 — 레이아웃 + 배경 + hover/focus-visible/disabled(모든 variant 가 `<button>` 이라 group- 접두사 없음). */
 const ROOT =
-  "group flex w-full items-center gap-[var(--sz-8)] bg-bg-neutral-normal " +
+  "group flex w-full items-center gap-(--sz-8) bg-bg-neutral-normal " +
   "[font-feature-settings:var(--font-feature-case)] transition-colors cursor-pointer " +
   "hover:bg-bg-neutral-deep focus-visible:bg-bg-neutral-deep focus-visible:outline-none " +
   "disabled:pointer-events-none disabled:cursor-not-allowed";
 
 /** size 별 높이(Figma 실측, `min-h` 아닌 고정 `h`). */
 const SIZE_HEIGHT: Record<MenuItemSize, string> = {
-  xs: "h-[var(--sz-44)]",
-  sm: "h-[var(--sz-48)]",
-  md: "h-[var(--sz-46)]",
-  lg: "h-[var(--sz-50)]",
+  xs: "h-(--sz-44)",
+  sm: "h-(--sz-48)",
+  md: "h-(--sz-46)",
+  lg: "h-(--sz-50)",
 };
 
 /** size 별 좌우 padding. */
 const SIZE_PADDING_X: Record<MenuItemSize, string> = {
-  xs: "px-[var(--sz-12)]",
-  sm: "px-[var(--sz-14)]",
-  md: "px-[var(--sz-16)]",
-  lg: "px-[var(--sz-16)]",
+  xs: "px-(--sz-12)",
+  sm: "px-(--sz-14)",
+  md: "px-(--sz-16)",
+  lg: "px-(--sz-16)",
 };
 
 /** size 별 라벨 타이포(xs·sm 은 body-4, md·lg 는 body-3 — Figma 실측 2단). */
@@ -137,10 +137,10 @@ const SIZE_TYPO: Record<MenuItemSize, string> = {
 
 /** size 별 icon/graphic 정사각 슬롯 크기. */
 const SIZE_SLOT: Record<MenuItemSize, string> = {
-  xs: "size-[var(--sz-20)]",
-  sm: "size-[var(--sz-20)]",
-  md: "size-[var(--sz-24)]",
-  lg: "size-[var(--sz-24)]",
+  xs: "size-(--sz-20)",
+  sm: "size-(--sz-20)",
+  md: "size-(--sz-24)",
+  lg: "size-(--sz-24)",
 };
 
 /** 중첩 `Chip` size — MenuItem `size` 와 무관하게 고정(Figma 실측 근거는 상단 JSDoc 참고). */
@@ -164,7 +164,7 @@ export function MenuItem({
   const inner = (
     <span
       data-name="inner"
-      className="flex min-w-0 flex-1 items-center gap-[var(--sz-8)] group-focus-visible:opacity-[var(--alpha-60)]"
+      className="flex min-w-0 flex-1 items-center gap-(--sz-8) group-focus-visible:opacity-(--alpha-60)"
     >
       <span
         className={[

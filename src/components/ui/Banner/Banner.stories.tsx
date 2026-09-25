@@ -107,7 +107,7 @@ export const CustomContent: Story = {
 /** variant × ratio 4가지 조합을 나란히 비교(Figma 문서 프리뷰와 동일 구성). */
 export const AllCombinations: Story = {
   render: () => (
-    <div className="grid grid-cols-2 gap-[var(--sz-20)]">
+    <div className="grid grid-cols-2 gap-(--sz-20)">
       {VARIANTS.map((variant) =>
         RATIOS.map((ratio) => (
           <div key={`${variant}-${ratio}`} style={{ width: 320 }}>

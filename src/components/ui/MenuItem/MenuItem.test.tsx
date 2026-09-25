@@ -12,7 +12,7 @@ describe("MenuItem", () => {
     expect(root).toHaveAttribute("type", "button");
     expect(root).toHaveAttribute("data-variant", "text");
     expect(root).toHaveAttribute("data-size", "md");
-    expect(root).toHaveClass("h-[var(--sz-46)]", "px-[var(--sz-16)]");
+    expect(root).toHaveClass("h-(--sz-46)", "px-(--sz-16)");
     expect(screen.getByText("Label")).toBeInTheDocument();
   });
 
@@ -24,12 +24,12 @@ describe("MenuItem", () => {
   it("size 별 높이·padding·타이포 유틸 클래스를 적용한다", () => {
     const { container, rerender } = render(<MenuItem size="xs" />);
     let root = container.firstElementChild as HTMLElement;
-    expect(root).toHaveClass("h-[var(--sz-44)]", "px-[var(--sz-12)]");
+    expect(root).toHaveClass("h-(--sz-44)", "px-(--sz-12)");
     expect(screen.getByText("Label")).toHaveClass("text-body-4");
 
     rerender(<MenuItem size="lg" />);
     root = container.firstElementChild as HTMLElement;
-    expect(root).toHaveClass("h-[var(--sz-50)]", "px-[var(--sz-16)]");
+    expect(root).toHaveClass("h-(--sz-50)", "px-(--sz-16)");
     expect(screen.getByText("Label")).toHaveClass("text-body-3");
   });
 

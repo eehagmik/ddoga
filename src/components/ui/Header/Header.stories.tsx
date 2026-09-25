@@ -26,8 +26,8 @@ function renderSlotPlaceholder() {
   return (
     <span
       className={[
-        "inline-flex h-[var(--sz-24)] shrink-0 items-center justify-center",
-        "rounded-xs bg-bg-neutral-deepDark px-[var(--sz-4)]",
+        "inline-flex h-(--sz-24) shrink-0 items-center justify-center",
+        "rounded-xs bg-bg-neutral-deepDark px-(--sz-4)",
         "text-body-6 text-typo-neutral-light",
       ].join(" ")}
     >
@@ -107,7 +107,7 @@ export const Playground: Story = {
  */
 export const Types: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-1)] bg-bg-neutral-deep">
+    <div className="flex flex-col gap-(--sz-1) bg-bg-neutral-deep">
       {TYPES.map((type) => (
         <Header key={type} {...args} type={type} />
       ))}
@@ -122,7 +122,7 @@ export const Types: Story = {
  */
 export const HomeType: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-16)]">
+    <div className="flex flex-col gap-(--sz-16)">
       <Header {...args} type="home" contentsColor="neutral" />
       <div className="bg-bg-neutral-dark">
         <Header
@@ -180,12 +180,12 @@ export const SearchType: Story = {
  */
 export const Variants: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-16)]">
+    <div className="flex flex-col gap-(--sz-16)">
       {VARIANTS.map((variant) => (
         <div key={variant} className="relative flex">
-          <div className="h-[var(--sz-96)] flex-1 bg-bg-brand-normal" />
-          <div className="h-[var(--sz-96)] flex-1 bg-bg-danger-normal" />
-          <div className="h-[var(--sz-96)] flex-1 bg-bg-info-normal" />
+          <div className="h-(--sz-96) flex-1 bg-bg-brand-normal" />
+          <div className="h-(--sz-96) flex-1 bg-bg-danger-normal" />
+          <div className="h-(--sz-96) flex-1 bg-bg-info-normal" />
           <div className="absolute inset-x-0 top-0">
             <Header {...args} variant={variant} />
           </div>
@@ -198,7 +198,7 @@ export const Variants: Story = {
 /** contentsColor 2종(neutral/inverse) — transparent 배경 위에서만 의미가 있다. */
 export const ContentsColors: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-16)]">
+    <div className="flex flex-col gap-(--sz-16)">
       {CONTENTS_COLORS.map((contentsColor) => (
         <div key={contentsColor} className="bg-bg-neutral-dark">
           <Header
@@ -217,7 +217,7 @@ export const ContentsColors: Story = {
 /** bold: false/true. */
 export const Bold: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-1)] bg-bg-neutral-deep">
+    <div className="flex flex-col gap-(--sz-1) bg-bg-neutral-deep">
       <Header {...args} bold={false} />
       <Header {...args} bold />
     </div>
@@ -265,11 +265,11 @@ export const ScrollBackgroundSwap: Story = {
     showCart: true,
   },
   render: (args) => (
-    <div className="bg-[var(--color-gray-500)]">
+    <div className="bg-gray-500">
       <div className="sticky top-0 z-10">
         <Header {...args} />
       </div>
-      <div className="flex h-[200vh] flex-col items-center justify-start gap-[var(--sz-16)] p-[var(--sz-24)] text-typo-inverse-normal">
+      <div className="flex h-[200vh] flex-col items-center justify-start gap-(--sz-16) p-(--sz-24) text-typo-inverse-normal">
         <p className="text-body-2">
           아래로 80px 이상 스크롤하면 헤더가 normal/neutral 로 전환됩니다.
           (`Header` 는 컨테이너가 아니라 `window` 스크롤을 관찰하므로, 이

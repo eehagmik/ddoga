@@ -56,11 +56,8 @@ const BACKDROP =
 function Section({ token }: { token: TokenDef }) {
   const cssVar = `--blur-${token.id}`;
   return (
-    <section
-      data-section={token.id}
-      className="flex flex-col gap-[var(--sz-16)]"
-    >
-      <div className="flex flex-col gap-[var(--sz-4)]">
+    <section data-section={token.id} className="flex flex-col gap-(--sz-16)">
+      <div className="flex flex-col gap-(--sz-4)">
         <h2 className="text-2xl font-bold">{token.id}</h2>
         <p className="text-xs text-typo-neutral-light">{token.description}</p>
       </div>
@@ -72,27 +69,27 @@ function Section({ token }: { token: TokenDef }) {
       >
         <div
           data-token={cssVar}
-          className={`m-[var(--sz-32)] flex h-[var(--sz-100)] items-center justify-center rounded-lg border border-solid border-border-inverse-subtle bg-bg-overlay-whiteNormal text-xs font-bold text-typo-neutral-normal ${BLUR_CLASS[token.id]}`}
+          className={`m-(--sz-32) flex h-(--sz-100) items-center justify-center rounded-lg border border-solid border-border-inverse-subtle bg-bg-overlay-whiteNormal text-xs font-bold text-typo-neutral-normal ${BLUR_CLASS[token.id]}`}
         >
           {cssVar}
         </div>
       </div>
 
       {/* 토큰명 · 값 레퍼런스 */}
-      <dl className="flex flex-wrap gap-x-[var(--sz-24)] gap-y-[var(--sz-4)]">
-        <div className="flex gap-[var(--sz-8)]">
+      <dl className="flex flex-wrap gap-x-(--sz-24) gap-y-(--sz-4)">
+        <div className="flex gap-(--sz-8)">
           <dt className="text-2xs font-bold text-typo-neutral-light">token</dt>
           <dd className="text-2xs font-normal text-typo-neutral-normal">
             <code>{cssVar}</code> · <code>{BLUR_CLASS[token.id]}</code>
           </dd>
         </div>
-        <div className="flex gap-[var(--sz-8)]">
+        <div className="flex gap-(--sz-8)">
           <dt className="text-2xs font-bold text-typo-neutral-light">Figma</dt>
           <dd className="text-2xs font-normal text-typo-neutral-normal">
             <code>{token.figmaVar}</code>
           </dd>
         </div>
-        <div className="flex gap-[var(--sz-8)]">
+        <div className="flex gap-(--sz-8)">
           <dt className="text-2xs font-bold text-typo-neutral-light">value</dt>
           <dd className="text-2xs font-normal text-typo-neutral-normal">
             <code>{`blur(${token.radiusPx}px)`}</code> ←{" "}
@@ -107,7 +104,7 @@ function Section({ token }: { token: TokenDef }) {
 export function BackdropBlur({ section }: BackdropBlurProps) {
   const tokens = section ? TOKENS.filter((t) => t.id === section) : TOKENS;
   return (
-    <div className="flex flex-col gap-[var(--sz-32)] bg-bg-neutral-deep p-[var(--sz-16)] text-typo-neutral-normal">
+    <div className="flex flex-col gap-(--sz-32) bg-bg-neutral-deep p-(--sz-16) text-typo-neutral-normal">
       {tokens.map((t) => (
         <Section key={t.id} token={t} />
       ))}

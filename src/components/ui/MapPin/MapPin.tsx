@@ -84,7 +84,7 @@ export interface MapPinProps {
 
 /** 루트 — 세로 중앙 정렬 + 그래픽·라벨 공통 gap + 통합 drop-shadow(shadow/black/xs). */
 const ROOT_BASE =
-  "relative inline-flex flex-col items-center gap-[var(--sz-4)] " +
+  "relative inline-flex flex-col items-center gap-(--sz-4) " +
   "[filter:drop-shadow(0_var(--sz-1)_var(--sz-2)_var(--color-shadow-black-light))_drop-shadow(0_var(--sz-2)_var(--sz-4)_var(--color-shadow-black-normal))]";
 
 /** circle 배경(Figma: background/danger/normal · background/brand/normal) */
@@ -136,10 +136,9 @@ function MarkerGraphic({ color }: { color: MapPinColor }) {
       focusable={false}
       aria-hidden
       data-name="Pin"
-      className={[
-        "size-[var(--sz-54)] shrink-0",
-        MARKER_COLOR_CLASS[color],
-      ].join(" ")}
+      className={["size-(--sz-54) shrink-0", MARKER_COLOR_CLASS[color]].join(
+        " ",
+      )}
     >
       <path
         d="M26.9995 3.16C37.7891 3.16 46.5198 11.8203 46.52 22.4832C46.52 27.8676 44.0551 32.6527 40.5571 37.1512C37.9977 40.4427 34.8025 43.6789 31.4888 46.9452L30.063 48.3465L30.0601 48.3495C29.3423 49.0542 28.6227 49.7605 27.9087 50.4676C27.408 50.9635 26.592 50.9635 26.0913 50.4676C25.3769 49.7601 24.6553 49.0518 23.937 48.3465C20.1233 44.602 16.3679 40.9129 13.4429 37.1512C9.94497 32.6527 7.48 27.8676 7.48 22.4832C7.48021 11.8205 16.2102 3.16025 26.9995 3.16Z"
@@ -181,7 +180,7 @@ export function MapPin({
         <div
           data-name="Circle"
           className={[
-            "relative size-[var(--sz-26)] shrink-0 rounded-circle",
+            "relative size-(--sz-26) shrink-0 rounded-circle",
             "border-sm border-solid border-border-inverse-dark",
             CIRCLE_COLOR_CLASS[color],
           ].join(" ")}

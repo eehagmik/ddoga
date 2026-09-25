@@ -78,7 +78,7 @@ export interface TextareaProps extends Omit<
 const SCROLLBAR_CLASS =
   "[scrollbar-width:thin] " +
   "[scrollbar-color:var(--color-bg-overlay-greenGrayDeep)_var(--color-bg-overlay-greenGraySubtle)] " +
-  "[&::-webkit-scrollbar]:size-[var(--sz-2)] " +
+  "[&::-webkit-scrollbar]:size-(--sz-2) " +
   "[&::-webkit-scrollbar-track]:bg-bg-overlay-greenGraySubtle " +
   "[&::-webkit-scrollbar-track]:rounded-circle " +
   "[&::-webkit-scrollbar-thumb]:bg-bg-overlay-greenGrayDeep " +
@@ -113,7 +113,7 @@ export function Textarea({
       rows={rows}
       data-scrollable={scrollable}
       className={[
-        "w-full resize-none bg-transparent py-[var(--sz-1)] outline-none",
+        "w-full resize-none bg-transparent py-(--sz-1) outline-none",
         "text-body-1 [word-break:break-word]",
         hasValue ? valueColor : placeholderColor,
         `placeholder:${placeholderColor}`,

@@ -34,7 +34,7 @@
  * | md   | body-4 / body-4-bold   | --sz-10 / --sz-8  | --sz-12 / --sz-8  | 0 / --sz-8        |
  * | lg   | body-3 / body-3-bold   | --sz-10 / --sz-10 | --sz-12 / --sz-10 | 0 / --sz-10       |
  * radius: square·text → `rounded-md`, round → `rounded-circle`.
- * square·round 는 `min-w-[var(--sz-42)]` + 라벨 `flex-1 text-center`, text 는 가로 Hug(`whitespace-nowrap shrink-0`).
+ * square·round 는 `min-w-(--sz-42)` + 라벨 `flex-1 text-center`, text 는 가로 Hug(`whitespace-nowrap shrink-0`).
  *
  * 색은 전부 semantic 토큰 유틸, 크기·간격은 `var(--sz-*)`, 투명도는 `var(--alpha-*)`, 아웃라인은
  * `shadow-border*` 유틸로만 지정한다 — 하드코딩 없음.
@@ -74,7 +74,7 @@ const TOGGLE_BASE =
   "group inline-flex items-center justify-center " +
   "transition-[background-color,box-shadow,color] duration-150 ease-in-out motion-reduce:transition-none " +
   "focus-visible:outline-none " +
-  "focus-visible:opacity-[var(--alpha-80)] active:opacity-[var(--alpha-80)] " +
+  "focus-visible:opacity-(--alpha-80) active:opacity-(--alpha-80) " +
   "disabled:cursor-not-allowed " +
   "[font-feature-settings:var(--font-feature-case)]";
 
@@ -88,22 +88,22 @@ const VARIANT_RADIUS: Record<ToggleVariant, string> = {
 /** variant × size → padding. */
 const VARIANT_SIZE_PAD: Record<ToggleVariant, Record<ToggleSize, string>> = {
   square: {
-    xs: "px-[var(--sz-8)] py-[var(--sz-3)]",
-    sm: "px-[var(--sz-10)] py-[var(--sz-6)]",
-    md: "px-[var(--sz-10)] py-[var(--sz-8)]",
-    lg: "px-[var(--sz-10)] py-[var(--sz-10)]",
+    xs: "px-(--sz-8) py-(--sz-3)",
+    sm: "px-(--sz-10) py-(--sz-6)",
+    md: "px-(--sz-10) py-(--sz-8)",
+    lg: "px-(--sz-10) py-(--sz-10)",
   },
   round: {
-    xs: "px-[var(--sz-8)] py-[var(--sz-3)]",
-    sm: "px-[var(--sz-10)] py-[var(--sz-6)]",
-    md: "px-[var(--sz-12)] py-[var(--sz-8)]",
-    lg: "px-[var(--sz-12)] py-[var(--sz-10)]",
+    xs: "px-(--sz-8) py-(--sz-3)",
+    sm: "px-(--sz-10) py-(--sz-6)",
+    md: "px-(--sz-12) py-(--sz-8)",
+    lg: "px-(--sz-12) py-(--sz-10)",
   },
   text: {
-    xs: "px-[var(--sz-0)] py-[var(--sz-3)]",
-    sm: "px-[var(--sz-0)] py-[var(--sz-6)]",
-    md: "px-[var(--sz-0)] py-[var(--sz-8)]",
-    lg: "px-[var(--sz-0)] py-[var(--sz-10)]",
+    xs: "px-(--sz-0) py-(--sz-3)",
+    sm: "px-(--sz-0) py-(--sz-6)",
+    md: "px-(--sz-0) py-(--sz-8)",
+    lg: "px-(--sz-0) py-(--sz-10)",
   },
 };
 
@@ -194,7 +194,7 @@ export function Toggle({
         TOGGLE_BASE,
         VARIANT_RADIUS[variant],
         VARIANT_SIZE_PAD[variant][size],
-        isText ? "" : "min-w-[var(--sz-42)] overflow-clip",
+        isText ? "" : "min-w-(--sz-42) overflow-clip",
         current ? SIZE_TYPO[size].bold : SIZE_TYPO[size].normal,
         surfaceClass(variant, current, disabled),
         className,

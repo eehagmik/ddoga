@@ -255,9 +255,9 @@ export const ClickToOpenPicker: Story = {
 /** variant × mode 4가지 조합을 나란히 비교. */
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex w-[320px] flex-col gap-[var(--sz-32)]">
+    <div className="flex w-[320px] flex-col gap-(--sz-32)">
       {VARIANTS.map((variant) => (
-        <div key={variant} className="flex flex-col gap-[var(--sz-16)]">
+        <div key={variant} className="flex flex-col gap-(--sz-16)">
           <TimeField
             variant={variant}
             mode="single"

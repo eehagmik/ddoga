@@ -67,23 +67,23 @@ const GLYPH_BASE_CLASS =
 
 /** circle/square 박스 정사각 (Figma: scale/22·24·28) */
 const BOX_SIZE_CLASS: Record<CheckboxSize, string> = {
-  sm: "size-[var(--sz-22)]",
-  md: "size-[var(--sz-24)]",
-  lg: "size-[var(--sz-28)]",
+  sm: "size-(--sz-22)",
+  md: "size-(--sz-24)",
+  lg: "size-(--sz-28)",
 };
 
 /** circle/square 내부 체크마크 글리프 정사각 (sm 16 / md 18 / lg 20 로 정규화) */
 const GLYPH_SIZE_CLASS: Record<CheckboxSize, string> = {
-  sm: "size-[var(--sz-16)]",
-  md: "size-[var(--sz-18)]",
-  lg: "size-[var(--sz-20)]",
+  sm: "size-(--sz-16)",
+  md: "size-(--sz-18)",
+  lg: "size-(--sz-20)",
 };
 
 /** mark 는 상자 없이 글리프가 박스 크기(sm 22 / md 24 / lg 28)를 채운다 */
 const MARK_SIZE_CLASS: Record<CheckboxSize, string> = {
-  sm: "size-[var(--sz-22)]",
-  md: "size-[var(--sz-24)]",
-  lg: "size-[var(--sz-28)]",
+  sm: "size-(--sz-22)",
+  md: "size-(--sz-24)",
+  lg: "size-(--sz-28)",
 };
 
 /** variant 별 모서리 (mark 는 상자 없음) */
@@ -110,7 +110,7 @@ function boxColors(checked: boolean, disabled: boolean): StateClass {
       : {
           container:
             "bg-bg-disabled-subtle border-sm border-solid border-border-disabled-normal",
-          glyph: "text-icon-disabled-normal opacity-[var(--alpha-40)]",
+          glyph: "text-icon-disabled-normal opacity-(--alpha-40)",
         };
   }
   return checked
@@ -123,7 +123,7 @@ function boxColors(checked: boolean, disabled: boolean): StateClass {
         container:
           "bg-bg-neutral-normal border-sm border-solid border-border-neutral-light hover:bg-bg-brandGrayish-deep group-hover:bg-bg-brandGrayish-deep",
         glyph:
-          "text-icon-brandGrayish-light group-hover:text-icon-brandGrayish-subtle opacity-[var(--alpha-40)]",
+          "text-icon-brandGrayish-light group-hover:text-icon-brandGrayish-subtle opacity-(--alpha-40)",
       };
 }
 

@@ -67,7 +67,7 @@ export interface AccordionProps extends Omit<
 /** 헤더 공통 — 레이아웃 + padding/gap + 배경색 전이(색 자체는 accordionHeaderClass 가 더함). */
 const HEADER_BASE =
   "flex w-full cursor-pointer items-center justify-between " +
-  "px-[var(--sz-20)] py-[var(--sz-10)] gap-[var(--sz-16)] " +
+  "px-(--sz-20) py-(--sz-10) gap-(--sz-16) " +
   "transition-colors duration-150 ease-in-out motion-reduce:transition-none";
 
 /** 콘텐츠 wrapper 공통 — overflow 클립 + height 트랜지션(Material 표준 이징). */
@@ -76,7 +76,7 @@ const CONTENTS_WRAPPER_CLASS =
 
 /** 콘텐츠 공통 — 레이아웃 + padding/gap(Figma 실측). */
 const CONTENTS_CLASS =
-  "flex flex-col gap-[var(--sz-24)] px-[var(--sz-20)] pt-[var(--sz-10)] pb-[var(--sz-20)]";
+  "flex flex-col gap-(--sz-24) px-(--sz-20) pt-(--sz-10) pb-(--sz-20)";
 
 /**
  * expanded 별 헤더 배경(`Switch` 의 `switchColors` 선례).

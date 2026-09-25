@@ -14,7 +14,7 @@ describe("Checkbox", () => {
     expect(root).toHaveAttribute("data-state", "enable");
     expect(root).toHaveClass(
       "inline-flex",
-      "size-[var(--sz-24)]",
+      "size-(--sz-24)",
       "rounded-circle",
       "bg-bg-neutral-normal",
       "border-sm",
@@ -31,9 +31,9 @@ describe("Checkbox", () => {
     expect(path).not.toBeNull();
     expect(path).toHaveAttribute("fill", "currentColor");
     expect(container.querySelector("svg")).toHaveClass(
-      "size-[var(--sz-18)]",
+      "size-(--sz-18)",
       "text-icon-brandGrayish-light",
-      "opacity-[var(--alpha-40)]",
+      "opacity-(--alpha-40)",
     );
   });
 
@@ -59,9 +59,9 @@ describe("Checkbox", () => {
 
   it("size 별 상자/글리프 크기 클래스가 적용된다", () => {
     const box: Record<CheckboxSize, [string, string]> = {
-      sm: ["size-[var(--sz-22)]", "size-[var(--sz-16)]"],
-      md: ["size-[var(--sz-24)]", "size-[var(--sz-18)]"],
-      lg: ["size-[var(--sz-28)]", "size-[var(--sz-20)]"],
+      sm: ["size-(--sz-22)", "size-(--sz-16)"],
+      md: ["size-(--sz-24)", "size-(--sz-18)"],
+      lg: ["size-(--sz-28)", "size-(--sz-20)"],
     };
     for (const [size, [rootCls, glyphCls]] of Object.entries(box) as [
       CheckboxSize,
@@ -75,8 +75,8 @@ describe("Checkbox", () => {
 
   it("mark 는 상자 크기(sm 22 / md 24 / lg 28)로 글리프가 채운다", () => {
     const { container } = render(<Checkbox variant="mark" size="lg" />);
-    expect(container.querySelector("span")).toHaveClass("size-[var(--sz-28)]");
-    expect(container.querySelector("svg")).toHaveClass("size-[var(--sz-28)]");
+    expect(container.querySelector("span")).toHaveClass("size-(--sz-28)");
+    expect(container.querySelector("svg")).toHaveClass("size-(--sz-28)");
   });
 
   it("checked 는 브랜드 배경 + 흰 체크마크로 전환하고 테두리를 제거한다", () => {
@@ -93,7 +93,7 @@ describe("Checkbox", () => {
       "text-icon-inverse-normal",
     );
     expect(container.querySelector("svg")).not.toHaveClass(
-      "opacity-[var(--alpha-40)]",
+      "opacity-(--alpha-40)",
     );
   });
 
@@ -123,7 +123,7 @@ describe("Checkbox", () => {
     );
     expect(container.querySelector("svg")).toHaveClass(
       "text-icon-disabled-normal",
-      "opacity-[var(--alpha-40)]",
+      "opacity-(--alpha-40)",
     );
   });
 
@@ -164,7 +164,7 @@ describe("Checkbox", () => {
   it("mark 는 40% 불투명도를 적용하지 않는다", () => {
     const { container } = render(<Checkbox variant="mark" />);
     expect(container.querySelector("svg")).not.toHaveClass(
-      "opacity-[var(--alpha-40)]",
+      "opacity-(--alpha-40)",
     );
   });
 

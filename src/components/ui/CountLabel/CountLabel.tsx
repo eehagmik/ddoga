@@ -57,7 +57,7 @@ const XS_TEXT_CLASS = "text-[length:var(--text-xs)] tracking-[-0.14px]";
 /** size → 값 그룹(값+구분자+값) 내부 gap. md 만 2px, sm 은 밀착(Figma 실측). */
 const VALUE_GAP: Record<CountLabelSize, string> = {
   sm: "",
-  md: "gap-[var(--sz-2)]",
+  md: "gap-(--sz-2)",
 };
 
 /** 값/구분자/단위 공통 — 줄바꿈 방지 + 숫자 케이스 폰트 피처. */
@@ -81,7 +81,7 @@ export function CountLabel({
       data-size={size}
       aria-live="polite"
       className={[
-        "inline-flex items-center gap-[var(--sz-2)] font-medium leading-none",
+        "inline-flex items-center gap-(--sz-2) font-medium leading-none",
         COLOR_CLASS[color],
         className,
       ]

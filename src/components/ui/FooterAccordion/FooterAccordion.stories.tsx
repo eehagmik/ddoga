@@ -50,7 +50,7 @@ export const Playground: Story = {
     children: "아코디언 콘텐츠입니다.",
   },
   render: (args) => (
-    <div className="w-full bg-bg-neutral-normal p-[var(--sz-8)]">
+    <div className="w-full bg-bg-neutral-normal p-(--sz-8)">
       <FooterAccordion {...args} />
     </div>
   ),
@@ -92,8 +92,8 @@ export const Expanded: Story = {
  */
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex w-full flex-col gap-[var(--sz-24)] bg-bg-neutral-normal p-[var(--sz-8)]">
-      <div className="flex flex-col gap-[var(--sz-8)]">
+    <div className="flex w-full flex-col gap-(--sz-24) bg-bg-neutral-normal p-(--sz-8)">
+      <div className="flex flex-col gap-(--sz-8)">
         <code className="text-2xs text-typo-neutral-light">
           collapsed / enable
         </code>
@@ -101,7 +101,7 @@ export const AllVariants: Story = {
           아코디언 콘텐츠입니다.
         </FooterAccordion>
       </div>
-      <div className="flex flex-col gap-[var(--sz-8)]">
+      <div className="flex flex-col gap-(--sz-8)">
         <code className="text-2xs text-typo-neutral-light">
           collapsed / hover (마우스를 올려보세요)
         </code>
@@ -109,7 +109,7 @@ export const AllVariants: Story = {
           아코디언 콘텐츠입니다.
         </FooterAccordion>
       </div>
-      <div className="flex flex-col gap-[var(--sz-8)]">
+      <div className="flex flex-col gap-(--sz-8)">
         <code className="text-2xs text-typo-neutral-light">
           expanded / enable
         </code>
@@ -128,6 +128,24 @@ export const AllVariants: Story = {
   },
 };
 
+/**
+ * `hoverable={false}` — hover 시 배경 전환을 끈 사용 예시(Figma 범위 밖 확장, `Footer`
+ * 내부 사용처 요구사항). 마우스를 올려도 collapsed 배경(`bg-bg-neutral-deepDark`)이
+ * 그대로 유지된다.
+ */
+export const NonHoverable: Story = {
+  args: {
+    title: "푸터 아코디언 제목",
+    children: "아코디언 콘텐츠입니다.",
+    hoverable: false,
+  },
+  play: async ({ canvasElement }) => {
+    const header = within(canvasElement).getByRole("button");
+    const card = header.parentElement!;
+    await expect(card.className).not.toMatch(/hover:bg-/);
+  },
+};
+
 /** controlled — 외부 상태로 펼침 여부를 관리하는 사용 예시. */
 export const Controlled: Story = {
   render: () => <ControlledDemo />,
@@ -136,7 +154,7 @@ export const Controlled: Story = {
 function ControlledDemo() {
   const [expanded, setExpanded] = useState(false);
   return (
-    <div className="flex w-full flex-col gap-[var(--sz-12)] bg-bg-neutral-normal p-[var(--sz-8)]">
+    <div className="flex w-full flex-col gap-(--sz-12) bg-bg-neutral-normal p-(--sz-8)">
       <FooterAccordion
         title="푸터 아코디언 제목"
         expanded={expanded}

@@ -187,8 +187,8 @@ export function Tooltip({
       className={[
         "flex shrink-0 items-center self-stretch",
         isVertical
-          ? `px-[var(--sz-12)] ${ALIGN_JUSTIFY[align]}`
-          : `flex-col py-[var(--sz-12)] ${ALIGN_JUSTIFY[align]}`,
+          ? `px-(--sz-12) ${ALIGN_JUSTIFY[align]}`
+          : `flex-col py-(--sz-12) ${ALIGN_JUSTIFY[align]}`,
       ].join(" ")}
     >
       <svg
@@ -209,8 +209,8 @@ export function Tooltip({
   const content = (
     <div
       className={[
-        "inline-flex items-start gap-[var(--sz-6)] rounded-xl",
-        "py-[var(--sz-10)] px-[var(--sz-12)]",
+        "inline-flex items-start gap-(--sz-6) rounded-xl",
+        "py-(--sz-10) px-(--sz-12)",
         "max-w-[calc(100vw-var(--sz-32))]",
         TONE_SURFACE[tone],
       ].join(" ")}
@@ -227,7 +227,7 @@ export function Tooltip({
         <span
           className={[
             "inline-flex shrink-0 items-center justify-center",
-            "size-[var(--sz-16)] pt-[var(--sz-2)] [&>svg]:size-full",
+            "size-(--sz-16) pt-(--sz-2) [&>svg]:size-full",
             TONE_ICON[tone],
           ].join(" ")}
         >
@@ -252,8 +252,8 @@ export function Tooltip({
           aria-label={closeLabel}
           className={[
             "inline-flex shrink-0 cursor-pointer items-center justify-center",
-            "size-[var(--sz-16)] pt-[var(--sz-2)] [&>svg]:size-full",
-            "focus-visible:opacity-[var(--alpha-60)] focus-visible:outline-none",
+            "size-(--sz-16) pt-(--sz-2) [&>svg]:size-full",
+            "focus-visible:opacity-(--alpha-60) focus-visible:outline-none",
             TONE_CLOSE[tone],
           ].join(" ")}
         >

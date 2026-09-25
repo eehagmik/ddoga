@@ -253,16 +253,13 @@ export function Calendar({
   return (
     <div
       data-mode={mode}
-      className={[
-        "flex w-full flex-col items-center px-[var(--sz-16)]",
-        className,
-      ]
+      className={["flex w-full flex-col items-center px-(--sz-16)", className]
         .filter(Boolean)
         .join(" ")}
     >
       <div
         className={[
-          "flex w-full items-center pt-[var(--sz-8)] pb-[var(--sz-16)]",
+          "flex w-full items-center pt-(--sz-8) pb-(--sz-16)",
           showYearMonthSlot ? "justify-center" : "justify-between",
         ].join(" ")}
       >
@@ -277,10 +274,10 @@ export function Calendar({
           onClick={onYearMonthClick}
           aria-expanded={isYearMonthOpen}
           className={[
-            "flex h-[var(--sz-34)] cursor-pointer items-center gap-[var(--sz-6)] whitespace-nowrap rounded-2xl pl-[var(--sz-12)] pr-[var(--sz-6)]",
+            "flex h-(--sz-34) cursor-pointer items-center gap-(--sz-6) whitespace-nowrap rounded-2xl pl-(--sz-12) pr-(--sz-6)",
             "text-title-2 text-typo-neutral-normal",
             "transition-opacity duration-150 ease-in-out motion-reduce:transition-none",
-            "hover:opacity-[var(--alpha-60)]",
+            "hover:opacity-(--alpha-60)",
             isYearMonthOpen ? "bg-bg-overlay-greenGraySubtle" : "",
           ]
             .filter(Boolean)
@@ -305,7 +302,7 @@ export function Calendar({
       {showYearMonthSlot ? (
         yearMonthSlot
       ) : (
-        <div className="flex w-full flex-col items-center gap-[var(--sz-4)] pb-[var(--sz-16)]">
+        <div className="flex w-full flex-col items-center gap-(--sz-4) pb-(--sz-16)">
           <div className="flex w-full">
             {WEEKDAY_LABELS.map((label, index) => {
               const type: DayType =
@@ -317,7 +314,7 @@ export function Calendar({
                 >
                   <span
                     className={[
-                      "flex size-[var(--sz-36)] items-center justify-center rounded-circle text-label-2",
+                      "flex size-(--sz-36) items-center justify-center rounded-circle text-label-2",
                       WEEKDAY_HEADER_COLOR[type],
                     ].join(" ")}
                   >
@@ -329,7 +326,7 @@ export function Calendar({
           </div>
 
           <div
-            className="flex w-full flex-col items-start gap-[var(--sz-4)]"
+            className="flex w-full flex-col items-start gap-(--sz-4)"
             onMouseLeave={() => setHoveredDate(undefined)}
           >
             {weeks.map((week, weekIndex) => (
@@ -424,7 +421,7 @@ export function Calendar({
                           setHoveredDate(cell.date);
                         }}
                         className={[
-                          "relative flex size-[var(--sz-36)] items-center justify-center rounded-circle text-label-1",
+                          "relative flex size-(--sz-36) items-center justify-center rounded-circle text-label-1",
                           "transition-colors duration-150 ease-in-out motion-reduce:transition-none",
                           checked ? "bg-bg-info-deep" : "",
                           isToday

@@ -48,9 +48,9 @@ export const Playground: Story = {};
 /** heart / bookmark — unchecked · checked. */
 export const Variants: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-16)]">
+    <div className="flex items-center gap-(--sz-16)">
       {VARIANTS.map((variant) => (
-        <div key={variant} className="flex items-center gap-[var(--sz-8)]">
+        <div key={variant} className="flex items-center gap-(--sz-8)">
           <LikeToggle {...args} variant={variant} defaultChecked={false} />
           <LikeToggle {...args} variant={variant} defaultChecked />
         </div>
@@ -62,9 +62,9 @@ export const Variants: Story = {
 /** neutralNormal / neutralLight / inverse — unchecked 라인 색만 바뀐다(checked 는 고정색). */
 export const Colors: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-16)] rounded-md bg-bg-inverse-normal p-[var(--sz-12)]">
+    <div className="flex items-center gap-(--sz-16) rounded-md bg-bg-inverse-normal p-(--sz-12)">
       {COLORS.map((color) => (
-        <div key={color} className="flex items-center gap-[var(--sz-8)]">
+        <div key={color} className="flex items-center gap-(--sz-8)">
           <LikeToggle {...args} color={color} defaultChecked={false} />
           <LikeToggle {...args} color={color} defaultChecked />
         </div>
@@ -76,7 +76,7 @@ export const Colors: Story = {
 /** unchecked / checked. */
 export const Checked: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-12)]">
+    <div className="flex items-center gap-(--sz-12)">
       <LikeToggle {...args} defaultChecked={false} />
       <LikeToggle {...args} defaultChecked />
     </div>
@@ -86,7 +86,7 @@ export const Checked: Story = {
 /** variant(행) × [unchecked · checked], color=neutralNormal. */
 export const Matrix: Story = {
   render: (args) => (
-    <table className="border-separate border-spacing-[var(--sz-8)]">
+    <table className="border-separate border-spacing-(--sz-8)">
       <thead>
         <tr>
           <th />

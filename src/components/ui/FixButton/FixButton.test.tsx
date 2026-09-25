@@ -35,7 +35,7 @@ describe("FixButton", () => {
       />,
     );
     expect(getByRole("button", { name: "이전" })).toHaveClass(
-      "min-w-[var(--sz-100)]",
+      "min-w-(--sz-100)",
     );
     expect(getByRole("button", { name: "다음" })).toHaveClass("flex-1");
   });
@@ -50,7 +50,7 @@ describe("FixButton", () => {
       />,
     );
     const iconBtn = getByRole("button", { name: "공유" });
-    expect(iconBtn).toHaveClass("size-[var(--sz-54)]");
+    expect(iconBtn).toHaveClass("size-(--sz-54)");
     expect(getByRole("button", { name: "구매하기" })).toBeInTheDocument();
   });
 
@@ -85,7 +85,7 @@ describe("FixButton", () => {
     );
     const gradient = container.querySelector("[aria-hidden]");
     expect(gradient).not.toBeNull();
-    expect(gradient).toHaveClass("h-[var(--sz-18)]");
+    expect(gradient).toHaveClass("h-(--sz-18)");
   });
 
   it("gradientVisible 기본값(false)은 그라데이션 레이어를 렌더하지 않는다", () => {
@@ -192,11 +192,11 @@ describe("FixButton", () => {
       <FixButton
         variant="single"
         primaryLabel="확인"
-        className="bottom-[var(--sz-96)]"
+        className="bottom-(--sz-96)"
       />,
     );
     expect(container.querySelector("[data-variant]")).toHaveClass(
-      "bottom-[var(--sz-96)]",
+      "bottom-(--sz-96)",
       "fixed",
     );
   });

@@ -241,7 +241,7 @@ export const InteractiveInput: Story = {
 /** 4개 variant 를 나란히 비교. */
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex w-[320px] flex-col gap-[var(--sz-32)]">
+    <div className="flex w-[320px] flex-col gap-(--sz-32)">
       {VARIANTS.map((variant) => (
         <TextField
           key={variant}

@@ -81,8 +81,8 @@ export interface ToggleTabsProps {
 
 /** size → chevron 인디케이터 버튼 지름(Figma 실측). */
 const INDICATOR_SIZE_CLASS: Record<ToggleTabsSize, string> = {
-  sm: "size-[var(--sz-32)]",
-  md: "size-[var(--sz-40)]",
+  sm: "size-(--sz-32)",
+  md: "size-(--sz-40)",
 };
 
 /** size → chevron 인디케이터 아이콘 픽셀 크기(Figma inset 비율 실측: sm 16 / md 20). */
@@ -93,12 +93,12 @@ const INDICATOR_ICON_SIZE: Record<ToggleTabsSize, number> = {
 
 /** size → SubMenuList 상하 패딩(Figma 실측: sm=`--sz-10` / md=`--sz-12`, 좌우 `--sz-8` 공통). */
 const SUBMENU_PAD_CLASS: Record<ToggleTabsSize, string> = {
-  sm: "px-[var(--sz-8)] py-[var(--sz-10)]",
-  md: "px-[var(--sz-8)] py-[var(--sz-12)]",
+  sm: "px-(--sz-8) py-(--sz-10)",
+  md: "px-(--sz-8) py-(--sz-12)",
 };
 
 /** ToggleList 좌/우 끝 화이트 페이드 폭 — Figma 실측 `--sz-20` 고정(size 무관). */
-const EDGE_FADE_WIDTH_CLASS = "w-[var(--sz-20)]";
+const EDGE_FADE_WIDTH_CLASS = "w-(--sz-20)";
 
 /** 좌측 끝 페이드: 왼쪽 20% 는 불투명, 오른쪽으로 갈수록 투명해진다(Figma 실측). */
 const LEFT_EDGE_FADE_CLASS =
@@ -198,11 +198,9 @@ export function ToggleTabs({
         .filter(Boolean)
         .join(" ")}
     >
-      <div className="relative flex w-full items-center overflow-hidden bg-bg-neutral-normal py-[var(--sz-4)]">
-        <Scroll axis="x" className="min-w-0 flex-1 px-[var(--sz-20)]">
-          <div className="flex w-max items-center gap-[var(--sz-4)]">
-            {children}
-          </div>
+      <div className="relative flex w-full items-center overflow-hidden bg-bg-neutral-normal py-(--sz-4)">
+        <Scroll axis="x" className="min-w-0 flex-1 px-(--sz-20)">
+          <div className="flex w-max items-center gap-(--sz-4)">{children}</div>
         </Scroll>
 
         <div
@@ -239,13 +237,13 @@ export function ToggleTabs({
               data-expanded={isExpanded}
               onClick={handleToggleExpanded}
               className={[
-                "absolute right-[var(--sz-8)] top-1/2 -translate-y-1/2",
+                "absolute right-(--sz-8) top-1/2 -translate-y-1/2",
                 "flex items-center justify-center",
                 "rounded-circle border-xs border-solid border-border-neutral-bright",
                 "bg-bg-neutral-normal shadow-black-xs",
                 "transition-opacity duration-150 ease-in-out motion-reduce:transition-none",
-                "focus-visible:outline-none focus-visible:opacity-[var(--alpha-80)]",
-                "active:opacity-[var(--alpha-80)]",
+                "focus-visible:outline-none focus-visible:opacity-(--alpha-80)",
+                "active:opacity-(--alpha-80)",
                 INDICATOR_SIZE_CLASS[size],
               ].join(" ")}
             >

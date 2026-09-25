@@ -32,7 +32,7 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: { ratio: "1/1" },
   render: (args) => (
-    <div className="w-[var(--sz-320)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="w-(--sz-320) bg-bg-neutral-normal p-(--sz-32)">
       <BlankGraphic {...args} />
     </div>
   ),

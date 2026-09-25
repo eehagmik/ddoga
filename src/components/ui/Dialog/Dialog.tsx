@@ -32,7 +32,7 @@
  *
  * 배치/폭(Figma `get_design_context` 재검증 완료, 마스터 51405:74644 기본 className
  * 이 `w-[328px]` 임을 확인): 카드는 고정 328px 폭이 기준이지만, 반응형을 위해
- * `w-full max-w-[328px]` 로 캡하고 오버레이 래퍼에 `px-[var(--sz-16)]` 안전 마진을 둔다
+ * `w-full max-w-[328px]` 로 캡하고 오버레이 래퍼에 `px-(--sz-16)` 안전 마진을 둔다
  * (Figma 360px 프레임에서 좌우 16px 마진으로 뜨는 배치와 동일한 결과 — 뷰포트가 360 보다
  * 좁아도 마진이 유지된다).
  *
@@ -162,7 +162,7 @@ function useDialogLifecycle(open: boolean) {
 
 /** 오버레이 래퍼 — 전체화면 고정 + 카드 중앙정렬 + 뷰포트 360 미만 대비 좌우 안전마진. */
 const WRAPPER_CLASS =
-  "fixed inset-0 z-50 flex items-center justify-center px-[var(--sz-16)]";
+  "fixed inset-0 z-50 flex items-center justify-center px-(--sz-16)";
 
 /** Dim 페이드 트랜지션(`BottomSheet` `DIM_CLASS` 와 동일). */
 const DIM_CLASS =
@@ -180,18 +180,18 @@ const ROOT_CLASS =
 
 /** 헤더 — 고정 높이 + 타이틀·닫기버튼 좌우 배치. */
 const HEADER_CLASS =
-  "flex h-[var(--sz-48)] w-full shrink-0 items-center justify-between " +
-  "gap-[var(--sz-12)] px-[var(--sz-16)]";
+  "flex h-(--sz-48) w-full shrink-0 items-center justify-between " +
+  "gap-(--sz-12) px-(--sz-16)";
 
 /** 바디 — min-height 보장(Figma 주석) + 세로 중앙정렬 + 텍스트블록↔슬롯 gap. */
 const BODY_CLASS =
-  "flex min-h-[var(--sz-160)] w-full flex-col items-center " +
-  "justify-center gap-[var(--sz-26)] overflow-clip p-[var(--sz-20)]";
+  "flex min-h-(--sz-160) w-full flex-col items-center " +
+  "justify-center gap-(--sz-26) overflow-clip p-(--sz-20)";
 
 /** 버튼영역 — 상/하/좌우 padding + 버튼 간 gap. */
 const BUTTONS_CLASS =
-  "flex w-full shrink-0 items-center justify-center gap-[var(--sz-8)] " +
-  "px-[var(--sz-20)] pt-[var(--sz-4)] pb-[var(--sz-14)]";
+  "flex w-full shrink-0 items-center justify-center gap-(--sz-8) " +
+  "px-(--sz-20) pt-(--sz-4) pb-(--sz-14)";
 
 export function Dialog({
   open,
@@ -276,7 +276,7 @@ export function Dialog({
 
         <div className={BODY_CLASS} data-name="body">
           {showTextBlock && (
-            <div className="flex w-full flex-col items-center gap-[var(--sz-8)] text-center text-typo-neutral-normal">
+            <div className="flex w-full flex-col items-center gap-(--sz-8) text-center text-typo-neutral-normal">
               {showMainText && (
                 <p className="w-full [word-break:keep-all] text-title-3">
                   {mainText}
@@ -300,7 +300,7 @@ export function Dialog({
                 variant="outline"
                 size="2xl"
                 onClick={onSecondaryClick}
-                className="min-w-[var(--sz-100)]"
+                className="min-w-(--sz-100)"
               >
                 {secondaryLabel}
               </ButtonWithLabel>

@@ -42,7 +42,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)] text-icon-neutral-normal">
+    <div className="bg-bg-neutral-normal p-(--sz-32) text-icon-neutral-normal">
       <IconButton {...args} />
     </div>
   ),
@@ -59,7 +59,7 @@ export const Default: Story = {
 export const WithDotBadge: Story = {
   args: { badge: "dot" },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)] text-icon-neutral-normal">
+    <div className="bg-bg-neutral-normal p-(--sz-32) text-icon-neutral-normal">
       <IconButton {...args} />
     </div>
   ),
@@ -68,14 +68,14 @@ export const WithDotBadge: Story = {
       '[data-size="xs"][data-color="red"]',
     );
     await expect(dot).toBeInTheDocument();
-    await expect(dot).toHaveClass("absolute", "-top-[var(--sz-2)]");
+    await expect(dot).toHaveClass("absolute", "-top-(--sz-2)");
   },
 };
 
 export const WithNumberBadge: Story = {
   args: { badge: "number", count: 5 },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)] text-icon-neutral-normal">
+    <div className="bg-bg-neutral-normal p-(--sz-32) text-icon-neutral-normal">
       <IconButton {...args} />
     </div>
   ),
@@ -88,7 +88,7 @@ export const WithNumberBadge: Story = {
 export const Disabled: Story = {
   args: { badge: "dot", disabled: true },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)] text-icon-neutral-normal">
+    <div className="bg-bg-neutral-normal p-(--sz-32) text-icon-neutral-normal">
       <IconButton {...args} />
     </div>
   ),
@@ -97,14 +97,14 @@ export const Disabled: Story = {
     await expect(btn).toBeDisabled();
     await userEvent.click(btn);
     const iconWrap = btn.querySelector("span");
-    await expect(iconWrap).toHaveClass("opacity-[var(--alpha-40)]");
+    await expect(iconWrap).toHaveClass("opacity-(--alpha-40)");
   },
 };
 
 export const Playground: Story = {
   args: { badge: "number", count: 3, max: 99, disabled: false },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)] text-icon-neutral-normal">
+    <div className="bg-bg-neutral-normal p-(--sz-32) text-icon-neutral-normal">
       <IconButton {...args} />
     </div>
   ),

@@ -377,8 +377,8 @@ function Section({
   children: ReactNode;
 }) {
   return (
-    <section data-section={id} className="flex flex-col gap-[var(--sz-16)]">
-      <div className="flex flex-col gap-[var(--sz-4)]">
+    <section data-section={id} className="flex flex-col gap-(--sz-16)">
+      <div className="flex flex-col gap-(--sz-4)">
         <h2 className="text-2xl font-bold">{title}</h2>
         <p className="text-xs text-typo-neutral-light">{description}</p>
       </div>
@@ -405,9 +405,9 @@ function Row({
   return (
     <div
       data-token={token}
-      className="flex flex-col gap-[var(--sz-4)] border-solid border-b border-border-neutral-light py-[var(--sz-12)]"
+      className="flex flex-col gap-(--sz-4) border-solid border-b border-border-neutral-light py-(--sz-12)"
     >
-      <div className="flex flex-wrap items-baseline gap-x-[var(--sz-12)] gap-y-[var(--sz-2)]">
+      <div className="flex flex-wrap items-baseline gap-x-(--sz-12) gap-y-(--sz-2)">
         {figmaName && (
           <code className="text-2xs font-bold text-typo-neutral-normal">
             {figmaName}
@@ -432,7 +432,7 @@ export function Typography({ section }: TypographyProps) {
   const sections = section ? [section] : SECTION_ORDER;
 
   return (
-    <div className="flex flex-col gap-[var(--sz-32)] bg-bg-neutral-normal p-[var(--sz-16)] text-typo-neutral-normal">
+    <div className="flex flex-col gap-(--sz-32) bg-bg-neutral-normal p-(--sz-16) text-typo-neutral-normal">
       {sections.includes("family") && (
         <Section
           id="family"

@@ -37,7 +37,7 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: { size: "xs", color: "red", isBorder: false },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
       <Dot {...args} />
     </div>
   ),
@@ -46,18 +46,15 @@ export const Playground: Story = {
     await expect(dot).toBeInTheDocument();
     await expect(dot).toHaveAttribute("data-size", "xs");
     await expect(dot).toHaveAttribute("data-color", "red");
-    await expect(dot).toHaveClass("size-[var(--sz-6)]", "bg-bg-danger-normal");
+    await expect(dot).toHaveClass("size-(--sz-6)", "bg-bg-danger-normal");
   },
 };
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex items-end gap-[var(--sz-24)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex items-end gap-(--sz-24) bg-bg-neutral-normal p-(--sz-32)">
       {SIZES.map((size) => (
-        <div
-          key={size}
-          className="flex flex-col items-center gap-[var(--sz-8)]"
-        >
+        <div key={size} className="flex flex-col items-center gap-(--sz-8)">
           <code className="text-2xs text-typo-neutral-light">{size}</code>
           <Dot size={size} />
         </div>
@@ -74,12 +71,9 @@ export const Sizes: Story = {
 
 export const Colors: Story = {
   render: () => (
-    <div className="flex items-center gap-[var(--sz-24)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex items-center gap-(--sz-24) bg-bg-neutral-normal p-(--sz-32)">
       {COLORS.map((color) => (
-        <div
-          key={color}
-          className="flex flex-col items-center gap-[var(--sz-8)]"
-        >
+        <div key={color} className="flex flex-col items-center gap-(--sz-8)">
           <code className="text-2xs text-typo-neutral-light">{color}</code>
           <Dot size="md" color={color} />
         </div>
@@ -96,12 +90,12 @@ export const Colors: Story = {
 export const Borders: Story = {
   name: "Borders (유사색 배경 위)",
   render: () => (
-    <div className="flex items-center gap-[var(--sz-24)] bg-bg-danger-normal p-[var(--sz-32)]">
-      <div className="flex flex-col items-center gap-[var(--sz-8)]">
+    <div className="flex items-center gap-(--sz-24) bg-bg-danger-normal p-(--sz-32)">
+      <div className="flex flex-col items-center gap-(--sz-8)">
         <code className="text-2xs text-typo-inverse-normal">isBorder off</code>
         <Dot size="md" color="red" />
       </div>
-      <div className="flex flex-col items-center gap-[var(--sz-8)]">
+      <div className="flex flex-col items-center gap-(--sz-8)">
         <code className="text-2xs text-typo-inverse-normal">isBorder on</code>
         <Dot size="md" color="red" isBorder />
       </div>
@@ -120,19 +114,19 @@ export const Borders: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
-      <div className="flex flex-col gap-[var(--sz-16)]">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
+      <div className="flex flex-col gap-(--sz-16)">
         {COLORS.map((color) => (
-          <div key={color} className="flex items-end gap-[var(--sz-24)]">
+          <div key={color} className="flex items-end gap-(--sz-24)">
             {SIZES.map((size) => (
               <div
                 key={`${color}-${size}`}
-                className="flex flex-col items-center gap-[var(--sz-8)]"
+                className="flex flex-col items-center gap-(--sz-8)"
               >
                 <code className="text-2xs text-typo-neutral-light">
                   {color}/{size}
                 </code>
-                <div className="flex items-end gap-[var(--sz-8)]">
+                <div className="flex items-end gap-(--sz-8)">
                   <Dot size={size} color={color} />
                   <Dot size={size} color={color} isBorder />
                 </div>

@@ -64,22 +64,22 @@ const ICON_INNER = "inline-flex shrink-0 items-center justify-center";
 
 /** size 별 정사각 컨테이너 크기(Button 의 min-h 와 같은 값 → 정사각 고정). */
 const SIZE_SQUARE: Record<ButtonWithIconSize, string> = {
-  "2xl": "size-[var(--sz-54)]",
-  xl: "size-[var(--sz-50)]",
-  lg: "size-[var(--sz-46)]",
-  md: "size-[var(--sz-40)]",
-  sm: "size-[var(--sz-32)]",
-  xs: "size-[var(--sz-26)]",
+  "2xl": "size-(--sz-54)",
+  xl: "size-(--sz-50)",
+  lg: "size-(--sz-46)",
+  md: "size-(--sz-40)",
+  sm: "size-(--sz-32)",
+  xs: "size-(--sz-26)",
 };
 
 /** size 별 아이콘 정사각 크기(ButtonWithLabel 과 동일). */
 const SIZE_ICON: Record<ButtonWithIconSize, string> = {
-  "2xl": "size-[var(--sz-22)]",
-  xl: "size-[var(--sz-20)]",
-  lg: "size-[var(--sz-18)]",
-  md: "size-[var(--sz-16)]",
-  sm: "size-[var(--sz-14)]",
-  xs: "size-[var(--sz-14)]",
+  "2xl": "size-(--sz-22)",
+  xl: "size-(--sz-20)",
+  lg: "size-(--sz-18)",
+  md: "size-(--sz-16)",
+  sm: "size-(--sz-14)",
+  xs: "size-(--sz-14)",
 };
 
 /** color × variant → 아이콘 색 (Figma node 51405:17772 검증). 컨테이너 색은 Button 담당. */

@@ -18,14 +18,14 @@
  *                  점선 placeholder 는 렌더하지 않는다) → presence 기반, 값이 있을 때만 렌더.
  *
  * 레이아웃(Figma node 51405:102841 실측):
- * - horizontal: header 는 가로 `flex`(아이콘 `pt-[var(--sz-3)]` 로 제목 첫 줄과 광학 정렬,
+ * - horizontal: header 는 가로 `flex`(아이콘 `pt-(--sz-3)` 로 제목 첫 줄과 광학 정렬,
  *   제목은 `flex-1`). 본문·슬롯은 header 와 무관하게 항상 좌측 정렬 + 전폭.
  * - vertical: header 는 세로 `flex-col`(아이콘 → 제목 순으로 쌓임). **본문/슬롯 정렬은
  *   horizontal 과 동일하게 좌측 정렬** — Figma 실측 결과 vertical 이라도 텍스트 블록은
  *   중앙정렬되지 않는다(아이콘·제목 relation 만 세로로 바뀔 뿐).
- * - 루트는 `flex-col` · `gap-[var(--sz-6)]`(header/본문/슬롯 블록 사이 + header 내부 아이콘-제목
- *   사이에 동일하게 재사용), `p-[var(--sz-16)]`, `rounded-2xl`.
- * - 슬롯 블록만 `pt-[var(--sz-8)]` 추가 여백을 가진다(Figma `Custom` 래퍼).
+ * - 루트는 `flex-col` · `gap-(--sz-6)`(header/본문/슬롯 블록 사이 + header 내부 아이콘-제목
+ *   사이에 동일하게 재사용), `p-(--sz-16)`, `rounded-2xl`.
+ * - 슬롯 블록만 `pt-(--sz-8)` 추가 여백을 가진다(Figma `Custom` 래퍼).
  *
  * 카드 폭: Figma 원본은 320px 고정 캔버스지만 `w-full` 로 구현해 호출부(부모 레이아웃)가
  * 폭을 결정하도록 한다(HorizontalMenuButton/GalleryCard 등 선례와 동일 원칙).
@@ -38,7 +38,7 @@
  * | warning | bg-bg-warning-bright| text-icon-warning-subtle| text-typo-warning-dark   | text-typo-warning-deep   |
  *
  * 타이포: 제목 `text-body-3-bold`(Figma `body/3_bold`, 18/Bold), 본문 `text-body-4`(Figma
- * `body/4`, 16/Medium). 아이콘 크기 `size-[var(--sz-18)]`.
+ * `body/4`, 16/Medium). 아이콘 크기 `size-(--sz-18)`.
  *
  * 색·크기·간격은 전부 semantic 토큰 유틸/`var(--sz-*)` 로만 지정한다 — 하드코딩 없음.
  */
@@ -68,7 +68,7 @@ export interface InfoCardProps extends Omit<
 
 /** 루트 공통 — 세로 스택 · 카드 표면 · font-feature(자손까지 상속). */
 const ROOT_CLASS =
-  "flex w-full flex-col gap-[var(--sz-6)] rounded-2xl p-[var(--sz-16)] " +
+  "flex w-full flex-col gap-(--sz-6) rounded-2xl p-(--sz-16) " +
   "[font-feature-settings:var(--font-feature-case)]";
 
 /** color → 카드 배경(Figma node 51405:102841 검증). */
@@ -125,10 +125,10 @@ export function InfoCard({
     >
       {hasTitle ? (
         variant === "horizontal" ? (
-          <div className="flex w-full items-start gap-[var(--sz-6)]">
+          <div className="flex w-full items-start gap-(--sz-6)">
             <span
               className={[
-                "flex shrink-0 items-center pt-[var(--sz-3)]",
+                "flex shrink-0 items-center pt-(--sz-3)",
                 ICON_COLOR[color],
               ].join(" ")}
             >
@@ -144,7 +144,7 @@ export function InfoCard({
             </p>
           </div>
         ) : (
-          <div className="flex w-full flex-col items-start gap-[var(--sz-6)]">
+          <div className="flex w-full flex-col items-start gap-(--sz-6)">
             <span className={["shrink-0", ICON_COLOR[color]].join(" ")}>
               <Icon name="info_circle_solid" size={18} />
             </span>
@@ -171,9 +171,7 @@ export function InfoCard({
         </p>
       ) : null}
 
-      {hasSlot ? (
-        <div className="w-full pt-[var(--sz-8)]">{children}</div>
-      ) : null}
+      {hasSlot ? <div className="w-full pt-(--sz-8)">{children}</div> : null}
     </div>
   );
 }

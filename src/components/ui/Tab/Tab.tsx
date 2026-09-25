@@ -27,7 +27,7 @@
  * | size | 타이포(normal/selected)        | 밑줄 두께             |
  * | sm   | text-body-3 / text-body-3-bold | border-width-sm(2px) |
  * | md   | text-body-2 / text-body-2-bold | border-width-md(3px) |
- * 패딩: `px-[var(--sz-6)] py-[var(--sz-12)]`(size 무관 공통).
+ * 패딩: `px-(--sz-6) py-(--sz-12)`(size 무관 공통).
  * 라벨 색: subtle(`text-typo-neutral-subtle`) ↔ normal(`text-typo-neutral-normal`).
  *
  * 색은 전부 semantic 토큰 유틸, 크기·간격은 `var(--sz-*)`, 밑줄 두께는 `var(--border-width-*)`
@@ -83,10 +83,10 @@ const SIZE_UNDERLINE_WIDTH: Record<TabSize, string> = {
 
 const TAB_BASE =
   "inline-flex shrink-0 items-center justify-center border-solid " +
-  "px-[var(--sz-6)] py-[var(--sz-12)] whitespace-nowrap " +
+  "px-(--sz-6) py-(--sz-12) whitespace-nowrap " +
   "transition-colors duration-150 ease-in-out motion-reduce:transition-none " +
-  "focus-visible:outline-none focus-visible:opacity-[var(--alpha-80)] " +
-  "active:opacity-[var(--alpha-80)] disabled:cursor-not-allowed " +
+  "focus-visible:outline-none focus-visible:opacity-(--alpha-80) " +
+  "active:opacity-(--alpha-80) disabled:cursor-not-allowed " +
   "[font-feature-settings:var(--font-feature-case)]";
 
 export function Tab({

@@ -11,7 +11,7 @@
  * - 색·크기·형태는 전부 디자인 토큰 유틸/`var(--*)` 로만 지정한다 — 하드코딩 없음.
  *
  * 토큰 매핑:
- * - 크기  xs → `size-[var(--sz-6)]`, sm → `size-[var(--sz-8)]`, md → `size-[var(--sz-10)]`
+ * - 크기  xs → `size-(--sz-6)`, sm → `size-(--sz-8)`, md → `size-(--sz-10)`
  * - 색상  red → `bg-bg-danger-normal` (background/danger/normal)
  *         brand → `bg-bg-brand-normal` (background/brand/normal)
  * - 테두리 `border-xs border-solid border-border-inverse-dark` (border-width/xs, border/inverse/dark)
@@ -34,9 +34,9 @@ const BASE_CLASS = "inline-block shrink-0 rounded-circle";
 
 /** 사이즈별 고정 정사각 (Figma: size/6·8·10) */
 const SIZE_CLASS: Record<NonNullable<DotProps["size"]>, string> = {
-  xs: "size-[var(--sz-6)]",
-  sm: "size-[var(--sz-8)]",
-  md: "size-[var(--sz-10)]",
+  xs: "size-(--sz-6)",
+  sm: "size-(--sz-8)",
+  md: "size-(--sz-10)",
 };
 
 /** 색상별 배경 (Figma: background/danger·brand normal) */

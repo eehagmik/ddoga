@@ -42,6 +42,13 @@
  *   (`CheckboxCard`/`TextCard` 선례와 동일 원칙) — 실제로는 `children` 자유 높이다.
  * - Figma 레이어에 하단 구분선이 없어(`Accordion`/`BoardAccordion` 과 달리 독립 카드형
  *   컨테이너) `divider` prop 자체를 두지 않는다(2026-09-25 사용자 확정).
+ * - `hoverable`(기본 true) — 특정 사용처에서 hover 배경 전환을 끄고 싶을 때를 위한 확장
+ *   (Figma 범위 밖, 2026-09-25 사용자 확정: Footer 안에서만 hover 없음). `className`으로
+ *   경쟁하는 `bg-*`/`hover:bg-*` 유틸을 덮어쓰지 않는 이유 — Tailwind 는 같은 속성(color)을
+ *   겨누는 두 유틸이 있을 때 클래스 문자열 순서가 아니라 생성된 스타일시트 안의 규칙 순서로
+ *   우선순위가 갈린다(`StoreProductCard` width 충돌 선례와 동일 원인). 그래서 hover 유무
+ *   자체를 prop 으로 받아 `footerAccordionCardClass` 안에서 조건부로 클래스를 아예
+ *   생성하지 않는 방식으로 충돌 가능성을 원천 차단한다.
  */
 
 import {
@@ -72,6 +79,8 @@ export interface FooterAccordionProps extends Omit<
   onExpandedChange?: (expanded: boolean) => void;
   /** 루트 요소에 전달할 클래스. */
   className?: string;
+  /** hover 시 배경 전환 여부. 기본 true. Figma 범위 밖 확장(사용처별 hover 끄기 용도). */
+  hoverable?: boolean;
 }
 
 /** 카드(루트) 공통 — 레이아웃 + 모서리 + 배경색 전이(색 자체는 footerAccordionCardClass 가 더함). */
@@ -81,8 +90,8 @@ const CARD_BASE =
 
 /** 헤더(제목 줄) 공통 — 레이아웃 + padding/gap. */
 const HEADER_BASE =
-  "flex w-full cursor-pointer items-center gap-[var(--sz-16)] " +
-  "px-[var(--sz-16)] pt-[var(--sz-14)] pb-[var(--sz-14)]";
+  "flex w-full cursor-pointer items-center gap-(--sz-16) " +
+  "px-(--sz-16) pt-(--sz-14) pb-(--sz-14)";
 
 /** 콘텐츠 wrapper 공통 — overflow 클립 + height 트랜지션(Material 표준 이징). */
 const CONTENTS_WRAPPER_CLASS =
@@ -90,17 +99,19 @@ const CONTENTS_WRAPPER_CLASS =
 
 /** 콘텐츠 공통 — padding(Figma 실측: 헤더 pb-14 + 여기 pt-10 = gap 24). */
 const CONTENTS_CLASS =
-  "w-full px-[var(--sz-16)] pt-[var(--sz-10)] pb-[var(--sz-14)] text-left";
+  "w-full px-(--sz-16) pt-(--sz-10) pb-(--sz-14) text-left";
 
 /**
  * expanded 별 카드 배경(`Accordion` 의 `accordionHeaderClass` 선례와 동일 패턴이나 색 방향은
  * 반대 — enable=neutral-deepDark(어두움) / hover=neutral-dark(밝음)).
  * hover 유틸은 collapsed(false) 일 때만 포함한다 — expanded+hover 조합은 Figma 에 없다.
  */
-function footerAccordionCardClass(expanded: boolean): string {
-  return expanded
-    ? "bg-bg-neutral-deepDark"
-    : "bg-bg-neutral-deepDark hover:bg-bg-neutral-dark";
+function footerAccordionCardClass(
+  expanded: boolean,
+  hoverable: boolean,
+): string {
+  if (expanded || !hoverable) return "bg-bg-neutral-deepDark";
+  return "bg-bg-neutral-deepDark hover:bg-bg-neutral-dark";
 }
 
 /**
@@ -120,6 +131,7 @@ export function FooterAccordion({
   defaultExpanded,
   onExpandedChange,
   className,
+  hoverable = true,
   ...rest
 }: FooterAccordionProps) {
   const contentId = useId();
@@ -173,7 +185,11 @@ export function FooterAccordion({
 
   return (
     <div
-      className={[CARD_BASE, footerAccordionCardClass(isExpanded), className]
+      className={[
+        CARD_BASE,
+        footerAccordionCardClass(isExpanded, hoverable),
+        className,
+      ]
         .filter(Boolean)
         .join(" ")}
     >

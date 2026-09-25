@@ -46,7 +46,7 @@ const SIZES = ["sm", "md", "lg"] as const;
 /** Figma 320px 프레임을 재현하는 데모 래퍼 (컴포넌트 자체는 w-full). */
 function Frame({ children }: { children: ReactNode }) {
   return (
-    <div className="w-[var(--sz-320)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="w-(--sz-320) bg-bg-neutral-normal p-(--sz-32)">
       {children}
     </div>
   );
@@ -87,7 +87,7 @@ export const Playground: Story = {
 export const Colors: Story = {
   render: () => (
     <Frame>
-      <div className="flex flex-col gap-[var(--sz-16)]">
+      <div className="flex flex-col gap-(--sz-16)">
         {COLORS.map((color) => (
           <BulletItem
             key={color}
@@ -111,9 +111,9 @@ export const Colors: Story = {
 export const Sizes: Story = {
   render: () => (
     <Frame>
-      <div className="flex flex-col gap-[var(--sz-20)]">
+      <div className="flex flex-col gap-(--sz-20)">
         {SIZES.map((size) => (
-          <div key={size} className="flex flex-col gap-[var(--sz-6)]">
+          <div key={size} className="flex flex-col gap-(--sz-6)">
             <code className="text-body-6 text-typo-neutral-light">{size}</code>
             <BulletItem
               size={size}
@@ -141,7 +141,7 @@ export const Sizes: Story = {
 export const Directions: Story = {
   render: () => (
     <Frame>
-      <div className="flex flex-col gap-[var(--sz-24)]">
+      <div className="flex flex-col gap-(--sz-24)">
         <BulletItem
           direction="vertical"
           titleValue="세로 배치"
@@ -164,14 +164,14 @@ export const Directions: Story = {
     const horizontalTitle = canvasElement.querySelector(
       '[data-direction="horizontal"] [data-part="title"]',
     );
-    await expect(horizontalTitle).toHaveClass("w-[var(--sz-128)]", "shrink-0");
+    await expect(horizontalTitle).toHaveClass("w-(--sz-128)", "shrink-0");
   },
 };
 
 export const BoldToggle: Story = {
   render: () => (
     <Frame>
-      <div className="flex flex-col gap-[var(--sz-16)]">
+      <div className="flex flex-col gap-(--sz-16)">
         <BulletItem
           bold
           titleValue="bold: true — 제목 Bold"
@@ -197,7 +197,7 @@ export const TitleOrContentsOnly: Story = {
   name: "제목만 / 본문만",
   render: () => (
     <Frame>
-      <div className="flex flex-col gap-[var(--sz-16)]">
+      <div className="flex flex-col gap-(--sz-16)">
         <BulletItem titleValue="제목만 표시" contents={false} />
         <BulletItem contentsText="본문만 표시" title={false} />
       </div>

@@ -236,7 +236,7 @@ export function DatePicker(props: DatePickerProps) {
         };
 
   const yearMonthSlot: ReactNode = (
-    <div className="h-[var(--sz-320)] w-full">
+    <div className="h-(--sz-320) w-full">
       <YearMonthSelect
         value={{ year, month }}
         onChange={handleYearMonthChange}

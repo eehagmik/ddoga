@@ -80,7 +80,7 @@ export const Playground: Story = {
 /** 한 color(brand)의 fill / bright / outline / text. */
 export const Variants: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {VARIANTS.map((variant) => (
         <ButtonWithLabel key={variant} {...args} variant={variant}>
           {variant}
@@ -93,7 +93,7 @@ export const Variants: Story = {
 /** 2xl ~ xs. */
 export const Sizes: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {SIZES.map((size) => (
         <ButtonWithLabel key={size} {...args} size={size}>
           {size}
@@ -106,7 +106,7 @@ export const Sizes: Story = {
 /** 5색 × fill. */
 export const Colors: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {COLORS.map((color) => (
         <ButtonWithLabel key={color} {...args} color={color}>
           {color}
@@ -119,7 +119,7 @@ export const Colors: Story = {
 /** startIcon / endIcon / 양쪽 (`src/icons` 의 `<Icon>` 사용, currentColor 상속). */
 export const WithIcons: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       <ButtonWithLabel
         {...args}
         startIcon={<Icon name="download_01_line" className="size-full" />}
@@ -160,8 +160,8 @@ export const States: Story = {
     },
   },
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-8)]">
-      <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-col gap-(--sz-8)">
+      <div className="flex flex-wrap items-center gap-(--sz-12)">
         <ButtonWithLabel {...args}>enable</ButtonWithLabel>
         <ButtonWithLabel {...args} disabled>
           disabled
@@ -184,8 +184,8 @@ export const States: Story = {
       "hover:bg-bg-brand-deep",
       "focus-visible:bg-bg-brand-deep",
       "active:bg-bg-brand-deep",
-      "focus-visible:opacity-[var(--alpha-80)]",
-      "active:opacity-[var(--alpha-80)]",
+      "focus-visible:opacity-(--alpha-80)",
+      "active:opacity-(--alpha-80)",
     );
     await userEvent.hover(enableBtn);
 
@@ -203,7 +203,7 @@ export const States: Story = {
 /** color(행) × variant(열) 전체 조합 (size 는 md 고정). */
 export const Matrix: Story = {
   render: (args) => (
-    <table className="border-separate border-spacing-[var(--sz-8)]">
+    <table className="border-separate border-spacing-(--sz-8)">
       <thead>
         <tr>
           <th />

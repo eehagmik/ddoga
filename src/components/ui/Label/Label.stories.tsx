@@ -158,7 +158,7 @@ export const WithHtmlFor: Story = {
     htmlFor: "label-story-name-input",
   },
   render: (args) => (
-    <div className="flex w-[280px] flex-col gap-[var(--sz-8)]">
+    <div className="flex w-[280px] flex-col gap-(--sz-8)">
       <Label {...args} />
       <Input id="label-story-name-input" placeholder="이름을 입력하세요" />
     </div>

@@ -67,12 +67,12 @@ describe("ChipIndicator", () => {
       <ChipIndicator
         currentCount={1}
         totalCount={3}
-        className="absolute bottom-[var(--sz-10)]"
+        className="absolute bottom-(--sz-10)"
       />,
     );
     expect(container.firstElementChild).toHaveClass(
       "absolute",
-      "bottom-[var(--sz-10)]",
+      "bottom-(--sz-10)",
       "rounded-2xl",
       "bg-bg-overlay-blackDeep",
     );

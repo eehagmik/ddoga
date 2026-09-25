@@ -42,27 +42,27 @@ describe("CheckboxCard", () => {
   it("size 별 카드 gap/radius, 체크박스 래퍼 pt, 라벨·subTextValue 타이포가 적용된다", () => {
     const cases = {
       sm: {
-        card: ["gap-[var(--sz-8)]", "rounded-md"],
-        pt: "pt-[var(--sz-1)]",
+        card: ["gap-(--sz-8)", "rounded-md"],
+        pt: "pt-(--sz-1)",
         label: "text-body-4",
         sub: "text-body-5",
-        pl: "pl-[var(--sz-30)]",
+        pl: "pl-(--sz-30)",
         atom: "sm",
       },
       md: {
-        card: ["gap-[var(--sz-10)]", "rounded-lg"],
-        pt: "pt-[var(--sz-1)]",
+        card: ["gap-(--sz-10)", "rounded-lg"],
+        pt: "pt-(--sz-1)",
         label: "text-body-3",
         sub: "text-body-4",
-        pl: "pl-[var(--sz-32)]",
+        pl: "pl-(--sz-32)",
         atom: "md",
       },
       lg: {
-        card: ["gap-[var(--sz-12)]", "rounded-xl"],
-        pt: "pt-[var(--sz-5)]",
+        card: ["gap-(--sz-12)", "rounded-xl"],
+        pt: "pt-(--sz-5)",
         label: "text-body-1",
         sub: "text-body-3",
-        pl: "pl-[var(--sz-32)]",
+        pl: "pl-(--sz-32)",
         atom: "md",
       },
     } as const;
@@ -242,10 +242,10 @@ describe("CheckboxCard", () => {
 
   it("className 을 루트 label 에 병합한다", () => {
     const { container } = render(
-      <CheckboxCard label="L" className="max-w-[var(--sz-320)]" />,
+      <CheckboxCard label="L" className="max-w-(--sz-320)" />,
     );
     expect(container.querySelector("label")).toHaveClass(
-      "max-w-[var(--sz-320)]",
+      "max-w-(--sz-320)",
       "group",
       "rounded-lg",
     );

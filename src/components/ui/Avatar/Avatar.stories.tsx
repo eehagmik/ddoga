@@ -86,7 +86,7 @@ export const Edit: Story = {
 /** person, checkable — unchecked / checked(브랜드 링 페이드 인). */
 export const Checkable: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-16)]">
+    <div className="flex items-center gap-(--sz-16)">
       <Avatar {...args} variant="checkable" defaultChecked={false} />
       <Avatar {...args} variant="checkable" defaultChecked />
     </div>
@@ -96,7 +96,7 @@ export const Checkable: Story = {
 /** src 가 있으면 이미지를, 없으면 `personPlaceholder.png` 기본 이미지를 렌더한다. */
 export const WithImage: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-16)]">
+    <div className="flex items-center gap-(--sz-16)">
       <Avatar {...args} src={undefined} />
       <Avatar {...args} src={SAMPLE_SRC} />
     </div>
@@ -116,7 +116,7 @@ export const Add: Story = {
 /** size 6종. */
 export const Sizes: Story = {
   render: (args) => (
-    <div className="flex items-end gap-[var(--sz-12)]">
+    <div className="flex items-end gap-(--sz-12)">
       {SIZES.map((size) => (
         <Avatar key={size} {...args} size={size} />
       ))}
@@ -127,7 +127,7 @@ export const Sizes: Story = {
 /** type(person/ltch/add) × size 매트릭스. */
 export const TypeMatrix: Story = {
   render: () => (
-    <table className="border-separate border-spacing-[var(--sz-12)]">
+    <table className="border-separate border-spacing-(--sz-12)">
       <thead>
         <tr>
           <th />
@@ -162,7 +162,7 @@ export const TypeMatrix: Story = {
 /** person variant(readOnly/edit/checkable) × size 매트릭스. */
 export const VariantMatrix: Story = {
   render: () => (
-    <table className="border-separate border-spacing-[var(--sz-12)]">
+    <table className="border-separate border-spacing-(--sz-12)">
       <thead>
         <tr>
           <th />

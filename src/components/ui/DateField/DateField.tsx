@@ -33,11 +33,11 @@
  *   "TimeField 와 동일한 디자인" 이라고 명시돼 있어 드리프트로 판단). 최종적으로
  *   **10px 로 통일하기로 결정**했다(Figma 원본은 사용자가 직접 동기화할 예정 — 코드가
  *   Figma 실측치와 의도적으로 다른 구간).
- * - 루트: `flex-col gap-[var(--sz-8)]` — "Label & Field" 래퍼 / `HelperLabel` 세로 배치
+ * - 루트: `flex-col gap-(--sz-8)` — "Label & Field" 래퍼 / `HelperLabel` 세로 배치
  *   (이 gap 은 변경 없음, 원래부터 8px).
- * - "Label & Field" 래퍼: `flex-col gap-[var(--sz-10)]` — `Label` / 필드(버튼+언더라인)
+ * - "Label & Field" 래퍼: `flex-col gap-(--sz-10)` — `Label` / 필드(버튼+언더라인)
  *   그룹.
- * - 필드 그룹(버튼+언더라인): `flex-col gap-[var(--sz-8)]` — 변경 없음.
+ * - 필드 그룹(버튼+언더라인): `flex-col gap-(--sz-8)` — 변경 없음.
  * - 필드: 좌측 24px `calendar_line` 아이콘 고정(자유 슬롯 아님, 상태 불문 색
  *   `icon/neutral/light`(`#878787`) 고정 — `get_variable_defs` 로 danger/disabled 등
  *   모든 state 를 대조해 확인, 변하지 않는다) + 우측 텍스트 표시 영역.
@@ -123,7 +123,7 @@ const VALUE_TYPO: Record<DateFieldVariant, string> = {
 
 /** 좌측 calendar 아이콘 슬롯 — 24px 고정, 상태 불문 `icon/neutral/light` 고정색(Figma 실측). */
 const ICON_SLOT_CLASS =
-  "flex size-[var(--sz-24)] shrink-0 items-center justify-center text-icon-neutral-light";
+  "flex size-(--sz-24) shrink-0 items-center justify-center text-icon-neutral-light";
 
 export function DateField({
   variant = "line",
@@ -169,14 +169,11 @@ export function DateField({
       data-danger={danger}
       data-disabled={disabled}
       data-readonly={readOnly}
-      className={[
-        "flex w-full flex-col items-start gap-[var(--sz-8)]",
-        className,
-      ]
+      className={["flex w-full flex-col items-start gap-(--sz-8)", className]
         .filter(Boolean)
         .join(" ")}
     >
-      <div className="flex w-full flex-col items-start gap-[var(--sz-10)]">
+      <div className="flex w-full flex-col items-start gap-(--sz-10)">
         {label ? (
           <Label
             label={label}
@@ -188,7 +185,7 @@ export function DateField({
           />
         ) : null}
 
-        <div className="flex w-full flex-col items-start gap-[var(--sz-8)]">
+        <div className="flex w-full flex-col items-start gap-(--sz-8)">
           <button
             type="button"
             onClick={handleClick}
@@ -196,11 +193,11 @@ export function DateField({
             aria-invalid={danger || undefined}
             aria-readonly={readOnly || undefined}
             className={[
-              "peer flex w-full items-center justify-center gap-[var(--sz-8)] rounded-md",
+              "peer flex w-full items-center justify-center gap-(--sz-8) rounded-md",
               "transition-colors duration-150 ease-in-out motion-reduce:transition-none",
-              variant === "line" && "px-[var(--sz-2)] py-[var(--sz-1)]",
+              variant === "line" && "px-(--sz-2) py-(--sz-1)",
               variant === "box" &&
-                "px-[var(--sz-8)] py-[var(--sz-10)] border-xs border-solid overflow-hidden",
+                "px-(--sz-8) py-(--sz-10) border-xs border-solid overflow-hidden",
               disabled ? "cursor-not-allowed" : "cursor-pointer",
               fieldChrome.container,
             ]
@@ -251,7 +248,7 @@ export function DateField({
           {variant === "line" ? (
             <div
               className={[
-                "h-[var(--sz-2)] w-full shrink-0 rounded-circle",
+                "h-(--sz-2) w-full shrink-0 rounded-circle",
                 "transition-colors duration-150 ease-in-out motion-reduce:transition-none",
                 fieldChrome.underline,
               ]

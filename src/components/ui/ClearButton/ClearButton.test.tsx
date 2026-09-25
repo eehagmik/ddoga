@@ -16,7 +16,7 @@ describe("ClearButton", () => {
       "shrink-0",
       "cursor-pointer",
       "text-icon-neutral-bright",
-      "size-[var(--sz-14)]",
+      "size-(--sz-14)",
     );
   });
 
@@ -43,19 +43,13 @@ describe("ClearButton", () => {
 
   it("size 별 정사각 크기 유틸을 적용한다", () => {
     const { container, rerender } = render(<ClearButton size="xs" />);
-    expect(container.querySelector("button")).toHaveClass(
-      "size-[var(--sz-14)]",
-    );
+    expect(container.querySelector("button")).toHaveClass("size-(--sz-14)");
 
     rerender(<ClearButton size="sm" />);
-    expect(container.querySelector("button")).toHaveClass(
-      "size-[var(--sz-16)]",
-    );
+    expect(container.querySelector("button")).toHaveClass("size-(--sz-16)");
 
     rerender(<ClearButton size="md" />);
-    expect(container.querySelector("button")).toHaveClass(
-      "size-[var(--sz-18)]",
-    );
+    expect(container.querySelector("button")).toHaveClass("size-(--sz-18)");
   });
 
   it("클릭하면 onClick 을 호출한다", () => {
@@ -80,7 +74,7 @@ describe("ClearButton", () => {
     );
     expect(container.querySelector("button")).toHaveClass(
       "text-icon-inverse-normal",
-      "size-[var(--sz-14)]",
+      "size-(--sz-14)",
     );
   });
 

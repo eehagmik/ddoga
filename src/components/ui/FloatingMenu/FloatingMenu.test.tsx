@@ -54,8 +54,8 @@ describe("FloatingMenu", () => {
       "border-border-neutral-bright",
       "rounded-2xl",
       "shadow-black-lg",
-      "min-w-[var(--sz-128)]",
-      "max-w-[var(--sz-256)]",
+      "min-w-(--sz-128)",
+      "max-w-(--sz-256)",
     );
   });
 

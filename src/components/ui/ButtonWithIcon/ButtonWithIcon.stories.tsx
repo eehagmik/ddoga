@@ -76,7 +76,7 @@ export const Playground: Story = {
 /** 한 color(brand)의 fill / bright / outline. */
 export const Variants: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {VARIANTS.map((variant) => (
         <ButtonWithIcon
           key={variant}
@@ -94,7 +94,7 @@ export const Variants: Story = {
 /** 2xl ~ xs. */
 export const Sizes: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {SIZES.map((size) => (
         <ButtonWithIcon
           key={size}
@@ -112,7 +112,7 @@ export const Sizes: Story = {
 /** 5색 × fill. */
 export const Colors: Story = {
   render: (args) => (
-    <div className="flex flex-wrap items-center gap-[var(--sz-12)]">
+    <div className="flex flex-wrap items-center gap-(--sz-12)">
       {COLORS.map((color) => (
         <ButtonWithIcon
           key={color}
@@ -139,8 +139,8 @@ function IconStateRow({
   disabled?: boolean;
 }) {
   return (
-    <div className="flex items-center gap-[var(--sz-12)]">
-      <span className="w-[var(--sz-64)] text-body-6 text-typo-neutral-light">
+    <div className="flex items-center gap-(--sz-12)">
+      <span className="w-(--sz-64) text-body-6 text-typo-neutral-light">
         {label}
       </span>
       {(["fill", "outline"] as ButtonWithIconVariant[]).map((variant) => (
@@ -175,7 +175,7 @@ export const InteractiveStates: Story = {
     },
   },
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-8)]">
+    <div className="flex flex-col gap-(--sz-8)">
       <IconStateRow label="enable" args={args} />
       <IconStateRow label="disabled" args={args} disabled />
       <p className="text-body-6 text-typo-neutral-light">
@@ -194,8 +194,8 @@ export const InteractiveStates: Story = {
       "hover:bg-bg-brand-deep",
       "focus-visible:bg-bg-brand-deep",
       "active:bg-bg-brand-deep",
-      "focus-visible:opacity-[var(--alpha-80)]",
-      "active:opacity-[var(--alpha-80)]",
+      "focus-visible:opacity-(--alpha-80)",
+      "active:opacity-(--alpha-80)",
     );
     await expect(outlineBtn).toHaveClass(
       "hover:bg-bg-brand-bright",
@@ -207,16 +207,14 @@ export const InteractiveStates: Story = {
 
     const disabledFill = btns[2];
     await expect(disabledFill).toBeDisabled();
-    await expect(disabledFill).toHaveClass(
-      "disabled:opacity-[var(--alpha-60)]",
-    );
+    await expect(disabledFill).toHaveClass("disabled:opacity-(--alpha-60)");
   },
 };
 
 /** color(행) × variant(열) 전체 조합 (size 는 md 고정). */
 export const Matrix: Story = {
   render: (args) => (
-    <table className="border-separate border-spacing-[var(--sz-8)]">
+    <table className="border-separate border-spacing-(--sz-8)">
       <thead>
         <tr>
           <th />

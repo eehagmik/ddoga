@@ -36,10 +36,10 @@ describe("Divider", () => {
 
   it("orientation × thickness 별 교차축(두께) 토큰 클래스가 적용된다", () => {
     const cases: [Orientation, Thickness, string][] = [
-      ["horizontal", "thin", "h-[var(--sz-1)]"],
-      ["horizontal", "thick", "h-[var(--sz-8)]"],
-      ["vertical", "thin", "w-[var(--sz-1)]"],
-      ["vertical", "thick", "w-[var(--sz-8)]"],
+      ["horizontal", "thin", "h-(--sz-1)"],
+      ["horizontal", "thick", "h-(--sz-8)"],
+      ["vertical", "thin", "w-(--sz-1)"],
+      ["vertical", "thick", "w-(--sz-8)"],
     ];
     for (const [orientation, thickness, crossClass] of cases) {
       const { container } = render(
@@ -52,10 +52,10 @@ describe("Divider", () => {
   });
 
   it("className 을 루트에 병합하고 기본 클래스도 유지한다", () => {
-    const { container } = render(<Divider className="my-[var(--sz-8)]" />);
+    const { container } = render(<Divider className="my-(--sz-8)" />);
     const root = container.firstElementChild;
     expect(root).toHaveClass(
-      "my-[var(--sz-8)]",
+      "my-(--sz-8)",
       "shrink-0",
       "bg-bg-overlay-blackSubtle",
     );

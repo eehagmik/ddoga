@@ -64,9 +64,9 @@ export const Playground: Story = {};
 /** heart(카운트 있음) / bookmark(카운트 없음) — unchecked · checked. */
 export const Variants: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-16)]">
+    <div className="flex items-center gap-(--sz-16)">
       {VARIANTS.map((variant) => (
-        <div key={variant} className="flex items-center gap-[var(--sz-8)]">
+        <div key={variant} className="flex items-center gap-(--sz-8)">
           <LikeToggleWithLabel
             {...args}
             variant={variant}
@@ -90,9 +90,9 @@ export const Variants: Story = {
 /** outline(테두리+배경, 아이콘 18) / transparent(크롬 없음, 아이콘 24). */
 export const Appearances: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-16)]">
+    <div className="flex items-center gap-(--sz-16)">
       {APPEARANCES.map((appearance) => (
-        <div key={appearance} className="flex items-center gap-[var(--sz-8)]">
+        <div key={appearance} className="flex items-center gap-(--sz-8)">
           <LikeToggleWithLabel
             {...args}
             appearance={appearance}
@@ -113,7 +113,7 @@ export const Appearances: Story = {
 /** count 생략(카운트 없음) vs 지정(0 포함 표시). */
 export const Count: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-12)]">
+    <div className="flex items-center gap-(--sz-12)">
       <LikeToggleWithLabel {...args} label="관심있어요" />
       <LikeToggleWithLabel {...args} count={0} />
       <LikeToggleWithLabel {...args} count={12} defaultChecked />
@@ -146,7 +146,7 @@ export const LabelVisibility: StoryObj<typeof meta> = {
 /** unchecked / checked. */
 export const Checked: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-12)]">
+    <div className="flex items-center gap-(--sz-12)">
       <LikeToggleWithLabel {...args} defaultChecked={false} />
       <LikeToggleWithLabel {...args} defaultChecked />
     </div>
@@ -159,7 +159,7 @@ export const Checked: Story = {
  */
 export const Colors: Story = {
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-16)]">
+    <div className="flex items-center gap-(--sz-16)">
       {COLORS.map((color) => (
         <LikeToggleWithLabel
           key={color}
@@ -177,7 +177,7 @@ export const Colors: Story = {
 export const ReadOnly: Story = {
   args: { readOnly: true },
   render: (args) => (
-    <div className="flex items-center gap-[var(--sz-12)]">
+    <div className="flex items-center gap-(--sz-12)">
       <LikeToggleWithLabel {...args} defaultChecked={false} />
       <LikeToggleWithLabel {...args} defaultChecked />
     </div>
@@ -187,7 +187,7 @@ export const ReadOnly: Story = {
 /** variant × appearance(행) × [unchecked · checked](열). */
 export const Matrix: Story = {
   render: (args) => (
-    <table className="border-separate border-spacing-[var(--sz-8)]">
+    <table className="border-separate border-spacing-(--sz-8)">
       <thead>
         <tr>
           <th />

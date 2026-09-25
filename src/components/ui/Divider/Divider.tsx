@@ -35,12 +35,12 @@ const MAIN_CLASS: Record<Orientation, string> = {
 /** `orientation` × `thickness` 별 교차축(두께) 클래스. */
 const CROSS_CLASS: Record<Orientation, Record<Thickness, string>> = {
   horizontal: {
-    thin: "h-[var(--sz-1)]",
-    thick: "h-[var(--sz-8)]",
+    thin: "h-(--sz-1)",
+    thick: "h-(--sz-8)",
   },
   vertical: {
-    thin: "w-[var(--sz-1)]",
-    thick: "w-[var(--sz-8)]",
+    thin: "w-(--sz-1)",
+    thick: "w-(--sz-8)",
   },
 };
 

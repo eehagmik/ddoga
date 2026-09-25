@@ -106,7 +106,7 @@ describe("TextCard", () => {
   it("focus 시 inner 콘텐츠에 --alpha-80 투명도 dip 을 자손(group-focus-visible)으로 적용한다(ImageCard/GalleryCard 와 통일)", () => {
     const { container } = render(<TextCard />);
     const inner = container.querySelector('[data-name="inner"]');
-    expect(inner).toHaveClass("group-focus-visible:opacity-[var(--alpha-80)]");
+    expect(inner).toHaveClass("group-focus-visible:opacity-(--alpha-80)");
   });
 
   it("className prop 을 루트에 병합한다", () => {

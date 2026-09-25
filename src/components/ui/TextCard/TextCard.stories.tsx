@@ -130,9 +130,7 @@ export const Focus: Story = {
     const inner = within(canvasElement)
       .getByText("제목")
       .closest('[data-name="inner"]');
-    await expect(inner).toHaveClass(
-      "group-focus-visible:opacity-[var(--alpha-80)]",
-    );
+    await expect(inner).toHaveClass("group-focus-visible:opacity-(--alpha-80)");
 
     card.focus();
     await expect(card).toHaveFocus();
@@ -205,7 +203,7 @@ export const NoDivider: Story = {
 /** 여러 상태를 리스트로 이어붙인 예시(Figma 문서 프리뷰와 동일 구성). */
 export const List: Story = {
   render: (args) => (
-    <div className="w-[var(--sz-320)]">
+    <div className="w-(--sz-320)">
       <TextCard {...args} title="첫 번째 카드" badge />
       <TextCard {...args} title="두 번째 카드" />
       <TextCard {...args} title="세 번째 카드" divider={false} />

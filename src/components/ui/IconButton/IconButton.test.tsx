@@ -47,11 +47,7 @@ describe("IconButton", () => {
     );
     const dot = container.querySelector('[data-size="xs"][data-color="red"]');
     expect(dot).not.toBeNull();
-    expect(dot).toHaveClass(
-      "absolute",
-      "-top-[var(--sz-2)]",
-      "-right-[var(--sz-2)]",
-    );
+    expect(dot).toHaveClass("absolute", "-top-(--sz-2)", "-right-(--sz-2)");
   });
 
   it('badge="number" 이면 count/max 를 BadgeNumber 로 전달한다', () => {
@@ -62,11 +58,7 @@ describe("IconButton", () => {
     );
     const badge = container.querySelector('[data-size="xs"]');
     expect(badge).toHaveTextContent("5");
-    expect(badge).toHaveClass(
-      "absolute",
-      "-top-[var(--sz-3)]",
-      "-right-[var(--sz-6)]",
-    );
+    expect(badge).toHaveClass("absolute", "-top-(--sz-3)", "-right-(--sz-6)");
   });
 
   it('badge="number" + count 가 max 초과면 `${max}+` 로 축약한다', () => {
@@ -89,10 +81,10 @@ describe("IconButton", () => {
     const btn = container.querySelector("button")!;
     expect(btn).toBeDisabled();
     const iconWrap = btn.querySelector("span");
-    expect(iconWrap).toHaveClass("opacity-[var(--alpha-40)]");
+    expect(iconWrap).toHaveClass("opacity-(--alpha-40)");
     // 배지에는 opacity 토큰이 없다
     expect(container.querySelector('[data-color="red"]')).not.toHaveClass(
-      "opacity-[var(--alpha-40)]",
+      "opacity-(--alpha-40)",
     );
   });
 

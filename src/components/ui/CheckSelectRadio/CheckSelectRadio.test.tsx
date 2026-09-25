@@ -19,8 +19,8 @@ describe("CheckSelectRadio", () => {
       "flex",
       "w-full",
       "items-center",
-      "gap-[var(--sz-8)]",
-      "py-[var(--sz-10)]",
+      "gap-(--sz-8)",
+      "py-(--sz-10)",
       "cursor-pointer",
     );
     expect(label.textContent).toContain("약관에 동의합니다");
@@ -79,12 +79,12 @@ describe("CheckSelectRadio", () => {
     const { container, rerender } = render(
       <CheckSelectRadio>L</CheckSelectRadio>,
     );
-    expect(container.querySelector(".size-\\[var\\(--sz-34\\)\\]")).toBeNull();
+    expect(container.querySelector(".size-\\(--sz-34\\)")).toBeNull();
 
     rerender(
       <CheckSelectRadio startSlot={<span>아이콘</span>}>L</CheckSelectRadio>,
     );
-    const slot = container.querySelector(".size-\\[var\\(--sz-34\\)\\]")!;
+    const slot = container.querySelector(".size-\\(--sz-34\\)")!;
     expect(slot).toHaveClass("shrink-0", "items-center", "justify-center");
     expect(slot.textContent).toBe("아이콘");
   });
@@ -157,10 +157,10 @@ describe("CheckSelectRadio", () => {
 
   it("className 을 루트 label 에 병합한다", () => {
     const { container } = render(
-      <CheckSelectRadio className="max-w-[var(--sz-320)]">L</CheckSelectRadio>,
+      <CheckSelectRadio className="max-w-(--sz-320)">L</CheckSelectRadio>,
     );
     expect(container.querySelector("label")).toHaveClass(
-      "max-w-[var(--sz-320)]",
+      "max-w-(--sz-320)",
       "group",
       "w-full",
     );

@@ -23,13 +23,11 @@ const SLOT_PLACEHOLDER_LABEL = "슬롯";
  * (기존 HorizontalMenuButton.stories.tsx 는 건드리지 않는다).
  */
 function slotPaddingClass(size: VerticalMenuButtonSize) {
-  return size === "sm" || size === "md"
-    ? "px-[var(--sz-2)]"
-    : "px-[var(--sz-4)]";
+  return size === "sm" || size === "md" ? "px-(--sz-2)" : "px-(--sz-4)";
 }
 
 /**
- * endSlot 은 컴포넌트가 이미 `h-[var(--sz-32)] w-full` 로 감싸므로 `size-full` 로
+ * endSlot 은 컴포넌트가 이미 `h-(--sz-32) w-full` 로 감싸므로 `size-full` 로
  * 꽉 채운다. sm 은 HorizontalMenuButton 선례와 동일하게 `text-[10px]`(토큰 예외)로
  * 낮춰 박스 안에 들어오게 한다.
  */
@@ -117,7 +115,7 @@ export const Default: Story = {
     const btn = within(canvasElement).getByRole("button", { name: "Label" });
     await expect(btn).toHaveAttribute("data-size", "sm");
     await expect(btn).toHaveAttribute("data-badge", "false");
-    await expect(btn).toHaveClass("w-[var(--sz-68)]", "cursor-pointer");
+    await expect(btn).toHaveClass("w-(--sz-68)", "cursor-pointer");
 
     await userEvent.click(btn);
     await expect(args.onClick).toHaveBeenCalledTimes(1);
@@ -127,7 +125,7 @@ export const Default: Story = {
 /** size 5종 나란히 비교. */
 export const AllSizes: Story = {
   render: ({ endSlot, ...args }) => (
-    <div className="flex flex-wrap items-start gap-[var(--sz-16)]">
+    <div className="flex flex-wrap items-start gap-(--sz-16)">
       {SIZES.map((size) => (
         <VerticalMenuButton
           {...args}
@@ -165,7 +163,7 @@ export const Hover: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const btn = within(canvasElement).getByRole("button", { name: "Label" });
-    await expect(btn).toHaveClass("hover:opacity-[var(--alpha-80)]");
+    await expect(btn).toHaveClass("hover:opacity-(--alpha-80)");
   },
 };
 
@@ -174,7 +172,7 @@ export const Focus: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const btn = within(canvasElement).getByRole("button", { name: "Label" });
-    await expect(btn).toHaveClass("focus-visible:opacity-[var(--alpha-60)]");
+    await expect(btn).toHaveClass("focus-visible:opacity-(--alpha-60)");
     btn.focus();
     await expect(btn).toHaveFocus();
   },

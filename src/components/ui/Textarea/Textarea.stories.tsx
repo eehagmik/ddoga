@@ -152,7 +152,7 @@ export const InteractiveTextarea: Story = {
 /** 6개 variant(state × hasValue) 를 나란히 비교. */
 export const AllStates: Story = {
   render: () => (
-    <div className="flex w-[320px] flex-col gap-[var(--sz-16)]">
+    <div className="flex w-[320px] flex-col gap-(--sz-16)">
       <Textarea placeholder="enable, 값 없음" />
       <Textarea value="enable, 값 있음" onChange={() => {}} />
       <Textarea disabled placeholder="disabled, 값 없음" />

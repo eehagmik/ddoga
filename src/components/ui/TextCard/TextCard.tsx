@@ -28,7 +28,7 @@
  * - Figma dev 주석("제목 n줄이상 생략 조건은 기획에 맞춰 1,2줄 중 하나로 적용")에
  *   따라 `titleLines`(1 | 2, 기본 1) prop 으로 제목 line-clamp 정책을 노출한다.
  *
- * 레이아웃(Figma 실측): 루트 `w-[var(--sz-320)]` flex-col. title area padding
+ * 레이아웃(Figma 실측): 루트 `w-(--sz-320)` flex-col. title area padding
  * `--sz-20`. inner flex-row `items-center` gap `--sz-12`. title & date 영역
  * flex-1 flex-col gap `--sz-8`. title row flex-row gap `--sz-2`(2px, 배지 점과
  * 제목 사이 미세 간격). hover/focus 시 title & date 열이 `justify-center` 로
@@ -100,7 +100,7 @@ export interface TextCardProps extends Omit<
 
 /** 루트 공통 — 레이아웃 + hover/focus-visible 배경(props 아님, CSS 의사클래스). */
 const ROOT =
-  "group flex w-[var(--sz-320)] flex-col cursor-pointer transition-colors " +
+  "group flex w-(--sz-320) flex-col cursor-pointer transition-colors " +
   "hover:bg-bg-neutral-deep focus-visible:bg-bg-neutral-deep focus-visible:outline-none";
 
 /** 제목 `titleLines` 별 line-clamp 유틸. */
@@ -145,27 +145,24 @@ export function TextCard({
       onKeyDown={handleKeyDown}
       {...rest}
     >
-      <div data-name="title area" className="w-full p-[var(--sz-20)]">
+      <div data-name="title area" className="w-full p-(--sz-20)">
         <div
           data-name="inner"
-          className="flex w-full items-center gap-[var(--sz-12)] group-focus-visible:opacity-[var(--alpha-80)]"
+          className="flex w-full items-center gap-(--sz-12) group-focus-visible:opacity-(--alpha-80)"
         >
           {startSlot && (
             <div
               data-name="startSlotContents"
-              className="flex size-[var(--sz-24)] shrink-0 items-center justify-center"
+              className="flex size-(--sz-24) shrink-0 items-center justify-center"
             >
               {startSlotContents}
             </div>
           )}
           <div
             data-name="title & date"
-            className="flex min-w-0 flex-1 flex-col gap-[var(--sz-8)] group-hover:justify-center group-focus-visible:justify-center"
+            className="flex min-w-0 flex-1 flex-col gap-(--sz-8) group-hover:justify-center group-focus-visible:justify-center"
           >
-            <div
-              data-name="title"
-              className="flex items-center gap-[var(--sz-2)]"
-            >
+            <div data-name="title" className="flex items-center gap-(--sz-2)">
               <p
                 className={[
                   "min-w-0 text-body-3 text-typo-neutral-normal",
@@ -185,7 +182,7 @@ export function TextCard({
           {endSlot && (
             <div
               data-name="endSlotContents"
-              className="flex size-[var(--sz-24)] shrink-0 items-center justify-center"
+              className="flex size-(--sz-24) shrink-0 items-center justify-center"
             >
               {endSlotContents}
             </div>

@@ -16,7 +16,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Figma "또가3.0 Design System / Alpha" (node 2327:4758) 와 1:1. 요소의 `opacity` 에 적용하는 불투명도 배수 스케일이다. Figma `alpha/<NN>` ↔ 코드 `--alpha-<NN>` (00·05·10·20·40·60·80, 값은 소수 = 퍼센트 / 100). 오버레이·비활성 상태·구분선 등에 일관된 투명도를 줄 때 쓴다. `--color-*-a<NN>` 알파 컬러 램프(색상 자체의 알파 채널)와는 별개다. Tailwind 유틸은 생기지 않으므로 `style={{ opacity: "var(--alpha-40)" }}` 또는 `opacity-[var(--alpha-40)]` 로 참조한다. 각 스텝은 대비가 큰 배경 위 표면으로 시연하며, 토큰명 라벨은 opacity 가 걸리지 않는 별도 레이어라 항상 선명하다.',
+          'Figma "또가3.0 Design System / Alpha" (node 2327:4758) 와 1:1. 요소의 `opacity` 에 적용하는 불투명도 배수 스케일이다. Figma `alpha/<NN>` ↔ 코드 `--alpha-<NN>` (00·05·10·20·40·60·80, 값은 소수 = 퍼센트 / 100). 오버레이·비활성 상태·구분선 등에 일관된 투명도를 줄 때 쓴다. `--color-*-a<NN>` 알파 컬러 램프(색상 자체의 알파 채널)와는 별개다. Tailwind 유틸은 생기지 않으므로 `style={{ opacity: "var(--alpha-40)" }}` 또는 `opacity-(--alpha-40)` 로 참조한다. 각 스텝은 대비가 큰 배경 위 표면으로 시연하며, 토큰명 라벨은 opacity 가 걸리지 않는 별도 레이어라 항상 선명하다.',
       },
     },
   },

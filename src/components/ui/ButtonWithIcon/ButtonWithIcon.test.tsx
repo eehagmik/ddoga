@@ -59,20 +59,14 @@ describe("ButtonWithIcon", () => {
         <span />
       </ButtonWithIcon>,
     );
-    expect(getByRole("button")).toHaveClass(
-      "size-[var(--sz-54)]",
-      "rounded-xl",
-    );
+    expect(getByRole("button")).toHaveClass("size-(--sz-54)", "rounded-xl");
 
     rerender(
       <ButtonWithIcon aria-label="추가" size="sm">
         <span />
       </ButtonWithIcon>,
     );
-    expect(getByRole("button")).toHaveClass(
-      "size-[var(--sz-32)]",
-      "rounded-sm",
-    );
+    expect(getByRole("button")).toHaveClass("size-(--sz-32)", "rounded-sm");
   });
 
   it("아이콘 슬롯(inner span)에 size 별 아이콘 크기 클래스를 적용한다", () => {
@@ -81,9 +75,7 @@ describe("ButtonWithIcon", () => {
         <span />
       </ButtonWithIcon>,
     );
-    expect(getByRole("button").firstElementChild).toHaveClass(
-      "size-[var(--sz-16)]",
-    );
+    expect(getByRole("button").firstElementChild).toHaveClass("size-(--sz-16)");
   });
 
   it("variant/color 별 배경 클래스는 루트에, 아이콘 색 클래스는 inner span 에 적용한다", () => {
@@ -96,7 +88,7 @@ describe("ButtonWithIcon", () => {
     expect(btn).toHaveClass(
       "bg-bg-brand-normal",
       "hover:bg-bg-brand-deep",
-      "disabled:opacity-[var(--alpha-60)]",
+      "disabled:opacity-(--alpha-60)",
     );
     expect(btn.firstElementChild).toHaveClass("text-icon-inverse-normal");
 
@@ -108,7 +100,7 @@ describe("ButtonWithIcon", () => {
     btn = getByRole("button");
     expect(btn).toHaveClass(
       "bg-bg-warning-bright",
-      "disabled:opacity-[var(--alpha-40)]",
+      "disabled:opacity-(--alpha-40)",
     );
     expect(btn.firstElementChild).toHaveClass("text-icon-warning-deep");
 
@@ -135,8 +127,8 @@ describe("ButtonWithIcon", () => {
     );
     const fillBtn = getByRole("button");
     expect(fillBtn).toHaveClass(
-      "focus-visible:opacity-[var(--alpha-80)]",
-      "active:opacity-[var(--alpha-80)]",
+      "focus-visible:opacity-(--alpha-80)",
+      "active:opacity-(--alpha-80)",
     );
     expect(fillBtn.firstElementChild?.className ?? "").not.toMatch(
       /group-(focus-visible|active):opacity-/,
@@ -149,8 +141,8 @@ describe("ButtonWithIcon", () => {
     );
     // outline 도 동일 --alpha-80 (전 variant 통일)
     expect(getByRole("button")).toHaveClass(
-      "focus-visible:opacity-[var(--alpha-80)]",
-      "active:opacity-[var(--alpha-80)]",
+      "focus-visible:opacity-(--alpha-80)",
+      "active:opacity-(--alpha-80)",
     );
   });
 

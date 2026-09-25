@@ -168,7 +168,7 @@ export const InteractiveTextarea: Story = {
 /** state 조합(enable/danger/disabled) × hasValue 를 나란히 비교. */
 export const AllStates: Story = {
   render: () => (
-    <div className="flex w-[320px] flex-col gap-[var(--sz-32)]">
+    <div className="flex w-[320px] flex-col gap-(--sz-32)">
       <LineTextarea label="라벨" placeholder="Placeholder" maxLength={500} />
       <LineTextarea label="라벨" value="Value" maxLength={500} />
       <LineTextarea

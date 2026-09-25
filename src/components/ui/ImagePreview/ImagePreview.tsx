@@ -34,12 +34,12 @@
  *
  * 레이아웃(Figma 실측):
  * - 루트: `fixed inset-0`(풀스크린) + `bg-bg-inverse-deep`(배경, `background/inverse/deep`).
- * - Body: 상단 여백 `top-[var(--sz-36)]` 아래 남은 영역 전체를 차지(`inset-x-0 bottom-0`).
+ * - Body: 상단 여백 `top-(--sz-36)` 아래 남은 영역 전체를 차지(`inset-x-0 bottom-0`).
  *   이미지 슬라이드 영역이 이 안을 꽉 채운다(`size-full`) — 각 슬라이드 안의 `img`/
  *   `video` 는 기본적으로 영역을 채우며 크롭되도록(`object-cover`) 유틸을 걸어둔다.
- * - ChipIndicator: Body 기준 하단 중앙 고정(`bottom-[var(--sz-24)] left-1/2
+ * - ChipIndicator: Body 기준 하단 중앙 고정(`bottom-(--sz-24) left-1/2
  *   -translate-x-1/2`), 슬라이드가 1장 이상일 때만 렌더.
- * - 닫기 버튼: `top-[var(--sz-44)]`, `right-[var(--sz-14)]`(Figma 실측: touch area
+ * - 닫기 버튼: `top-(--sz-44)`, `right-(--sz-14)`(Figma 실측: touch area
  *   x=310/width=36, 프레임 폭 360 기준 `360-(310+36)=14px` → `--sz-14` 토큰과
  *   정확히 일치, 2026-09-20 재확인). 위치는 별도 wrapper `div`가 담당한다 —
  *   `IconButton` 은 내부에 `relative` 를 이미 갖고 있는데, Tailwind 가 생성한
@@ -47,7 +47,7 @@
  *   나중 규칙이 이김) `IconButton` 에 직접 `absolute` 를 얹으면 무시되고
  *   `position: relative` 로 렌더되는 문제가 있었다(2026-09-20 확인 — 컴파일된
  *   `dist/assets/*.css` 에서 `.absolute{}` 가 `.relative{}` 보다 앞에 위치).
- *   터치 영역 확보를 위해 `IconButton` 에는 `p-[var(--sz-6)]` 만 준다(아이콘
+ *   터치 영역 확보를 위해 `IconButton` 에는 `p-(--sz-6)` 만 준다(아이콘
  *   자체는 24×24 유지). 어두운 이미지 위에서도 보이도록 `shadow-black-xs` 는
  *   `IconButton`(패딩 포함 36×36 박스)이 아니라 `Icon`(24×24 svg) 에 직접 걸어
  *   그림자가 아이콘 크기에 맞게 붙게 한다.
@@ -79,7 +79,7 @@ const ROOT_CLASS = "fixed inset-0 z-50 overflow-hidden bg-bg-inverse-deep";
 
 /** Body — 상단 여백 아래 남은 영역 전체(상태바 자리는 Figma 데모 전용이라 제외). */
 const BODY_CLASS =
-  "absolute inset-x-0 top-[var(--sz-36)] bottom-0 flex items-center justify-center gap-[var(--sz-10)]";
+  "absolute inset-x-0 top-(--sz-36) bottom-0 flex items-center justify-center gap-(--sz-10)";
 
 /** 슬라이드 콘텐츠 — 안의 img/video 는 기본적으로 영역을 꽉 채우며 크롭(object-cover). */
 const SLIDE_CONTENT_CLASS =
@@ -87,17 +87,14 @@ const SLIDE_CONTENT_CLASS =
   "[&>video]:size-full [&>video]:object-cover";
 
 /** ChipIndicator — Body 기준 하단 중앙 고정. */
-const CHIP_CLASS =
-  "absolute bottom-[var(--sz-24)] left-1/2 z-[2] -translate-x-1/2";
+const CHIP_CLASS = "absolute bottom-(--sz-24) left-1/2 z-2 -translate-x-1/2";
 
 /** 닫기 버튼 위치 wrapper — `IconButton` 자체엔 `absolute` 를 주지 않는다(내부
  * `relative` 와 충돌해 무시되는 문제, 상단 주석 참고). */
-const CLOSE_WRAPPER_CLASS =
-  "absolute top-[var(--sz-44)] right-[var(--sz-14)] z-[3]";
+const CLOSE_WRAPPER_CLASS = "absolute top-(--sz-44) right-(--sz-14) z-3";
 
 /** 닫기 버튼 — 터치 영역 확보 패딩만 담당(위치는 wrapper, 그림자는 Icon). */
-const CLOSE_BUTTON_CLASS =
-  "rounded-circle p-[var(--sz-6)] text-icon-inverse-normal";
+const CLOSE_BUTTON_CLASS = "rounded-circle p-(--sz-6) text-icon-inverse-normal";
 
 /**
  * 닫기 아이콘 — 어두운 이미지 위 대비용 그림자를 svg 자체에 직접 적용.

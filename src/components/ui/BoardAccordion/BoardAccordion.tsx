@@ -97,7 +97,7 @@ export interface BoardAccordionProps extends Omit<
  */
 const HEADER_BASE =
   "group flex w-full cursor-pointer items-center justify-between " +
-  "px-[var(--sz-20)] py-[var(--sz-18)] gap-[var(--sz-16)] " +
+  "px-(--sz-20) py-(--sz-18) gap-(--sz-16) " +
   "transition-colors duration-150 ease-in-out motion-reduce:transition-none";
 
 /** 콘텐츠 wrapper 공통 — overflow 클립 + height 트랜지션(Material 표준 이징) + 배경(Figma 명시). */
@@ -107,12 +107,12 @@ const CONTENTS_WRAPPER_CLASS =
 
 /** 콘텐츠 공통 — 레이아웃 + padding/gap(Figma 실측, `Accordion` 과 동일 수치). */
 const CONTENTS_CLASS =
-  "flex flex-col gap-[var(--sz-24)] px-[var(--sz-20)] pt-[var(--sz-10)] pb-[var(--sz-20)]";
+  "flex flex-col gap-(--sz-24) px-(--sz-20) pt-(--sz-10) pb-(--sz-20)";
 
 /** 제목 줄(아이콘+제목) 레이아웃 — direction 별 축/gap(Figma 실측: horizontal=8, vertical=6). */
 const TITLE_ROW_CLASS: Record<BoardAccordionTitleDirection, string> = {
-  horizontal: "flex w-full flex-row items-center gap-[var(--sz-8)]",
-  vertical: "flex w-full flex-col items-start gap-[var(--sz-6)]",
+  horizontal: "flex w-full flex-row items-center gap-(--sz-8)",
+  vertical: "flex w-full flex-col items-start gap-(--sz-6)",
 };
 
 /** 제목 텍스트 너비 처리 — horizontal 은 아이콘 옆에서 남는 폭을 채우고(min-w-0 필수), vertical 은 줄 전체를 채운다. */
@@ -228,10 +228,10 @@ export function BoardAccordion({
           .join(" ")}
         {...rest}
       >
-        <span className="flex min-w-0 flex-1 flex-col items-start gap-[var(--sz-8)]">
+        <span className="flex min-w-0 flex-1 flex-col items-start gap-(--sz-8)">
           <span className={TITLE_ROW_CLASS[titleDirection]}>
             {startSlot ? (
-              <span className="inline-flex size-[var(--sz-24)] shrink-0 items-center justify-center text-icon-neutral-light">
+              <span className="inline-flex size-(--sz-24) shrink-0 items-center justify-center text-icon-neutral-light">
                 {startSlot}
               </span>
             ) : null}

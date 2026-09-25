@@ -37,7 +37,7 @@ type Story = StoryObj<typeof meta>;
 /** Figma 320px 프레임을 재현하는 데모 래퍼 (컴포넌트 자체는 w-full). */
 function Frame({ children }: { children: ReactNode }) {
   return (
-    <div className="w-[var(--sz-320)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="w-(--sz-320) bg-bg-neutral-normal p-(--sz-32)">
       {children}
     </div>
   );
@@ -66,7 +66,7 @@ export const Horizontal: Story = {
   name: "가로선 (세로 스택 구분)",
   render: () => (
     <Frame>
-      <div className="flex flex-col gap-[var(--sz-16)]">
+      <div className="flex flex-col gap-(--sz-16)">
         <div className="text-body-6 text-typo-neutral-subtle">
           첫 번째 콘텐츠 블록
         </div>
@@ -87,8 +87,8 @@ export const Horizontal: Story = {
     await expect(
       Array.from(roots).map((r) => r.getAttribute("data-thickness")),
     ).toEqual(["thin", "thick"]);
-    await expect(roots[0]).toHaveClass("h-[var(--sz-1)]", "w-full");
-    await expect(roots[1]).toHaveClass("h-[var(--sz-8)]", "w-full");
+    await expect(roots[0]).toHaveClass("h-(--sz-1)", "w-full");
+    await expect(roots[1]).toHaveClass("h-(--sz-8)", "w-full");
   },
 };
 
@@ -96,7 +96,7 @@ export const Vertical: Story = {
   name: "세로선 (가로 배치 구분)",
   render: () => (
     <Frame>
-      <div className="flex h-[var(--sz-32)] items-stretch gap-[var(--sz-16)]">
+      <div className="flex h-(--sz-32) items-stretch gap-(--sz-16)">
         <div className="text-body-6 text-typo-neutral-subtle">왼쪽</div>
         <Divider orientation="vertical" thickness="thin" />
         <div className="text-body-6 text-typo-neutral-subtle">가운데</div>
@@ -111,7 +111,7 @@ export const Vertical: Story = {
     await expect(
       Array.from(roots).map((r) => r.getAttribute("aria-orientation")),
     ).toEqual(["vertical", "vertical"]);
-    await expect(roots[0]).toHaveClass("w-[var(--sz-1)]", "h-full");
-    await expect(roots[1]).toHaveClass("w-[var(--sz-8)]", "h-full");
+    await expect(roots[0]).toHaveClass("w-(--sz-1)", "h-full");
+    await expect(roots[1]).toHaveClass("w-(--sz-8)", "h-full");
   },
 };

@@ -69,7 +69,7 @@
  * | variant          | placeholder                                          | value(hasValue)      | disabled                                              |
  * | ---------------- | ----------------------------------------------------- | --------------------- | ------------------------------------------------------- |
  * | transparentBody   | `typo-hint-subtle`                                    | `typo-neutral-normal` | `typo-disabled-subtle`                                   |
- * | transparentTitle  | `typo-hint-light`                                     | `typo-info-normal`(브랜드green 아닌 파랑) | `typo-disabled-subtle` + `opacity-[var(--alpha-60)]` |
+ * | transparentTitle  | `typo-hint-light`                                     | `typo-info-normal`(브랜드green 아닌 파랑) | `typo-disabled-subtle` + `opacity-(--alpha-60)` |
  *
  * **TextField 대비 line/box 실측 차이(2026-09-17 리팩토링으로 정정 완료)**:
  * 1. disabled + 값 있음일 때 텍스트 색은 `typo-disabled-normal`(placeholder 보다 진함) —
@@ -136,7 +136,7 @@ const VALUE_TYPO: Record<InputVariant, string> = {
 };
 
 const ICON_SLOT_CLASS =
-  "flex size-[var(--sz-24)] shrink-0 items-center justify-center";
+  "flex size-(--sz-24) shrink-0 items-center justify-center";
 
 export function Input({
   variant = "line",
@@ -218,7 +218,7 @@ export function Input({
       data-disabled={disabled}
       data-readonly={readOnly}
       className={[
-        "group flex w-full flex-col items-start gap-[var(--sz-8)]",
+        "group flex w-full flex-col items-start gap-(--sz-8)",
         className,
       ]
         .filter(Boolean)
@@ -226,15 +226,15 @@ export function Input({
     >
       <div
         className={[
-          "flex w-full items-center gap-[var(--sz-8)] rounded-md",
+          "flex w-full items-center gap-(--sz-8) rounded-md",
           !isTransparent &&
             "transition-colors duration-150 ease-in-out motion-reduce:transition-none",
           isTransparent && "justify-center",
-          variant === "line" && "px-[var(--sz-2)] py-[var(--sz-1)]",
+          variant === "line" && "px-(--sz-2) py-(--sz-1)",
           variant === "box" &&
-            "px-[var(--sz-8)] py-[var(--sz-10)] border-xs border-solid overflow-hidden",
-          variant === "transparentBody" && "p-[var(--sz-2)]",
-          variant === "transparentTitle" && "h-[var(--sz-46)]",
+            "px-(--sz-8) py-(--sz-10) border-xs border-solid overflow-hidden",
+          variant === "transparentBody" && "p-(--sz-2)",
+          variant === "transparentTitle" && "h-(--sz-46)",
           fieldChrome.container,
         ]
           .filter(Boolean)
@@ -255,7 +255,7 @@ export function Input({
       {variant === "line" ? (
         <div
           className={[
-            "h-[var(--sz-2)] w-full shrink-0 rounded-circle",
+            "h-(--sz-2) w-full shrink-0 rounded-circle",
             "transition-colors duration-150 ease-in-out motion-reduce:transition-none",
             fieldChrome.underline,
           ]
@@ -303,7 +303,7 @@ function getTransparentPlaceholderColorClass(
   disabled: boolean,
 ): string {
   if (disabled && variant === "transparentTitle") {
-    return "text-typo-disabled-subtle opacity-[var(--alpha-60)]";
+    return "text-typo-disabled-subtle opacity-(--alpha-60)";
   }
   if (disabled) return "text-typo-disabled-subtle";
   if (variant === "transparentTitle") return "text-typo-hint-light";
@@ -320,7 +320,7 @@ function getTransparentValueColorClass(
   disabled: boolean,
 ): string {
   if (disabled && variant === "transparentTitle") {
-    return "text-typo-disabled-subtle opacity-[var(--alpha-60)]";
+    return "text-typo-disabled-subtle opacity-(--alpha-60)";
   }
   if (disabled) return "text-typo-disabled-subtle";
   if (variant === "transparentTitle") return "text-typo-info-normal";

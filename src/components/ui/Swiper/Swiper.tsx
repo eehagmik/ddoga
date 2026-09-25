@@ -58,14 +58,14 @@
  *
  * 토큰 매핑(Figma 실측, `get_design_context`/`get_variable_defs` 재검증 완료):
  * | 대상                              | 클래스/값                                                          |
- * | 루트 세로 gap                      | `gap-[var(--sz-16)]`                                               |
+ * | 루트 세로 gap                      | `gap-(--sz-16)`                                               |
  * | contentsSlot radius(round)        | `rounded-2xl`(`radius/2xl`, 16px)                                  |
  * | round 슬라이드 폭                  | 인라인 `style` width: `calc(100vw - (var(--sz-40) * 2))`           |
  * | round 슬라이드 간격(spaceBetween)  | 16(`--sz-16`과 동일값, Swiper API 는 숫자만 허용해 JS 상수로 고정)   |
  * | ChipIndicator 배경                 | `bg-bg-overlay-blackDeep`(`background/overlay/blackDeep`, a60)     |
- * | ChipIndicator radius/padding      | `rounded-2xl`, `px-[var(--sz-10)] py-[var(--sz-8)]`                |
- * | ChipIndicator 우하단 오프셋         | `bottom-[var(--sz-10)] right-[var(--sz-10)]`(래핑 wrapper 담당)     |
- * | 이전/다음 버튼                     | `size-[var(--sz-32)] rounded-circle border-xs                      |
+ * | ChipIndicator radius/padding      | `rounded-2xl`, `px-(--sz-10) py-(--sz-8)`                |
+ * | ChipIndicator 우하단 오프셋         | `bottom-(--sz-10) right-(--sz-10)`(래핑 wrapper 담당)     |
+ * | 이전/다음 버튼                     | `size-(--sz-32) rounded-circle border-xs                      |
  * |                                    | border-border-neutral-bright bg-bg-neutral-normal shadow-black-xs` |
  *
  * `ChipIndicator`/`DirectionIndicator` 자체의 세부 토큰(텍스트 크기, gap 등)은 각 컴포넌트
@@ -245,7 +245,7 @@ export function Swiper({
       data-indicator={indicator}
       data-ratio={ratio}
       className={[
-        "isolate flex w-full flex-col items-center gap-[var(--sz-16)]",
+        "isolate flex w-full flex-col items-center gap-(--sz-16)",
         className,
       ]
         .filter(Boolean)
@@ -342,7 +342,7 @@ export function Swiper({
             // 위치시켜 콘텐츠가 넘어가는 동안에도 화면상 위치가 고정되도록 한다
             // (Figma Animation 스펙 3번: "우측 하단의 ChipIndicator 위치는 고정").
             <div
-              className="absolute bottom-[var(--sz-10)] z-[2]"
+              className="absolute bottom-(--sz-10) z-2"
               style={ROUND_CHIP_RIGHT_STYLE}
             >
               <ChipIndicator
@@ -354,7 +354,7 @@ export function Swiper({
             </div>
           ) : (
             <ChipIndicator
-              className="absolute bottom-[var(--sz-10)] right-[var(--sz-10)] z-[2]"
+              className="absolute bottom-(--sz-10) right-(--sz-10) z-2"
               label={chipLabel}
               currentCount={currentCount}
               totalCount={slideCount}

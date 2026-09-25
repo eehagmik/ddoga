@@ -37,7 +37,7 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: { size: "md", disabled: false },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
       <Switch {...args} />
     </div>
   ),
@@ -54,14 +54,14 @@ export const Playground: Story = {
     await userEvent.click(input);
     await expect(input.checked).toBe(true);
     await expect(label).toHaveAttribute("data-checked", "true");
-    await expect(thumb).toHaveClass("translate-x-[var(--sz-22)]");
+    await expect(thumb).toHaveClass("translate-x-(--sz-22)");
   },
 };
 
 /** on 상태 — 브랜드 트랙 + 썸 우측 정렬. */
 export const On: Story = {
   render: () => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
       <Switch defaultChecked />
     </div>
   ),
@@ -70,7 +70,7 @@ export const On: Story = {
 /** off 상태 — neutral 트랙 + outline 테두리 + 썸 좌측 정렬. */
 export const Off: Story = {
   render: () => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
       <Switch />
     </div>
   ),
@@ -79,10 +79,10 @@ export const Off: Story = {
 /** sm(46×26) / md(56×34). */
 export const Sizes: Story = {
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       {SIZES.map((size) => (
-        <div key={size} className="flex items-center gap-[var(--sz-16)]">
-          <code className="w-[var(--sz-24)] text-2xs text-typo-neutral-light">
+        <div key={size} className="flex items-center gap-(--sz-16)">
+          <code className="w-(--sz-24) text-2xs text-typo-neutral-light">
             {size}
           </code>
           <Switch size={size} onChange={() => {}} />
@@ -96,7 +96,7 @@ export const Sizes: Story = {
 /** disabled — off / on 모두 클릭해도 토글되지 않는다. */
 export const Disabled: Story = {
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       <Switch disabled onChange={() => {}} />
       <Switch disabled checked onChange={() => {}} />
     </div>
@@ -106,9 +106,9 @@ export const Disabled: Story = {
 /** enable / hover / disable × off / on 그리드. hover 는 실제 마우스 오버 시 확인. */
 export const States: Story = {
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-24)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-24) bg-bg-neutral-normal p-(--sz-32)">
       {SIZES.map((size) => (
-        <div key={size} className="flex flex-col gap-[var(--sz-8)]">
+        <div key={size} className="flex flex-col gap-(--sz-8)">
           <code className="text-2xs text-typo-neutral-light">{size}</code>
           <StateGrid size={size} />
         </div>
@@ -120,9 +120,9 @@ export const States: Story = {
 /** size × checked 조합 그리드. play 에서 셀 개수(2×2=4)를 검증한다. */
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       {SIZES.map((size) => (
-        <div key={size} className="flex items-center gap-[var(--sz-16)]">
+        <div key={size} className="flex items-center gap-(--sz-16)">
           {([false, true] as const).map((checked) => (
             <Switch
               key={`${size}-${checked}`}
@@ -152,7 +152,7 @@ export const Motion: Story = {
 function MotionDemo() {
   const [on, setOn] = useState(false);
   return (
-    <div className="flex flex-col items-start gap-[var(--sz-12)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col items-start gap-(--sz-12) bg-bg-neutral-normal p-(--sz-32)">
       <Switch
         size="md"
         checked={on}
@@ -172,10 +172,10 @@ function StateGrid({ size }: { size: SwitchSize }) {
     { label: "disable", props: { disabled: true } },
   ] as const;
   return (
-    <div className="flex flex-col gap-[var(--sz-12)]">
+    <div className="flex flex-col gap-(--sz-12)">
       {rows.map(({ label, props }) => (
-        <div key={label} className="flex items-center gap-[var(--sz-16)]">
-          <code className="w-[var(--sz-56)] text-2xs text-typo-neutral-light">
+        <div key={label} className="flex items-center gap-(--sz-16)">
+          <code className="w-(--sz-56) text-2xs text-typo-neutral-light">
             {label}
           </code>
           <Switch size={size} checked={false} onChange={() => {}} {...props} />

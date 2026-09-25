@@ -78,7 +78,7 @@ export const Playground: Story = {};
 /** dark / light 표면. */
 export const Tones: Story = {
   render: (args) => (
-    <div className="flex items-start gap-[var(--sz-24)]">
+    <div className="flex items-start gap-(--sz-24)">
       {TONES.map((tone) => (
         <Tooltip key={tone} {...args} tone={tone}>
           {tone}
@@ -92,11 +92,11 @@ export const Tones: Story = {
 export const AllPlacements: Story = {
   parameters: { layout: "fullscreen" },
   render: (args) => (
-    <div className="grid grid-cols-3 gap-[var(--sz-48)] p-[var(--sz-48)]">
+    <div className="grid grid-cols-3 gap-(--sz-48) p-(--sz-48)">
       {PLACEMENTS.map((placement) => (
         <div
           key={placement}
-          className="flex flex-col items-center gap-[var(--sz-8)]"
+          className="flex flex-col items-center gap-(--sz-8)"
         >
           <span className="text-body-6 text-typo-neutral-light">
             {placement}
@@ -113,7 +113,7 @@ export const AllPlacements: Story = {
 /** 좌측 아이콘 슬롯(`src/icons` 의 `<Icon>`, tone 별 `text-icon-*` 상속). */
 export const WithIcon: Story = {
   render: (args) => (
-    <div className="flex items-start gap-[var(--sz-24)]">
+    <div className="flex items-start gap-(--sz-24)">
       {TONES.map((tone) => (
         <Tooltip
           key={tone}

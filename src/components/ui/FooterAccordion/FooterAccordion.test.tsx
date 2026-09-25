@@ -131,6 +131,25 @@ describe("FooterAccordion", () => {
     expect(content).toHaveClass("motion-reduce:transition-none");
   });
 
+  it("hoverable=false 면 collapsed 상태에서도 hover 배경 클래스를 렌더하지 않는다", () => {
+    const { container } = render(
+      <FooterAccordion title="제목" hoverable={false}>
+        콘텐츠
+      </FooterAccordion>,
+    );
+    const root = container.firstElementChild!;
+    expect(root.className).not.toMatch(/hover:bg-/);
+    expect(root).toHaveClass("bg-bg-neutral-deepDark");
+  });
+
+  it("hoverable 기본값(true)은 collapsed 상태에서 hover 배경 클래스를 렌더한다", () => {
+    const { container } = render(
+      <FooterAccordion title="제목">콘텐츠</FooterAccordion>,
+    );
+    const root = container.firstElementChild!;
+    expect(root).toHaveClass("hover:bg-bg-neutral-dark");
+  });
+
   it("마크업에 hex 가 없다", () => {
     const { container } = render(
       <FooterAccordion title="제목" defaultExpanded>

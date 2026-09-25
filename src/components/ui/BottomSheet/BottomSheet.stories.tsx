@@ -53,7 +53,7 @@ export const Playground: Story = {
         <div className="flex min-h-dvh items-center justify-center bg-bg-neutral-deep">
           <button
             type="button"
-            className="rounded-md bg-bg-brand-normal px-[var(--sz-16)] py-[var(--sz-8)] text-body-4 text-typo-inverse-normal"
+            className="rounded-md bg-bg-brand-normal px-(--sz-16) py-(--sz-8) text-body-4 text-typo-inverse-normal"
             onClick={() => setOpen(true)}
           >
             바텀시트 열기
@@ -190,7 +190,7 @@ export const LongContent: Story = {
   render: (args) => (
     <div className="h-dvh bg-bg-neutral-deep">
       <BottomSheet {...args}>
-        <div className="flex flex-col gap-[var(--sz-12)]">
+        <div className="flex flex-col gap-(--sz-12)">
           {Array.from({ length: 20 }, (_, i) => (
             <p key={i} className="text-body-4 text-typo-neutral-normal">
               {i + 1}. 약관 조항 내용이 이어지는 문단입니다.

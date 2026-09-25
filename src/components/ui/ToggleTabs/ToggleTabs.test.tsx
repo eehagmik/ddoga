@@ -108,12 +108,10 @@ describe("ToggleTabs", () => {
 
   it("className 을 루트에 병합한다", () => {
     const { container } = render(
-      <ToggleTabs className="max-w-[var(--sz-320)]">
-        {renderItems()}
-      </ToggleTabs>,
+      <ToggleTabs className="max-w-(--sz-320)">{renderItems()}</ToggleTabs>,
     );
     expect(container.firstElementChild).toHaveClass(
-      "max-w-[var(--sz-320)]",
+      "max-w-(--sz-320)",
       "w-full",
     );
   });

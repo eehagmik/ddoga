@@ -41,7 +41,7 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: { size: "md", disabled: false },
   render: (args) => (
-    <div className="w-[var(--sz-320)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="w-(--sz-320) bg-bg-neutral-normal p-(--sz-32)">
       <RadioCard {...args} />
     </div>
   ),
@@ -67,7 +67,7 @@ export const Sizes: Story = {
   // 여러 size 를 동시에 비교하는 정적 데모라 단일 컨트롤로 대응 불가 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex w-[var(--sz-320)] flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex w-(--sz-320) flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       {SIZES.map((size) => (
         <RadioCard
           key={size}
@@ -85,7 +85,7 @@ export const States: Story = {
   // enable/disabled × checked 4가지 조합을 동시에 보여주는 정적 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex w-[var(--sz-320)] flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex w-(--sz-320) flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       <RadioCard label="enable / unchecked" subTextValue="sub text" />
       <RadioCard
         label="enable / checked"
@@ -112,7 +112,7 @@ export const WithoutSubText: Story = {
   // subTextValue 부재 시나리오 고정 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="w-[var(--sz-320)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="w-(--sz-320) bg-bg-neutral-normal p-(--sz-32)">
       <RadioCard label="서브텍스트 없음" />
     </div>
   ),
@@ -123,9 +123,9 @@ export const WithSlotContent: Story = {
   // 슬롯 콘텐츠 예시 고정 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="w-[var(--sz-320)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="w-(--sz-320) bg-bg-neutral-normal p-(--sz-32)">
       <RadioCard label="슬롯 포함" subTextValue="sub text" defaultChecked>
-        <div className="rounded-sm bg-bg-brandGrayish-normal p-[var(--sz-8)] text-body-5 text-typo-neutral-light">
+        <div className="rounded-sm bg-bg-brandGrayish-normal p-(--sz-8) text-body-5 text-typo-neutral-light">
           자유 콘텐츠 슬롯
         </div>
       </RadioCard>
@@ -153,9 +153,9 @@ export const AllSizes: Story = {
   // size × checked × disabled 전 조합을 동시에 보여주는 정적 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex w-[var(--sz-320)] flex-col gap-[var(--sz-24)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex w-(--sz-320) flex-col gap-(--sz-24) bg-bg-neutral-normal p-(--sz-32)">
       {SIZES.map((size) => (
-        <div key={size} className="flex flex-col gap-[var(--sz-8)]">
+        <div key={size} className="flex flex-col gap-(--sz-8)">
           {([false, true] as const).map((checked) =>
             ([false, true] as const).map((disabled) => (
               <RadioCard
@@ -186,7 +186,7 @@ export const AllSizes: Story = {
 function RadioCardGroupDemo() {
   const [value, setValue] = useState<"basic" | "pro">("basic");
   return (
-    <div className="flex w-[var(--sz-320)] flex-col gap-[var(--sz-16)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex w-(--sz-320) flex-col gap-(--sz-16) bg-bg-neutral-normal p-(--sz-32)">
       <RadioCard
         name="plan"
         label="Basic"

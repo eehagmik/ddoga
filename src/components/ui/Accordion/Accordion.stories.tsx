@@ -89,20 +89,20 @@ export const WithoutDivider: Story = {
  */
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex w-full flex-col gap-[var(--sz-24)] bg-bg-neutral-normal">
-      <div className="flex flex-col gap-[var(--sz-8)]">
+    <div className="flex w-full flex-col gap-(--sz-24) bg-bg-neutral-normal">
+      <div className="flex flex-col gap-(--sz-8)">
         <code className="text-2xs text-typo-neutral-light">
           collapsed / enable
         </code>
         <Accordion title="아코디언 제목">아코디언 콘텐츠입니다.</Accordion>
       </div>
-      <div className="flex flex-col gap-[var(--sz-8)]">
+      <div className="flex flex-col gap-(--sz-8)">
         <code className="text-2xs text-typo-neutral-light">
           collapsed / hover (마우스를 올려보세요)
         </code>
         <Accordion title="아코디언 제목">아코디언 콘텐츠입니다.</Accordion>
       </div>
-      <div className="flex flex-col gap-[var(--sz-8)]">
+      <div className="flex flex-col gap-(--sz-8)">
         <code className="text-2xs text-typo-neutral-light">
           expanded / enable
         </code>
@@ -129,7 +129,7 @@ export const Controlled: Story = {
 function ControlledDemo() {
   const [expanded, setExpanded] = useState(false);
   return (
-    <div className="flex w-full flex-col gap-[var(--sz-12)] bg-bg-neutral-normal">
+    <div className="flex w-full flex-col gap-(--sz-12) bg-bg-neutral-normal">
       <Accordion
         title="아코디언 제목"
         expanded={expanded}

@@ -18,7 +18,7 @@
  *   `hover:` 로 건다(`group-hover:` 는 `.group` 자손 전용이라 루트 자신에는 안 먹는다). 루트의 `group`
  *   클래스는 자손 `<Checkbox>` 아톰용으로 유지한다.
  * - focus: Figma 에 없음. `CheckboxWithLabel` 과 동일하게 체크박스 래퍼에
- *   `peer-focus-visible:opacity-[var(--alpha-80)]` dip 을 준다(`Button` 선례).
+ *   `peer-focus-visible:opacity-(--alpha-80)` dip 을 준다(`Button` 선례).
  * - disabled: `<input disabled>` + `<Checkbox disabled>` + 카드 표면/라벨/서브텍스트 색 + `cursor-not-allowed`.
  * - selected(checked): 카드 배경 `bg/brand/bright`, 외곽선 brand 2px(`shadow/borderBrand/sm`),
  *   라벨 `typo/brand/dark` + Bold. (전부 node 51405:45930 값 그대로 매핑.)
@@ -85,27 +85,27 @@ export interface CheckboxCardProps extends Omit<
 /** 루트 공통 — group(hover 전파) · 세로 스택 · 코너 클립 · font-feature · 표면 전이. */
 const ROOT_CLASS =
   "group relative flex w-full flex-col items-start overflow-hidden " +
-  "p-[var(--sz-14)] [font-feature-settings:var(--font-feature-case)] " +
+  "p-(--sz-14) [font-feature-settings:var(--font-feature-case)] " +
   "transition-[background-color,box-shadow] duration-150 ease-in-out motion-reduce:transition-none";
 
 /** 체크박스 래퍼 공통 — 세로 중앙 · 축소 방지 · 키보드 포커스 어포던스 · 전이. */
 const LEFT_CLASS =
   "inline-flex shrink-0 items-center " +
-  "peer-focus-visible:opacity-[var(--alpha-80)] " +
+  "peer-focus-visible:opacity-(--alpha-80) " +
   "transition-opacity duration-150 ease-in-out motion-reduce:transition-none";
 
 /** size 별 카드 gap(콘텐츠 ↔ 슬롯) + radius. */
 const CARD_SIZE: Record<CheckboxCardSize, string> = {
-  sm: "gap-[var(--sz-8)] rounded-md",
-  md: "gap-[var(--sz-10)] rounded-lg",
-  lg: "gap-[var(--sz-12)] rounded-xl",
+  sm: "gap-(--sz-8) rounded-md",
+  md: "gap-(--sz-10) rounded-lg",
+  lg: "gap-(--sz-12) rounded-xl",
 };
 
 /** size 별 체크박스 래퍼 상단 패딩(첫 줄 라벨과 광학 정렬). */
 const LEFT_PT: Record<CheckboxCardSize, string> = {
-  sm: "pt-[var(--sz-1)]",
-  md: "pt-[var(--sz-1)]",
-  lg: "pt-[var(--sz-5)]",
+  sm: "pt-(--sz-1)",
+  md: "pt-(--sz-1)",
+  lg: "pt-(--sz-5)",
 };
 
 /** size 별 라벨 합성 타이포(uncheck=Medium / check=Bold). */
@@ -124,9 +124,9 @@ const SUBTEXT_TYPO: Record<CheckboxCardSize, string> = {
 
 /** size 별 서브텍스트 좌측 패딩(체크박스 열 폭만큼 들여쓰기). */
 const SUBTEXT_PL: Record<CheckboxCardSize, string> = {
-  sm: "pl-[var(--sz-30)]",
-  md: "pl-[var(--sz-32)]",
-  lg: "pl-[var(--sz-32)]",
+  sm: "pl-(--sz-30)",
+  md: "pl-(--sz-32)",
+  lg: "pl-(--sz-32)",
 };
 
 /** size → 합성할 `Checkbox` 아톰 size (lg 카드는 md 아톰을 쓴다 — Figma 검증). */
@@ -208,8 +208,8 @@ export function CheckboxCard({
         {...rest}
       />
 
-      <div className="flex w-full flex-col gap-[var(--sz-4)]">
-        <div className="flex w-full items-start gap-[var(--sz-8)]">
+      <div className="flex w-full flex-col gap-(--sz-4)">
+        <div className="flex w-full items-start gap-(--sz-8)">
           <span className={[LEFT_CLASS, LEFT_PT[size]].join(" ")}>
             <Checkbox
               variant="circle"

@@ -180,14 +180,14 @@ function surfaceClass(variant: LikeToggleVariant, checked: boolean): string {
 
 /** 루트 공통 — 인라인 정렬 · 아이콘/라벨/카운트 4px 갭 · focus-visible opacity dip. */
 const BASE_CLASS =
-  "inline-flex shrink-0 cursor-pointer items-center gap-[var(--sz-4)] " +
+  "inline-flex shrink-0 cursor-pointer items-center gap-(--sz-4) " +
   "disabled:cursor-default " +
   "transition-[background-color,opacity] duration-150 ease-in-out motion-reduce:transition-none " +
-  "focus-visible:outline-none focus-visible:opacity-[var(--alpha-60)] " +
+  "focus-visible:outline-none focus-visible:opacity-(--alpha-60) " +
   "[font-feature-settings:var(--font-feature-case)]";
 
 /** outline 전용 여백·모서리(pill). transparent 는 크롬이 없어 패딩도 없다. */
-const OUTLINE_SHAPE_CLASS = "rounded-circle px-[var(--sz-10)] py-[var(--sz-6)]";
+const OUTLINE_SHAPE_CLASS = "rounded-circle px-(--sz-10) py-(--sz-6)";
 
 export function LikeToggleWithLabel({
   variant = "heart",

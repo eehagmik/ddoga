@@ -78,8 +78,8 @@ export interface HorizontalMenuButtonProps extends Omit<
 const ROOT_BASE =
   "flex w-full cursor-pointer items-center justify-center " +
   "[font-feature-settings:var(--font-feature-case)] transition-opacity " +
-  "hover:opacity-[var(--alpha-80)] " +
-  "focus-visible:opacity-[var(--alpha-60)] focus-visible:outline-none";
+  "hover:opacity-(--alpha-80) " +
+  "focus-visible:opacity-(--alpha-60) focus-visible:outline-none";
 
 /** variant 별 루트 배경·테두리(outline 만 — text 는 배경 없음). */
 const VARIANT_ROOT: Record<HorizontalMenuButtonVariant, string> = {
@@ -103,58 +103,58 @@ const SIZE_MIN_HEIGHT: Record<
   Record<HorizontalMenuButtonSize, string>
 > = {
   text: {
-    sm: "min-h-[var(--sz-36)]",
-    md: "min-h-[var(--sz-40)]",
-    lg: "min-h-[var(--sz-40)]",
-    xl: "min-h-[var(--sz-42)]",
-    "2xl": "min-h-[var(--sz-46)]",
+    sm: "min-h-(--sz-36)",
+    md: "min-h-(--sz-40)",
+    lg: "min-h-(--sz-40)",
+    xl: "min-h-(--sz-42)",
+    "2xl": "min-h-(--sz-46)",
   },
   outline: {
-    sm: "min-h-[var(--sz-40)]",
-    md: "min-h-[var(--sz-46)]",
-    lg: "min-h-[var(--sz-46)]",
-    xl: "min-h-[var(--sz-52)]",
-    "2xl": "min-h-[var(--sz-56)]",
+    sm: "min-h-(--sz-40)",
+    md: "min-h-(--sz-46)",
+    lg: "min-h-(--sz-46)",
+    xl: "min-h-(--sz-52)",
+    "2xl": "min-h-(--sz-56)",
   },
 };
 
 /** `text` 는 전 size 공통 padding(가로 hug). */
-const TEXT_PADDING = "px-0 py-[var(--sz-2)]";
+const TEXT_PADDING = "px-0 py-(--sz-2)";
 
 /** `outline` 은 sm 만 다른 padding, md~2xl 는 동일. */
 const OUTLINE_PADDING: Record<HorizontalMenuButtonSize, string> = {
-  sm: "px-[var(--sz-8)] py-[var(--sz-4)]",
-  md: "px-[var(--sz-10)] py-[var(--sz-7)]",
-  lg: "px-[var(--sz-10)] py-[var(--sz-7)]",
-  xl: "px-[var(--sz-10)] py-[var(--sz-7)]",
-  "2xl": "px-[var(--sz-10)] py-[var(--sz-7)]",
+  sm: "px-(--sz-8) py-(--sz-4)",
+  md: "px-(--sz-10) py-(--sz-7)",
+  lg: "px-(--sz-10) py-(--sz-7)",
+  xl: "px-(--sz-10) py-(--sz-7)",
+  "2xl": "px-(--sz-10) py-(--sz-7)",
 };
 
 /** left(아이콘+라벨) ↔ option(끝 슬롯+chevron) 사이 gap. */
 const SIZE_INNER_GAP: Record<HorizontalMenuButtonSize, string> = {
-  sm: "gap-[var(--sz-6)]",
-  md: "gap-[var(--sz-8)]",
-  lg: "gap-[var(--sz-8)]",
-  xl: "gap-[var(--sz-8)]",
-  "2xl": "gap-[var(--sz-8)]",
+  sm: "gap-(--sz-6)",
+  md: "gap-(--sz-8)",
+  lg: "gap-(--sz-8)",
+  xl: "gap-(--sz-8)",
+  "2xl": "gap-(--sz-8)",
 };
 
 /** startSlot ↔ 라벨 gap. */
 const SIZE_LEFT_GAP: Record<HorizontalMenuButtonSize, string> = {
-  sm: "gap-[var(--sz-8)]",
-  md: "gap-[var(--sz-10)]",
-  lg: "gap-[var(--sz-10)]",
-  xl: "gap-[var(--sz-10)]",
-  "2xl": "gap-[var(--sz-10)]",
+  sm: "gap-(--sz-8)",
+  md: "gap-(--sz-10)",
+  lg: "gap-(--sz-10)",
+  xl: "gap-(--sz-10)",
+  "2xl": "gap-(--sz-10)",
 };
 
 /** endSlot ↔ chevron gap. */
 const SIZE_OPTION_GAP: Record<HorizontalMenuButtonSize, string> = {
-  sm: "gap-[var(--sz-4)]",
-  md: "gap-[var(--sz-6)]",
-  lg: "gap-[var(--sz-6)]",
-  xl: "gap-[var(--sz-6)]",
-  "2xl": "gap-[var(--sz-6)]",
+  sm: "gap-(--sz-4)",
+  md: "gap-(--sz-6)",
+  lg: "gap-(--sz-6)",
+  xl: "gap-(--sz-6)",
+  "2xl": "gap-(--sz-6)",
 };
 
 /** size × bold → 라벨 타이포 유틸(Figma 검증: md·lg / xl·2xl 는 짝을 이룬다). */
@@ -171,11 +171,11 @@ const SIZE_TYPO: Record<
 
 /** startSlot 정사각 슬롯 크기(Figma 검증). */
 const SIZE_START_SLOT: Record<HorizontalMenuButtonSize, string> = {
-  sm: "size-[var(--sz-22)]",
-  md: "size-[var(--sz-28)]",
-  lg: "size-[var(--sz-32)]",
-  xl: "size-[var(--sz-38)]",
-  "2xl": "size-[var(--sz-42)]",
+  sm: "size-(--sz-22)",
+  md: "size-(--sz-28)",
+  lg: "size-(--sz-32)",
+  xl: "size-(--sz-38)",
+  "2xl": "size-(--sz-42)",
 };
 
 /** chevron 아이콘 px(Figma 검증). */

@@ -5,7 +5,7 @@
  * 가이드 페이지 (node 51405:156825) 의 플로팅 동작 스펙을 1:1 로 구현한다.
  *
  * 비주얼 (Figma 토큰 → 코드 유틸):
- * - 54×54 원형: `size-[var(--sz-54)]` + `rounded-circle` (radius/circle)
+ * - 54×54 원형: `size-(--sz-54)` + `rounded-circle` (radius/circle)
  * - 배경 `background/neutral/dark`: `bg-bg-neutral-dark`
  * - 아이콘 `arrow_up_line` 22×22, `icon/neutral/light`: `<Icon size={22}>` + `text-icon-neutral-light`
  * - 그림자 `shadow/black/md`: `shadow-black-md`
@@ -49,7 +49,7 @@ export interface TopButtonProps {
 /** Figma: 54×54 원형 / bg neutral dark / icon neutral light / shadow black md / 우하단 safe-area 12px / 0.8s fade */
 const BASE_CLASS =
   "fixed z-50 inline-flex items-center justify-center " +
-  "size-[var(--sz-54)] rounded-circle " +
+  "size-(--sz-54) rounded-circle " +
   "bg-bg-neutral-dark text-icon-neutral-light shadow-black-md " +
   "right-[calc(env(safe-area-inset-right,0px)+var(--sz-12))] " +
   "bottom-[calc(env(safe-area-inset-bottom,0px)+var(--sz-12))] " +

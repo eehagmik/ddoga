@@ -43,7 +43,7 @@ const LOCKUPS = ["symbol", "wordmark", "horizontal", "vertical"] as const;
 export const Playground: Story = {
   args: { lockup: "horizontal", tone: "color", expand: false, width: 280 },
   render: (args) => (
-    <div className="bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="bg-bg-neutral-normal p-(--sz-32)">
       <Logo {...args} />
     </div>
   ),
@@ -57,9 +57,9 @@ export const Playground: Story = {
 
 export const AllLockups: Story = {
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-32)] bg-bg-neutral-normal p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-32) bg-bg-neutral-normal p-(--sz-32)">
       {LOCKUPS.map((lockup) => (
-        <div key={lockup} className="flex flex-col gap-[var(--sz-8)]">
+        <div key={lockup} className="flex flex-col gap-(--sz-8)">
           <code className="text-2xs text-typo-neutral-light">{lockup}</code>
           <Logo
             lockup={lockup}

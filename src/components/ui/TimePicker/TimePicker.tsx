@@ -296,7 +296,7 @@ export function TimePicker(props: TimePickerProps) {
           onPrimaryClick: handleClose,
         }}
       >
-        <div className="h-[var(--sz-320)]">
+        <div className="h-(--sz-320)">
           <TimeSelect value={displayValue} onChange={handleTimeSelectChange} />
         </div>
       </BottomSheet>

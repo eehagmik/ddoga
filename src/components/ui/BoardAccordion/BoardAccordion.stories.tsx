@@ -18,7 +18,7 @@ const SLOT_PLACEHOLDER_LABEL = "슬롯";
  */
 function renderStartSlotPlaceholder(): ReactNode {
   return (
-    <span className="inline-flex size-full shrink-0 items-center justify-center rounded-xs bg-bg-neutral-deepDark px-[var(--sz-2)] text-[10px] text-typo-neutral-light">
+    <span className="inline-flex size-full shrink-0 items-center justify-center rounded-xs bg-bg-neutral-deepDark px-(--sz-2) text-[10px] text-typo-neutral-light">
       {SLOT_PLACEHOLDER_LABEL}
     </span>
   );
@@ -178,13 +178,13 @@ export const LongTitleClamp: Story = {
  */
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex w-full flex-col gap-[var(--sz-24)] bg-bg-neutral-normal">
+    <div className="flex w-full flex-col gap-(--sz-24) bg-bg-neutral-normal">
       {(["horizontal", "vertical"] as const).map((direction) => (
-        <div key={direction} className="flex flex-col gap-[var(--sz-8)]">
+        <div key={direction} className="flex flex-col gap-(--sz-8)">
           <code className="text-2xs text-typo-neutral-light">
             titleDirection={direction}
           </code>
-          <div className="flex flex-col gap-[var(--sz-8)]">
+          <div className="flex flex-col gap-(--sz-8)">
             <code className="text-2xs text-typo-neutral-light">
               collapsed / enable
             </code>
@@ -241,7 +241,7 @@ export const Controlled: Story = {
 function ControlledDemo() {
   const [expanded, setExpanded] = useState(false);
   return (
-    <div className="flex w-full flex-col gap-[var(--sz-12)] bg-bg-neutral-normal">
+    <div className="flex w-full flex-col gap-(--sz-12) bg-bg-neutral-normal">
       <BoardAccordion
         title="게시글 제목입니다"
         date="2026.09.13"

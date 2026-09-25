@@ -40,7 +40,7 @@ type Story = StoryObj<typeof meta>;
 /** 스크롤을 유발하는 더미 콘텐츠 — FixButton이 그 아래(뒤) 고정되는 맥락을 보여준다. */
 function TallContent() {
   return (
-    <div className="flex flex-col gap-[var(--sz-16)] bg-bg-neutral-dark p-[var(--sz-20)] pb-[var(--sz-160)]">
+    <div className="flex flex-col gap-(--sz-16) bg-bg-neutral-dark p-(--sz-20) pb-(--sz-160)">
       {Array.from({ length: 20 }, (_, i) => (
         <p key={i} className="text-body-4 text-typo-neutral-normal">
           {i + 1}. 스크롤되는 콘텐츠. 화면 하단에는 FixButton이 항상 고정되어
@@ -114,7 +114,7 @@ export const Asymmetry: Story = {
     const canvas = within(canvasElement);
     const secondary = canvas.getByRole("button", { name: "이전" });
     const primary = canvas.getByRole("button", { name: "다음 단계로 진행" });
-    await expect(secondary).toHaveClass("min-w-[var(--sz-100)]");
+    await expect(secondary).toHaveClass("min-w-(--sz-100)");
     await expect(primary).toHaveClass("flex-1");
   },
 };
@@ -139,7 +139,7 @@ export const IconButtonVariant: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const iconBtn = canvas.getByRole("button", { name: "공유" });
-    await expect(iconBtn).toHaveClass("size-[var(--sz-54)]");
+    await expect(iconBtn).toHaveClass("size-(--sz-54)");
     await userEvent.click(iconBtn);
     await expect(iconButtonClick).toHaveBeenCalledTimes(1);
     await expect(

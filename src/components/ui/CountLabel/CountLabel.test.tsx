@@ -15,7 +15,7 @@ describe("CountLabel", () => {
     expect(root).toHaveClass(
       "inline-flex",
       "items-center",
-      "gap-[var(--sz-2)]",
+      "gap-(--sz-2)",
       "text-typo-neutral-subtle",
     );
     // 기본 unit 값은 "Unit"
@@ -51,7 +51,7 @@ describe("CountLabel", () => {
     expect(valueGroup?.className ?? "").not.toMatch(/gap-\[var\(--sz-2\)\]/);
   });
 
-  it("size md 는 값 그룹에 gap-[var(--sz-2)] 와 --text-sm 텍스트 유틸을 적용한다", () => {
+  it("size md 는 값 그룹에 gap-(--sz-2) 와 --text-sm 텍스트 유틸을 적용한다", () => {
     const { container } = render(
       <CountLabel size="md" currentCount={1} totalCount={3} unit="개" />,
     );
@@ -60,7 +60,7 @@ describe("CountLabel", () => {
     expect(valueGroup).toHaveClass(
       "inline-flex",
       "items-center",
-      "gap-[var(--sz-2)]",
+      "gap-(--sz-2)",
       "text-[length:var(--text-sm)]",
       "tracking-[-0.16px]",
     );

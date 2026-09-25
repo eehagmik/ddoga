@@ -89,38 +89,38 @@ const LABEL_BASE =
 
 /** size 별 높이. */
 const SIZE_HEIGHT: Record<ChipSize, string> = {
-  xs: "h-[var(--sz-26)]",
-  sm: "h-[var(--sz-32)]",
+  xs: "h-(--sz-26)",
+  sm: "h-(--sz-32)",
 };
 
 /** size 별 좌우 padding (deletable=false). */
 const SIZE_PX: Record<ChipSize, string> = {
-  xs: "px-[var(--sz-8)]",
-  sm: "px-[var(--sz-10)]",
+  xs: "px-(--sz-8)",
+  sm: "px-(--sz-10)",
 };
 
 /** size 별 비대칭 padding (deletable=true — 우측을 줄여 삭제 버튼에 밀착). */
 const SIZE_PAD_DEL: Record<ChipSize, string> = {
-  xs: "pl-[var(--sz-10)] pr-[var(--sz-6)]",
-  sm: "pl-[var(--sz-12)] pr-[var(--sz-8)]",
+  xs: "pl-(--sz-10) pr-(--sz-6)",
+  sm: "pl-(--sz-12) pr-(--sz-8)",
 };
 
 /** size 별 외곽 gap (루트 ↔ 삭제 버튼, deletable=true). */
 const SIZE_OUTER_GAP: Record<ChipSize, string> = {
-  xs: "gap-[var(--sz-3)]",
-  sm: "gap-[var(--sz-4)]",
+  xs: "gap-(--sz-3)",
+  sm: "gap-(--sz-4)",
 };
 
 /** size 별 inner gap (슬롯 ↔ 라벨). */
 const SIZE_INNER_GAP: Record<ChipSize, string> = {
-  xs: "gap-[var(--sz-4)]",
-  sm: "gap-[var(--sz-6)]",
+  xs: "gap-(--sz-4)",
+  sm: "gap-(--sz-6)",
 };
 
 /** size 별 leading 슬롯 / 삭제 버튼 정사각 크기. */
 const SIZE_SLOT: Record<ChipSize, string> = {
-  xs: "size-[var(--sz-16)]",
-  sm: "size-[var(--sz-18)]",
+  xs: "size-(--sz-16)",
+  sm: "size-(--sz-18)",
 };
 
 /** size 별 라벨 합성 타이포 유틸(normal / bold). */
@@ -315,7 +315,7 @@ export function Chip({
             SIZE_SLOT[size],
             iconColor,
             "cursor-pointer",
-            "focus-visible:opacity-[var(--alpha-60)] focus-visible:outline-none",
+            "focus-visible:opacity-(--alpha-60) focus-visible:outline-none",
           ]
             .filter(Boolean)
             .join(" ")}

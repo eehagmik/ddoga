@@ -47,7 +47,7 @@ export const Playground: Story = {};
 
 /** color="white" 는 밝은 배경에서 보이지 않아 어두운 배경으로 감싼다(Figma 원본 사용 맥락 = ChipIndicator 오버레이). */
 const withDarkBackground = (Story: () => React.ReactElement) => (
-  <div className="flex items-center justify-center rounded-2xl bg-bg-inverse-normal p-[var(--sz-16)]">
+  <div className="flex items-center justify-center rounded-2xl bg-bg-inverse-normal p-(--sz-16)">
     <Story />
   </div>
 );

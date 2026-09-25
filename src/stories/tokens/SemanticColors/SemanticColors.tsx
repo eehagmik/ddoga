@@ -129,7 +129,7 @@ function Swatch({ token, label }: { token: string; label: string }) {
           data-token={token}
         />
       </div>
-      <div className="flex flex-col gap-[var(--sz-2)] bg-bg-neutral-normal px-[var(--sz-8)] py-[var(--sz-4)]">
+      <div className="flex flex-col gap-(--sz-2) bg-bg-neutral-normal px-(--sz-8) py-(--sz-4)">
         <span className="text-2xs font-normal text-typo-neutral-normal">
           {label}
         </span>
@@ -150,20 +150,20 @@ export function SemanticColors({ element }: SemanticColorsProps) {
   const elements = element ? [element] : ELEMENT_ORDER;
 
   return (
-    <div className="flex flex-col gap-[var(--sz-32)] bg-bg-neutral-normal p-[var(--sz-16)] text-typo-neutral-normal">
+    <div className="flex flex-col gap-(--sz-32) bg-bg-neutral-normal p-(--sz-16) text-typo-neutral-normal">
       {elements.map((el) => (
         <section
           key={el}
           data-element={el}
-          className="flex flex-col gap-[var(--sz-16)]"
+          className="flex flex-col gap-(--sz-16)"
         >
           <h2 className="text-2xl font-bold">{el}</h2>
           {Object.entries(TOKENS[el]).map(([role, brightnesses]) => (
-            <div key={role} className="flex flex-col gap-[var(--sz-8)]">
+            <div key={role} className="flex flex-col gap-(--sz-8)">
               <h3 className="text-xs font-normal text-typo-neutral-light">
                 {role}
               </h3>
-              <div className="grid grid-cols-2 gap-[var(--sz-12)] sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+              <div className="grid grid-cols-2 gap-(--sz-12) sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                 {brightnesses.map((brightness) => (
                   <Swatch
                     key={brightness}

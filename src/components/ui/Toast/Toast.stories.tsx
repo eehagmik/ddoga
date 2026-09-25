@@ -62,7 +62,7 @@ export const Playground: Story = {
 /** 5개 status 전부 — 항상 뷰포트(부모) 전체 폭을 채운다. */
 export const AllStatuses: Story = {
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-8)]">
+    <div className="flex flex-col gap-(--sz-8)">
       <Toast status="normal">기본 안내 메시지예요</Toast>
       <Toast status="danger">오류가 발생했어요. 다시 시도해 주세요</Toast>
       <Toast status="warning">

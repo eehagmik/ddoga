@@ -54,18 +54,12 @@ describe("Button", () => {
 
   it("size 별 min-height · radius 유틸 클래스를 적용한다(padding·타이포 없음)", () => {
     const { getByRole, rerender } = render(<Button size="2xl">내용</Button>);
-    expect(getByRole("button")).toHaveClass(
-      "min-h-[var(--sz-54)]",
-      "rounded-xl",
-    );
+    expect(getByRole("button")).toHaveClass("min-h-(--sz-54)", "rounded-xl");
     expect(getByRole("button").className).not.toMatch(/px-\[var\(--sz-/);
     expect(getByRole("button").className).not.toMatch(/text-body-/);
 
     rerender(<Button size="sm">내용</Button>);
-    expect(getByRole("button")).toHaveClass(
-      "min-h-[var(--sz-32)]",
-      "rounded-sm",
-    );
+    expect(getByRole("button")).toHaveClass("min-h-(--sz-32)", "rounded-sm");
   });
 
   it("variant/color 별 배경·테두리·hover·focus 클래스를 적용한다", () => {
@@ -78,7 +72,7 @@ describe("Button", () => {
       "bg-bg-brand-normal",
       "hover:bg-bg-brand-deep",
       "focus-visible:bg-bg-brand-deep",
-      "disabled:opacity-[var(--alpha-60)]",
+      "disabled:opacity-(--alpha-60)",
     );
     // pressed(:active) 는 hover/focus 와 동일 토큰
     expect(getByRole("button")).toHaveClass("active:bg-bg-brand-deep");
@@ -104,7 +98,7 @@ describe("Button", () => {
     );
     expect(getByRole("button")).toHaveClass(
       "bg-bg-warning-bright",
-      "disabled:opacity-[var(--alpha-40)]",
+      "disabled:opacity-(--alpha-40)",
     );
     expect(getByRole("button")).toHaveClass(
       "hover:bg-bg-warning-light",
@@ -116,8 +110,8 @@ describe("Button", () => {
     const { getByRole } = render(<Button>내용</Button>);
     const btn = getByRole("button");
     expect(btn).toHaveClass(
-      "focus-visible:opacity-[var(--alpha-80)]",
-      "active:opacity-[var(--alpha-80)]",
+      "focus-visible:opacity-(--alpha-80)",
+      "active:opacity-(--alpha-80)",
     );
     expect(btn.className).not.toMatch(/hover:opacity-/);
   });

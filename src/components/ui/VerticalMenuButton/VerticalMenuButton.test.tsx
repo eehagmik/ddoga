@@ -18,10 +18,10 @@ describe("VerticalMenuButton", () => {
     expect(btn).toHaveAttribute("data-size", "sm");
     expect(btn).toHaveAttribute("data-badge", "false");
     expect(btn).toHaveClass(
-      "w-[var(--sz-68)]",
+      "w-(--sz-68)",
       "cursor-pointer",
       "rounded-md",
-      "p-[var(--sz-4)]",
+      "p-(--sz-4)",
     );
   });
 
@@ -46,11 +46,11 @@ describe("VerticalMenuButton", () => {
       expect(btn).toHaveAttribute("data-size", size);
 
       const graphicSize: Record<VerticalMenuButtonSize, string> = {
-        sm: "size-[var(--sz-28)]",
-        md: "size-[var(--sz-32)]",
-        lg: "size-[var(--sz-42)]",
-        xl: "size-[var(--sz-52)]",
-        "2xl": "size-[var(--sz-60)]",
+        sm: "size-(--sz-28)",
+        md: "size-(--sz-32)",
+        lg: "size-(--sz-42)",
+        xl: "size-(--sz-52)",
+        "2xl": "size-(--sz-60)",
       };
       const graphic = btn.querySelector('[data-name="image"] > span');
       expect(graphic).toHaveClass(graphicSize[size]);
@@ -111,7 +111,7 @@ describe("VerticalMenuButton", () => {
     const btn = getByRole("button");
     const slot = btn.querySelector('[data-name="endSlot"]');
     expect(slot).not.toBeNull();
-    expect(slot).toHaveClass("h-[var(--sz-32)]", "w-full");
+    expect(slot).toHaveClass("h-(--sz-32)", "w-full");
     expect(btn).toHaveTextContent("extra");
   });
 
@@ -123,8 +123,8 @@ describe("VerticalMenuButton", () => {
     );
     const btn = getByRole("button");
     expect(btn).toHaveClass(
-      "hover:opacity-[var(--alpha-80)]",
-      "focus-visible:opacity-[var(--alpha-60)]",
+      "hover:opacity-(--alpha-80)",
+      "focus-visible:opacity-(--alpha-60)",
     );
   });
 
@@ -141,14 +141,11 @@ describe("VerticalMenuButton", () => {
 
   it("className 을 루트 button 에 병합한다", () => {
     const { getByRole } = render(
-      <VerticalMenuButton label="Label" className="mt-[var(--sz-8)]">
+      <VerticalMenuButton label="Label" className="mt-(--sz-8)">
         <span>g</span>
       </VerticalMenuButton>,
     );
-    expect(getByRole("button")).toHaveClass(
-      "mt-[var(--sz-8)]",
-      "w-[var(--sz-68)]",
-    );
+    expect(getByRole("button")).toHaveClass("mt-(--sz-8)", "w-(--sz-68)");
   });
 
   it("색·크기를 토큰 유틸로만 지정하고 인라인 style 에 hex 가 없다", () => {

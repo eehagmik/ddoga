@@ -65,24 +65,24 @@ export const BUTTON_BASE =
   "group inline-flex items-center justify-center " +
   "transition-[background-color,opacity] duration-150 ease-in-out motion-reduce:transition-none " +
   "focus-visible:outline-none " +
-  "focus-visible:opacity-[var(--alpha-80)] active:opacity-[var(--alpha-80)] " +
+  "focus-visible:opacity-(--alpha-80) active:opacity-(--alpha-80) " +
   "disabled:pointer-events-none disabled:cursor-not-allowed";
 
 /** size 별 min-height · radius (padding·gap·타이포 없음). */
 const SIZE_CLASS: Record<ButtonSize, string> = {
-  "2xl": "min-h-[var(--sz-54)] rounded-xl",
-  xl: "min-h-[var(--sz-50)] rounded-lg",
-  lg: "min-h-[var(--sz-46)] rounded-md",
-  md: "min-h-[var(--sz-40)] rounded-md",
-  sm: "min-h-[var(--sz-32)] rounded-sm",
-  xs: "min-h-[var(--sz-26)] rounded-sm",
+  "2xl": "min-h-(--sz-54) rounded-xl",
+  xl: "min-h-(--sz-50) rounded-lg",
+  lg: "min-h-(--sz-46) rounded-md",
+  md: "min-h-(--sz-40) rounded-md",
+  sm: "min-h-(--sz-32) rounded-sm",
+  xs: "min-h-(--sz-26) rounded-sm",
 };
 
 /** variant 별 루트 disabled 투명도. */
 const DISABLED_OPACITY: Record<ButtonVariant, string> = {
-  fill: "disabled:opacity-[var(--alpha-60)]",
-  bright: "disabled:opacity-[var(--alpha-40)]",
-  outline: "disabled:opacity-[var(--alpha-60)]",
+  fill: "disabled:opacity-(--alpha-60)",
+  bright: "disabled:opacity-(--alpha-40)",
+  outline: "disabled:opacity-(--alpha-60)",
 };
 
 /**

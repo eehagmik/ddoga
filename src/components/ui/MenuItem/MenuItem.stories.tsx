@@ -122,7 +122,7 @@ export const ChipSlot: Story = {
 /** size 4종 나란히 비교(variant=text). */
 export const AllSizes: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-8)]">
+    <div className="flex flex-col gap-(--sz-8)">
       {SIZES.map((size) => (
         <MenuItem
           {...args}
@@ -139,7 +139,7 @@ export const AllSizes: Story = {
 /** size 4종 × variant=icon. */
 export const AllSizesIcon: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-8)]">
+    <div className="flex flex-col gap-(--sz-8)">
       {SIZES.map((size) => (
         <MenuItem
           {...args}
@@ -158,7 +158,7 @@ export const AllSizesIcon: Story = {
 /** size 4종 × variant=chip. */
 export const AllSizesChip: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-[var(--sz-8)]">
+    <div className="flex flex-col gap-(--sz-8)">
       {SIZES.map((size) => (
         <MenuItem
           {...args}

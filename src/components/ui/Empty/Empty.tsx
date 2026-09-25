@@ -57,7 +57,7 @@ export interface EmptyProps extends Omit<
   rightButton?: ReactNode;
 }
 
-const GRAPHIC_CLASS = "relative size-[var(--sz-72)] shrink-0 overflow-hidden";
+const GRAPHIC_CLASS = "relative size-(--sz-72) shrink-0 overflow-hidden";
 
 export function Empty({
   variant = "default",
@@ -73,10 +73,7 @@ export function Empty({
 
   return (
     <div
-      className={[
-        "flex w-full flex-col items-center gap-[var(--sz-16)]",
-        className,
-      ]
+      className={["flex w-full flex-col items-center gap-(--sz-16)", className]
         .filter(Boolean)
         .join(" ")}
       data-variant={variant}
@@ -92,13 +89,13 @@ export function Empty({
         )}
       </div>
 
-      <div className="flex w-full flex-col items-center gap-[var(--sz-4)] px-[var(--sz-20)] text-center text-typo-neutral-normal">
+      <div className="flex w-full flex-col items-center gap-(--sz-4) px-(--sz-20) text-center text-typo-neutral-normal">
         <p className="w-full text-body-3-bold">{mainText}</p>
         {subText ? <p className="w-full text-body-4">{subText}</p> : null}
       </div>
 
       {hasButtons ? (
-        <div className="flex w-full items-start justify-center gap-[var(--sz-8)]">
+        <div className="flex w-full items-start justify-center gap-(--sz-8)">
           {leftButton}
           {rightButton}
         </div>

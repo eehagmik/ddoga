@@ -29,7 +29,7 @@ export interface BadgeNumberProps {
  */
 const BASE_CLASS =
   "inline-flex items-center justify-center text-center rounded-circle " +
-  "px-[var(--sz-3)] bg-bg-danger-normal text-typo-inverse-normal " +
+  "px-(--sz-3) bg-bg-danger-normal text-typo-inverse-normal " +
   "[font-feature-settings:var(--font-feature-case)]";
 
 /**
@@ -38,9 +38,9 @@ const BASE_CLASS =
  * md 의 Figma min-height 는 19px 이나 정사각 일관성을 위해 --sz-20 사용(1px 차, 육안 무영향).
  */
 const SIZE_CLASS: Record<NonNullable<BadgeNumberProps["size"]>, string> = {
-  xs: "min-w-[var(--sz-14)] min-h-[var(--sz-14)] text-label-3",
-  sm: "min-w-[var(--sz-16)] min-h-[var(--sz-16)] text-label-2",
-  md: "min-w-[var(--sz-20)] min-h-[var(--sz-20)] text-label-1",
+  xs: "min-w-(--sz-14) min-h-(--sz-14) text-label-3",
+  sm: "min-w-(--sz-16) min-h-(--sz-16) text-label-2",
+  md: "min-w-(--sz-20) min-h-(--sz-20) text-label-1",
 };
 
 export function BadgeNumber({

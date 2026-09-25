@@ -72,16 +72,16 @@ const DOT_BASE_CLASS =
 
 /** 박스 정사각(Figma: scale/22·24·28) */
 const BOX_SIZE_CLASS: Record<RadioSize, string> = {
-  sm: "size-[var(--sz-22)]",
-  md: "size-[var(--sz-24)]",
-  lg: "size-[var(--sz-28)]",
+  sm: "size-(--sz-22)",
+  md: "size-(--sz-24)",
+  lg: "size-(--sz-28)",
 };
 
 /** 내부 점 정사각(Figma: scale/10·12·14) */
 const DOT_SIZE_CLASS: Record<RadioSize, string> = {
-  sm: "size-[var(--sz-10)]",
-  md: "size-[var(--sz-12)]",
-  lg: "size-[var(--sz-14)]",
+  sm: "size-(--sz-10)",
+  md: "size-(--sz-12)",
+  lg: "size-(--sz-14)",
 };
 
 /** (container, dot) 클래스 묶음 */
@@ -112,7 +112,7 @@ function colors(checked: boolean, disabled: boolean): StateClass {
     : {
         container:
           "bg-bg-neutral-normal border-border-neutral-light hover:bg-bg-brandGrayish-deep group-hover:bg-bg-brandGrayish-deep",
-        dot: "bg-icon-brandGrayish-light group-hover:bg-icon-brandGrayish-subtle opacity-[var(--alpha-40)]",
+        dot: "bg-icon-brandGrayish-light group-hover:bg-icon-brandGrayish-subtle opacity-(--alpha-40)",
       };
 }
 

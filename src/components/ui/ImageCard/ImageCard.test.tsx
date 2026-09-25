@@ -134,7 +134,7 @@ describe("ImageCard", () => {
   it("focus 시 루트에 --alpha-80 투명도 dip 을 적용한다(TextCard/GalleryCard 와 통일, 포커스 링 없음)", () => {
     const { container } = render(<ImageCard />);
     const root = container.firstElementChild as HTMLElement;
-    expect(root).toHaveClass("focus-visible:opacity-[var(--alpha-80)]");
+    expect(root).toHaveClass("focus-visible:opacity-(--alpha-80)");
     expect(root).toHaveClass("focus-visible:outline-none");
   });
 });

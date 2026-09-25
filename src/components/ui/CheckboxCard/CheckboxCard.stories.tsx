@@ -38,9 +38,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const Frame = ({ children }: { children: ReactNode }) => (
-  <div className="w-[var(--sz-320)] bg-bg-neutral-deep p-[var(--sz-32)]">
-    {children}
-  </div>
+  <div className="w-(--sz-320) bg-bg-neutral-deep p-(--sz-32)">{children}</div>
 );
 
 export const Playground: Story = {
@@ -74,7 +72,7 @@ export const Sizes: Story = {
   // 여러 size 를 동시에 비교하는 정적 데모라 단일 컨트롤로 대응 불가 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex w-[var(--sz-320)] flex-col gap-[var(--sz-16)] bg-bg-neutral-deep p-[var(--sz-32)]">
+    <div className="flex w-(--sz-320) flex-col gap-(--sz-16) bg-bg-neutral-deep p-(--sz-32)">
       {SIZES.map((size) => (
         <CheckboxCard key={size} size={size} label={`size = ${size}`} />
       ))}
@@ -86,7 +84,7 @@ export const Sizes: Story = {
 export const Checked: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex w-[var(--sz-320)] flex-col gap-[var(--sz-16)] bg-bg-neutral-deep p-[var(--sz-32)]">
+    <div className="flex w-(--sz-320) flex-col gap-(--sz-16) bg-bg-neutral-deep p-(--sz-32)">
       <CheckboxCard label="unchecked" subTextValue="기본 표면" />
       <CheckboxCard
         label="checked"
@@ -101,7 +99,7 @@ export const Checked: Story = {
 export const Disabled: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex w-[var(--sz-320)] flex-col gap-[var(--sz-16)] bg-bg-neutral-deep p-[var(--sz-32)]">
+    <div className="flex w-(--sz-320) flex-col gap-(--sz-16) bg-bg-neutral-deep p-(--sz-32)">
       <CheckboxCard
         label="disabled / unchecked"
         subTextValue="비활성"
@@ -137,7 +135,7 @@ export const WithContentSlot: Story = {
         subTextValue="아래에 임의 콘텐츠"
         defaultChecked
       >
-        <div className="rounded-sm bg-bg-neutral-normal p-[var(--sz-12)] text-body-5 text-typo-neutral-normal">
+        <div className="rounded-sm bg-bg-neutral-normal p-(--sz-12) text-body-5 text-typo-neutral-normal">
           [슬롯]
         </div>
       </CheckboxCard>
@@ -150,17 +148,14 @@ export const AllStates: Story = {
   // size × checked × disabled 전 조합을 동시에 보여주는 정적 데모 — Controls 패널 비활성화.
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-[var(--sz-24)] bg-bg-neutral-deep p-[var(--sz-32)]">
+    <div className="flex flex-col gap-(--sz-24) bg-bg-neutral-deep p-(--sz-32)">
       {SIZES.map((size) => (
-        <div key={size} className="flex flex-col gap-[var(--sz-8)]">
+        <div key={size} className="flex flex-col gap-(--sz-8)">
           <code className="text-2xs text-typo-neutral-light">{size}</code>
-          <div className="flex flex-wrap gap-[var(--sz-16)]">
+          <div className="flex flex-wrap gap-(--sz-16)">
             {([false, true] as const).map((checked) =>
               ([false, true] as const).map((disabled) => (
-                <div
-                  key={`${checked}-${disabled}`}
-                  className="w-[var(--sz-256)]"
-                >
+                <div key={`${checked}-${disabled}`} className="w-(--sz-256)">
                   <CheckboxCard
                     size={size}
                     checked={checked}

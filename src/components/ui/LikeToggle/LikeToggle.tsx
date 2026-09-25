@@ -216,9 +216,9 @@ export function LikeToggleGlyph({
  * (`IconButton`/`ClearButton` 선례 — 크롬 없는 아이콘 버튼은 --alpha-60).
  */
 const BASE_CLASS =
-  "inline-flex shrink-0 cursor-pointer items-center justify-center size-[var(--sz-24)] " +
+  "inline-flex shrink-0 cursor-pointer items-center justify-center size-(--sz-24) " +
   "transition-opacity duration-150 ease-in-out motion-reduce:transition-none " +
-  "focus-visible:outline-none focus-visible:opacity-[var(--alpha-60)]";
+  "focus-visible:outline-none focus-visible:opacity-(--alpha-60)";
 
 export function LikeToggle({
   variant = "heart",

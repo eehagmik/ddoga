@@ -68,8 +68,8 @@ function Section({
   children: ReactNode;
 }) {
   return (
-    <section data-section={id} className="flex flex-col gap-[var(--sz-16)]">
-      <div className="flex flex-col gap-[var(--sz-4)]">
+    <section data-section={id} className="flex flex-col gap-(--sz-16)">
+      <div className="flex flex-col gap-(--sz-4)">
         <h2 className="text-2xl font-bold">{title}</h2>
         <p className="text-xs text-typo-neutral-light">{description}</p>
       </div>
@@ -82,18 +82,18 @@ function SzRow({ n }: { n: number }) {
   return (
     <div
       data-token={`--sz-${n}`}
-      className="flex items-center gap-[var(--sz-12)] border-solid border-b border-border-neutral-light py-[var(--sz-6)]"
+      className="flex items-center gap-(--sz-12) border-solid border-b border-border-neutral-light py-(--sz-6)"
     >
-      <code className="w-[var(--sz-100)] shrink-0 text-2xs font-normal text-typo-neutral-normal">
+      <code className="w-(--sz-100) shrink-0 text-2xs font-normal text-typo-neutral-normal">
         --sz-{n}
       </code>
-      <span className="w-[var(--sz-48)] shrink-0 text-2xs text-typo-neutral-light">{`${n}px`}</span>
-      <span className="w-[var(--sz-72)] shrink-0 text-2xs text-typo-neutral-light">
+      <span className="w-(--sz-48) shrink-0 text-2xs text-typo-neutral-light">{`${n}px`}</span>
+      <span className="w-(--sz-72) shrink-0 text-2xs text-typo-neutral-light">
         {toRem(n)}
       </span>
       <span className="min-w-0 flex-1 overflow-hidden">
         <span
-          className="block h-[var(--sz-8)] rounded-xs bg-bg-brand-normal"
+          className="block h-(--sz-8) rounded-xs bg-bg-brand-normal"
           style={{ width: `var(--sz-${n})` }}
         />
       </span>
@@ -105,10 +105,10 @@ function RadiusCell({ t, sz }: { t: string; sz: number }) {
   return (
     <div
       data-token={`--radius-${t}`}
-      className="flex flex-col items-center gap-[var(--sz-8)]"
+      className="flex flex-col items-center gap-(--sz-8)"
     >
       <div
-        className="h-[var(--sz-72)] w-[var(--sz-72)] border-solid border border-border-brand-normal bg-bg-brand-light"
+        className="h-(--sz-72) w-(--sz-72) border-solid border border-border-brand-normal bg-bg-brand-light"
         style={{ borderRadius: `var(--radius-${t})` }}
       />
       <div className="flex flex-col items-center">
@@ -125,10 +125,10 @@ function BorderWidthCell({ t, sz }: { t: string; sz: number }) {
   return (
     <div
       data-token={`--border-width-${t}`}
-      className="flex flex-col items-center gap-[var(--sz-8)]"
+      className="flex flex-col items-center gap-(--sz-8)"
     >
       <div
-        className="h-[var(--sz-72)] w-[var(--sz-72)] rounded-sm border-solid border-border-brand-normal bg-bg-brand-light"
+        className="h-(--sz-72) w-(--sz-72) rounded-sm border-solid border-border-brand-normal bg-bg-brand-light"
         style={{ borderWidth: `var(--border-width-${t})` }}
       />
       <div className="flex flex-col items-center">
@@ -145,7 +145,7 @@ export function Size({ section }: SizeProps) {
   const sections = section ? [section] : SECTION_ORDER;
 
   return (
-    <div className="flex flex-col gap-[var(--sz-32)] bg-bg-neutral-normal p-[var(--sz-16)] text-typo-neutral-normal">
+    <div className="flex flex-col gap-(--sz-32) bg-bg-neutral-normal p-(--sz-16) text-typo-neutral-normal">
       {sections.includes("sz") && (
         <Section
           id="sz"
@@ -166,7 +166,7 @@ export function Size({ section }: SizeProps) {
           title="radius"
           description="요소의 둥근 모서리. sz 별칭이며 Tailwind rounded-<t> 유틸이 자동 생성된다."
         >
-          <div className="grid grid-cols-2 gap-[var(--sz-16)] sm:grid-cols-4 lg:grid-cols-8">
+          <div className="grid grid-cols-2 gap-(--sz-16) sm:grid-cols-4 lg:grid-cols-8">
             {RADIUS.map(({ t, sz }) => (
               <RadiusCell key={t} t={t} sz={sz} />
             ))}
@@ -180,7 +180,7 @@ export function Size({ section }: SizeProps) {
           title="borderWidth"
           description="border 의 굵기. sz 별칭이며 Tailwind border-<t> 유틸이 자동 생성된다. 2xs 만 sz 에 없는 raw 서브픽셀 값."
         >
-          <div className="grid grid-cols-2 gap-[var(--sz-16)] sm:grid-cols-3 lg:grid-cols-6">
+          <div className="grid grid-cols-2 gap-(--sz-16) sm:grid-cols-3 lg:grid-cols-6">
             {BORDER_WIDTH.map(({ t, sz }) => (
               <BorderWidthCell key={t} t={t} sz={sz} />
             ))}

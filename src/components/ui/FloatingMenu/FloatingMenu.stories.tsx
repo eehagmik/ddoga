@@ -136,7 +136,7 @@ function IconButtonMenuExample() {
             onClick={() => setOpen(false)}
           />
           <FloatingMenu
-            className="absolute top-full left-0 z-10 mt-[var(--sz-8)]"
+            className="absolute top-full left-0 z-10 mt-(--sz-8)"
             items={[
               <MenuItem
                 key="edit"

@@ -134,7 +134,7 @@ export const InteractiveInput: Story = {
 /** header/body 를 나란히 비교. */
 export const AllVariants: Story = {
   render: (args) => (
-    <div className="flex w-[320px] flex-col gap-[var(--sz-16)]">
+    <div className="flex w-[320px] flex-col gap-(--sz-16)">
       {VARIANTS.map((variant) => (
         <Searchbar {...args} key={variant} variant={variant} />
       ))}

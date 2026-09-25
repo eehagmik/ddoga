@@ -89,8 +89,8 @@ export function Toast({
     <div
       data-status={status}
       className={[
-        "flex w-full items-center justify-center gap-[var(--sz-8)]",
-        "min-h-[var(--sz-40)] px-[var(--sz-14)] py-[var(--sz-8)]",
+        "flex w-full items-center justify-center gap-(--sz-8)",
+        "min-h-(--sz-40) px-(--sz-14) py-(--sz-8)",
         "bg-bg-overlay-blackDark",
         className,
       ]
@@ -101,14 +101,14 @@ export function Toast({
       <div
         className={[
           "flex min-w-0 flex-1 justify-center",
-          hasIcon ? "items-start gap-[var(--sz-8)]" : "items-center",
+          hasIcon ? "items-start gap-(--sz-8)" : "items-center",
         ].join(" ")}
       >
         {hasIcon && iconSlot != null && (
           <span
             className={[
               "flex shrink-0 items-center justify-center",
-              "pt-[var(--sz-4)] [&>svg]:size-[var(--sz-18)]",
+              "pt-(--sz-4) [&>svg]:size-(--sz-18)",
             ].join(" ")}
           >
             {iconSlot}
