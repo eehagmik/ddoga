@@ -5,6 +5,13 @@
  * 좌측 뒤로가기 + 타이틀(옵션 드롭다운), 우측 옵션 아이콘 그룹(최대 8개)으로 구성된
  * 상단 앱 바다.
  *
+ * 2026-09-26 사용자 확정(Figma 범위 밖, 앱 셸 레벨 요구사항): 이 컴포넌트는 항상
+ * 화면 최상단에 `sticky` 고정된다 — 어떤 화면에 쓰이든 예외 없이 적용되며 끄는
+ * prop 을 두지 않는다(헤더라는 역할 자체가 스크롤 중에도 항상 보여야 하는 것이
+ * 전제라 옵트아웃을 허용하지 않기로 확정). `z-40` 은 `BottomNavigation`(하단
+ * 고정, 같은 `z-40`)과 같은 "앱 셸 고정 UI" 티어, 플로팅 버튼(`TopButton`/
+ * 카카오상담, `z-50`)보다는 아래에 둔다.
+ *
  * 축(Figma variant → props):
  * - `type`          : home / normal / select / search — 아래 "type=home/search 전용
  *                      레이아웃" 참고. home·search 는 타이틀 자체가 없어
@@ -224,7 +231,7 @@ const LOGO_TONE: Record<HeaderContentsColor, LogoTone> = {
 const HOME_LOGO_WIDTH = "var(--sz-128)";
 
 const ROOT_BASE =
-  "flex h-(--sz-52) items-center justify-between gap-(--sz-12) " +
+  "sticky top-0 z-40 flex h-(--sz-52) items-center justify-between gap-(--sz-12) " +
   "pl-(--sz-20) pr-(--sz-14) transition-colors";
 
 /**

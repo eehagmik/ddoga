@@ -13,7 +13,7 @@
  * 배치·동작 (가이드 스펙):
  * - 화면 우하단 고정. OS safe-area 기준 하단/우측 12px (`--sz-12` + `env(safe-area-inset-*)`).
  * - 페이지 진입 시 미노출 → 아래로 `showAfter`(기본 20)px 초과 스크롤 시 자동 노출,
- *   최상단 도달 시 자동 숨김. 노출/숨김은 0.8초 fade (`duration-[800ms]`).
+ *   최상단 도달 시 자동 숨김. 노출/숨김은 0.4초 fade (`duration-[400ms]`).
  * - 클릭 시 대상(기본 window)을 최상단으로 스크롤. `prefers-reduced-motion: reduce`
  *   이면 즉시(`auto`), 아니면 부드럽게(`smooth`).
  *
@@ -53,7 +53,7 @@ const BASE_CLASS =
   "bg-bg-neutral-dark text-icon-neutral-light shadow-black-md " +
   "right-[calc(env(safe-area-inset-right,0px)+var(--sz-12))] " +
   "bottom-[calc(env(safe-area-inset-bottom,0px)+var(--sz-12))] " +
-  "transition-opacity duration-[800ms] ease-in-out motion-reduce:transition-none";
+  "transition-opacity duration-[400ms] ease-in-out motion-reduce:transition-none";
 
 const VISIBLE_CLASS = "opacity-100";
 const HIDDEN_CLASS = "opacity-0 pointer-events-none";

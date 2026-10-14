@@ -23,7 +23,7 @@ const CONTENT_COLOR: Record<ButtonVariant, string> = {
 };
 
 const meta = {
-  title: "Components/Button",
+  title: "Components/Button/Default",
   component: Button,
   tags: ["autodocs"],
   parameters: {

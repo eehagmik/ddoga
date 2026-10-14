@@ -80,7 +80,7 @@ function resolveSlot(
 }
 
 const meta = {
-  title: "Components/HorizontalMenuButton",
+  title: "Components/MenuButton/HorizontalMenuButton",
   component: HorizontalMenuButton,
   tags: ["autodocs"],
   parameters: {

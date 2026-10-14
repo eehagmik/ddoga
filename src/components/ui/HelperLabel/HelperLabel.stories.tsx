@@ -3,7 +3,7 @@ import { expect, within } from "@storybook/test";
 import { HelperLabel } from "./HelperLabel";
 
 const meta = {
-  title: "UI / Forms / HelperLabel",
+  title: "UI / Label / HelperLabel",
   component: HelperLabel,
   parameters: {
     layout: "centered",

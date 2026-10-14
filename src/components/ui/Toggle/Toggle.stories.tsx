@@ -12,7 +12,7 @@ const SIZES: ToggleSize[] = ["xs", "sm", "md", "lg"];
 const TYPES: ToggleType[] = ["multi", "single"];
 
 const meta = {
-  title: "Components/Toggle",
+  title: "Components/Toggle/Default",
   component: Toggle,
   tags: ["autodocs"],
   parameters: {

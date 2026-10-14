@@ -15,7 +15,7 @@ const SIZES: TabsSize[] = ["sm", "md"];
 const VARIANTS: TabsVariant[] = ["normal", "blur"];
 
 const meta = {
-  title: "Components/Tabs",
+  title: "Components/Tabs/Default",
   component: Tabs,
   tags: ["autodocs"],
   parameters: {

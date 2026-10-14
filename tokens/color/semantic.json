@@ -286,6 +286,15 @@
         "$type": "color",
         "$description": "white / transparentWhite 변형"
       }
+    },
+
+    "grade": {
+      "$description": "grade (등급/성실도 퍼센트 강조색 전용, 디자인 시스템 팔레트 밖). Figma 원본도 세만틱 변수에 안 묶이고 `orange/500` primitive를 직접 참조한다(raw 미바인딩) — Profile 상태 텍스트의 \"일반 00%\" 같은 등급 퍼센트 강조에 쓴다.",
+      "percent": {
+        "$value": "{color.orange.500}",
+        "$type": "color",
+        "$description": "등급 퍼센트 텍스트 강조(Figma orange/500 그대로)"
+      }
     }
   }
 }

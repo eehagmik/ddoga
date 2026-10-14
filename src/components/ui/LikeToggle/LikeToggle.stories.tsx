@@ -11,7 +11,7 @@ const VARIANTS: LikeToggleVariant[] = ["heart", "bookmark"];
 const COLORS: LikeToggleColor[] = ["neutralNormal", "neutralLight", "inverse"];
 
 const meta = {
-  title: "Components/LikeToggle",
+  title: "Components/LikeToggle/Default",
   component: LikeToggle,
   tags: ["autodocs"],
   parameters: {

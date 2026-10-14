@@ -106,6 +106,18 @@ export interface SwiperProps {
   children: ReactNode;
   /** 루트 요소에 전달할 클래스 */
   className?: string;
+  /**
+   * 전환이 완전히 끝난 뒤(`onSlideChangeTransitionEnd`) 호출(복제 슬라이드 제외,
+   * 실제 인덱스 기준). `indicator="none"`으로 끄고 화면 쪽에서 직접 다른 형태의
+   * 인디케이터(예: `ChipIndicator type="onlyCount"`)를 겹쳐 그릴 때, 그 바깥
+   * 인디케이터를 실시간 동기화하기 위한 확장(Figma 범위 밖, 2026-10-04).
+   * `onSlideChange`가 아니라 전환 종료 시점에서 읽는 이유: 네이티브 `loop` 모드의
+   * `realIndex`는 루프 경계를 넘는 전환 중간(`onSlideChange` 시점)엔 경계 보정
+   * 직전이라 일시적으로 어긋날 수 있음을 자동재생+드래그 조합에서 실측 확인했다
+   * (내부 `activeIndex` state는 기존처럼 `onSlideChange`에서 갱신 — 이 prop만
+   * 별도 타이밍).
+   */
+  onActiveIndexChange?: (activeIndex: number, total: number) => void;
 }
 
 /** 자동재생 슬라이드 정지 시간(ms) — 요청 스펙(약 5초). */
@@ -203,6 +215,7 @@ export function Swiper({
   unit = "Unit",
   children,
   className,
+  onActiveIndexChange,
 }: SwiperProps) {
   const slides = Children.toArray(children);
   const slideCount = slides.length;
@@ -277,29 +290,41 @@ export function Swiper({
           onSwiper={(instance) => {
             swiperRef.current = instance;
           }}
-          onSlideChange={(instance) =>
-            setActiveIndex(
-              useManualLoop
-                ? (paddedSlides[instance.activeIndex]?.realIndex ?? 0)
-                : instance.realIndex,
-            )
-          }
-          onSlideChangeTransitionEnd={
-            useManualLoop
-              ? (instance) => {
-                  // 복제 칸(맨 앞/뒤)에 도달하면 애니메이션 없이 진짜 슬라이드로
-                  // 순간 이동해 무한 루프처럼 보이게 한다 — 복제 콘텐츠가 실제 슬라이드와
-                  // 동일해 전환이 눈에 띄지 않는다.
-                  if (instance.activeIndex === 0) {
-                    instance.slideTo(lastRealPaddedIndex, 0, false);
-                    instance.autoplay?.start();
-                  } else if (instance.activeIndex === paddedSlides.length - 1) {
-                    instance.slideTo(firstRealPaddedIndex, 0, false);
-                    instance.autoplay?.start();
-                  }
-                }
-              : undefined
-          }
+          onSlideChange={(instance) => {
+            const realIndex = useManualLoop
+              ? (paddedSlides[instance.activeIndex]?.realIndex ?? 0)
+              : instance.realIndex;
+            setActiveIndex(realIndex);
+          }}
+          onSlideChangeTransitionEnd={(instance) => {
+            // onActiveIndexChange 용 "안정된" realIndex를 여기서 계산한다 —
+            // onSlideChange 시점의 realIndex는 네이티브 loop 경계 보정 직전이라
+            // 자동재생+드래그가 겹칠 때 일시적으로 어긋날 수 있음을 실측으로
+            // 확인했다(2026-10-04). 전환이 완전히 끝난 뒤에만 읽어 신뢰도를 높인다.
+            let settledRealIndex: number;
+
+            if (useManualLoop) {
+              // 복제 칸(맨 앞/뒤)에 도달하면 애니메이션 없이 진짜 슬라이드로
+              // 순간 이동해 무한 루프처럼 보이게 한다 — 복제 콘텐츠가 실제 슬라이드와
+              // 동일해 전환이 눈에 띄지 않는다.
+              if (instance.activeIndex === 0) {
+                instance.slideTo(lastRealPaddedIndex, 0, false);
+                instance.autoplay?.start();
+                settledRealIndex = slideCount - 1;
+              } else if (instance.activeIndex === paddedSlides.length - 1) {
+                instance.slideTo(firstRealPaddedIndex, 0, false);
+                instance.autoplay?.start();
+                settledRealIndex = 0;
+              } else {
+                settledRealIndex =
+                  paddedSlides[instance.activeIndex]?.realIndex ?? 0;
+              }
+            } else {
+              settledRealIndex = instance.realIndex;
+            }
+
+            onActiveIndexChange?.(settledRealIndex, slideCount);
+          }}
           className={isRound ? "w-full" : "size-full"}
           {...(isRound
             ? {

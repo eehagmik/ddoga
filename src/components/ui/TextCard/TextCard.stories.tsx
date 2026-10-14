@@ -39,7 +39,7 @@ function resolveSlotContents(
 }
 
 const meta = {
-  title: "Components/TextCard",
+  title: "Components/Card/TextCard",
   component: TextCard,
   tags: ["autodocs"],
   parameters: {

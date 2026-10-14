@@ -10,7 +10,7 @@ const FIGMA_URL =
 const VARIANTS: DateFieldVariant[] = ["line", "box"];
 
 const meta = {
-  title: "Components/DateField",
+  title: "Components/DatePicker/DateField",
   component: DateField,
   tags: ["autodocs"],
   parameters: {

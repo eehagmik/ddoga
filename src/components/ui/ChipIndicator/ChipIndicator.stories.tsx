@@ -10,7 +10,7 @@ const FIGMA_URL =
 const TYPES: ChipIndicatorType[] = ["default", "onlyLabel", "onlyCount"];
 
 const meta = {
-  title: "Components/ChipIndicator",
+  title: "Components/Indicator/ChipIndicator",
   component: ChipIndicator,
   tags: ["autodocs"],
   parameters: {

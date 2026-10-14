@@ -17,7 +17,7 @@ const DEFAULT_VALUE: TimeSelectValue = {
 };
 
 const meta = {
-  title: "Components/TimeSelect",
+  title: "Components/TimePicker/TimeSelect",
   component: TimeSelect,
   tags: ["autodocs"],
   parameters: {

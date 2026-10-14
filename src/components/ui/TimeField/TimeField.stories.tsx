@@ -10,7 +10,7 @@ const FIGMA_URL =
 const VARIANTS: TimeFieldVariant[] = ["line", "box"];
 
 const meta = {
-  title: "Components/TimeField",
+  title: "Components/TimePicker/TimeField",
   component: TimeField,
   tags: ["autodocs"],
   parameters: {

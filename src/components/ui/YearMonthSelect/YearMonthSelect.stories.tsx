@@ -13,7 +13,7 @@ const FIGMA_URL =
 const DEFAULT_VALUE: YearMonthSelectValue = { year: 2024, month: 10 };
 
 const meta = {
-  title: "Components/YearMonthSelect",
+  title: "Components/DatePicker/YearMonthSelect",
   component: YearMonthSelect,
   tags: ["autodocs"],
   parameters: {

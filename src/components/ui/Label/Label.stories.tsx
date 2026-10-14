@@ -5,7 +5,7 @@ import { Input } from "../Input";
 import { Label } from "./Label";
 
 const meta = {
-  title: "UI/Label",
+  title: "UI / Label / Label",
   component: Label,
   parameters: {
     layout: "padded",

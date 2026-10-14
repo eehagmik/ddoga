@@ -1,4 +1,22 @@
 @import "./tokens/_generated.css";
+/**
+ * Pretendard 웹폰트 — Storybook(`.storybook/preview.ts`)엔 이미 import돼 있었지만
+ * 실제 앱 진입 스타일시트(이 파일)엔 빠져 있던 걸 2026-10-07 사용자가 발견(폰트가
+ * 디자인보다 굵게 보임). `--font-sans` 토큰(`src/tokens/_generated.css`)이
+ * `'Pretendard'`를 1순위로 가리켜도 이 import가 없으면 전부 OS 폴백 폰트(macOS
+ * 한글 시스템 폰트)로 렌더되는데, 같은 `font-weight: 500`이라도 폴백 폰트가
+ * Pretendard Medium보다 굵게 그려져 디자인보다 두꺼워 보였다.
+ *
+ * 전체 굵기(9종) 번들인 `pretendard.css` 대신, 이 프로젝트의 `--font-weight-*`
+ * 토큰이 실제로 쓰는 두 굵기(Medium=500/Bold=700)만 import한다(2026-10-07 사용자
+ * 확정) — 각 파일은 유니코드 range별로 더 잘게 쪼개진 `dynamic-subset`이라, 전체
+ * 글리프를 한 번에 받는 `pretendard.css`보다 실제 화면에 쓰인 문자 범위만 받아
+ * 다운로드 용량도 더 작다. Storybook은 컴포넌트 카탈로그 특성상 어떤 굵기가
+ * 쓰일지 미리 알 수 없어 전체 세트(`pretendard.css`)를 그대로 유지한다(의도적
+ * 차이 — 실제 앱과 Storybook의 import 대상이 다른 것은 버그 아님).
+ */
+@import "pretendard/dist/web/static/Pretendard-Medium.css";
+@import "pretendard/dist/web/static/Pretendard-Bold.css";
 
 /**
  * LikeToggle 계열 전용 바운스 애니메이션(Tailwind v4 커스텀 `animate-*` 유틸).
@@ -10,6 +28,30 @@
  */
 @theme {
   --animate-like-bounce: like-bounce 500ms ease-in-out;
+  --animate-fade-slide-in: fade-slide-in 300ms ease-in-out both;
+}
+
+/**
+ * 카드 진입 애니메이션 — 오른쪽에서 살짝 밀려 들어오며 나타난다(opacity 0→1,
+ * translateX +24px→0). 2026-10-07 "김또가" 화면 "어르신 정보 알림" 카드 3장 첫 진입
+ * 스태거용으로 추가(`LtcAlarmCard`), 2026-10-08 사용자 요청으로 방향을 "위→아래"
+ * (translateY -8px)에서 "오른쪽→왼쪽"(translateX)으로 변경. Figma 모션 스펙이 없어
+ * 기본값으로 정함 — 300ms, easing은 프로젝트 기존 트랜지션 컨벤션(ease-in-out),
+ * fill-mode `both`(지연 중에는 시작 상태를 유지해 깜빡임 없이 순서대로 나타나게 함).
+ * 이동 거리는 가로 이동이 세로보다 덜 눈에 띄어 `--sz-24`(24px) 토큰으로 키웠다.
+ * 카드별 지연은 호출부가 인라인 `animationDelay`로 준다. 시작 위치가 컨테이너 오른쪽
+ * 밖으로 나가므로 호출부 리스트 래퍼에 `overflow-x-clip`을 건다(가로 스크롤바 방지,
+ * `clip`은 스크롤 컨테이너를 만들지 않아 sticky 안전).
+ */
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(var(--sz-24));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes like-bounce {

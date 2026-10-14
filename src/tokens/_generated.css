@@ -358,6 +358,9 @@
   --color-logo-ink: #262a30; /* 워드마크 (Figma raw hex, 변수 미바인딩) */
   --color-logo-white: var(--color-white-pure); /* white / transparentWhite 변형 */
 
+  /* grade (등급/성실도 퍼센트 강조색 전용, 디자인 시스템 팔레트 밖). Figma 원본도 세만틱 변수에 안 묶이고 `orange/500` primitive를 직접 참조한다(raw 미바인딩) — Profile 상태 텍스트의 "일반 00%" 같은 등급 퍼센트 강조에 쓴다. */
+  --color-grade-percent: var(--color-orange-500); /* 등급 퍼센트 텍스트 강조(Figma orange/500 그대로) */
+
   /* Size (sz primitive). Figma "또가3.0 Design System / Size" sz/<N> 와 1:1. N=px, 값=rem(N/16). 서브픽셀·센티넬만 px. */
   --sz-0: 0;
   --sz-1: 0.0625rem; /* 1 */

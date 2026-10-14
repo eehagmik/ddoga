@@ -21,7 +21,7 @@ const DEFAULT_LABEL: Record<LikeToggleVariant, string> = {
 };
 
 const meta = {
-  title: "Components/LikeToggleWithLabel",
+  title: "Components/LikeToggle/WithLabel",
   component: LikeToggleWithLabel,
   tags: ["autodocs"],
   parameters: {

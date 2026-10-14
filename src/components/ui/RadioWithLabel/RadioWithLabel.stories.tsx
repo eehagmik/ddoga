@@ -11,7 +11,7 @@ const FIGMA_URL =
 const SIZES = ["sm", "md", "lg"] as const;
 
 const meta = {
-  title: "Components/RadioWithLabel",
+  title: "Components/Radio/WithLabel",
   component: RadioWithLabel,
   tags: ["autodocs"],
   args: { children: "Label" },

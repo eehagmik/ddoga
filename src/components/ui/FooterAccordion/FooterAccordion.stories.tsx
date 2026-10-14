@@ -8,7 +8,7 @@ const FIGMA_URL =
   "https://www.figma.com/design/kUirarWT1Xugaq0aajY4G6/-또가3.0--Design-System?node-id=51405-3273";
 
 const meta = {
-  title: "Components/FooterAccordion",
+  title: "Components/Accordion/FooterAccordion",
   component: FooterAccordion,
   tags: ["autodocs"],
   parameters: {

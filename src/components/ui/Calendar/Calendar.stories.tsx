@@ -18,7 +18,7 @@ function dateLabel(day: number, year = YEAR, month = MONTH) {
 }
 
 const meta = {
-  title: "Components/Calendar",
+  title: "Components/DatePicker/Calendar",
   component: Calendar,
   tags: ["autodocs"],
   parameters: {

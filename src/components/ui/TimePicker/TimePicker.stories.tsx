@@ -12,7 +12,7 @@ const FIGMA_URL =
 const FIXED_NOW = new Date(2026, 8, 23, 9, 5);
 
 const meta = {
-  title: "Components/TimePicker",
+  title: "Components/TimePicker/Default",
   component: TimePicker,
   tags: ["autodocs"],
   parameters: {

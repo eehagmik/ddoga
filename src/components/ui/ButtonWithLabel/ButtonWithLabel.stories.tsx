@@ -14,7 +14,7 @@ const VARIANTS: ButtonVariant[] = ["fill", "bright", "outline", "text"];
 const SIZES: ButtonSize[] = ["2xl", "xl", "lg", "md", "sm", "xs"];
 
 const meta = {
-  title: "Components/ButtonWithLabel",
+  title: "Components/Button/WithLabel",
   component: ButtonWithLabel,
   tags: ["autodocs"],
   parameters: {

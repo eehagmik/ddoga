@@ -23,7 +23,7 @@ const VARIANTS: ButtonWithIconVariant[] = ["fill", "bright", "outline"];
 const SIZES: ButtonWithIconSize[] = ["2xl", "xl", "lg", "md", "sm", "xs"];
 
 const meta = {
-  title: "Components/ButtonWithIcon",
+  title: "Components/Button/WithIcon",
   component: ButtonWithIcon,
   tags: ["autodocs"],
   parameters: {

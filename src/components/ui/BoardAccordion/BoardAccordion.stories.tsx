@@ -37,7 +37,7 @@ function resolveSlot(
 }
 
 const meta = {
-  title: "Components/BoardAccordion",
+  title: "Components/Accordion/BoardAccordion",
   component: BoardAccordion,
   tags: ["autodocs"],
   parameters: {

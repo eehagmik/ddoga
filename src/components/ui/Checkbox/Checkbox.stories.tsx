@@ -10,7 +10,7 @@ const VARIANTS = ["circle", "square", "mark"] as const;
 const SIZES = ["sm", "md", "lg"] as const;
 
 const meta = {
-  title: "Components/Checkbox",
+  title: "Components/Checkbox/Default",
   component: Checkbox,
   tags: ["autodocs"],
   parameters: {

@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { Swiper } from "./Swiper";
 
@@ -66,6 +66,25 @@ describe("Swiper", () => {
     await user.click(nextButton);
 
     await waitFor(() => expect(countRegion).toHaveTextContent("2/3Unit"));
+  });
+
+  it("onActiveIndexChange 가 다음 버튼 클릭 시 실제 인덱스와 총 개수로 호출된다", async () => {
+    const user = userEvent.setup();
+    const onActiveIndexChange = vi.fn();
+    render(
+      <Swiper
+        variant="sharp"
+        indicator="direction"
+        onActiveIndexChange={onActiveIndexChange}
+      >
+        {renderSlides(3)}
+      </Swiper>,
+    );
+
+    const nextButton = screen.getByRole("button", { name: "다음 슬라이드" });
+    await user.click(nextButton);
+
+    await waitFor(() => expect(onActiveIndexChange).toHaveBeenCalledWith(1, 3));
   });
 
   it("indicator='chip' 이면 라벨·구분점·CountLabel 을 담은 배지를 렌더한다", () => {

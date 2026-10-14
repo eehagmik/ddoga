@@ -21,7 +21,7 @@ function renderBlank() {
 }
 
 const meta = {
-  title: "Components/GalleryCard",
+  title: "Components/Card/GalleryCard",
   component: GalleryCard,
   tags: ["autodocs"],
   parameters: {

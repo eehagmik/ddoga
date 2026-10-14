@@ -7,7 +7,7 @@ const FIGMA_URL =
   "https://www.figma.com/design/kUirarWT1Xugaq0aajY4G6/-또가3.0--Design-System?node-id=51405-102224";
 
 const meta = {
-  title: "Components/DirectionIndicator",
+  title: "Components/Indicator/DirectionIndicator",
   component: DirectionIndicator,
   tags: ["autodocs"],
   parameters: {

@@ -52,7 +52,7 @@ const TAB_LABELS = [
 ];
 
 const meta = {
-  title: "Components/ToggleTabs",
+  title: "Components/Toggle/ToggleTabs",
   component: ToggleTabs,
   tags: ["autodocs"],
   parameters: {

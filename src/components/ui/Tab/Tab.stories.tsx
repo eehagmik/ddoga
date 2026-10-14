@@ -10,7 +10,7 @@ const FIGMA_URL =
 const SIZES: TabSize[] = ["sm", "md"];
 
 const meta = {
-  title: "Components/Tab",
+  title: "Components/Tabs/Tab",
   component: Tab,
   tags: ["autodocs"],
   parameters: {

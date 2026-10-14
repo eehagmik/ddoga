@@ -10,7 +10,7 @@ const FIGMA_URL =
 const SIZES = ["sm", "md", "lg"] as const;
 
 const meta = {
-  title: "Components/CheckboxCard",
+  title: "Components/Checkbox/Card",
   component: CheckboxCard,
   tags: ["autodocs"],
   args: { label: "Label", subTextValue: "sub text" },
